@@ -12,7 +12,7 @@
 [![No build step](https://img.shields.io/badge/build-none-3ddc97?style=flat-square&labelColor=0a0e1a)](#how-its-built)
 [![License: MIT](https://img.shields.io/badge/license-MIT-8f9bbf?style=flat-square&labelColor=0a0e1a)](LICENSE)
 
-[**Visit the site**](https://ohmybahgosh.dev) · [Projects](#projects) · [How it's built](#how-its-built) · [Add a project](#add-a-project)
+[**Visit the site**](https://ohmybahgosh.dev) · [Projects](#projects) · [How it's built](#how-its-built)
 
 <br>
 
@@ -81,60 +81,7 @@ One-line Entware for rooted webOS.  Picks the right 64-bit or 32-bit build, test
 
 ## How it's built
 
-Plain HTML, CSS and JavaScript.  No framework, no bundler, no build step: GitHub Pages serves the files as they are.
-
-```
-.
-├── index.html                          home page
-├── tivibro/index.html                  one folder per project page
-├── lg-usb-2-eth0/index.html
-├── webos-entware-installer/index.html
-├── 404.html                            "command not found"
-├── assets/
-│   ├── css/site.css                    every style, design tokens at the top
-│   ├── js/site.js                      terminals, live stats, palette, copy, tabs
-│   ├── og/*.png                        1200×630 social cards
-│   └── favicon.svg
-├── docs/                               README banner, screenshot, repo social preview
-├── CNAME · robots.txt · sitemap.xml · site.webmanifest
-└── LICENSE
-```
-
-**Design:** dark grid background, neon glows, glass cards with a cursor spotlight.  Type is [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/).  Each project page sets its own accent color with a body class (`p-tivibro`, `p-eth0`, `p-entware`).
-
-## Add a project
-
-1. **Copy a project folder**, for example `lg-usb-2-eth0/`, to a new folder named after the repo in lowercase.
-2. **Update the page:** the `<title>`, meta description, canonical, `og:` and `twitter:` tags, the JSON-LD block, the hero, and the `data-gh="REPO:stars"` attributes so live stats point at the new repo.
-3. **Add a social card** at `assets/og/<folder>.png` (1200×630).
-4. **Link it everywhere:** a card in the `#repos` grid on `index.html`, the header and footer in every page, the `REPOS` list at the top of `assets/js/site.js` (for the palette and live stats), and `sitemap.xml`.
-5. **Pick an accent:** add a `body.p-<name>{--accent:…;--accent2:…}` line near the top of `site.css`.
-
-### Terminal demos
-
-Each demo is a JSON array inside `<script type="text/x-term">` within a `.term[data-typed]` block:
-
-```json
-[
-  ["$", "sh LG-USB-2-ETH0.sh apply"],
-  ["o", "  Built-in eth0 <span class=c-pk>→</span> eth2"],
-  ["o!", "  <span class=c-gr>Done.</span>"],
-  ["p", 800]
-]
-```
-
-| Entry | Does |
-|---|---|
-| `["$", "text"]` | Types a command after the prompt |
-| `["o", "html"]` | Prints a line of output (HTML allowed) |
-| `["o!", "html"]` | Prints a line, then pauses a little longer |
-| `["p", ms]` | Waits |
-
-Colors: `c-gr` green, `c-cy` cyan, `c-pk` pink, `c-am` amber, `c-vi` violet, `c-bl` blue, `c-mu` muted, `c-wh` white.  Set `data-prompt` on the `.term` to change the prompt, or `data-loop="false"` to play once.
-
-## Hosting
-
-GitHub Pages from `main` at the repository root, with the custom domain in `CNAME` and HTTPS enforced.  DNS is four `A` records for the bare domain pointing at GitHub Pages, plus a `www` CNAME to `ohmybahgosh.github.io`.
+Plain HTML, CSS and JavaScript, with no framework and no build step, served by GitHub Pages at [ohmybahgosh.dev](https://ohmybahgosh.dev).  Dark grid background, neon glows and glass cards, set in [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/).  Each project page has its own accent color.
 
 ## License
 
