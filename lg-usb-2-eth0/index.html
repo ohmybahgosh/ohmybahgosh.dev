@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>LG-USB-2-ETH0 · USB Ethernet as eth0 on LG webOS</title>
-<meta name="description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  POSIX sh, tested under busybox.">
+<meta name="description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  A TV app in the Homebrew Channel, or a POSIX sh script over SSH.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://ohmybahgosh.dev/lg-usb-2-eth0/">
@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="LG-USB-2-ETH0 · USB Ethernet as eth0 on LG webOS">
-<meta property="og:description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  POSIX sh, tested under busybox.">
+<meta property="og:description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  A TV app in the Homebrew Channel, or a POSIX sh script over SSH.">
 <meta property="og:url" content="https://ohmybahgosh.dev/lg-usb-2-eth0/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
 <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LG-USB-2-ETH0 · USB Ethernet as eth0 on LG webOS">
-<meta name="twitter:description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  POSIX sh, tested under busybox.">
+<meta name="twitter:description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  A TV app in the Homebrew Channel, or a POSIX sh script over SSH.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
 <meta name="author" content="OhMyBahGosh">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -40,7 +40,7 @@
   {
    "@type": "SoftwareSourceCode",
    "name": "LG-USB-2-ETH0",
-   "description": "Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  POSIX sh, tested under busybox.",
+   "description": "Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  A TV app in the Homebrew Channel, or a POSIX sh script over SSH.",
    "codeRepository": "https://github.com/ohmybahgosh/LG-USB-2-ETH0",
    "programmingLanguage": "Shell",
    "license": "https://opensource.org/licenses/MIT",
@@ -95,21 +95,23 @@
     <div>
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">lg-usb-2-eth0</span></div>
       <h1 class="h1" style="margin-top:20px;font-size:clamp(40px,6vw,72px)">Your TV's<br>fast lane is <span class="grad">eth0.</span></h1>
-      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB gigabit adapter is two to three times faster, even on a USB 2.0 port like the one on a 2022 C2, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  This script makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.</p>
+      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB gigabit adapter is two to three times faster, even on a USB 2.0 port like the one on a 2022 C2, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  LG-USB-2-ETH0 makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.  Use the TV app from the Homebrew Channel, no SSH needed, or the same script over SSH.</p>
       <div class="btns">
-        <a class="btn pri" href="#install">$ install</a>
+        <a class="btn pri" href="#homebrew">$ get the TV app</a>
+        <a class="btn" href="#install">ssh install</a>
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0" target="_blank" rel="noopener">source ↗</a>
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.2</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.3.0</b></span>
+        <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
         <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
         <span class="badge">listed in <b>awesome-webos</b></span>
       </div>
     </div>
-    <div class="term" data-typed style="--th:392px">
+    <div class="term" data-typed style="--th:470px">
       <div class="tb"><i></i><i></i><i></i><span>root@OLED65C2PUA: /tmp</span></div>
       <div class="scr" aria-label="Running LG-USB-2-ETH0 status: the USB adapter is eth0 and the built-in port is eth2"></div>
       <script type="text/x-term">[
@@ -118,14 +120,18 @@
         ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
         ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
         ["$","sh LG-USB-2-ETH0.sh status"],
-        ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.2.0}} status ===</span>"],
+        ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.3.0}} status ===</span>"],
         ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
-        ["o","Boot hook  <span class=c-gr>installed and enabled</span>"],
+        ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
         ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
         ["o","  <span class=c-mu>eth2   built-in        lg-eth  no cable</span>"],
         ["o","  <span class=c-mu>wlan0  Wi-Fi           mt7601u</span>"],
         ["o","  Default route: <span class=c-cy>eth0</span>"],
-        ["o!","<span class=c-gr>No problems found.</span>"]
+        ["o!","<span class=c-gr>No problems found.</span>"],
+        ["$","sh LG-USB-2-ETH0.sh speedtest"],
+        ["o","  Latency   <span class=c-cy>7 ms</span>"],
+        ["o","  Download  <span class=c-gr>272 Mbit/s</span>"],
+        ["o!","  Upload    <span class=c-gr>287 Mbit/s</span>"]
       ]</script>
     </div>
   </section>
@@ -136,6 +142,33 @@
       <div class="card s2 rv"><div class="ic">▶</div><h3>Streaming apps fail</h3><p>Apps like Paramount+ refuse to play over <code>eth1</code>.  The adapter becomes <code>eth0</code>, so they play.</p></div>
       <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">⚙</div><h3>"Not Connected"</h3><p>webOS settings show no wired connection while the adapter works.  Interface names now match what webOS expects.</p></div>
       <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">⇡</div><h3>100 Mbit/s ceiling</h3><p>High-bitrate remuxes, Plex and Moonlight stutter on the built-in port.  The adapter does 250 to 330 Mbit/s.</p></div>
+    </div>
+  </section>
+
+  <section id="app" data-pal="the LG-USB-2-ETH0 TV app" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">the tv app</div><h2 class="h2" style="margin-top:12px">No SSH needed.</h2><p>The TV app runs the same script underneath, as root through the Homebrew Channel.  Everything is a switch on the remote.</p></div><a class="btn pri" href="#homebrew">get it ↓</a></div>
+    <div class="bento">
+      <div class="card s2 rv"><div class="ic">◉</div><h3>Status at a glance</h3><p>Whether the adapter is <code>eth0</code>, its driver, link speed, USB bus, address, Wi-Fi, and any problems found.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">⏻</div><h3>Three switches</h3><p><b class="c-wh">Switch now</b>, <b class="c-wh">Run at every boot</b> and <b class="c-wh">Follow plug and unplug</b>.  Turn any of them on or off.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">⚡</div><h3>Faster Realtek driver</h3><p>Offered only when one is known for your TV's exact kernel and a Realtek adapter is plugged in.  Downloads, checks and sets it up in one go.</p></div>
+      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic">⇅</div><h3>Speed test</h3><p>Download, upload and latency through the TV's current connection, against Cloudflare's nearest server.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">QR</div><h3>Report from the couch</h3><p>A QR code opens a compatibility report on your phone with your TV, adapter, speed and full report filled in, MAC addresses hidden.</p></div>
+      <div class="card s2 rv"><div class="ic">↻</div><h3>Updates</h3><p>From the Homebrew Channel if you installed it there.  Otherwise the app downloads the new version, checks its SHA-256 and installs it itself.</p></div>
+    </div>
+    <p class="dim rv" style="font-size:14px;margin-top:14px">Already set up over SSH?  Open the app and it picks up your settings.  The boot hook links to the script inside the app, so both always run the same version.  Use <b>Turn everything off</b> before removing the app.</p>
+  </section>
+
+  <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
+    <div class="card rv" style="padding:28px">
+      <div class="eyebrow">homebrew channel repo</div>
+      <h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Install it from the Homebrew Channel.</h2>
+      <p class="muted" style="margin:0 0 6px;max-width:720px">Add this repository once and the LG-USB-2-ETH0 app shows up in the Homebrew Channel's app list.  New releases appear there as updates, and the app knows to leave updating to the Homebrew Channel.</p>
+      <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
+      <div class="steps" style="margin-top:18px">
+        <div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div>
+        <div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b>, choose <b class="c-wh">Add repository</b>, enter <code class="c-gr">https://ohmybahgosh.dev/repo</code> and select <b class="c-wh">Add repository</b>.</p></div></div>
+        <div class="step"><div><h3>Install</h3><p>Go back to the app list, open <b class="c-wh">LG-USB-2-ETH0</b> and choose Install.  It needs root, which the Homebrew Channel already has.</p></div></div>
+      </div>
     </div>
   </section>
 
@@ -157,9 +190,9 @@
     <div class="two rv">
       <div>
         <div class="eyebrow">how it works</div>
-        <h2 class="h2" style="margin:12px 0 16px">One file.  Nothing else touched.</h2>
-        <p class="muted">At boot the Homebrew Channel runs everything in <code class="c-gr">/var/lib/webosbrew/init.d</code>.  The script writes one hook there and only renames network interfaces.  No system files, drivers or network settings are touched, so a reboot without the hook always starts clean.</p>
-        <div class="callout" style="margin-top:22px"><b>Undo everything:</b> <code>sh LG-USB-2-ETH0.sh uninstall --now</code></div>
+        <h2 class="h2" style="margin:12px 0 16px">One hook.  Nothing else touched.</h2>
+        <p class="muted">At boot the Homebrew Channel runs everything in <code class="c-gr">/var/lib/webosbrew/init.d</code>.  LG-USB-2-ETH0 adds one hook there, a link to the script, and keeps its settings in <code class="c-gr">/var/lib/webosbrew/lg-usb-2-eth0.conf</code>, so updates never lose them.  It only renames network interfaces.  No system files or network settings are touched, so a reboot without the hook always starts clean.</p>
+        <div class="callout" style="margin-top:22px"><b>Undo everything:</b> <b>Turn everything off</b> in the TV app, or <code>sh LG-USB-2-ETH0.sh uninstall --now</code></div>
       </div>
       <div class="steps">
         <div class="step"><div><h3>Returns at once</h3><p>Starts in the background so other hooks and the failsafe timer aren't held up.</p></div></div>
@@ -167,6 +200,7 @@
         <div class="step"><div><h3>Optional faster driver</h3><p>With <code class="c-gr">--module</code>, moves the adapter from generic <code>cdc_ncm</code> to a better driver, with one try per boot and an automatic fallback.</p></div></div>
         <div class="step"><div><h3>Swaps the names</h3><p>Built-in <code>eth0</code> becomes <code>eth2</code>, the adapter becomes <code>eth0</code>.  Interrupted renames retry, and failures roll back.</p></div></div>
         <div class="step"><div><h3>Follows hotplug</h3><p>With <code class="c-gr">--watch</code>, plug the adapter in or out any time and <code>eth0</code> follows it.</p></div></div>
+        <div class="step"><div><h3>Survives standby</h3><p>Standby resets the TV's USB ports and drops the adapter back to <code>cdc_ncm</code>.  With <code class="c-gr">--module</code>, the hook moves it to the faster driver again.  The check costs next to nothing.</p></div></div>
       </div>
     </div>
   </section>
@@ -176,22 +210,8 @@
     <div class="timeline rv" id="timeline" data-repo="LG-USB-2-ETH0" aria-live="polite"><p class="muted">loading releases…</p></div>
   </section>
 
-  <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
-    <div class="card rv" style="padding:28px">
-      <div class="eyebrow">homebrew channel repo</div>
-      <h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Install it from the Homebrew Channel.</h2>
-      <p class="muted" style="margin:0 0 6px;max-width:720px">Add this repository once and the LG-USB-2-ETH0 app shows up in the Homebrew Channel's app list.  New releases appear there as updates, and the app knows to leave updating to the Homebrew Channel.</p>
-      <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
-      <div class="steps" style="margin-top:18px">
-        <div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div>
-        <div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b>, choose <b class="c-wh">Add repository</b>, enter <code class="c-gr">https://ohmybahgosh.dev/repo</code> and select <b class="c-wh">Add repository</b>.</p></div></div>
-        <div class="step"><div><h3>Install</h3><p>Go back to the app list, open <b class="c-wh">LG-USB-2-ETH0</b> and choose Install.  It needs root, which the Homebrew Channel already has.</p></div></div>
-      </div>
-    </div>
-  </section>
-
   <section id="install" data-pal="install LG-USB-2-ETH0" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">quick start</div><h2 class="h2" style="margin-top:12px">Install in a minute.</h2><p>You need a rooted LG TV with the Homebrew Channel, SSH as root, and <b class="c-wh">a Wi-Fi connection while you set this up</b>, since renaming takes the wired ports down for a moment.</p></div></div>
+    <div class="sec-head rv"><div><div class="eyebrow">ssh quick start</div><h2 class="h2" style="margin-top:12px">Prefer SSH?</h2><p>The <a class="c-gr" href="#homebrew">TV app</a> is the easiest way in.  This is the same thing without it.  You need a rooted LG TV with the Homebrew Channel, SSH as root, and <b class="c-wh">a Wi-Fi connection while you set this up</b>, since renaming takes the wired ports down for a moment.</p></div></div>
     <div class="rv code"><pre><span class="pr">$ </span>cd /tmp
 <span class="cm"># download the latest release and its checksum</span>
 <span class="pr">$ </span>curl -fsSLO https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest/download/LG-USB-2-ETH0.sh
@@ -212,9 +232,13 @@
         <tr><td><code>apply</code> / <code>revert</code></td><td>Swap the adapter in now, or give <code>eth0</code> back, without touching the hook.</td></tr>
         <tr><td><code>status</code> / <code>doctor</code></td><td>Read-only report and checks.  Safe any time.</td></tr>
         <tr><td><code>report</code></td><td>Paste-ready report for a GitHub issue, MAC addresses masked.</td></tr>
-        <tr><td><code>get-driver</code></td><td>Downloads a better driver if one is known for your exact kernel, and checks its SHA-256.</td></tr>
+        <tr><td><code>get-driver</code></td><td>Downloads a better driver if one is known for your exact kernel, and checks its SHA-256.  <code>--file PATH</code> uses a copy you downloaded yourself.</td></tr>
+        <tr><td><code>speedtest</code></td><td>Latency, download and upload through the TV's current connection, against Cloudflare's nearest server.  Uses a few hundred MB.</td></tr>
+        <tr><td><code>update</code></td><td>Checks for a newer release and installs it after checking its SHA-256.  <code>--check</code> only checks.  Your settings stay.</td></tr>
+        <tr><td><code>disable</code> / <code>enable</code></td><td>Keep the hook but stop it running at boot, or turn it back on.</td></tr>
         <tr><td><code>--watch</code></td><td>Keeps following the adapter after boot.  Plug in or out at will.</td></tr>
         <tr><td><code>--mac aa:bb:…</code></td><td>Only ever promote that adapter.</td></tr>
+        <tr><td><code>--json</code></td><td>Machine-readable <code>status</code>, <code>speedtest</code> or <code>update --check</code>.  The TV app uses it.</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -256,7 +280,7 @@
 </div>
 <script>
 (() => {
-  const rows = [['built-in port', 95, 'var(--fg3)', 'about 95'], ['RTL8153 · generic cdc_ncm', 255, 'var(--amber)', '200 to 255'], ['Cable Matters · 2018 C8', 250, 'var(--cyan)', 'about 250'], ['RTL8153 · r8152 module', 330, 'var(--green)', '290 to 330']];
+  const rows = [['built-in port', 95, 'var(--fg3)', 'about 95'], ['RTL8153 · generic cdc_ncm', 255, 'var(--amber)', '200 to 255'], ['Cable Matters · 2018 C8', 250, 'var(--cyan)', 'about 250'], ['RTL8156 · 2022 C2 · USB 2.0', 287, 'var(--blue)', '272↓ 287↑'], ['RTL8153 · r8152 module', 330, 'var(--green)', '290 to 330']];
   const el = document.getElementById('bars');
   el.innerHTML = rows.map(([n, v, c, t]) => `<div><div style="display:flex;justify-content:space-between;gap:12px;margin-bottom:7px"><span class="muted">${n}</span><b class="c-wh" style="white-space:nowrap">${t} Mbit/s</b></div><div style="height:10px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden"><i data-w="${v / 350 * 100}" style="display:block;height:100%;width:0;border-radius:99px;background:${c};box-shadow:0 0 14px ${c};transition:width 1.4s cubic-bezier(.2,.8,.2,1)"></i></div></div>`).join('');
   new IntersectionObserver((e, o) => { if (e[0].isIntersecting) { el.querySelectorAll('i').forEach((i) => i.style.width = i.dataset.w + '%'); o.disconnect(); } }, { threshold: .4 }).observe(el);
