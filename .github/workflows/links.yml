@@ -28,5 +28,5 @@ jobs:
             --exclude '^https://api\.github\.com'
             --exclude 'TV_IP'
             --exclude '^http://localhost'
-            --exclude '^https://ohmybahgosh\.dev/assets/og/'
+            --exclude '^https://ohmybahgosh\.dev'
             './**/*.html' README.md
