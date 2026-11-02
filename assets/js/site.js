@@ -65,7 +65,7 @@
   $$('.term[data-typed]').forEach(runTerm);
 
   /* ---------- live GitHub stats ---------- */
-  const KEY = 'omb-gh-v1';
+  const KEY = 'omb-gh-v2';
   const ago = (iso) => {
     const s = (Date.now() - new Date(iso)) / 1000;
     if (s < 3600) return 'just now';
@@ -76,24 +76,32 @@
     if (d < 400) return Math.floor(d / 30) + 'mo ago';
     return Math.floor(d / 365) + 'y ago';
   };
+  // One fetch round per 30 minutes per visitor: repo info, recent releases and recent commits.
   async function gh() {
     let cache = null;
     try { cache = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
     if (cache && Date.now() - cache.t < 30 * 60e3) return cache.d;
     const d = {};
+    const get = (u) => fetch('https://api.github.com/repos/ohmybahgosh/' + u).then((x) => x.ok ? x.json() : null).catch(() => null);
     await Promise.all(REPOS.map(async (r) => {
-      try {
-        const [a, b] = await Promise.all([
-          fetch(`https://api.github.com/repos/ohmybahgosh/${r.name}`).then((x) => x.ok ? x.json() : null),
-          fetch(`https://api.github.com/repos/ohmybahgosh/${r.name}/releases?per_page=1`).then((x) => x.ok ? x.json() : null),
-        ]);
-        if (a) d[r.name] = { stars: a.stargazers_count, forks: a.forks_count, issues: a.open_issues_count, pushed: a.pushed_at, release: b && b[0] ? b[0].tag_name : null };
-      } catch (e) {}
+      const [a, rel, com] = await Promise.all([get(r.name), get(r.name + '/releases?per_page=6'), get(r.name + '/commits?per_page=4')]);
+      if (!a) return;
+      d[r.name] = {
+        stars: a.stargazers_count, forks: a.forks_count, issues: a.open_issues_count, pushed: a.pushed_at,
+        release: rel && rel[0] ? rel[0].tag_name : null,
+        releases: (rel || []).map((x) => ({ tag: x.tag_name, name: x.name || x.tag_name, pre: x.prerelease, at: x.published_at || x.created_at, url: x.html_url, body: (x.body || '').slice(0, 600) })),
+        commits: (com || []).map((x) => ({ msg: x.commit.message.split('\n')[0], at: x.commit.author.date, url: x.html_url, sha: x.sha.slice(0, 7) })),
+      };
     }));
     if (Object.keys(d).length) { try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), d })); } catch (e) {} }
     return d;
   }
-  if ($('[data-gh]')) gh().then((d) => {
+  const plain = (md) => md.replace(/```[\s\S]*?```/g, ' ').replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, '').replace(/^#+\s*/gm, '').replace(/[*_`>|]/g, '').replace(/^\s*[-+]\s+/gm, '• ').replace(/\s+/g, ' ').trim();
+  const COLORS = { 'TiviBro': '#33e1ff', 'LG-USB-2-ETH0': '#3ddc97', 'WEBOS-ENTWARE-INSTALLER': '#ff3ea5' };
+  const SHORT = { 'TiviBro': 'TiviBro', 'LG-USB-2-ETH0': 'USB-2-ETH0', 'WEBOS-ENTWARE-INSTALLER': 'Entware' };
+
+  if ($('[data-gh]') || $('#feed') || $('#timeline')) gh().then((d) => {
     let total = 0;
     Object.values(d).forEach((r) => total += r.stars || 0);
     $$('[data-gh]').forEach((el) => {
@@ -103,7 +111,39 @@
       if (!r || r[f] == null) return;
       el.textContent = f === 'pushed' ? ago(r[f]) : typeof r[f] === 'number' ? r[f].toLocaleString() : r[f];
     });
+
+    // Recent activity across the showcased repos
+    const feed = $('#feed');
+    if (feed) {
+      const items = [];
+      Object.entries(d).forEach(([repo, r]) => {
+        (r.releases || []).slice(0, 2).forEach((x) => items.push({ repo, kind: 'release', text: x.name, url: x.url, at: x.at }));
+        (r.commits || []).forEach((x) => items.push({ repo, kind: 'commit', text: x.msg, url: x.url, at: x.at }));
+      });
+      items.sort((a, b) => new Date(b.at) - new Date(a.at));
+      feed.innerHTML = items.length ? items.slice(0, 8).map((x) => `<li><span class="k" style="--kc:${COLORS[x.repo]}">${x.kind === 'release' ? '▲ release' : '● commit'}</span><a href="${x.url}" target="_blank" rel="noopener"><small>${SHORT[x.repo]}</small>${esc(x.text)}</a><time datetime="${x.at}">${ago(x.at)}</time></li>`).join('')
+        : '<li><span class="empty">GitHub is rate-limiting this browser.  <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">See the activity on GitHub ↗</a></span></li>';
+    }
+
+    // Release timeline on a project page
+    const tl = $('#timeline');
+    if (tl) {
+      const r = d[tl.dataset.repo];
+      const rels = r && r.releases || [];
+      tl.innerHTML = rels.length ? rels.map((x) => `<div class="rel"><div class="card"><h3><a href="${x.url}" target="_blank" rel="noopener">${esc(x.name)}</a>${x.pre ? '<span class="pill" style="--ca:var(--amber)">pre-release</span>' : '<span class="pill">stable</span>'}</h3><div class="when">${esc(x.tag)} · ${new Date(x.at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })} · ${ago(x.at)}</div><p>${esc(plain(x.body)) || 'No notes for this release.'}</p></div></div>`).join('')
+        : `<p class="muted">Couldn't load releases right now.  <a class="c-cy" href="https://github.com/ohmybahgosh/${tl.dataset.repo}/releases" target="_blank" rel="noopener">See them on GitHub ↗</a></p>`;
+    }
   });
+
+  /* ---------- theme toggle ---------- */
+  const setTheme = (t) => {
+    document.documentElement.dataset.theme = t;
+    try { localStorage.setItem('omb-theme', t); } catch (e) {}
+    const m = $('meta[name="theme-color"]');
+    if (m) m.content = t === 'light' ? '#f5f7fc' : '#05070d';
+  };
+  $$('[data-theme-toggle]').forEach((b) => b.onclick = () => setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'));
+  if (document.documentElement.dataset.theme === 'light') setTheme('light');
 
   /* ---------- copy buttons ---------- */
   $$('.code').forEach((c) => {
@@ -163,6 +203,7 @@
     ...REPOS.map((r) => ({ i: '↗', t: `open github/${r.name}`, s: 'GitHub', u: `https://github.com/ohmybahgosh/${r.name}` })),
     { i: '↗', t: 'open tivibro.app', s: 'TiviBro website', u: 'https://tivibro.app' },
     { i: '↗', t: 'open github/ohmybahgosh', s: 'all repos', u: 'https://github.com/ohmybahgosh' },
+    { i: '◐', t: 'theme toggle', s: 'light / dark', u: '#theme' },
     ...$$('section[id][data-pal]').map((s) => ({ i: '#', t: 'goto ' + s.id, s: s.dataset.pal, u: '#' + s.id })),
   ];
   const pal = document.createElement('div');
@@ -187,7 +228,11 @@
     if (e.key === 'ArrowUp') { sel = Math.max(sel - 1, 0); draw(); e.preventDefault(); }
     if (e.key === 'Enter') { const a = $$('a', ul)[sel]; if (a) { close(); a.click(); } }
   };
-  pal.onclick = (e) => { if (e.target === pal) close(); if (e.target.closest('a')) close(); };
+  pal.onclick = (e) => {
+    if (e.target === pal) close();
+    const l = e.target.closest('a');
+    if (l) { close(); if (l.getAttribute('href') === '#theme') { e.preventDefault(); setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'); } }
+  };
   document.addEventListener('keydown', (e) => {
     if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !/input|textarea/i.test(document.activeElement.tagName))) { e.preventDefault(); pal.hidden ? open() : close(); }
     if (e.key === 'Escape' && !pal.hidden) close();

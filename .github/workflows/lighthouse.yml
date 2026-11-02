@@ -1,0 +1,27 @@
+name: Lighthouse
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Audit the live site
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://ohmybahgosh.dev/
+            https://ohmybahgosh.dev/tivibro/
+            https://ohmybahgosh.dev/lg-usb-2-eth0/
+            https://ohmybahgosh.dev/webos-entware-installer/
+          runs: 1
+          uploadArtifacts: true
+          temporaryPublicStorage: true

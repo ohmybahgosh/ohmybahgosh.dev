@@ -11,7 +11,11 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=4ec49e3b">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="dns-prefetch" href="https://api.github.com">
+<link rel="stylesheet" href="/assets/css/site.css?v=0f5121ea">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="TiviBro · the IPTV player LG TVs never got">
@@ -98,6 +102,7 @@
       <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
       <a href="/webos-entware-installer/" class="hide-s">entware</a>
       <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
       <button class="kbtn" type="button" data-pal-open aria-label="Open command palette"><span>search</span><kbd>⌘K</kbd></button>
     </nav>
   </div>
@@ -124,7 +129,7 @@
       </div>
     </div>
     <div class="tv">
-      <video src="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/docs/media/guide.mp4" poster="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/docs/screenshots/tv-guide-preview.png" autoplay muted loop playsinline aria-label="The TiviBro guide: browse, preview in the window, then fullscreen"></video>
+      <video src="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/docs/media/guide.mp4" poster="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/docs/screenshots/tv-guide-preview.png" autoplay muted loop playsinline preload="metadata" aria-label="The TiviBro guide: browse, preview in the window, then fullscreen"></video>
     </div>
   </section>
 
@@ -203,6 +208,11 @@
     <p class="dim mono" style="font-size:12px;margin-top:10px">TiviMate column from its own site and public guides, October 2026.</p>
   </section>
 
+  <section id="releases" data-pal="TiviBro release notes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git tag --sort=-creatordate</div><h2 class="h2" style="margin-top:12px">Release notes.</h2><p>The newest builds and what changed, pulled live from GitHub Releases.</p></div><a class="btn" href="https://github.com/ohmybahgosh/TiviBro/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+    <div class="timeline rv" id="timeline" data-repo="TiviBro" aria-live="polite"><p class="muted">loading releases…</p></div>
+  </section>
+
   <section id="install" data-pal="install TiviBro" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">install</div><h2 class="h2" style="margin-top:12px">Get it on your TV.</h2><p>Three ways in.  The Homebrew Channel route updates itself.</p></div></div>
     <div class="rv" data-tabs>
@@ -271,6 +281,6 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=4ec49e3b" defer></script>
+<script src="/assets/js/site.js?v=0f5121ea" defer></script>
 </body>
 </html>
