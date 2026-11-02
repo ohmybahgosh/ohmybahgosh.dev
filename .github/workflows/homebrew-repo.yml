@@ -1,13 +1,21 @@
 name: Homebrew repo
 
 # Rebuilds https://ohmybahgosh.dev/repo (the Homebrew Channel repository) from the
-# latest release manifests listed in homebrew/sources.json.  Commits only when
+# latest release manifests listed in homebrew/sources.json, on a schedule, when a
+# project announces a release, or when the release watcher spots one.  Commits only when
 # something changed (the commit is made through the GitHub API, so it's signed and
 # Verified), then redeploys the site.
 on:
   schedule:
     - cron: "13 1,7,13,19 * * *"
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: Redeploy the site even if the repo file didn't change
+        type: boolean
+        default: false
+  repository_dispatch:
+    types: [release]   # sent by each project's notify-site.yml when it publishes a release
 
 permissions:
   contents: write
@@ -58,7 +66,7 @@ jobs:
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Redeploy the site
-        if: steps.commit.outputs.changed == 'true'
+        if: steps.commit.outputs.changed == 'true' || github.event_name == 'repository_dispatch' || inputs.deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy.yml --ref "${GITHUB_REF_NAME}"

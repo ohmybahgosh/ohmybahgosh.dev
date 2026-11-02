@@ -73,7 +73,7 @@ One-line Entware for rooted webOS.  Picks the right 64-bit or 32-bit build, test
 | | |
 |---|---|
 | ⌨️ **Typed terminal demos** | Every page plays a real session from the project: installs, `status` output, build checks.  They render instantly for visitors who prefer reduced motion. |
-| 📈 **Always current** | Versions, release notes, recent commits and stars are pulled from GitHub on every deploy and every 3 hours, so no page needs editing when a project ships. |
+| 📈 **Always current** | Versions, release notes, recent commits and stars are pulled from GitHub on every deploy.  A new release in any project updates the site and the Homebrew repo within minutes: the project notifies the site, and a 15-minute release watcher catches anything missed. |
 | 🔎 **Command palette** | Press <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (<kbd>⌘</kbd>+<kbd>K</kbd> on a Mac) to jump to any project, section or repo. |
 | 🛰️ **Recent activity** | The home page lists the latest releases and commits across the showcased repos. |
 | 📝 **Release notes** | TiviBro's page shows a timeline of its newest releases, pulled live from GitHub Releases. |
