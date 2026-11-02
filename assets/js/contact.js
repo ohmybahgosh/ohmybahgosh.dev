@@ -10,7 +10,7 @@
   const f = {
     title: (ph) => ({ id: 'title', label: 'Short summary', type: 'input', req: true, ph }),
     tv: { id: 'tv', label: 'TV model and webOS version', type: 'input', req: true, ph: 'OLED65C2PUA, webOS 25 (10.3.1)' },
-    tbver: { id: 'version', label: 'TiviBro version', type: 'input', req: true, ph: '0.6.0 alpha 5  (Settings > Updates and about)' },
+    tbver: { id: 'version', label: 'TiviBro version', type: 'input', req: true, ph: '{{TiviBro:version|0.6.0-alpha}}  (Settings > Updates and about)' },
   };
 
   // kind: issue (GitHub issue form), discussion, blank (plain GitHub issue), mail
@@ -28,7 +28,7 @@
       fields: [f.title('Recording to a USB drive'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help you', type: 'textarea' }] },
 
     { key: 'eth-bug', group: 'LG-USB-2-ETH0', icon: '🐞', name: 'Bug', desc: 'The script errors or the swap misbehaves.', kind: 'issue', repo: 'LG-USB-2-ETH0', template: 'bug-report.yml', prefix: '[Bug] ',
-      fields: [f.title('Adapter goes back to eth1 after a reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'version', label: 'Script version', type: 'input', req: true, ph: 'v2.2' }, { id: 'report', label: 'Output of  sh LG-USB-2-ETH0.sh report', type: 'textarea', req: true, mono: true }] },
+      fields: [f.title('Adapter goes back to eth1 after a reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'version', label: 'Script version', type: 'input', req: true, ph: 'v{{LG-USB-2-ETH0:version|2.2.0}}' }, { id: 'report', label: 'Output of  sh LG-USB-2-ETH0.sh report', type: 'textarea', req: true, mono: true }] },
     { key: 'eth-compat', group: 'LG-USB-2-ETH0', icon: '🔌', name: 'Compatibility report', desc: 'Tell everyone whether your TV + adapter worked.', kind: 'issue', repo: 'LG-USB-2-ETH0', template: 'compatibility-report.yml',
       title: (v) => `[Compat] ${v.model || '<TV model>'} + ${v.adapter || '<adapter>'}`,
       fields: [{ id: 'model', label: 'TV model', type: 'input', req: true, ph: 'OLED65C2PUA' }, { id: 'webos', label: 'webOS version and firmware', type: 'input', req: true, ph: 'webOS 25 (10.3.1), 33.31.68' }, { id: 'adapter', label: 'Adapter (brand, model, chip)', type: 'input', req: true, ph: 'UGREEN 2.5G, RTL8156' }, { id: 'speed', label: 'Measured speed (optional)', type: 'input', ph: '290 Mbit/s' }, { id: 'report', label: 'Output of  sh LG-USB-2-ETH0.sh report', type: 'textarea', req: true, mono: true }, { id: 'notes', label: 'Anything else', type: 'textarea' }],
@@ -37,7 +37,7 @@
       fields: [f.title('Option to prefer Wi-Fi when no cable is in'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help', type: 'textarea' }] },
 
     { key: 'ent-bug', group: 'Entware Installer', icon: '🐞', name: 'Bug', desc: 'Install, repair or uninstall went wrong.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'bug-report.yml', prefix: '[Bug] ',
-      fields: [f.title('opkg not found after reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'steps', label: 'What you ran', type: 'textarea', mono: true, ph: 'sh /tmp/webos-entware-installer.sh install' }, f.tv, { id: 'version', label: 'Installer version', type: 'input', req: true, ph: '2.6.0  (shown by --help)' }, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', mono: true }] },
+      fields: [f.title('opkg not found after reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'steps', label: 'What you ran', type: 'textarea', mono: true, ph: 'sh /tmp/webos-entware-installer.sh install' }, f.tv, { id: 'version', label: 'Installer version', type: 'input', req: true, ph: '{{WEBOS-ENTWARE-INSTALLER:version|2.6.0}}  (shown by --help)' }, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', mono: true }] },
     { key: 'ent-idea', group: 'Entware Installer', icon: '💡', name: 'Idea', desc: 'A helper, package or option to add.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'feature-request.yml', prefix: '[Idea] ',
       fields: [f.title('Add a helper to mount a USB drive at /opt'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help', type: 'textarea' }] },
 
@@ -64,6 +64,8 @@
   /* ---- form ---- */
   const form = $('#cform'), fieldsEl = $('#fields'), head = $('#fhead'), out = $('#preview'), go = $('#go'), copy = $('#copy'), hint = $('#hint');
   let cur = null;
+  let DATA = null;
+  const fill = (t) => window.ombFill ? window.ombFill(t, DATA) : t.replace(/\{\{[^|}]+\|?([^}]*)\}\}/g, '$1');
   const DKEY = (k) => 'omb-contact-' + k;
   const vals = () => Object.fromEntries($$('[name]', fieldsEl).map((i) => [i.name, i.value.trim()]));
 
@@ -76,7 +78,7 @@
     head.innerHTML = `<span class="pi">${cur.icon}</span><div><div class="eyebrow">${esc(cur.group)}</div><h2 class="h2" style="font-size:30px;margin-top:6px">${esc(cur.name)}</h2></div>`;
     fieldsEl.innerHTML = cur.fields.map((x) => {
       const v = esc(draft[x.id] || '');
-      const ph = x.ph ? ` placeholder="${esc(x.ph)}"` : '';
+      const ph = x.ph ? ` placeholder="${esc(fill(x.ph))}"` : '';
       const req = x.req ? ' required' : '';
       const lab = `<label for="f-${x.id}">${esc(x.label)}${x.req ? ' <i>*</i>' : ''}</label>`;
       if (x.type === 'textarea') return `<div class="fld">${lab}<textarea id="f-${x.id}" name="${x.id}" rows="${x.mono ? 6 : 4}"${ph}${req}${x.mono ? ' class="mono" spellcheck="false"' : ''}>${v}</textarea></div>`;
@@ -163,6 +165,9 @@
 
   // Email links assembled in the browser to keep the address away from simple scrapers
   $$('[data-mail]').forEach((a) => { a.href = 'mailto:' + MAIL; if (!a.textContent.trim() || a.dataset.mail === 'text') a.textContent = MAIL; });
+
+  // Live versions for placeholders once site.js has loaded the site data
+  window.addEventListener('DOMContentLoaded', () => { if (window.ombData) window.ombData().then((d) => { DATA = d; if (cur) $$('[placeholder]', fieldsEl).forEach((el) => { const x = cur.fields.find((y) => y.id === el.name); if (x && x.ph) el.placeholder = fill(x.ph); }); }); });
 
   const want = new URLSearchParams(location.search).get('t');
   if (want && T.some((t) => t.key === want)) select(want, false);

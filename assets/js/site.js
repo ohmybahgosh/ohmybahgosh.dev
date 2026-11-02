@@ -18,7 +18,8 @@
   async function runTerm(el) {
     const src = $('script[type="text/x-term"]', el);
     if (!src) return;
-    const lines = JSON.parse(src.textContent);
+    const d = await Promise.race([gh(), sleep(1500).then(() => null)]);
+    const lines = JSON.parse(fillTokens(src.textContent, d));
     const scr = $('.scr', el);
     const prompt = el.dataset.prompt || '<span class="c-gr">root@lgtv</span>:<span class="c-cy">~</span># ';
     const loop = el.dataset.loop !== 'false';
@@ -62,7 +63,6 @@
       if (loop) await sleep(5200);
     } while (loop);
   }
-  $$('.term[data-typed]').forEach(runTerm);
 
   /* ---------- live GitHub stats ---------- */
   const KEY = 'omb-gh-v2';
@@ -76,8 +76,19 @@
     if (d < 400) return Math.floor(d / 30) + 'mo ago';
     return Math.floor(d / 365) + 'y ago';
   };
-  // One fetch round per 30 minutes per visitor: repo info, recent releases and recent commits.
-  async function gh() {
+  // Site data: /data/repos.json is rebuilt from GitHub on every deploy and every few hours,
+  // so pages stay current with no edits.  The live API is only a fallback (local previews).
+  let ghPromise = null;
+  const gh = () => ghPromise || (ghPromise = (async () => {
+    try {
+      const r = await fetch(ROOT + 'data/repos.json', { cache: 'no-cache' });
+      if (r.ok) {
+        const j = await r.json();
+        const d = {};
+        Object.values(j.repos || {}).forEach((x) => { d[x.name] = { ...x, release: x.tag, releases: (x.releases || []).map((y) => ({ ...y, body: y.notes })) }; });
+        if (Object.keys(d).length) return d;
+      }
+    } catch (e) {}
     let cache = null;
     try { cache = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
     if (cache && Date.now() - cache.t < 30 * 60e3) return cache.d;
@@ -86,22 +97,32 @@
     await Promise.all(REPOS.map(async (r) => {
       const [a, rel, com] = await Promise.all([get(r.name), get(r.name + '/releases?per_page=6'), get(r.name + '/commits?per_page=4')]);
       if (!a) return;
+      const tag = rel && rel[0] ? rel[0].tag_name : null;
       d[r.name] = {
         stars: a.stargazers_count, forks: a.forks_count, issues: a.open_issues_count, pushed: a.pushed_at,
-        release: rel && rel[0] ? rel[0].tag_name : null,
+        release: tag, tag, version: tag && tag.replace(/^v/, ''), version_name: rel && rel[0] ? rel[0].name : null,
+        downloads: (rel || []).reduce((n, x) => n + (x.assets || []).reduce((m, y) => m + y.download_count, 0), 0),
         releases: (rel || []).map((x) => ({ tag: x.tag_name, name: x.name || x.tag_name, pre: x.prerelease, at: x.published_at || x.created_at, url: x.html_url, body: (x.body || '').slice(0, 600) })),
         commits: (com || []).map((x) => ({ msg: x.commit.message.split('\n')[0], at: x.commit.author.date, url: x.html_url, sha: x.sha.slice(0, 7) })),
       };
     }));
     if (Object.keys(d).length) { try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), d })); } catch (e) {} }
     return d;
-  }
+  })());
+  // {{Repo:field|fallback}} tokens inside terminal demos and placeholders
+  const fillTokens = (text, d) => text.replace(/\{\{([\w.-]+):(\w+)(?:\|([^}]*))?\}\}/g, (m, repo, f, fb) => {
+    const v = d && d[repo] && d[repo][f];
+    return v != null && v !== '' ? String(v) : (fb || '');
+  });
+  window.ombData = gh;
+  window.ombFill = fillTokens;
+  $$('.term[data-typed]').forEach(runTerm);
   const plain = (md) => md.replace(/```[\s\S]*?```/g, ' ').replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
     .replace(/<[^>]+>/g, '').replace(/^#+\s*/gm, '').replace(/[*_`>|]/g, '').replace(/^\s*[-+]\s+/gm, '• ').replace(/\s+/g, ' ').trim();
   const COLORS = { 'TiviBro': '#33e1ff', 'LG-USB-2-ETH0': '#3ddc97', 'WEBOS-ENTWARE-INSTALLER': '#ff3ea5' };
   const SHORT = { 'TiviBro': 'TiviBro', 'LG-USB-2-ETH0': 'USB-2-ETH0', 'WEBOS-ENTWARE-INSTALLER': 'Entware' };
 
-  if ($('[data-gh]') || $('#feed') || $('#timeline')) gh().then((d) => {
+  gh().then((d) => {
     let total = 0;
     Object.values(d).forEach((r) => total += r.stars || 0);
     $$('[data-gh]').forEach((el) => {
@@ -109,7 +130,7 @@
       if (repo === 'total') { if (total) el.textContent = total.toLocaleString(); return; }
       const r = d[repo];
       if (!r || r[f] == null) return;
-      el.textContent = f === 'pushed' ? ago(r[f]) : typeof r[f] === 'number' ? r[f].toLocaleString() : r[f];
+      el.textContent = (f === 'pushed' || f === 'released') ? ago(r[f]) : typeof r[f] === 'number' ? r[f].toLocaleString() : r[f];
     });
 
     // Recent activity across the showcased repos
@@ -130,6 +151,10 @@
     if (tl) {
       const r = d[tl.dataset.repo];
       const rels = r && r.releases || [];
+      if (r && (tl.dataset.mode === 'commits' || !rels.length) && (r.commits || []).length) {
+        tl.innerHTML = r.commits.map((x) => `<div class="rel"><div class="card"><h3><a href="${x.url}" target="_blank" rel="noopener">${esc(x.msg)}</a></h3><div class="when">${x.sha} · ${new Date(x.at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })} · ${ago(x.at)}</div></div></div>`).join('');
+        return;
+      }
       tl.innerHTML = rels.length ? rels.map((x) => `<div class="rel"><div class="card"><h3><a href="${x.url}" target="_blank" rel="noopener">${esc(x.name)}</a>${x.pre ? '<span class="pill" style="--ca:var(--amber)">pre-release</span>' : '<span class="pill">stable</span>'}</h3><div class="when">${esc(x.tag)} · ${new Date(x.at).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })} · ${ago(x.at)}</div><p>${esc(plain(x.body)) || 'No notes for this release.'}</p></div></div>`).join('')
         : `<p class="muted">Couldn't load releases right now.  <a class="c-cy" href="https://github.com/ohmybahgosh/${tl.dataset.repo}/releases" target="_blank" rel="noopener">See them on GitHub ↗</a></p>`;
     }
