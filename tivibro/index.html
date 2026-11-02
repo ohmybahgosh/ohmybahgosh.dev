@@ -15,7 +15,8 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=0f5121ea">
+<link rel="preload" href="/assets/img/tivibro-wordmark.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/site.css?v=31318591">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="TiviBro · the IPTV player LG TVs never got">
@@ -103,7 +104,7 @@
       <a href="/webos-entware-installer/" class="hide-s">entware</a>
       <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
       <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
-      <button class="kbtn" type="button" data-pal-open aria-label="Open command palette"><span>search</span><kbd>⌘K</kbd></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span>search</span><kbd>⌘K</kbd></button>
     </nav>
   </div>
 </header>
@@ -112,7 +113,7 @@
   <section class="hero">
     <div>
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-cy">tivibro</span></div>
-      <img src="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/logos/clean/tivibro-wordmark.png" alt="TiviBro" width="460" height="118" style="width:min(340px,80%);height:auto;margin:22px 0 6px">
+      <img src="/assets/img/tivibro-wordmark.webp" alt="TiviBro" width="920" height="236" fetchpriority="high" style="width:min(340px,80%);height:auto;margin:22px 0 6px">
       <h1 class="h2" style="margin-top:10px">The IPTV player <span class="grad">LG TVs never got.</span></h1>
       <p class="lead">A free, guide-first IPTV player for LG webOS, built to feel like TiviMate and go further.  Bring your own Xtream Codes or M3U and XMLTV.  Set it up from your phone in two minutes.</p>
       <div class="btns">
@@ -129,7 +130,7 @@
       </div>
     </div>
     <div class="tv">
-      <video src="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/docs/media/guide.mp4" poster="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/docs/screenshots/tv-guide-preview.png" autoplay muted loop playsinline preload="metadata" aria-label="The TiviBro guide: browse, preview in the window, then fullscreen"></video>
+      <video src="https://cdn.jsdelivr.net/gh/ohmybahgosh/TiviBro@main/docs/media/guide.mp4" poster="/assets/img/tivibro-guide-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="The TiviBro guide: browse, preview in the window, then fullscreen"></video>
     </div>
   </section>
 
@@ -191,7 +192,7 @@
   <section id="compare" data-pal="TiviBro vs TiviMate" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">compare</div><h2 class="h2" style="margin-top:12px">TiviBro and TiviMate.</h2><p>TiviMate is a great app.  This is what TiviBro adds, and where it runs.</p></div></div>
     <div class="tblw rv"><table class="tbl vs">
-      <thead><tr><th></th><th>TiviBro</th><th>TiviMate</th></tr></thead>
+      <thead><tr><th scope="col">feature</th><th scope="col">TiviBro</th><th scope="col">TiviMate</th></tr></thead>
       <tbody>
         <tr><td>Runs on LG webOS TVs</td><td class="yes">✔ webOS 4+</td><td class="no">Android TV, Fire TV</td></tr>
         <tr><td>Price</td><td class="yes">Free, every feature</td><td class="no">Premium is paid</td></tr>
@@ -281,6 +282,6 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=0f5121ea" defer></script>
+<script src="/assets/js/site.js?v=31318591" defer></script>
 </body>
 </html>

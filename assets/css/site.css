@@ -4,7 +4,7 @@
 
 :root{
   --bg:#05070d;--bg2:#0a0e1a;--panel:rgba(12,16,30,.72);--line:#1b2440;--line2:#27325a;
-  --fg:#e8eeff;--fg2:#9aa6c8;--fg3:#5d6a8f;--hi:#ffffff;
+  --fg:#e8eeff;--fg2:#9aa6c8;--fg3:#7783a8;--hi:#ffffff;
   --cyan:#33e1ff;--violet:#8b5cff;--green:#3ddc97;--pink:#ff3ea5;--amber:#ffb547;--blue:#5b8cff;
   --accent:var(--cyan);--accent2:var(--violet);
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -250,7 +250,7 @@ html[data-theme=light] .kbtn.theme .moon{display:none}
 /* light theme */
 html[data-theme=light]{color-scheme:light;
   --bg:#f5f7fc;--bg2:#eaf0fa;--panel:rgba(255,255,255,.85);--line:#dde4f1;--line2:#c6d0e5;
-  --fg:#111a30;--fg2:#4a5672;--fg3:#7a86a4;--hi:#0a1022;
+  --fg:#111a30;--fg2:#4a5672;--fg3:#5c6886;--hi:#0a1022;
   --cyan:#0a8db0;--violet:#6a3fe0;--green:#118a59;--pink:#cc1468;--amber:#b06a00;--blue:#3460dd}
 html[data-theme=light] body.p-tivibro{--accent:#0a8db0;--accent2:#3460dd}
 html[data-theme=light] body.p-eth0{--accent:#118a59;--accent2:#0a8db0}
