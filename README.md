@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://ohmybahgosh.dev"><img src=".github/banner.svg" width="100%" alt="ohmybahgosh.dev: software LG forgot to ship"></a>
+<a href="https://ohmybahgosh.dev"><img src="docs/banner.svg" width="100%" alt="ohmybahgosh.dev: software LG forgot to ship"></a>
 
 <br>
 
@@ -95,8 +95,7 @@ Plain HTML, CSS and JavaScript.  No framework, no bundler, no build step: GitHub
 │   ├── js/site.js                      terminals, live stats, palette, copy, tabs
 │   ├── og/*.png                        1200×630 social cards
 │   └── favicon.svg
-├── docs/preview.png                    README screenshot
-├── .github/                            README banner and repo social preview
+├── docs/                               README banner, screenshot, repo social preview
 ├── CNAME · robots.txt · sitemap.xml · site.webmanifest
 └── LICENSE
 ```
