@@ -1,0 +1,12 @@
+{
+  "_comment": "Packages served at https://ohmybahgosh.dev/repo (Homebrew Channel repository). Add a repo here and the 'Homebrew repo' workflow picks up its latest release.  manifest = the manifest file attached to each GitHub release.  prerelease = true also accepts pre-releases.",
+  "packages": [
+    {
+      "repo": "ohmybahgosh/LG-USB-2-ETH0",
+      "manifest": "org.ohmybahgosh.lgusb2eth0.manifest.json",
+      "prerelease": false,
+      "shortDescription": "Make a USB Ethernet adapter the TV's eth0, for the faster wired link",
+      "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/lg-usb-2-eth0.html"
+    }
+  ]
+}
