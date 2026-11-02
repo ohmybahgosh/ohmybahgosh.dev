@@ -81,7 +81,7 @@ One-line Entware for rooted webOS.  Picks the right 64-bit or 32-bit build, test
 | 📋 **One-tap copy** | Every install command has a copy button that strips comments and prompts. |
 | 📱 **Phone first** | Works at 320px wide with no horizontal scroll.  Wide tables scroll on their own. |
 | 🔍 **SEO and social cards** | Canonical URLs, Open Graph and Twitter cards with a custom image per page, `schema.org` JSON-LD for each project, a sitemap and robots.txt. |
-| 🚫 **No tracking** | No analytics, no cookies, no third-party scripts.  Fonts and screenshots load from jsDelivr. |
+| 🚫 **No tracking** | No cookies and no ad trackers.  Visits are counted with [GoatCounter](https://www.goatcounter.com), which is privacy-friendly and stores no personal data.  Fonts and screenshots load from jsDelivr. |
 
 ## How it's built
 
