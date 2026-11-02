@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LG-USB-2-ETH0 · USB Ethernet as eth0 on LG webOS</title>
+<meta name="description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  POSIX sh, tested under busybox.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/lg-usb-2-eth0/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=4ec49e3b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="LG-USB-2-ETH0 · USB Ethernet as eth0 on LG webOS">
+<meta property="og:description" content="Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  POSIX sh, tested under busybox.">
+<meta property="og:url" content="https://ohmybahgosh.dev/lg-usb-2-eth0/">
+<meta property="og:image" content="https://opengraph.githubassets.com/1/ohmybahgosh/LG-USB-2-ETH0">
+<meta name="twitter:card" content="summary_large_image">
+
+</head>
+<body class="p-eth0">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <span class="status"><span class="dot"></span>webOS homebrew</span>
+    <nav class="nav" aria-label="Main">
+      <a href="/tivibro/" class="hide-xs">tivibro</a>
+      <a href="/lg-usb-2-eth0/" class="hide-s" aria-current="page">usb-2-eth0</a>
+      <a href="/webos-entware-installer/" class="hide-s">entware</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn" type="button" data-pal-open aria-label="Open command palette"><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">lg-usb-2-eth0</span></div>
+      <h1 class="h1" style="margin-top:20px;font-size:clamp(40px,6vw,72px)">Your TV's<br>fast lane is <span class="grad">eth0.</span></h1>
+      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB 3.0 gigabit adapter is two to three times faster, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  This script makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.</p>
+      <div class="btns">
+        <a class="btn pri" href="#install">$ install</a>
+        <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0" target="_blank" rel="noopener">source ↗</a>
+        <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
+      </div>
+      <div class="badges">
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.2</b></span>
+        <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span>
+        <span class="badge">shell <b>POSIX sh</b></span>
+        <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
+        <span class="badge">listed in <b>awesome-webos</b></span>
+      </div>
+    </div>
+    <div class="term" data-typed style="--th:392px">
+      <div class="tb"><i></i><i></i><i></i><span>root@OLED65C2PUA: /tmp</span></div>
+      <div class="scr" aria-label="Running LG-USB-2-ETH0 status: the USB adapter is eth0 and the built-in port is eth2"></div>
+      <script type="text/x-term">[
+        ["$","sh LG-USB-2-ETH0.sh apply"],
+        ["o","  Built-in eth0 <span class=c-pk>→</span> eth2"],
+        ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
+        ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
+        ["$","sh LG-USB-2-ETH0.sh status"],
+        ["o","<span class=c-wh>=== LG-USB-2-ETH0 v2.2 status ===</span>"],
+        ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
+        ["o","Boot hook  <span class=c-gr>installed and enabled</span>"],
+        ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
+        ["o","  <span class=c-mu>eth2   built-in        lg-eth  no cable</span>"],
+        ["o","  <span class=c-mu>wlan0  Wi-Fi           mt7601u</span>"],
+        ["o","  Default route: <span class=c-cy>eth0</span>"],
+        ["o!","<span class=c-gr>No problems found.</span>"]
+      ]</script>
+    </div>
+  </section>
+
+  <section id="fixes" data-pal="what it fixes" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what it fixes</div><h2 class="h2" style="margin-top:12px">Three problems, one rename.</h2></div></div>
+    <div class="bento">
+      <div class="card s2 rv"><div class="ic">▶</div><h3>Streaming apps fail</h3><p>Apps like Paramount+ refuse to play over <code>eth1</code>.  The adapter becomes <code>eth0</code>, so they play.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">⚙</div><h3>"Not Connected"</h3><p>webOS settings show no wired connection while the adapter works.  Interface names now match what webOS expects.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">⇡</div><h3>100 Mbit/s ceiling</h3><p>High-bitrate remuxes, Plex and Moonlight stutter on the built-in port.  The adapter does 250 to 330 Mbit/s.</p></div>
+    </div>
+  </section>
+
+  <section id="speeds" data-pal="real speeds" style="padding-top:20px">
+    <div class="two rv" style="align-items:center">
+      <div>
+        <div class="eyebrow">real speeds</div>
+        <h2 class="h2" style="margin:12px 0 16px">Not gigabit.  Still 3x.</h2>
+        <p class="muted">The TV's USB controller and CPU are the limit, so don't expect gigabit.  But two to three times the built-in port is plenty for 4K remuxes.</p>
+        <p class="dim mono" style="font-size:12px">Measured by DonZoomik (webos-r8152) and lgwebos.com users.</p>
+      </div>
+      <div class="card" style="padding:26px">
+        <div id="bars" class="mono" style="display:grid;gap:18px;font-size:13px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" data-pal="how it works" style="padding-top:20px">
+    <div class="two rv">
+      <div>
+        <div class="eyebrow">how it works</div>
+        <h2 class="h2" style="margin:12px 0 16px">One file.  Nothing else touched.</h2>
+        <p class="muted">At boot the Homebrew Channel runs everything in <code class="c-gr">/var/lib/webosbrew/init.d</code>.  The script writes one hook there and only renames network interfaces.  No system files, drivers or network settings are touched, so a reboot without the hook always starts clean.</p>
+        <div class="callout" style="margin-top:22px"><b>Undo everything:</b> <code>sh LG-USB-2-ETH0.sh uninstall --now</code></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Returns at once</h3><p>Starts in the background so other hooks and the failsafe timer aren't held up.</p></div></div>
+        <div class="step"><div><h3>Waits for a real adapter</h3><p>Only wired Ethernet on USB counts.  Wi-Fi, phones and modems are skipped.  No adapter, no changes.</p></div></div>
+        <div class="step"><div><h3>Optional faster driver</h3><p>With <code class="c-gr">--module</code>, moves the adapter from generic <code>cdc_ncm</code> to a better driver, with one try per boot and an automatic fallback.</p></div></div>
+        <div class="step"><div><h3>Swaps the names</h3><p>Built-in <code>eth0</code> becomes <code>eth2</code>, the adapter becomes <code>eth0</code>.  Interrupted renames retry, and failures roll back.</p></div></div>
+        <div class="step"><div><h3>Follows hotplug</h3><p>With <code class="c-gr">--watch</code>, plug the adapter in or out any time and <code>eth0</code> follows it.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="install" data-pal="install LG-USB-2-ETH0" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">quick start</div><h2 class="h2" style="margin-top:12px">Install in a minute.</h2><p>You need a rooted LG TV with the Homebrew Channel, SSH as root, and <b class="c-wh">a Wi-Fi connection while you set this up</b>, since renaming takes the wired ports down for a moment.</p></div></div>
+    <div class="rv code"><pre><span class="pr">$ </span>cd /tmp
+<span class="cm"># download the latest release and its checksum</span>
+<span class="pr">$ </span>curl -fsSLO https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest/download/LG-USB-2-ETH0.sh
+<span class="pr">$ </span>curl -fsSLO https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest/download/SHA256SUMS
+<span class="pr">$ </span>sha256sum -c SHA256SUMS
+<span class="cm"># read-only look at the TV first</span>
+<span class="pr">$ </span>sh LG-USB-2-ETH0.sh status
+<span class="cm"># install the boot hook (asks before it writes), then switch now</span>
+<span class="pr">$ </span>sh LG-USB-2-ETH0.sh install
+<span class="pr">$ </span>sh LG-USB-2-ETH0.sh apply</pre></div>
+    <p class="dim" style="font-size:14px">No <code>curl</code>?  Use <code>wget</code> the same way.  On a TLS error, download on your computer and copy over with <code>scp</code>.</p>
+
+    <div class="tblw rv" style="margin-top:30px"><table class="tbl">
+      <thead><tr><th>command</th><th>what it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>install</code></td><td>Writes the boot hook.  Add <code>--now</code> to switch right away too.</td></tr>
+        <tr><td><code>uninstall</code></td><td>Removes the hook.  <code>--now</code> gives <code>eth0</code> back to the built-in port right away.</td></tr>
+        <tr><td><code>apply</code> / <code>revert</code></td><td>Swap the adapter in now, or give <code>eth0</code> back, without touching the hook.</td></tr>
+        <tr><td><code>status</code> / <code>doctor</code></td><td>Read-only report and checks.  Safe any time.</td></tr>
+        <tr><td><code>report</code></td><td>Paste-ready report for a GitHub issue, MAC addresses masked.</td></tr>
+        <tr><td><code>get-driver</code></td><td>Downloads a better driver if one is known for your exact kernel, and checks its SHA-256.</td></tr>
+        <tr><td><code>--watch</code></td><td>Keeps following the adapter after boot.  Plug in or out at will.</td></tr>
+        <tr><td><code>--mac aa:bb:…</code></td><td>Only ever promote that adapter.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="compat" data-pal="webOS compatibility" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">compatibility</div><h2 class="h2" style="margin-top:12px">The chip matters more than the brand.</h2><p>What decides whether it works is whether your TV's kernel has a driver for your adapter's chip.  Run <code class="c-gr">status</code> before buying: it lists the USB network drivers your kernel has.</p></div></div>
+    <div class="bento">
+      <div class="card s2 rv"><div class="ic">RTL</div><h3>Realtek 8153 / 8156</h3><p>The most common gigabit and 2.5G chips.  Newer kernels may only offer generic <code>cdc_ncm</code>, which works but is slower.  <code>get-driver</code> fixes that on supported kernels.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">AX</div><h3>ASIX AX88179</h3><p>Works out of the box on many older TVs.  One report of the newer AX88179A not being detected on webOS 25.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">3.0</div><h3>Use a USB 3.0 port</h3><p>On USB 2.0 you'll top out around 300 Mbit/s.  A powered hub can help with fussy adapters.</p></div>
+    </div>
+    <div class="tblw rv" style="margin-top:18px"><table class="tbl">
+      <thead><tr><th>webOS</th><th>reported</th></tr></thead>
+      <tbody>
+        <tr><td>3.5 / 4 (B7, C7, C8)</td><td>ASIX adapters work out of the box.  Settings show "no connection" while apps work, which is what this fixes.</td></tr>
+        <tr><td>webOS 24</td><td>Where the script was first written.</td></tr>
+        <tr><td>webOS 25 · 2022 C2</td><td class="yes">Tested by the author.  RTL8156 on <code>r8152_oot</code> via <code>get-driver</code>, confirmed through a full reboot.</td></tr>
+        <tr><td>webOS 25 · 2024 C4</td><td>RTL8153/8156 come up on <code>cdc_ncm</code>.  The community <code>r8152</code> module helps.</td></tr>
+        <tr><td>webOS 25 · 2024 QNED/OLED</td><td>Realtek driver reportedly removed.  Needs a module built for that exact kernel.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted rv" style="margin-top:18px">Tested on your TV?  <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/issues/new?template=compatibility-report.yml" target="_blank" rel="noopener">Send a compatibility report ↗</a>, whether it worked or not.</p>
+  </section>
+
+  <section id="faq" data-pal="LG-USB-2-ETH0 FAQ" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
+    <div class="rv">
+      <details class="faq"><summary>Does it survive a firmware update?</summary><div>The hook lives in the Homebrew Channel's folder, so it stays as long as root does.  If an update removes root, the TV just goes back to the built-in port.</div></details>
+      <details class="faq"><summary>Does it change my network settings?</summary><div>No.  webOS still sets up the wired connection itself.  The script only changes which device is called <code>eth0</code>.</div></details>
+      <details class="faq"><summary>Lost SSH while switching?</summary><div>The switch still finishes on the TV.  Reconnect over Wi-Fi.  The adapter has its own MAC, so your router may hand out a new IP; a DHCP reservation keeps it steady.</div></details>
+      <details class="faq"><summary>Can I use two adapters?</summary><div>Yes.  Pin the one you want with <code>--mac</code>.  Without it, the first adapter with a cable in wins.</div></details>
+    </div>
+    <div class="callout rv" style="margin-top:24px;--accent:#3ddc97"><b>Thanks to DonZoomik</b> for <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">webos-r8152</a>, the Realtek driver build and benchmarks that <code>get-driver</code> and <code>--module</code> are built on.</div>
+  </section>
+</div>
+<script>
+(() => {
+  const rows = [['built-in port', 95, 'var(--fg3)', 'about 95'], ['RTL8153 · generic cdc_ncm', 255, 'var(--amber)', '200 to 255'], ['Cable Matters · 2018 C8', 250, 'var(--cyan)', 'about 250'], ['RTL8153 · r8152 module', 330, 'var(--green)', '290 to 330']];
+  const el = document.getElementById('bars');
+  el.innerHTML = rows.map(([n, v, c, t]) => `<div><div style="display:flex;justify-content:space-between;gap:12px;margin-bottom:7px"><span class="muted">${n}</span><b class="c-wh" style="white-space:nowrap">${t} Mbit/s</b></div><div style="height:10px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden"><i data-w="${v / 350 * 100}" style="display:block;height:100%;width:0;border-radius:99px;background:${c};box-shadow:0 0 14px ${c};transition:width 1.4s cubic-bezier(.2,.8,.2,1)"></i></div></div>`).join('');
+  new IntersectionObserver((e, o) => { if (e[0].isIntersecting) { el.querySelectorAll('i').forEach((i) => i.style.width = i.dataset.w + '%'); o.disconnect(); } }, { threshold: .4 }).observe(el);
+})();
+</script>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made in Michigan by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · MIT-licensed projects · not affiliated with LG Electronics</div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=4ec49e3b" defer></script>
+</body>
+</html>

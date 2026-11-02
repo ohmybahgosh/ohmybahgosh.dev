@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ohmybahgosh.dev/sitemap.xml
