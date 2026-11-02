@@ -1,5 +1,5 @@
 {
-  "_comment": "Packages served at https://ohmybahgosh.dev/repo (Homebrew Channel repository). Add a repo here and the 'Homebrew repo' workflow picks up its latest release.  manifest = the manifest file attached to each GitHub release.  prerelease = true also accepts pre-releases.",
+  "_comment": "Packages served at https://ohmybahgosh.dev/repo (Homebrew Channel repository). Add a repo here and the 'Homebrew repo' workflow picks up its latest release.  manifest = the manifest file attached to each GitHub release.  prerelease = true also accepts pre-releases (TiviBro's alpha builds).  No shortDescription = use the manifest's appDescription.",
   "packages": [
     {
       "repo": "ohmybahgosh/LG-USB-2-ETH0",
@@ -14,6 +14,15 @@
       "prerelease": false,
       "shortDescription": "Install and manage Entware from the remote: Linux packages, a bash shell and one-press add-ons",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/webos-entware.html"
+    },
+    {
+      "repo": "ohmybahgosh/TiviBro",
+      "manifest": "app.tivibro.tv.manifest.json",
+      "prerelease": true,
+      "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
+      "requirements": {
+        "webosRelease": ">=4.0"
+      }
     }
   ]
 }

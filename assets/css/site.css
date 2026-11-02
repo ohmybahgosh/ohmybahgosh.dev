@@ -379,10 +379,9 @@ html[data-theme=light] .pick{background:#fff}
 .hb-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .hb-head img,.appicon{width:72px;height:72px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.45);flex:none}
 .appicon.sm{width:48px;height:48px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
-.hbapps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.hbapps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px}
 .hbapp{display:flex;gap:14px;align-items:center;padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:inherit;text-decoration:none;transition:border-color .2s}
 .hbapp:hover{border-color:var(--line2)}
 .hbapp b{display:block;color:var(--fg);font-size:16px}.hbapp div>span{color:var(--fg2);font-size:14px}
-@media (max-width:640px){.hbapps{grid-template-columns:1fr}}
 .figcard{padding:0}.figcard img{display:block;width:100%;height:auto}
 .tv video{display:block}
