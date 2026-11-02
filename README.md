@@ -7,9 +7,10 @@
 **The home of my favorite open-source projects, starting with LG webOS homebrew.**
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fohmybahgosh.dev&up_message=online&down_message=offline&label=ohmybahgosh.dev&style=flat-square&color=33e1ff&labelColor=0a0e1a)](https://ohmybahgosh.dev)
-[![GitHub Pages](https://img.shields.io/github/deployments/ohmybahgosh/ohmybahgosh.dev/github-pages?label=pages&style=flat-square&labelColor=0a0e1a)](https://github.com/ohmybahgosh/ohmybahgosh.dev/deployments)
+[![GitHub Pages](https://img.shields.io/github/deployments/ohmybahgosh/ohmybahgosh.dev/github-pages?label=pages&style=flat-square&labelColor=0a0e1a)](https://github.com/ohmybahgosh/ohmybahgosh.dev/actions)
 [![Last commit](https://img.shields.io/github/last-commit/ohmybahgosh/ohmybahgosh.dev?style=flat-square&color=8b5cff&labelColor=0a0e1a)](https://github.com/ohmybahgosh/ohmybahgosh.dev/commits/main)
 [![No build step](https://img.shields.io/badge/build-none-3ddc97?style=flat-square&labelColor=0a0e1a)](#how-its-built)
+[![Link check](https://img.shields.io/github/actions/workflow/status/ohmybahgosh/ohmybahgosh.dev/links.yml?label=links&style=flat-square&labelColor=0a0e1a)](https://github.com/ohmybahgosh/ohmybahgosh.dev/actions/workflows/links.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-8f9bbf?style=flat-square&labelColor=0a0e1a)](LICENSE)
 
 [**Visit the site**](https://ohmybahgosh.dev) · [Projects](#projects) · [How it's built](#how-its-built)
@@ -74,6 +75,9 @@ One-line Entware for rooted webOS.  Picks the right 64-bit or 32-bit build, test
 | ⌨️ **Typed terminal demos** | Every page plays a real session from the project: installs, `status` output, build checks.  They render instantly for visitors who prefer reduced motion. |
 | 📈 **Live GitHub stats** | Stars, forks, latest release and last push come straight from the GitHub API, cached in the browser for 30 minutes. |
 | 🔎 **Command palette** | Press <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (<kbd>⌘</kbd>+<kbd>K</kbd> on a Mac) to jump to any project, section or repo. |
+| 🛰️ **Recent activity** | The home page lists the latest releases and commits across the showcased repos. |
+| 📝 **Release notes** | TiviBro's page shows a timeline of its newest releases, pulled live from GitHub Releases. |
+| ◐ **Light and dark** | A theme toggle in the header, remembered per visitor. |
 | 📋 **One-tap copy** | Every install command has a copy button that strips comments and prompts. |
 | 📱 **Phone first** | Works at 320px wide with no horizontal scroll.  Wide tables scroll on their own. |
 | 🔍 **SEO and social cards** | Canonical URLs, Open Graph and Twitter cards with a custom image per page, `schema.org` JSON-LD for each project, a sitemap and robots.txt. |
