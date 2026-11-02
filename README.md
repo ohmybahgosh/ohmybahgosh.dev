@@ -95,5 +95,5 @@ Plain HTML, CSS and JavaScript, with no framework and no build step, served by G
 
 <div align="center">
 <br>
-<sub>Made in Michigan by <a href="https://github.com/ohmybahgosh">OhMyBahGosh</a>.  Not affiliated with LG Electronics.</sub>
+<sub>Made by <a href="https://github.com/ohmybahgosh">OhMyBahGosh</a>.  Not affiliated with LG Electronics.</sub>
 </div>
