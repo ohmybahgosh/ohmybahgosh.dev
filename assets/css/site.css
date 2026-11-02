@@ -384,3 +384,5 @@ html[data-theme=light] .pick{background:#fff}
 .hbapp:hover{border-color:var(--line2)}
 .hbapp b{display:block;color:var(--fg);font-size:16px}.hbapp div>span{color:var(--fg2);font-size:14px}
 @media (max-width:640px){.hbapps{grid-template-columns:1fr}}
+.figcard{padding:0}.figcard img{display:block;width:100%;height:auto}
+.tv video{display:block}
