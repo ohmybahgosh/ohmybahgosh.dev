@@ -15,7 +15,7 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=7fff7aad">
+<link rel="stylesheet" href="/assets/css/site.css?v=da9db668">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="WEBOS-ENTWARE-INSTALLER · Entware for rooted LG webOS">
@@ -81,6 +81,7 @@
       <a href="/tivibro/" class="hide-xs">tivibro</a>
       <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
       <a href="/webos-entware-installer/" class="hide-s" aria-current="page">entware</a>
+      <a href="/contact/" class="hide-s">contact</a>
       <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
       <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
       <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
@@ -214,6 +215,10 @@
       <details class="faq"><summary>How is it tested?</summary><div>The test suite runs install, repair, reboots and uninstall inside a private mount namespace with fake <code>wget</code> and <code>opkg</code>, under busybox sh, dash and bash.</div></details>
     </div>
   </section>
+
+  <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
+    <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px">Pick a template and it fills in the right GitHub form for you.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="/contact/?t=ent-bug">report a bug</a><a class="btn" href="/contact/?t=ent-idea">suggest an idea</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+  </section>
 </div>
 </main>
 <footer>
@@ -221,17 +226,19 @@
     <div>
       <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made in Michigan by OhMyBahGosh"</div>
       <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · MIT-licensed projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
     </div>
     <nav aria-label="Footer">
       <a href="/">~/</a>
       <a href="/tivibro/">tivibro</a>
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
+      <a href="/contact/">contact</a>
       <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=7fff7aad" defer></script>
+<script src="/assets/js/site.js?v=da9db668" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

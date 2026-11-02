@@ -203,6 +203,7 @@
     ...REPOS.map((r) => ({ i: '↗', t: `open github/${r.name}`, s: 'GitHub', u: `https://github.com/ohmybahgosh/${r.name}` })),
     { i: '↗', t: 'open tivibro.app', s: 'TiviBro website', u: 'https://tivibro.app' },
     { i: '↗', t: 'open github/ohmybahgosh', s: 'all repos', u: 'https://github.com/ohmybahgosh' },
+    { i: '@', t: 'mail hello', s: 'contact and templates', u: ROOT + 'contact/' },
     { i: '◐', t: 'theme toggle', s: 'light / dark', u: '#theme' },
     ...$$('section[id][data-pal]').map((s) => ({ i: '#', t: 'goto ' + s.id, s: s.dataset.pal, u: '#' + s.id })),
   ];
@@ -240,6 +241,10 @@
   $$('[data-pal-open]').forEach((b) => b.onclick = open);
   const mac = /Mac|iPhone|iPad/.test(navigator.platform);
   $$('.kbtn kbd').forEach((k) => k.textContent = mac ? '⌘K' : 'Ctrl K');
+
+  /* ---------- email links (built here to keep the address from simple scrapers) ---------- */
+  const MAIL = ['hello', 'ohmybahgosh.dev'].join('@');
+  $$('[data-mail]').forEach((a) => { if (!a.getAttribute('href') || a.getAttribute('href') === '#' || a.dataset.mail === 'text') a.href = 'mailto:' + MAIL; if (a.dataset.mail === 'text') a.textContent = MAIL; });
 
   /* ---------- year ---------- */
   $$('[data-year]').forEach((y) => y.textContent = new Date().getFullYear());

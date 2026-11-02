@@ -78,6 +78,7 @@ One-line Entware for rooted webOS.  Picks the right 64-bit or 32-bit build, test
 | 🛰️ **Recent activity** | The home page lists the latest releases and commits across the showcased repos. |
 | 📝 **Release notes** | TiviBro's page shows a timeline of its newest releases, pulled live from GitHub Releases. |
 | ◐ **Light and dark** | A theme toggle in the header, remembered per visitor. |
+| ✉️ **Contact templates** | [ohmybahgosh.dev/contact](https://ohmybahgosh.dev/contact/) fills in the right GitHub issue form, discussion or email for bugs, compatibility reports, ideas and questions.  Or write to hello@ohmybahgosh.dev. |
 | 📋 **One-tap copy** | Every install command has a copy button that strips comments and prompts. |
 | 📱 **Phone first** | Works at 320px wide with no horizontal scroll.  Wide tables scroll on their own. |
 | 🔍 **SEO and social cards** | Canonical URLs, Open Graph and Twitter cards with a custom image per page, `schema.org` JSON-LD for each project, a sitemap and robots.txt. |

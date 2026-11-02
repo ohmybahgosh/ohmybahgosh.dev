@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Contact · ohmybahgosh.dev</title>
+<meta name="description" content="Report a bug, send a compatibility report, suggest an idea or email OhMyBahGosh.  Templates fill in the right GitHub form or email for you.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/contact/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="dns-prefetch" href="https://api.github.com">
+<link rel="stylesheet" href="/assets/css/site.css?v=da9db668">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Contact · ohmybahgosh.dev">
+<meta property="og:description" content="Report a bug, send a compatibility report, suggest an idea or email OhMyBahGosh.  Templates fill in the right GitHub form or email for you.">
+<meta property="og:url" content="https://ohmybahgosh.dev/contact/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact · ohmybahgosh.dev">
+<meta name="twitter:description" content="Report a bug, send a compatibility report, suggest an idea or email OhMyBahGosh.  Templates fill in the right GitHub form or email for you.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ContactPage","name":"Contact OhMyBahGosh","url":"https://ohmybahgosh.dev/contact/","about":{"@id":"https://ohmybahgosh.dev/#person"}}
+</script>
+</head>
+<body class="p-contact">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <span class="status"><span class="dot"></span>webOS homebrew</span>
+    <nav class="nav" aria-label="Main">
+      <a href="/tivibro/" class="hide-xs">tivibro</a>
+      <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
+      <a href="/webos-entware-installer/" class="hide-s">entware</a>
+      <a href="/contact/" class="hide-s" aria-current="page">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <section style="padding:56px 0 24px">
+    <div class="crumb"><a href="/">~</a><span>/</span><span class="c-cy">contact</span></div>
+    <h1 class="h1" style="margin-top:18px;font-size:clamp(40px,6vw,68px)">Say <span class="grad">hello.</span></h1>
+    <p class="lead" style="margin:18px 0 26px">Bug, compatibility report, idea or just a note?  Pick a template below and it fills in the right GitHub form or email for you.  Nothing is sent until you hit submit on GitHub or send in your email app.</p>
+    <div class="mailbox"><span class="mono dim">$ mail</span><a data-mail="text" href="#">hello at ohmybahgosh dot dev</a><span class="dim" style="font-size:14px">Prefer plain email?  Write any time.</span></div>
+  </section>
+
+  <section id="templates" data-pal="contact templates" style="padding-top:16px">
+    <div class="sec-head"><div><div class="eyebrow">ls ~/templates</div><h2 class="h2" style="margin-top:12px">What's it about?</h2></div></div>
+    <div id="picker"></div>
+  </section>
+
+  <section style="padding-top:8px">
+    <form id="cform" hidden novalidate>
+      <div class="cwrap">
+        <div class="card" style="padding:26px">
+          <div id="fhead"></div>
+          <div id="fields"></div>
+          <div class="factions">
+            <button class="btn pri" id="go" type="submit">Open ↗</button>
+            <button class="btn" id="copy" type="button">copy text</button>
+            <button class="btn" id="clear" type="button">clear</button>
+          </div>
+          <p class="hint" id="hint"></p>
+          <div class="warnbox" id="warn" hidden>This is too long to fit in a link.  When you continue, the full text goes on your clipboard so you can paste it in.</div>
+        </div>
+        <div class="pv">
+          <div class="term">
+            <div class="tb"><i></i><i></i><i></i><span>preview</span></div>
+            <pre class="scr" id="preview" aria-live="polite"></pre>
+          </div>
+          <p class="hint">Your draft is saved in this browser, so you can come back to it.</p>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>
+<script src="/assets/js/contact.js?v=cad6eb92" defer></script>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made in Michigan by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · MIT-licensed projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=da9db668" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
