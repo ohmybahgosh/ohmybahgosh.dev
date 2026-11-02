@@ -36,9 +36,9 @@
     { key: 'eth-idea', group: 'LG-USB-2-ETH0', icon: '💡', name: 'Idea', desc: 'Something the script should do.', kind: 'blank', repo: 'LG-USB-2-ETH0', prefix: '[Idea] ',
       fields: [f.title('Option to prefer Wi-Fi when no cable is in'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help', type: 'textarea' }] },
 
-    { key: 'ent-bug', group: 'Entware Installer', icon: '🐞', name: 'Bug', desc: 'Install, repair or uninstall went wrong.', kind: 'blank', repo: 'WEBOS-ENTWARE-INSTALLER', prefix: '[Bug] ',
-      fields: [f.title('opkg not found after reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'steps', label: 'What you ran', type: 'textarea', mono: true, ph: 'sh /tmp/webos-entware-installer.sh install' }, f.tv, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', mono: true }] },
-    { key: 'ent-idea', group: 'Entware Installer', icon: '💡', name: 'Idea', desc: 'A helper, package or option to add.', kind: 'blank', repo: 'WEBOS-ENTWARE-INSTALLER', prefix: '[Idea] ',
+    { key: 'ent-bug', group: 'Entware Installer', icon: '🐞', name: 'Bug', desc: 'Install, repair or uninstall went wrong.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'bug-report.yml', prefix: '[Bug] ',
+      fields: [f.title('opkg not found after reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'steps', label: 'What you ran', type: 'textarea', mono: true, ph: 'sh /tmp/webos-entware-installer.sh install' }, f.tv, { id: 'version', label: 'Installer version', type: 'input', req: true, ph: '2.6.0  (shown by --help)' }, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', mono: true }] },
+    { key: 'ent-idea', group: 'Entware Installer', icon: '💡', name: 'Idea', desc: 'A helper, package or option to add.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'feature-request.yml', prefix: '[Idea] ',
       fields: [f.title('Add a helper to mount a USB drive at /opt'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help', type: 'textarea' }] },
 
     { key: 'mail-hello', group: 'Email me', icon: '✉️', name: 'Say hello', desc: 'Questions, thanks, or anything else.', kind: 'mail', subject: (v) => v.title || 'Hello from ohmybahgosh.dev',
