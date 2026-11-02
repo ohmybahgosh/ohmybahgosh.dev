@@ -1,0 +1,10 @@
+{
+  "name": "ohmybahgosh.dev",
+  "short_name": "OhMyBahGosh",
+  "description": "Open-source projects by OhMyBahGosh, starting with LG webOS homebrew.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "icons": [{ "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
