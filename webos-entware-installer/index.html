@@ -216,6 +216,7 @@
   <section id="faq" data-pal="Entware FAQ" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
     <div class="rv">
+      <details class="faq"><summary>Was this written by AI?</summary><div>Recent versions are written with AI coding agents (Claude), directed, reviewed and tested by me.  A test suite runs install, repair, reboots and uninstall in a sandbox under busybox, dash and bash, and the installer test-runs each build on your TV before keeping it.  <a class="c-pk" href="/#built">How these are built</a>.</div></details>
       <details class="faq"><summary>Why 32-bit or 64-bit?</summary><div>Every LG TV runs a 32-bit system, but Entware brings its own libraries, so only the kernel matters.  A 64-bit kernel runs the faster <code>aarch64</code> build (one owner measured about 19% on a G4).  A 32-bit kernel needs <code>armv7</code>.</div></details>
       <details class="faq"><summary>Where does it download from?</summary><div>Only Entware's official server, using the same files as Entware's own <code>generic.sh</code> installer.</div></details>
       <details class="faq"><summary>SSH closes right after login?</summary><div>Get a plain shell with <code>ssh -t root@TV_IP sh</code> or telnet, run <code>rm /home/root/.profile</code>, then <code>webos-entware install</code> to repair.</div></details>

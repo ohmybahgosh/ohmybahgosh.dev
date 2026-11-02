@@ -196,10 +196,22 @@
     <div class="bento">
       <div class="card s2 rv"><div class="ic">01</div><h3>Look before you touch</h3><p>Each tool reads your model, webOS version, kernel and free space first, and says what it will do before it does it.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">02</div><h3>Undo is a command</h3><p>One file in the Homebrew Channel's boot folder, a clean <code>uninstall</code>, and a reboot that always starts clean.</p></div>
-      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested without a TV</h3><p>Fake <code>/sys</code>, fake <code>ip</code>, fake <code>opkg</code>.  CI runs every suite under busybox, dash and bash.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested without a TV</h3><p>Fake <code>/sys</code>, fake <code>ip</code>, fake <code>opkg</code>.  Every suite runs under busybox, dash and bash.</p></div>
       <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">04</div><h3>No accounts, no tracking</h3><p>Open source and MIT licensed.  Bring your own playlist.  Nothing phones home except an opt-out anonymous install count in TiviBro.</p></div>
       <div class="card s3 rv" style="--ca:#8b5cff"><div class="ic">05</div><h3>Made for real people</h3><p>Plain-language READMEs, <code>doctor</code> and <code>report</code> commands, and bug reports you can file from your couch.</p></div>
     </div>
+  </section>
+
+  <section id="built" data-pal="AI-assisted, human-built" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git log --format='%an · %cn'</div><h2 class="h2" style="margin-top:12px">AI-assisted.  Not AI slop.</h2><p>A lot of the code in these projects, and on this site, is written with AI coding agents (Claude).  I'd rather say so than have you guess.  What makes it more than slop is everything around the code.</p></div></div>
+    <div class="bento">
+      <div class="card s2 rv"><div class="ic">01</div><h3>I decide what it does</h3><p>I design every feature, set the rules the agents work under, and turn down plenty of what they suggest.  17+ years of building software, a day job in data engineering, and pentesting for fun go into every review.</p></div>
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">02</div><h3>Real TVs, every release</h3><p>Nothing ships until it runs on a real LG TV.  TiviBro runs daily on webOS 4, 5, 22 and 25 sets.  LG-USB-2-ETH0 is tested on an LG C2 running webOS 25.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tests, not vibes</h3><p>TiviBro runs lint, unit tests and a test build on every push.  LG-USB-2-ETH0 runs 60+ tests under busybox, dash and bash, plus ShellCheck.  The Entware installer's suite runs install, repair, reboot and uninstall in a sandbox.</p></div>
+      <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">04</div><h3>The TV finds what the AI misses</h3><p>The fixes that mattered most came from testing on a real TV, not from the AI: standby putting the adapter back on the slow driver, webOS quietly sending traffic over Wi-Fi instead of the adapter, and a report form opening blank on a phone.</p></div>
+      <div class="card s3 rv" style="--ca:#8b5cff"><div class="ic">05</div><h3>Nothing hidden</h3><p>Commits list me as the author and Claude as the committer, so the AI's part is right there in the git history, and the commits show as Verified.  Downloads are checked by SHA-256.  Found a problem?  <a class="c-cy" href="/contact/">Tell me</a>.</p></div>
+    </div>
+    <p class="muted rv" style="margin:18px 0 0">The longer version is on the <a class="c-cy" href="/about/#ai">about page</a>.  Each project's README has its own note on how it's built.</p>
   </section>
 
   <section id="about" data-pal="about OhMyBahGosh" style="padding-top:20px">
