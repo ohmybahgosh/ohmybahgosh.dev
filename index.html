@@ -15,7 +15,7 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=e8836ac9">
+<link rel="stylesheet" href="/assets/css/site.css?v=56791afa">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="OhMyBahGosh · open-source projects and webOS homebrew">
@@ -169,7 +169,7 @@
       <a class="card repo s3 rv" href="/lg-usb-2-eth0/" style="--ca:#3ddc97;--cb:#33e1ff">
         <span class="go">↗</span>
         <div class="path">~/lg-usb-2-eth0 <span class="pill" style="--ca:#3ddc97" data-gh="LG-USB-2-ETH0:release">v2.2</span></div>
-        <h3>LG-USB-2-ETH0</h3>
+        <h3 style="display:flex;gap:14px;align-items:center"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48" loading="lazy">LG-USB-2-ETH0</h3>
         <p>LG TVs ship with a 100 Mbit/s port.  This makes a USB Ethernet adapter the TV's <code class="c-gr">eth0</code>, so settings and streaming apps use the faster wired link.  Two to three times the speed, at every boot, from a TV app in the Homebrew Channel.</p>
         <div class="tags"><span>posix-sh</span><span>busybox</span><span>usb-ethernet</span><span>r8152</span></div>
         <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span><span>listed in awesome-webos</span></div>
@@ -177,12 +177,26 @@
 
       <a class="card repo s3 rv" href="/webos-entware-installer/" style="--ca:#ff3ea5;--cb:#ffb547">
         <span class="go">↗</span>
-        <div class="path">~/webos-entware-installer <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.6.0</span></span></div>
-        <h3>Entware Installer</h3>
-        <p>One-line Entware for rooted webOS.  Picks the right 64-bit or 32-bit build, test-runs it, survives reboots and uninstalls cleanly.  Comes with <code class="c-pk">ent</code>, bash, nano and webOS helpers.</p>
-        <div class="tags"><span>entware</span><span>opkg</span><span>aarch64</span><span>armv7</span></div>
+        <div class="path">~/webos-entware-installer <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.8.0</span></span></div>
+        <h3 style="display:flex;gap:14px;align-items:center"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48" loading="lazy">Entware</h3>
+        <p>A real Linux toolbox for rooted webOS: hundreds of packages, a bash shell and one-press add-ons like git, Python and htop.  Run it from a TV app in the Homebrew Channel, or one line over SSH.  Picks the right build, survives reboots and uninstalls cleanly.</p>
+        <div class="tags"><span>entware</span><span>opkg</span><span>webos-app</span><span>aarch64</span><span>armv7</span></div>
         <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="WEBOS-ENTWARE-INSTALLER:stars">3</b></span><span>webOS 23 · 24 · 25</span></div>
       </a>
+    </div>
+  </section>
+
+  <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
+    <div class="card rv" style="padding:28px">
+      <div class="eyebrow">homebrew channel repo</div>
+      <h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Two TV apps.  One repository.</h2>
+      <p class="muted" style="margin:0 0 6px;max-width:720px">Add this once in the Homebrew Channel (gear icon, <b class="c-wh">Repositories</b>, <b class="c-wh">Add repository</b>) and both apps show up in its app list, with updates as new versions come out.  No SSH needed.</p>
+      <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
+      <div class="hbapps">
+        <a class="hbapp" href="/lg-usb-2-eth0/#homebrew"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>LG-USB-2-ETH0 <span class="pill" style="--ca:#3ddc97" data-gh="LG-USB-2-ETH0:release">v2.3.1</span></b><span>Make a USB Ethernet adapter the TV's eth0.</span></div></a>
+        <a class="hbapp" href="/webos-entware-installer/#homebrew"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>Entware <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.8.0</span></span></b><span>Linux packages, a bash shell and add-ons.</span></div></a>
+      </div>
+      <p class="dim" style="font-size:14px;margin:14px 0 0">TiviBro has its own Homebrew Channel repository on tivibro.app; see the <a class="c-cy" href="/tivibro/">TiviBro page</a>.</p>
     </div>
   </section>
 
@@ -255,7 +269,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=e8836ac9" defer></script>
+<script src="/assets/js/site.js?v=56791afa" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

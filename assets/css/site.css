@@ -371,3 +371,16 @@ html[data-theme=light] .pick{background:#fff}
 .about-side .scr{white-space:pre;overflow-x:auto}
 .about-teaser{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
 @media (max-width:720px){.about-teaser{grid-template-columns:1fr}}
+
+/* TV apps: icons, Homebrew repo cards */
+.appgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.appgrid .card{padding:18px}.appgrid .card h3{font-size:18px}.appgrid .card p{font-size:14px}
+@media (max-width:560px){.appgrid{grid-template-columns:1fr}}
+.hb-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.hb-head img,.appicon{width:72px;height:72px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.45);flex:none}
+.appicon.sm{width:48px;height:48px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.hbapps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.hbapp{display:flex;gap:14px;align-items:center;padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:inherit;text-decoration:none;transition:border-color .2s}
+.hbapp:hover{border-color:var(--line2)}
+.hbapp b{display:block;color:var(--fg);font-size:16px}.hbapp div>span{color:var(--fg2);font-size:14px}
+@media (max-width:640px){.hbapps{grid-template-columns:1fr}}
