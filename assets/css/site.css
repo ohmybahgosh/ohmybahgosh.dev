@@ -53,7 +53,21 @@ code,kbd,pre,.mono{font-family:var(--mono)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2.2s infinite}
 @keyframes pulse{50%{opacity:.35}}
 @media (max-width:860px){.nav .hide-s,.status{display:none}}
-@media (max-width:520px){.nav a.hide-xs{display:none}.kbtn span{display:none}}
+.nav a,.kbtn{white-space:nowrap}
+.kbtn .ic-s{display:none}
+/* phones: logo + theme + search only; the palette covers navigation */
+@media (max-width:720px){
+  .top .wrap{gap:12px}
+  .nav{gap:8px}
+  .nav a{display:none}
+  .kbtn{padding:8px 12px;font-size:13px}
+  .kbtn kbd{display:none}
+  .kbtn .ic-s{display:inline;font-size:15px;line-height:1}
+  .hero{padding-top:36px;gap:32px}
+  .term .scr{min-height:calc(var(--th,300px) * .82)}
+}
+@media (max-width:380px){.logo{font-size:14px}.kbtn:not(.theme) span:not(.ic-s){display:none}}
+@media (pointer:coarse){.kbtn kbd{display:none}}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:10px;font:600 14px var(--mono);padding:13px 18px;border-radius:11px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--fg);transition:.2s;cursor:pointer}
