@@ -203,6 +203,7 @@
     ...REPOS.map((r) => ({ i: '↗', t: `open github/${r.name}`, s: 'GitHub', u: `https://github.com/ohmybahgosh/${r.name}` })),
     { i: '↗', t: 'open tivibro.app', s: 'TiviBro website', u: 'https://tivibro.app' },
     { i: '↗', t: 'open github/ohmybahgosh', s: 'all repos', u: 'https://github.com/ohmybahgosh' },
+    { i: '?', t: 'whoami', s: 'about OhMyBahGosh', u: ROOT + 'about/' },
     { i: '@', t: 'mail hello', s: 'contact and templates', u: ROOT + 'contact/' },
     { i: '◐', t: 'theme toggle', s: 'light / dark', u: '#theme' },
     ...$$('section[id][data-pal]').map((s) => ({ i: '#', t: 'goto ' + s.id, s: s.dataset.pal, u: '#' + s.id })),

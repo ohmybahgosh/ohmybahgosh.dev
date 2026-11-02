@@ -52,7 +52,8 @@ code,kbd,pre,.mono{font-family:var(--mono)}
 .status{display:flex;align-items:center;gap:8px;font:12px var(--mono);color:var(--fg3)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2.2s infinite}
 @keyframes pulse{50%{opacity:.35}}
-@media (max-width:860px){.nav .hide-s,.status{display:none}}
+@media (max-width:860px){.nav .hide-s{display:none}}
+@media (max-width:1180px){.status{display:none}}
 .nav a,.kbtn{white-space:nowrap}
 .kbtn .ic-s{display:none}
 /* phones: logo + theme + search only; the palette covers navigation */
@@ -357,3 +358,16 @@ html[data-theme=light] .marq .in span:before{color:var(--accent)}
 .warnbox{margin-top:12px;border-left:3px solid var(--amber);background:color-mix(in srgb,var(--amber) 8%,transparent);padding:12px 14px;border-radius:0 10px 10px 0;font-size:14px;color:var(--fg2)}
 html[data-theme=light] .fld input,html[data-theme=light] .fld textarea,html[data-theme=light] .fld select{background:#fff}
 html[data-theme=light] .pick{background:#fff}
+
+/* about page */
+.about-hero{padding:56px 0 18px}
+.about-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:44px;align-items:start;padding-bottom:40px}
+@media (max-width:920px){.about-grid{grid-template-columns:1fr;gap:28px}}
+.bio p{font-size:17.5px;line-height:1.75;color:var(--fg2);margin:0 0 20px}
+.bio p b{color:var(--hi)}
+.bio h2{font-size:clamp(24px,2.6vw,30px);margin:34px 0 14px}
+.about-side{position:sticky;top:84px}
+@media (max-width:920px){.about-side{position:static}}
+.about-side .scr{white-space:pre;overflow-x:auto}
+.about-teaser{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+@media (max-width:720px){.about-teaser{grid-template-columns:1fr}}
