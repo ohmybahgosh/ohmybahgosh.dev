@@ -102,16 +102,6 @@ Plain HTML, CSS and JavaScript.  No framework, no bundler, no build step: GitHub
 
 **Design:** dark grid background, neon glows, glass cards with a cursor spotlight.  Type is [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/).  Each project page sets its own accent color with a body class (`p-tivibro`, `p-eth0`, `p-entware`).
 
-## Run it locally
-
-```sh
-git clone https://github.com/ohmybahgosh/ohmybahgosh.dev
-cd ohmybahgosh.dev
-python3 -m http.server 8000
-```
-
-Then open <http://localhost:8000>.  Paths are root-relative, so open it through a server rather than as a file.
-
 ## Add a project
 
 1. **Copy a project folder**, for example `lg-usb-2-eth0/`, to a new folder named after the repo in lowercase.
