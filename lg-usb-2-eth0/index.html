@@ -88,7 +88,7 @@
     <div>
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">lg-usb-2-eth0</span></div>
       <h1 class="h1" style="margin-top:20px;font-size:clamp(40px,6vw,72px)">Your TV's<br>fast lane is <span class="grad">eth0.</span></h1>
-      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB 3.0 gigabit adapter is two to three times faster, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  This script makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.</p>
+      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB gigabit adapter is two to three times faster, even on a USB 2.0 port like the one on a 2022 C2, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  This script makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.</p>
       <div class="btns">
         <a class="btn pri" href="#install">$ install</a>
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0" target="_blank" rel="noopener">source ↗</a>
@@ -198,7 +198,7 @@
     <div class="bento">
       <div class="card s2 rv"><div class="ic">RTL</div><h3>Realtek 8153 / 8156</h3><p>The most common gigabit and 2.5G chips.  Newer kernels may only offer generic <code>cdc_ncm</code>, which works but is slower.  <code>get-driver</code> fixes that on supported kernels.</p></div>
       <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">AX</div><h3>ASIX AX88179</h3><p>Works out of the box on many older TVs.  One report of the newer AX88179A not being detected on webOS 25.</p></div>
-      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">3.0</div><h3>Use a USB 3.0 port</h3><p>On USB 2.0 you'll top out around 300 Mbit/s.  A powered hub can help with fussy adapters.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">USB</div><h3>USB 2.0 is fine</h3><p>Many TVs, like the 2022 C2, only have USB 2.0 ports.  That tops out around 300 Mbit/s: still about 3x the built-in port and faster than Wi-Fi.  Use USB 3.0 if your TV has it, and a powered hub for fussy adapters.</p></div>
     </div>
     <div class="tblw rv" style="margin-top:18px"><table class="tbl">
       <thead><tr><th>webOS</th><th>reported</th></tr></thead>
