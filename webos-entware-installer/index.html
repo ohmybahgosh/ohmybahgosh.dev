@@ -118,7 +118,38 @@
     </div>
   </section>
 
-  <section id="app" data-pal="the Entware TV app" style="padding-top:40px">
+  <section id="features" data-pal="features" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">features</div><h2 class="h2" style="margin-top:12px">Careful by default.</h2><p>Built so a TV you love never ends up half-installed.</p></div></div>
+    <div class="bento">
+      <div class="card s3 rv"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Checks before it touches</h3><p>Root, model, webOS version, kernel, Homebrew Channel, free space and the Entware server, all before anything changes.</p></div>
+      <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">64</div><h3>Picks the right build</h3><p>Recommends 64-bit <code>aarch64</code> or 32-bit <code>armv7</code> from your kernel, explains why, and test-runs it.  If 64-bit can't run, it falls back.</p></div>
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>Never half-installed</h3><p>A fresh install that fails partway undoes everything.  A failed repair keeps your packages.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></svg></div><h3>Survives reboots</h3><p>A Homebrew Channel boot script remounts <code>/opt</code> and starts services, with a backup remount at SSH login.</p></div>
+      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div><h3><code>doctor</code></h3><p>Shows what's installed and says exactly what to fix.  Ends with "Everything looks right."</p></div>
+      <div class="card s3 rv"><div class="ic">$_</div><h3>A shell worth living in</h3><p>Optional bash with nano, colors, a neon prompt and handy aliases, plus a safe fallback to the stock shell if bash ever breaks.  Your own <code>.profile</code> and <code>.bashrc</code> are backed up and restored.</p></div>
+      <div class="card s3 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18"/><path d="M7 6.5h.01M7 11.5h.01M7 16.5h.01"/></svg></div><h3>Room to grow</h3><p>New installs go on the TV's app storage, about 2.7 GB on a C2 against 720 MB of user data, and it keeps Entware through "Reset to initial settings".  <a class="c-pk" href="#location">Where it lives</a>.</p></div>
+      <div class="card s3 rv" style="--ca:#3ddc97"><div class="ic">#</div><h3>Root's alone</h3><p>Entware runs as root, so it's only used when its folder and everything on the way to what runs is owned by root and writable by no one else.  Anything else is unmounted unused.</p></div>
+      <div class="card s3 rv" style="--ca:#ffb547"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M8 2l4 4 4-4"/></svg></div><h3>webOS helpers</h3><p><code>toast</code>, <code>launch</code>, <code>close</code>, <code>apps</code>, <code>applog</code> and <code>tvshot</code> talk to the TV through <code>luna-send</code>, with Tab completion for app IDs.</p></div>
+    </div>
+  </section>
+
+  <section id="addons" data-pal="Entware add-ons" style="padding-top:20px">
+    <div class="two rv" style="align-items:center">
+      <div>
+        <div class="eyebrow">webos-entware addons</div>
+        <h2 class="h2" style="margin:12px 0 16px">One press.  Set up for webOS.</h2>
+        <p class="muted">Some packages need extra setup before they work on a TV.  Add-ons do it for you, from the app or the command line: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl, jq and a login banner with a webOS wordmark and your TV's specs.  Each one can be added, finished or removed on its own.</p>
+        <div class="code"><pre><span class="pr">$ </span>webos-entware addons
+<span class="pr">$ </span>webos-entware add git
+<span class="pr">$ </span>webos-entware add banner
+<span class="pr">$ </span>webos-entware remove python</pre></div>
+      </div>
+      <div class="gallery" style="grid-template-columns:1fr"><figure><img src="/assets/img/entware-cli-addons.webp" alt="webos-entware addons lists each add-on and whether it's installed, then webos-entware add banner sets up the login banner" loading="lazy" width="1100" height="972" style="aspect-ratio:auto"><figcaption>webos-entware addons</figcaption></figure>
+        <figure><img src="/assets/img/entware-cli-banner.webp" alt="Logging in to an LG C2 over SSH with the login banner: a webOS wordmark in a pink to cyan gradient, then the TV's specs in boxes for Software, Hardware and Uptime" loading="lazy" width="1100" height="956" style="aspect-ratio:auto"><figcaption>the login banner</figcaption></figure></div>
+    </div>
+  </section>
+
+  <section id="app" data-pal="the Entware TV app" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">the tv app</div><h2 class="h2" style="margin-top:12px;display:flex;gap:16px;align-items:center"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48">No SSH needed.</h2><p>The TV app runs the same installer underneath, as root through the Homebrew Channel.  Install, repair, add-ons, updates and uninstall, all from the remote.</p></div><a class="btn pri" href="#homebrew">get it ↓</a></div>
     <div class="two rv" style="align-items:center">
       <div class="tv" style="margin-bottom:26px"><img src="/assets/img/entware-app-status.webp" alt="The Entware app on an LG C2: Entware is ready, 36 packages on app storage, no problems found, with Check and repair, Package updates (2 updates available), Add-ons, Full check, Report a problem and Uninstall Entware" width="1280" height="720" loading="lazy"></div>
@@ -150,37 +181,6 @@
         <div class="step"><div><h3>Install, then open it</h3><p>Go back to the app list, install <b class="c-wh">Entware</b>, open it and choose <b class="c-wh">Install Entware</b>.  It needs root, which the Homebrew Channel already has.</p></div></div>
       </div>
       <p class="dim" style="font-size:14px;margin:16px 0 0">Or install the IPK yourself: <code>org.ohmybahgosh.entware_*.ipk</code> is attached to every <a class="c-pk" href="https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/latest" target="_blank" rel="noopener">release</a>.</p>
-    </div>
-  </section>
-
-  <section id="features" data-pal="features" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">features</div><h2 class="h2" style="margin-top:12px">Careful by default.</h2><p>Built so a TV you love never ends up half-installed.</p></div></div>
-    <div class="bento">
-      <div class="card s3 rv"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Checks before it touches</h3><p>Root, model, webOS version, kernel, Homebrew Channel, free space and the Entware server, all before anything changes.</p></div>
-      <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">64</div><h3>Picks the right build</h3><p>Recommends 64-bit <code>aarch64</code> or 32-bit <code>armv7</code> from your kernel, explains why, and test-runs it.  If 64-bit can't run, it falls back.</p></div>
-      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>Never half-installed</h3><p>A fresh install that fails partway undoes everything.  A failed repair keeps your packages.</p></div>
-      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></svg></div><h3>Survives reboots</h3><p>A Homebrew Channel boot script remounts <code>/opt</code> and starts services, with a backup remount at SSH login.</p></div>
-      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div><h3><code>doctor</code></h3><p>Shows what's installed and says exactly what to fix.  Ends with "Everything looks right."</p></div>
-      <div class="card s3 rv"><div class="ic">$_</div><h3>A shell worth living in</h3><p>Optional bash with nano, colors, a neon prompt and handy aliases, plus a safe fallback to the stock shell if bash ever breaks.  Your own <code>.profile</code> and <code>.bashrc</code> are backed up and restored.</p></div>
-      <div class="card s3 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18"/><path d="M7 6.5h.01M7 11.5h.01M7 16.5h.01"/></svg></div><h3>Room to grow</h3><p>New installs go on the TV's app storage, about 2.7 GB on a C2 against 720 MB of user data, and it keeps Entware through "Reset to initial settings".  <a class="c-pk" href="#location">Where it lives</a>.</p></div>
-      <div class="card s3 rv" style="--ca:#3ddc97"><div class="ic">#</div><h3>Root's alone</h3><p>Entware runs as root, so it's only used when its folder and everything on the way to what runs is owned by root and writable by no one else.  Anything else is unmounted unused.</p></div>
-      <div class="card s3 rv" style="--ca:#ffb547"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M8 2l4 4 4-4"/></svg></div><h3>webOS helpers</h3><p><code>toast</code>, <code>launch</code>, <code>close</code>, <code>apps</code>, <code>applog</code> and <code>tvshot</code> talk to the TV through <code>luna-send</code>, with Tab completion for app IDs.</p></div>
-    </div>
-  </section>
-
-  <section id="addons" data-pal="Entware add-ons" style="padding-top:20px">
-    <div class="two rv" style="align-items:center">
-      <div>
-        <div class="eyebrow">webos-entware addons</div>
-        <h2 class="h2" style="margin:12px 0 16px">One press.  Set up for webOS.</h2>
-        <p class="muted">Some packages need extra setup before they work on a TV.  Add-ons do it for you, from the app or the command line: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl, jq and a login banner with a webOS wordmark and your TV's specs.  Each one can be added, finished or removed on its own.</p>
-        <div class="code"><pre><span class="pr">$ </span>webos-entware addons
-<span class="pr">$ </span>webos-entware add git
-<span class="pr">$ </span>webos-entware add banner
-<span class="pr">$ </span>webos-entware remove python</pre></div>
-      </div>
-      <div class="gallery" style="grid-template-columns:1fr"><figure><img src="/assets/img/entware-cli-addons.webp" alt="webos-entware addons lists each add-on and whether it's installed, then webos-entware add banner sets up the login banner" loading="lazy" width="1100" height="972" style="aspect-ratio:auto"><figcaption>webos-entware addons</figcaption></figure>
-        <figure><img src="/assets/img/entware-cli-banner.webp" alt="Logging in to an LG C2 over SSH with the login banner: a webOS wordmark in a pink to cyan gradient, then the TV's specs in boxes for Software, Hardware and Uptime" loading="lazy" width="1100" height="956" style="aspect-ratio:auto"><figcaption>the login banner</figcaption></figure></div>
     </div>
   </section>
 
@@ -322,11 +322,6 @@
     </table></div>
   </section>
 
-  <section id="changes-log" data-pal="Entware recent changes" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">git log --oneline</div><h2 class="h2" style="margin-top:12px">Recent changes.</h2><p>The latest commits, pulled from GitHub automatically.</p></div><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/commits/main" target="_blank" rel="noopener">full history ↗</a></div>
-    <div class="timeline rv" id="timeline" data-repo="WEBOS-ENTWARE-INSTALLER" data-mode="commits" aria-live="polite"><p class="muted">loading changes…</p></div>
-  </section>
-
   <section id="faq" data-pal="Entware FAQ" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
     <div class="rv">
@@ -342,6 +337,11 @@
 
   <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
     <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px">Pick a template and it fills in the right GitHub form for you.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="/contact/?t=ent-bug">report a bug</a><a class="btn" href="/contact/?t=ent-idea">suggest an idea</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+  </section>
+
+  <section id="releases" data-pal="Entware release notes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git tag --sort=-creatordate</div><h2 class="h2" style="margin-top:12px">Release notes.</h2><p>Every release and what changed, pulled from GitHub automatically.</p></div><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+    <div class="timeline rv" id="timeline" data-repo="WEBOS-ENTWARE-INSTALLER" aria-live="polite"><p class="muted">loading releases…</p></div>
   </section>
 </div>
 </main>

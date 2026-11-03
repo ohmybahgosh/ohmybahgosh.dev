@@ -185,37 +185,6 @@
     </div>
   </section>
 
-  <section id="speeds" data-pal="real speeds" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">real speeds</div><h2 class="h2" style="margin-top:12px">Not gigabit.  Still 3x.</h2><p>The TV's USB port is the limit, so don't expect gigabit.  On a C2 at full speed the busiest CPU core was only about a third busy.  But two to three times the built-in port is plenty for 4K remuxes.</p></div></div>
-    <div class="card rv figcard"><img src="/assets/img/eth0-speeds.svg" alt="Measured speeds in Mbit/s: built-in port about 95; RTL8153 on the generic cdc_ncm driver 200 to 255, with drops; the same adapter with the r8152 module 290 to 330; RTL8156 on a C2 over USB 2.0 with r8152_oot 272 down and 287 up." width="1280" height="470" loading="lazy"></div>
-    <p class="dim mono rv" style="font-size:12px;margin-top:12px">Measured by DonZoomik (webos-r8152), lgwebos.com users and on the author's C2.</p>
-  </section>
-
-  <section id="how" data-pal="how it works" style="padding-top:20px">
-    <div class="two rv">
-      <div>
-        <div class="eyebrow">how it works</div>
-        <h2 class="h2" style="margin:12px 0 16px">One hook.  Nothing else touched.</h2>
-        <p class="muted">At boot the Homebrew Channel runs everything in <code class="c-gr">/var/lib/webosbrew/init.d</code>.  LG-USB-2-ETH0 adds one hook there, a link to the script, and keeps its settings in <code class="c-gr">/var/lib/webosbrew/lg-usb-2-eth0.conf</code>, so updates never lose them.  It only renames network interfaces.  No system files are touched, and network settings only if you turn on the Wi-Fi backup, so a reboot without the hook always starts clean.</p>
-        <div class="callout" style="margin-top:22px"><b>Undo everything:</b> <b>Turn everything off</b> in the TV app, or <code>sh LG-USB-2-ETH0.sh uninstall --now</code></div>
-      </div>
-      <div class="steps">
-        <div class="step"><div><h3>Returns at once</h3><p>Starts in the background so other hooks and the failsafe timer aren't held up.</p></div></div>
-        <div class="step"><div><h3>Waits for a real adapter</h3><p>Only wired Ethernet on USB counts.  Wi-Fi, phones and modems are skipped.  No adapter, no changes.</p></div></div>
-        <div class="step"><div><h3>Optional faster driver</h3><p>With <code class="c-gr">--module</code>, moves the adapter from generic <code>cdc_ncm</code> to a better driver, with one try per boot and an automatic fallback.</p></div></div>
-        <div class="step"><div><h3>Swaps the names</h3><p>Built-in <code>eth0</code> becomes <code>eth2</code>, the adapter becomes <code>eth0</code>.  Interrupted renames retry, and failures roll back.</p></div></div>
-        <div class="step"><div><h3>Follows hotplug</h3><p>With <code class="c-gr">--watch</code>, plug the adapter in or out any time and <code>eth0</code> follows it.</p></div></div>
-        <div class="step"><div><h3>Survives standby</h3><p>Standby resets the TV's USB ports and drops the adapter back to <code>cdc_ncm</code>.  With <code class="c-gr">--module</code>, the hook moves it to the faster driver again.  The check costs next to nothing.</p></div></div>
-        <div class="step"><div><h3>Keeps Wi-Fi as a backup</h3><p>With <code class="c-gr">--wifi-fallback</code>, if <code>eth0</code> has no cable link for a minute while Wi-Fi is off, it turns Wi-Fi on so the TV joins a network it knows, and turns it off again 30 seconds after the cable is back.  It only turns off what it turned on.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="releases" data-pal="LG-USB-2-ETH0 release notes" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">git tag --sort=-creatordate</div><h2 class="h2" style="margin-top:12px">Release notes.</h2><p>Every release and what changed, pulled from GitHub automatically.</p></div><a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases" target="_blank" rel="noopener">all releases ↗</a></div>
-    <div class="timeline rv" id="timeline" data-repo="LG-USB-2-ETH0" aria-live="polite"><p class="muted">loading releases…</p></div>
-  </section>
-
   <section id="install" data-pal="install LG-USB-2-ETH0" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">ssh quick start</div><h2 class="h2" style="margin-top:12px">Prefer SSH?</h2><p>The <a class="c-gr" href="#homebrew">TV app</a> is the easiest way in.  This is the same thing without it.  You need a rooted LG TV with the Homebrew Channel, SSH as root, and <b class="c-wh">a Wi-Fi connection while you set this up</b>, since renaming takes the wired ports down for a moment.</p></div></div>
     <div class="rv code"><pre><span class="pr">$ </span>cd /tmp
@@ -275,6 +244,32 @@
     </div>
   </section>
 
+  <section id="speeds" data-pal="real speeds" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">real speeds</div><h2 class="h2" style="margin-top:12px">Not gigabit.  Still 3x.</h2><p>The TV's USB port is the limit, so don't expect gigabit.  On a C2 at full speed the busiest CPU core was only about a third busy.  But two to three times the built-in port is plenty for 4K remuxes.</p></div></div>
+    <div class="card rv figcard"><img src="/assets/img/eth0-speeds.svg" alt="Measured speeds in Mbit/s: built-in port about 95; RTL8153 on the generic cdc_ncm driver 200 to 255, with drops; the same adapter with the r8152 module 290 to 330; RTL8156 on a C2 over USB 2.0 with r8152_oot 272 down and 287 up." width="1280" height="470" loading="lazy"></div>
+    <p class="dim mono rv" style="font-size:12px;margin-top:12px">Measured by DonZoomik (webos-r8152), lgwebos.com users and on the author's C2.</p>
+  </section>
+
+  <section id="how" data-pal="how it works" style="padding-top:20px">
+    <div class="two rv">
+      <div>
+        <div class="eyebrow">how it works</div>
+        <h2 class="h2" style="margin:12px 0 16px">One hook.  Nothing else touched.</h2>
+        <p class="muted">At boot the Homebrew Channel runs everything in <code class="c-gr">/var/lib/webosbrew/init.d</code>.  LG-USB-2-ETH0 adds one hook there, a link to the script, and keeps its settings in <code class="c-gr">/var/lib/webosbrew/lg-usb-2-eth0.conf</code>, so updates never lose them.  It only renames network interfaces.  No system files are touched, and network settings only if you turn on the Wi-Fi backup, so a reboot without the hook always starts clean.</p>
+        <div class="callout" style="margin-top:22px"><b>Undo everything:</b> <b>Turn everything off</b> in the TV app, or <code>sh LG-USB-2-ETH0.sh uninstall --now</code></div>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Returns at once</h3><p>Starts in the background so other hooks and the failsafe timer aren't held up.</p></div></div>
+        <div class="step"><div><h3>Waits for a real adapter</h3><p>Only wired Ethernet on USB counts.  Wi-Fi, phones and modems are skipped.  No adapter, no changes.</p></div></div>
+        <div class="step"><div><h3>Optional faster driver</h3><p>With <code class="c-gr">--module</code>, moves the adapter from generic <code>cdc_ncm</code> to a better driver, with one try per boot and an automatic fallback.</p></div></div>
+        <div class="step"><div><h3>Swaps the names</h3><p>Built-in <code>eth0</code> becomes <code>eth2</code>, the adapter becomes <code>eth0</code>.  Interrupted renames retry, and failures roll back.</p></div></div>
+        <div class="step"><div><h3>Follows hotplug</h3><p>With <code class="c-gr">--watch</code>, plug the adapter in or out any time and <code>eth0</code> follows it.</p></div></div>
+        <div class="step"><div><h3>Survives standby</h3><p>Standby resets the TV's USB ports and drops the adapter back to <code>cdc_ncm</code>.  With <code class="c-gr">--module</code>, the hook moves it to the faster driver again.  The check costs next to nothing.</p></div></div>
+        <div class="step"><div><h3>Keeps Wi-Fi as a backup</h3><p>With <code class="c-gr">--wifi-fallback</code>, if <code>eth0</code> has no cable link for a minute while Wi-Fi is off, it turns Wi-Fi on so the TV joins a network it knows, and turns it off again 30 seconds after the cable is back.  It only turns off what it turned on.</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <section id="compat" data-pal="webOS compatibility" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">compatibility</div><h2 class="h2" style="margin-top:12px">The chip matters more than the brand.</h2><p>What decides whether it works is whether your TV's kernel has a driver for your adapter's chip.  Run <code class="c-gr">status</code> before buying: it lists the USB network drivers your kernel has.</p></div></div>
     <div class="bento">
@@ -309,6 +304,11 @@
 
   <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
     <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px">Pick a template and it fills in the right GitHub form for you.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="/contact/?t=eth-compat">send a compatibility report</a><a class="btn" href="/contact/?t=eth-bug">report a bug</a><a class="btn" href="/contact/?t=eth-idea">suggest an idea</a></div></div>
+  </section>
+
+  <section id="releases" data-pal="LG-USB-2-ETH0 release notes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git tag --sort=-creatordate</div><h2 class="h2" style="margin-top:12px">Release notes.</h2><p>Every release and what changed, pulled from GitHub automatically.</p></div><a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+    <div class="timeline rv" id="timeline" data-repo="LG-USB-2-ETH0" aria-live="polite"><p class="muted">loading releases…</p></div>
   </section>
 </div>
 </main>
