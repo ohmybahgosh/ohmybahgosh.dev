@@ -385,3 +385,8 @@ html[data-theme=light] .pick{background:#fff}
 .hbapp b{display:block;color:var(--fg);font-size:16px}.hbapp div>span{color:var(--fg2);font-size:14px}
 .figcard{padding:0}.figcard img{display:block;width:100%;height:auto}
 .tv video{display:block}
+
+/* project logo lockup (app icon + name), like the TiviBro wordmark */
+.lockup{display:flex;align-items:center;gap:16px;margin:22px 0 6px}
+.lockup img{width:64px;height:64px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.45);flex:none}
+.lockup span{font:700 clamp(28px,3.6vw,40px)/1 var(--sans);letter-spacing:-.02em;color:var(--hi)}
