@@ -310,14 +310,14 @@ html[data-theme=light] .pal{background:rgba(230,236,248,.6)}
 .feed .empty{display:block;padding:18px;color:var(--fg3);font:13px var(--mono)}
 
 /* release timeline */
-.timeline{position:relative;display:grid;gap:16px;padding-left:28px}
+.timeline{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding-left:28px}
 .timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),transparent)}
 .rel{position:relative}
 .rel:before{content:"";position:absolute;left:-27px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 12px color-mix(in srgb,var(--accent) 60%,transparent)}
 .rel .card{padding:20px 22px}
 .rel h3{font-size:19px;margin:0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .rel .when{font:12px var(--mono);color:var(--fg3);margin:4px 0 10px}
-.rel p{margin:0;color:var(--fg2);font-size:15px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.rel p{margin:0;color:var(--fg2);font-size:15px;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 html[data-theme=light] .pill{color:color-mix(in srgb,var(--ca,var(--green)) 62%,#000)}
 html[data-theme=light] .feed .k{color:color-mix(in srgb,var(--kc,var(--accent)) 62%,#000)}
 html[data-theme=light] .card .ic{color:color-mix(in srgb,var(--ca,var(--accent)) 70%,#000)}
