@@ -8,7 +8,7 @@
   const REPOS = [
     { name: 'TiviBro', slug: 'tivibro', desc: 'The IPTV player LG TVs never got' },
     { name: 'LG-USB-2-ETH0', slug: 'lg-usb-2-eth0', desc: 'USB Ethernet becomes the TV\'s eth0' },
-    { name: 'WEBOS-ENTWARE-INSTALLER', slug: 'webos-entware-installer', desc: 'One-line Entware for rooted webOS' },
+    { name: 'WEBOS-ENTWARE-INSTALLER', slug: 'webos-entware-installer', desc: 'Entware for rooted webOS: TV app, packages, add-ons' },
   ];
 
   /* ---------- typed terminals ---------- */

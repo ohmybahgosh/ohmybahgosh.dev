@@ -55,9 +55,9 @@ Make a USB Ethernet adapter the TV's `eth0` on rooted LG webOS TVs, so settings 
 </td>
 <td width="33%" valign="top">
 
-### [📦 Entware Installer](https://ohmybahgosh.dev/webos-entware-installer/)
+### [📦 Entware](https://ohmybahgosh.dev/webos-entware-installer/)
 
-One-line Entware for rooted webOS.  Picks the right 64-bit or 32-bit build, test-runs it, survives reboots and uninstalls cleanly.  Comes with `ent`, bash, nano and webOS helpers.
+Entware for rooted webOS, from a TV app in the Homebrew Channel or one line over SSH.  Hundreds of packages, a bash shell, package updates and one-press add-ons, installed on the TV's app storage.  Survives reboots and uninstalls cleanly.
 
 [![Stars](https://img.shields.io/github/stars/ohmybahgosh/WEBOS-ENTWARE-INSTALLER?style=flat-square&color=ff3ea5&labelColor=0a0e1a)](https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER)
 [![Shell](https://img.shields.io/badge/POSIX-sh-ffb547?style=flat-square&labelColor=0a0e1a)](https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER)

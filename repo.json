@@ -54,7 +54,7 @@
         },
         "ipkSize": 107478
       },
-      "shortDescription": "Install and manage Entware from the remote: Linux packages, a bash shell and one-press add-ons",
+      "shortDescription": "Install and manage Entware from the remote: Linux packages, a bash shell, package updates and one-press add-ons",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/webos-entware.html",
       "release": {
         "tag": "v2.10.0",

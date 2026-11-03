@@ -15,7 +15,7 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=ef84033d">
+<link rel="stylesheet" href="/assets/css/site.css?v=e1f74ba5">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="OhMyBahGosh · open-source projects and webOS homebrew">
@@ -126,10 +126,10 @@
         ["o","  Built-in eth0 <span class=c-pk>→</span> eth2"],
         ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0   <span class=c-gr>1000 Mbit/s</span>"],
         ["$","webos-entware doctor"],
-        ["o","  Entware <span class=c-cy>aarch64-k3.10</span> · /opt mounted · boot script <span class=c-gr>ok</span>"],
+        ["o","  Entware <span class=c-cy>aarch64-k3.10</span> · app storage · root's alone <span class=c-gr>yes</span>"],
         ["o!","  <span class=c-gr>Everything looks right.</span>"],
         ["$","ent install htop"],
-        ["o","  <span class=c-gr>✔</span> htop 3.3.0 installed"]
+        ["o","  <span class=c-gr>✔</span> htop 3.4.1-1 installed"]
       ]</script>
     </div>
   </section>
@@ -179,8 +179,8 @@
         <span class="go">↗</span>
         <div class="path">~/webos-entware-installer <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.10.0</span></span></div>
         <h3 style="display:flex;gap:14px;align-items:center"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48" loading="lazy">Entware</h3>
-        <p>A real Linux toolbox for rooted webOS: hundreds of packages, a bash shell and one-press add-ons like git, Python and htop.  Run it from a TV app in the Homebrew Channel, or one line over SSH.  Picks the right build, survives reboots and uninstalls cleanly.</p>
-        <div class="tags"><span>entware</span><span>opkg</span><span>webos-app</span><span>aarch64</span><span>armv7</span></div>
+        <p>A real Linux toolbox for rooted webOS: hundreds of packages, a bash shell, package updates and one-press add-ons like git, Python, htop and a login banner.  Run it from a TV app in the Homebrew Channel, or one line over SSH.  Installs on the TV's roomy app storage, survives reboots and uninstalls cleanly.</p>
+        <div class="tags"><span>entware</span><span>opkg</span><span>webos-app</span><span>app-storage</span><span>aarch64</span><span>armv7</span></div>
         <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="WEBOS-ENTWARE-INSTALLER:stars">3</b></span><span>webOS 23 · 24 · 25</span></div>
       </a>
     </div>
@@ -195,7 +195,7 @@
       <div class="hbapps">
         <a class="hbapp" href="/tivibro/#install"><img class="appicon sm" src="/assets/img/tivibro-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>TiviBro <span class="pill" style="--ca:#33e1ff" data-gh="TiviBro:version">0.6.0-alpha</span></b><span>The IPTV player LG TVs never got.  Newest alpha builds.</span></div></a>
         <a class="hbapp" href="/lg-usb-2-eth0/#homebrew"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>LG-USB-2-ETH0 <span class="pill" style="--ca:#3ddc97" data-gh="LG-USB-2-ETH0:release">v2.4.0</span></b><span>Make a USB Ethernet adapter the TV's eth0.</span></div></a>
-        <a class="hbapp" href="/webos-entware-installer/#homebrew"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>Entware <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.10.0</span></span></b><span>Linux packages, a bash shell and add-ons.</span></div></a>
+        <a class="hbapp" href="/webos-entware-installer/#homebrew"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>Entware <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.10.0</span></span></b><span>Linux packages, a bash shell, updates and add-ons.</span></div></a>
       </div>
       <p class="dim" style="font-size:14px;margin:14px 0 0">The address is for the Homebrew Channel; a browser just downloads it.  To read it in a browser, open <a class="c-cy" href="/repo.json">repo.json</a>.  TiviBro here follows its newest test builds, the same as <code>tivibro.app/testing</code>.  Its own repositories on tivibro.app work as before; see the <a class="c-cy" href="/tivibro/#install">TiviBro page</a>.</p>
     </div>
@@ -211,7 +211,7 @@
     <div class="bento">
       <div class="card s2 rv"><div class="ic">01</div><h3>Look before you touch</h3><p>Each tool reads your model, webOS version, kernel and free space first, and says what it will do before it does it.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">02</div><h3>Undo is a command</h3><p>One file in the Homebrew Channel's boot folder, a clean <code>uninstall</code>, and a reboot that always starts clean.</p></div>
-      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested without a TV</h3><p>Fake <code>/sys</code>, fake <code>ip</code>, fake <code>opkg</code>.  Every suite runs under busybox, dash and bash.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested without a TV</h3><p>Fake <code>/sys</code>, fake <code>ip</code>, fake <code>opkg</code>.  Every shell suite runs under busybox and dash.</p></div>
       <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">04</div><h3>No accounts, no tracking</h3><p>Open source and MIT licensed.  Bring your own playlist.  Nothing phones home except an opt-out anonymous install count in TiviBro.</p></div>
       <div class="card s3 rv" style="--ca:#8b5cff"><div class="ic">05</div><h3>Made for real people</h3><p>Plain-language READMEs, <code>doctor</code> and <code>report</code> commands, and bug reports you can file from your couch.</p></div>
     </div>
@@ -222,7 +222,7 @@
     <div class="bento">
       <div class="card s2 rv"><div class="ic">01</div><h3>I decide what it does</h3><p>I design every feature, set the rules the agents work under, and turn down plenty of what they suggest.  17+ years of building software, a day job in data engineering, and pentesting for fun go into every review.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">02</div><h3>Real TVs, every release</h3><p>Nothing ships until it runs on a real LG TV.  TiviBro runs daily on webOS 4, 5, 22 and 25 sets.  LG-USB-2-ETH0 is tested on an LG C2 running webOS 25.</p></div>
-      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tests, not vibes</h3><p>TiviBro runs lint, unit tests and a test build on every push.  LG-USB-2-ETH0 runs 60+ tests under busybox, dash and bash, plus ShellCheck.  The Entware installer's suite runs install, repair, reboot and uninstall in a sandbox.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tests, not vibes</h3><p>TiviBro runs lint, unit tests and a test build on every push.  LG-USB-2-ETH0 runs 60+ tests under busybox, dash and bash, plus ShellCheck.  The Entware installer runs 250+ tests under busybox and dash, plus a headless test of its TV app.</p></div>
       <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">04</div><h3>The TV finds what the AI misses</h3><p>The fixes that mattered most came from testing on a real TV, not from the AI: standby putting the adapter back on the slow driver, webOS quietly sending traffic over Wi-Fi instead of the adapter, and a report form opening blank on a phone.</p></div>
       <div class="card s3 rv" style="--ca:#8b5cff"><div class="ic">05</div><h3>Nothing hidden</h3><p>Commits list me as the author and Claude as the committer, so the AI's part is right there in the git history, and the commits show as Verified.  Downloads are checked by SHA-256.  Found a problem?  <a class="c-cy" href="/contact/">Tell me</a>.</p></div>
     </div>
@@ -270,7 +270,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=ef84033d" defer></script>
+<script src="/assets/js/site.js?v=e1f74ba5" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

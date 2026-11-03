@@ -12,7 +12,7 @@
       "repo": "ohmybahgosh/WEBOS-ENTWARE-INSTALLER",
       "manifest": "org.ohmybahgosh.entware.manifest.json",
       "prerelease": false,
-      "shortDescription": "Install and manage Entware from the remote: Linux packages, a bash shell and one-press add-ons",
+      "shortDescription": "Install and manage Entware from the remote: Linux packages, a bash shell, package updates and one-press add-ons",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/webos-entware.html"
     },
     {
