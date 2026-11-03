@@ -296,6 +296,9 @@
   };
   const preview = (b) => { if (+b.dataset.i !== cur) { auto = false; v.loop = true; show(+b.dataset.i); } };
   btns.forEach((b) => { b.addEventListener('mouseenter', () => preview(b)); b.addEventListener('focus', () => preview(b)); });
+  /* on touch screens an icon tap switches the TV, and tapping the TV opens the page */
+  const touch = matchMedia('(hover: none)');
+  btns.forEach((b) => b.addEventListener('click', (e) => { if (touch.matches) { e.preventDefault(); preview(b); } }));
   v.addEventListener('ended', () => { if (auto) show((cur + 1) % apps.length); });
   v.addEventListener('timeupdate', () => { if (auto && v.currentTime > MAX) show((cur + 1) % apps.length); });
 })();
