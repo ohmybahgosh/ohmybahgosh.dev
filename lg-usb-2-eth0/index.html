@@ -103,7 +103,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.3.0</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.4.0</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
@@ -120,7 +120,7 @@
         ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
         ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
         ["$","sh LG-USB-2-ETH0.sh status"],
-        ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.3.0}} status ===</span>"],
+        ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.4.0}} status ===</span>"],
         ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
         ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
         ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
@@ -150,18 +150,18 @@
     <div class="sec-head rv"><div><div class="eyebrow">the tv app</div><h2 class="h2" style="margin-top:12px;display:flex;gap:16px;align-items:center"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48">No SSH needed.</h2><p>The TV app runs the same script underneath, as root through the Homebrew Channel.  Everything is a switch on the remote.</p></div><a class="btn pri" href="#homebrew">get it ↓</a></div>
     <div class="tv rv" style="max-width:960px;margin:0 auto 48px"><video src="/assets/media/eth0-app-demo.mp4" poster="/assets/img/eth0-app-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The TV app: moving down to Speed test, running it (272 down, 287 up, 7 ms), then opening the GitHub report QR code"></video></div>
     <div class="bento">
-      <div class="card s2 rv"><div class="ic">◉</div><h3>Status at a glance</h3><p>Whether the adapter is <code>eth0</code>, its driver, link speed, USB bus, address, Wi-Fi, and any problems found.</p></div>
-      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">⏻</div><h3>Three switches</h3><p><b class="c-wh">Switch now</b>, <b class="c-wh">Run at every boot</b> and <b class="c-wh">Follow plug and unplug</b>.  Turn any of them on or off.</p></div>
+      <div class="card s2 rv"><div class="ic">◉</div><h3>Status at a glance</h3><p>Whether the adapter is <code>eth0</code>, its driver, link speed, USB bus, address, Wi-Fi, and any problems found, like a cable that only connects at 100 Mbit/s.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">⏻</div><h3>Four switches</h3><p><b class="c-wh">Switch now</b>, <b class="c-wh">Run at every boot</b>, <b class="c-wh">Follow plug and unplug</b> and <b class="c-wh">Wi-Fi as a backup</b>, which turns Wi-Fi on if the cable stops working and off again when it's back.</p></div>
       <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">⚡</div><h3>Faster Realtek driver</h3><p>Offered only when one is known for your TV's exact kernel and a Realtek adapter is plugged in.  Downloads, checks and sets it up in one go.</p></div>
       <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic">⇅</div><h3>Speed test</h3><p>Download, upload and latency through the TV's current connection, against Cloudflare's nearest server.</p></div>
       <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">QR</div><h3>Report from the couch</h3><p>A QR code opens a compatibility report on your phone with your TV, adapter, speed and full report filled in, MAC addresses hidden.</p></div>
       <div class="card s2 rv"><div class="ic">↻</div><h3>Updates</h3><p>From the Homebrew Channel if you installed it there.  Otherwise the app downloads the new version, checks its SHA-256 and installs it itself.</p></div>
     </div>
     <div class="gallery rv" style="margin-top:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-      <figure><img src="/assets/img/eth0-app-home.webp" alt="Status screen: USB adapter is eth0, Realtek RTL8156 on r8152_oot, 1000 Mbit/s link over USB 2.0, with switches for Run at every boot, Faster Realtek driver and Follow plug and unplug" loading="lazy" width="1280" height="720"><figcaption>status at a glance</figcaption></figure>
+      <figure><img src="/assets/img/eth0-app-home.webp" alt="Status screen: USB adapter is eth0, Realtek RTL8156 on r8152_oot, 1000 Mbit/s link over USB 2.0, with switches for Run at every boot, Faster Realtek driver, Follow plug and unplug, and Wi-Fi as a backup" loading="lazy" width="1280" height="720"><figcaption>status at a glance</figcaption></figure>
       <figure><img src="/assets/img/eth0-app-speed.webp" alt="Speed test result: 272 Mbit/s download, 287 Mbit/s upload, 7 ms latency, over eth0 to Cloudflare" loading="lazy" width="1280" height="720"><figcaption>speed test</figcaption></figure>
       <figure><img src="/assets/img/eth0-app-report.webp" alt="Report for GitHub: a QR code that opens a filled-in compatibility report, next to the report text with MAC addresses masked" loading="lazy" width="1280" height="720"><figcaption>report for GitHub</figcaption></figure>
-      <figure><img src="/assets/img/eth0-app-update.webp" alt="Update row at the top of the menu: Update to v2.3.2, you have v2.3.1, downloads and installs" loading="lazy" width="1280" height="720"><figcaption>updates</figcaption></figure>
+      <figure><img src="/assets/img/eth0-app-update.webp" alt="Update row at the top of the menu: Update to v2.4.0, you have v2.3.2, downloads and installs" loading="lazy" width="1280" height="720"><figcaption>updates</figcaption></figure>
     </div>
     <p class="dim rv" style="font-size:14px;margin-top:14px">Already set up over SSH?  Open the app and it picks up your settings.  The boot hook links to the script inside the app, so both always run the same version.  Use <b>Turn everything off</b> before removing the app.</p>
   </section>
@@ -180,7 +180,7 @@
   </section>
 
   <section id="speeds" data-pal="real speeds" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">real speeds</div><h2 class="h2" style="margin-top:12px">Not gigabit.  Still 3x.</h2><p>The TV's USB controller and CPU are the limit, so don't expect gigabit.  But two to three times the built-in port is plenty for 4K remuxes.</p></div></div>
+    <div class="sec-head rv"><div><div class="eyebrow">real speeds</div><h2 class="h2" style="margin-top:12px">Not gigabit.  Still 3x.</h2><p>The TV's USB port is the limit, so don't expect gigabit.  On a C2 at full speed the busiest CPU core was only about a third busy.  But two to three times the built-in port is plenty for 4K remuxes.</p></div></div>
     <div class="card rv figcard"><img src="/assets/img/eth0-speeds.svg" alt="Measured speeds in Mbit/s: built-in port about 95; RTL8153 on the generic cdc_ncm driver 200 to 255, with drops; the same adapter with the r8152 module 290 to 330; RTL8156 on a C2 over USB 2.0 with r8152_oot 272 down and 287 up." width="1280" height="470" loading="lazy"></div>
     <p class="dim mono rv" style="font-size:12px;margin-top:12px">Measured by DonZoomik (webos-r8152), lgwebos.com users and on the author's C2.</p>
   </section>
@@ -190,7 +190,7 @@
       <div>
         <div class="eyebrow">how it works</div>
         <h2 class="h2" style="margin:12px 0 16px">One hook.  Nothing else touched.</h2>
-        <p class="muted">At boot the Homebrew Channel runs everything in <code class="c-gr">/var/lib/webosbrew/init.d</code>.  LG-USB-2-ETH0 adds one hook there, a link to the script, and keeps its settings in <code class="c-gr">/var/lib/webosbrew/lg-usb-2-eth0.conf</code>, so updates never lose them.  It only renames network interfaces.  No system files or network settings are touched, so a reboot without the hook always starts clean.</p>
+        <p class="muted">At boot the Homebrew Channel runs everything in <code class="c-gr">/var/lib/webosbrew/init.d</code>.  LG-USB-2-ETH0 adds one hook there, a link to the script, and keeps its settings in <code class="c-gr">/var/lib/webosbrew/lg-usb-2-eth0.conf</code>, so updates never lose them.  It only renames network interfaces.  No system files are touched, and network settings only if you turn on the Wi-Fi backup, so a reboot without the hook always starts clean.</p>
         <div class="callout" style="margin-top:22px"><b>Undo everything:</b> <b>Turn everything off</b> in the TV app, or <code>sh LG-USB-2-ETH0.sh uninstall --now</code></div>
       </div>
       <div class="steps">
@@ -200,6 +200,7 @@
         <div class="step"><div><h3>Swaps the names</h3><p>Built-in <code>eth0</code> becomes <code>eth2</code>, the adapter becomes <code>eth0</code>.  Interrupted renames retry, and failures roll back.</p></div></div>
         <div class="step"><div><h3>Follows hotplug</h3><p>With <code class="c-gr">--watch</code>, plug the adapter in or out any time and <code>eth0</code> follows it.</p></div></div>
         <div class="step"><div><h3>Survives standby</h3><p>Standby resets the TV's USB ports and drops the adapter back to <code>cdc_ncm</code>.  With <code class="c-gr">--module</code>, the hook moves it to the faster driver again.  The check costs next to nothing.</p></div></div>
+        <div class="step"><div><h3>Keeps Wi-Fi as a backup</h3><p>With <code class="c-gr">--wifi-fallback</code>, if <code>eth0</code> has no cable link for a minute while Wi-Fi is off, it turns Wi-Fi on so the TV joins a network it knows, and turns it off again 30 seconds after the cable is back.  It only turns off what it turned on.</p></div></div>
       </div>
     </div>
   </section>
@@ -236,6 +237,7 @@
         <tr><td><code>update</code></td><td>Checks for a newer release and installs it after checking its SHA-256.  <code>--check</code> only checks.  Your settings stay.</td></tr>
         <tr><td><code>disable</code> / <code>enable</code></td><td>Keep the hook but stop it running at boot, or turn it back on.</td></tr>
         <tr><td><code>--watch</code></td><td>Keeps following the adapter after boot.  Plug in or out at will.</td></tr>
+        <tr><td><code>--wifi-fallback</code></td><td>Turns Wi-Fi on if the cable stops working, and off again once it's back.  Only when Wi-Fi was off.</td></tr>
         <tr><td><code>--mac aa:bb:…</code></td><td>Only ever promote that adapter.</td></tr>
         <tr><td><code>--json</code></td><td>Machine-readable <code>status</code>, <code>speedtest</code> or <code>update --check</code>.  The TV app uses it.</td></tr>
       </tbody>
@@ -256,7 +258,7 @@
         <tr><td>webOS 24</td><td>Where the script was first written.</td></tr>
         <tr><td>webOS 25 · 2022 C2</td><td class="yes">Tested by the author.  RTL8156 on <code>r8152_oot</code> via <code>get-driver</code>, confirmed through a full reboot.</td></tr>
         <tr><td>webOS 25 · 2024 C4</td><td>RTL8153/8156 come up on <code>cdc_ncm</code>.  The community <code>r8152</code> module helps.</td></tr>
-        <tr><td>webOS 25 · 2024 QNED/OLED</td><td>Realtek driver reportedly removed.  Needs a module built for that exact kernel.</td></tr>
+        <tr><td>webOS 25 · 2024 QNED/OLED</td><td>Realtek driver removed.  <code>get-driver</code> offers mbenitez343's <code>r8152</code> for kernel <code>5.4.268-294.17.paparoa.pine.2</code> (gigabit RTL8152/8153).  Not yet tested here, so a report helps.</td></tr>
       </tbody>
     </table></div>
     <p class="muted rv" style="margin-top:18px">Tested on your TV?  <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/issues/new?template=compatibility-report.yml" target="_blank" rel="noopener">Send a compatibility report ↗</a>, whether it worked or not.</p>
@@ -267,11 +269,11 @@
     <div class="rv">
       <details class="faq"><summary>Was this written by AI?</summary><div>Partly, and openly.  I wrote v1 by hand.  From v2.0 on it's written with AI coding agents (Claude), directed, reviewed and tested by me.  Nothing ships until it's run on a real TV (an LG C2 on webOS 25), and the fixes that mattered most came from that testing: standby putting the adapter back on the slow driver, and webOS quietly using Wi-Fi instead of the adapter.  60+ tests run on every push, downloads are checked by SHA-256, and no system files are touched.  The driver modules come from DonZoomik and mbenitez343, not from AI.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
       <details class="faq"><summary>Does it survive a firmware update?</summary><div>The hook lives in the Homebrew Channel's folder, so it stays as long as root does.  If an update removes root, the TV just goes back to the built-in port.</div></details>
-      <details class="faq"><summary>Does it change my network settings?</summary><div>No.  webOS still sets up the wired connection itself.  The script only changes which device is called <code>eth0</code>.</div></details>
+      <details class="faq"><summary>Does it change my network settings?</summary><div>No.  webOS still sets up the wired connection itself.  The script only changes which device is called <code>eth0</code>.  The one exception is the Wi-Fi backup, if you turn it on: it flips the Wi-Fi switch on when the cable stops working, and back off when it works again.</div></details>
       <details class="faq"><summary>Lost SSH while switching?</summary><div>The switch still finishes on the TV.  Reconnect over Wi-Fi.  The adapter has its own MAC, so your router may hand out a new IP; a DHCP reservation keeps it steady.</div></details>
       <details class="faq"><summary>Can I use two adapters?</summary><div>Yes.  Pin the one you want with <code>--mac</code>.  Without it, the first adapter with a cable in wins.</div></details>
     </div>
-    <div class="callout rv" style="margin-top:24px;--accent:#3ddc97"><b>Thanks to DonZoomik</b> for <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">webos-r8152</a>, the Realtek driver build and benchmarks that <code>get-driver</code> and <code>--module</code> are built on.</div>
+    <div class="callout rv" style="margin-top:24px;--accent:#3ddc97"><b>Thanks to DonZoomik</b> for <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">webos-r8152</a>, the Realtek driver build and benchmarks that <code>get-driver</code> and <code>--module</code> are built on, and to <b>mbenitez343</b> for <a class="c-gr" href="https://github.com/mbenitez343/lg-webos-2024-ethernet-fix" target="_blank" rel="noopener">lg-webos-2024-ethernet-fix</a>, the driver for 2024 QNED and OLED TVs.</div>
   </section>
 
   <section id="help" data-pal="get help or report a problem" style="padding-top:20px">

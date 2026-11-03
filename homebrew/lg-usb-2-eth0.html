@@ -1,5 +1,5 @@
 <div class="webosbrew-screenshots" style="display:flex;gap:8px;overflow-x:auto">
-<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/lg-usb-2-eth0-app-home.webp" alt="The app's status screen: the USB adapter is eth0 at 1000 Mbit/s, with switches for Run at every boot, Faster Realtek driver and Follow plug and unplug" title="Status at a glance" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/lg-usb-2-eth0-app-home.webp" alt="The app's status screen: the USB adapter is eth0 at 1000 Mbit/s, with switches for Run at every boot, Faster Realtek driver, Follow plug and unplug, and Wi-Fi as a backup" title="Status at a glance" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/lg-usb-2-eth0-app-speed.webp" alt="Speed test: 272 Mbit/s down, 287 Mbit/s up, 7 ms" title="Speed test" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/lg-usb-2-eth0-app-report.webp" alt="Report for GitHub: a QR code that opens a filled-in compatibility report" title="Report from the couch" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/lg-usb-2-eth0-speeds.webp" alt="Real speeds: about 95 Mbit/s on the built-in port, up to 330 Mbit/s with a USB adapter" title="Real speeds on real TVs" width="1280" height="400" style="height:240px;width:768px" loading="lazy"></figure>
@@ -16,10 +16,11 @@
 </ul>
 <h2>In the app</h2>
 <ul>
-<li><strong>Status at a glance</strong>: whether the adapter is <code>eth0</code>, its driver, link speed, USB bus, address, Wi-Fi, and any problems found.</li>
+<li><strong>Status at a glance</strong>: whether the adapter is <code>eth0</code>, its driver, link speed, USB bus, address, Wi-Fi, and any problems found, like a cable that only connects at 100 Mbit/s (usually a cable with only two wire pairs).</li>
 <li><strong>Switch now</strong>, <strong>Run at every boot</strong> and <strong>Follow plug and unplug</strong>, as simple on/off switches.</li>
+<li><strong>Wi-Fi as a backup</strong>: if the cable stops working for a minute while Wi-Fi is off, the TV turns Wi-Fi on and joins a network it already knows.  Once the cable works again, Wi-Fi goes back off, so traffic returns to the adapter.  Off until you turn it on.</li>
 <li><strong>Faster Realtek driver</strong>: offered only when one is known to work on your TV's exact kernel and a Realtek adapter is plugged in.  It downloads, checks and sets up the driver in one go.</li>
-<li><strong>Speed test</strong>: download, upload and latency through the TV's current connection.</li>
+<li><strong>Speed test</strong>: download, upload and latency through the TV's current connection, against Cloudflare's nearest server.</li>
 <li><strong>Report from the couch</strong>: a QR code opens a compatibility report on your phone with your TV, adapter, speed and the full report already filled in, MAC addresses hidden.</li>
 <li><strong>Updates through the Homebrew Channel</strong>, like any other app from this repository.</li>
 </ul>
@@ -30,12 +31,12 @@
 <li>Realtek RTL8156 on a 2022 C2, USB 2.0, faster driver: 272 Mbit/s down, 287 up.</li>
 <li>RTL8153 with the faster driver: about 290 to 330 Mbit/s.</li>
 </ul>
-<p>Don't expect a full gigabit: the TV's USB controller and CPU are the limit.  Two to three times the built-in port is still plenty for 4K remuxes.</p>
+<p>Don't expect a full gigabit: the TV's USB port is the limit (on a C2 at full speed, the CPU was only about a third busy).  Two to three times the built-in port is still plenty for 4K remuxes.</p>
 <h2>Choosing an adapter</h2>
 <p>The chip matters more than the brand.  Realtek RTL8153 (gigabit) and RTL8156 (2.5G) are the most common and work well, especially with the faster driver.  ASIX AX88179 works out of the box on many older TVs.  Use a USB 3.0 port if your TV has one, but USB 2.0 is fine.  The app's status screen shows whether your TV's kernel has a driver for the adapter you plug in.</p>
 <h2>Safe, and easy to undo</h2>
 <ul>
-<li>Adds one boot hook and one settings file, and only renames network interfaces.  No system files or network settings are changed.</li>
+<li>Adds one boot hook and one settings file, and only renames network interfaces.  No system files are changed, and network settings only if you turn on the Wi-Fi backup.</li>
 <li>With no adapter plugged in, it changes nothing.</li>
 <li>A reboot without the hook always starts clean.</li>
 <li><strong>Turn everything off</strong> in the app removes the hook and gives <code>eth0</code> back to the built-in port.  Do that before you remove the app.</li>
