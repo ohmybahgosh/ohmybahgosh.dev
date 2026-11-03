@@ -1,9 +1,9 @@
 {
   "paging": {
     "page": 1,
-    "count": 2,
+    "count": 3,
     "maxPage": 1,
-    "itemsTotal": 2
+    "itemsTotal": 3
   },
   "packages": [
     {
@@ -60,6 +60,37 @@
         "tag": "v2.8.0",
         "published": "2026-11-02T21:34:06Z",
         "url": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/tag/v2.8.0"
+      }
+    },
+    {
+      "id": "app.tivibro.tv",
+      "title": "TiviBro",
+      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
+      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.60/app.tivibro.tv.manifest.json",
+      "manifest": {
+        "id": "app.tivibro.tv",
+        "version": "0.5.10060",
+        "type": "web",
+        "title": "TiviBro",
+        "appDescription": "Test build 0.6.0-alpha.60.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
+        "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
+        "rootRequired": false,
+        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.60/app.tivibro.tv_0.5.10060_all.ipk",
+        "ipkSize": 831662,
+        "ipkHash": {
+          "sha256": "19b9814f7d846c024041ab78303d9763fb39632190ad153bbd687c8aef31b530"
+        }
+      },
+      "shortDescription": "Test build 0.6.0-alpha.60.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+      "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
+      "requirements": {
+        "webosRelease": ">=4.0"
+      },
+      "release": {
+        "tag": "v0.6.0-alpha.60",
+        "published": "2026-11-02T21:00:03Z",
+        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.60"
       }
     }
   ]
