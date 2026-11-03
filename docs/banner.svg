@@ -51,6 +51,6 @@
   <g class="fade d3 m" font-size="16" fill="#9aa6c8">
     <rect x="64" y="298" width="128" height="34" rx="8" fill="#ffffff" fill-opacity=".03" stroke="#27325a"/><text x="80" y="320"><tspan fill="#33e1ff">▸</tspan> TiviBro</text>
     <rect x="204" y="298" width="178" height="34" rx="8" fill="#ffffff" fill-opacity=".03" stroke="#27325a"/><text x="220" y="320"><tspan fill="#3ddc97">▸</tspan> LG-USB-2-ETH0</text>
-    <rect x="394" y="298" width="248" height="34" rx="8" fill="#ffffff" fill-opacity=".03" stroke="#27325a"/><text x="410" y="320"><tspan fill="#ff3ea5">▸</tspan> Entware</text>
+    <rect x="394" y="298" width="128" height="34" rx="8" fill="#ffffff" fill-opacity=".03" stroke="#27325a"/><text x="410" y="320"><tspan fill="#ff3ea5">▸</tspan> Entware</text>
   </g>
 </svg>
