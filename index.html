@@ -173,6 +173,7 @@
         <p>LG TVs ship with a 100 Mbit/s port.  This makes a USB Ethernet adapter the TV's <code class="c-gr">eth0</code>, so settings and streaming apps use the faster wired link.  Two to three times the speed, at every boot, from a TV app in the Homebrew Channel, with Wi-Fi as a backup if the cable stops working.</p>
         <div class="tags"><span>posix-sh</span><span>busybox</span><span>usb-ethernet</span><span>r8152</span><span>wifi-fallback</span></div>
         <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span><span>listed in awesome-webos</span></div>
+        <div class="tv" style="margin:22px 0 26px"><img src="/assets/img/eth0-app-home.webp" alt="The LG-USB-2-ETH0 TV app: USB adapter is eth0, Realtek RTL8156 at 1000 Mbit/s over USB 2.0, with switches for Run at every boot, Faster Realtek driver, Follow plug and unplug and Wi-Fi as a backup" loading="lazy" width="1280" height="720"></div>
       </a>
 
       <a class="card repo s3 rv" href="/webos-entware-installer/" style="--ca:#ff3ea5;--cb:#ffb547">
@@ -182,6 +183,7 @@
         <p>A real Linux toolbox for rooted webOS: hundreds of packages, a bash shell, package updates and one-press add-ons like git, Python, htop and a login banner.  Run it from a TV app in the Homebrew Channel, or one line over SSH.  Installs on the TV's roomy app storage, survives reboots and uninstalls cleanly.</p>
         <div class="tags"><span>entware</span><span>opkg</span><span>webos-app</span><span>app-storage</span><span>aarch64</span><span>armv7</span></div>
         <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="WEBOS-ENTWARE-INSTALLER:stars">3</b></span><span>webOS 23 · 24 · 25</span></div>
+        <div class="tv" style="margin:22px 0 26px"><img src="/assets/img/entware-app-status.webp" alt="The Entware TV app on an LG C2: Entware is ready, 36 packages on app storage, with Check and repair, Package updates (2 updates available), Add-ons, Full check, Report a problem and Uninstall Entware" loading="lazy" width="1280" height="720"></div>
       </a>
     </div>
   </section>
@@ -211,7 +213,7 @@
     <div class="bento">
       <div class="card s2 rv"><div class="ic">01</div><h3>Look before you touch</h3><p>Each tool reads your model, webOS version, kernel and free space first, and says what it will do before it does it.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">02</div><h3>Undo is a command</h3><p>One file in the Homebrew Channel's boot folder, a clean <code>uninstall</code>, and a reboot that always starts clean.</p></div>
-      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested without a TV</h3><p>Fake <code>/sys</code>, fake <code>ip</code>, fake <code>opkg</code>.  Every shell suite runs under busybox and dash.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested on real TVs</h3><p>Every release runs on a real LG TV before it ships.  Before that, test suites stand in for one: a fake <code>/sys</code>, <code>ip</code> and <code>opkg</code> under busybox and dash, and the TV apps run in a headless browser.</p></div>
       <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">04</div><h3>No accounts, no tracking</h3><p>Open source and MIT licensed.  Bring your own playlist.  Nothing phones home except an opt-out anonymous install count in TiviBro.</p></div>
       <div class="card s3 rv" style="--ca:#8b5cff"><div class="ic">05</div><h3>Made for real people</h3><p>Plain-language READMEs, <code>doctor</code> and <code>report</code> commands, and bug reports you can file from your couch.</p></div>
     </div>
