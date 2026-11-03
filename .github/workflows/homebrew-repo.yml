@@ -41,12 +41,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -z "$(git status --porcelain -- repo)" ]; then
+          if [ -z "$(git status --porcelain -- repo repo.json)" ]; then
             echo "No change."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          git diff --stat -- repo
+          git diff --stat -- repo repo.json
           python3 - <<'PY' > payload.json
           import base64, json, os, subprocess
           repo = json.load(open("repo"))
@@ -58,7 +58,7 @@ jobs:
                   "branch": {"repositoryNameWithOwner": os.environ["GITHUB_REPOSITORY"], "branchName": os.environ["GITHUB_REF_NAME"]},
                   "expectedHeadOid": head,
                   "message": {"headline": f"Homebrew repo: {versions}"},
-                  "fileChanges": {"additions": [{"path": "repo", "contents": base64.b64encode(open("repo", "rb").read()).decode()}]},
+                  "fileChanges": {"additions": [{"path": p, "contents": base64.b64encode(open(p, "rb").read()).decode()} for p in ("repo", "repo.json")]},
               }},
           }))
           PY

@@ -30,10 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 tools/update-data.py data/repos.json
-      - name: Browser-friendly copy of the Homebrew repo
-        # /repo has no extension, so browsers get it as a download.  /repo.json is
-        # the same file served as JSON, for viewing it in a browser.
-        run: cp repo repo.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

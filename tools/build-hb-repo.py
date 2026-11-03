@@ -73,8 +73,11 @@ def main():
     data = build()
     if not data["packages"]:
         sys.exit("no packages built; leaving the existing file alone")
-    out.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
-    print("wrote", out)
+    text = json.dumps(data, indent=2, ensure_ascii=False) + "\n"
+    out.write_text(text)
+    # repo.json: the same file with an extension, so browsers show it instead of downloading it
+    out.with_name(out.name + ".json").write_text(text)
+    print("wrote", out, "and", out.name + ".json")
 
 
 if __name__ == "__main__":

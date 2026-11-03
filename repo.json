@@ -1,0 +1,97 @@
+{
+  "paging": {
+    "page": 1,
+    "count": 3,
+    "maxPage": 1,
+    "itemsTotal": 3
+  },
+  "packages": [
+    {
+      "id": "org.ohmybahgosh.lgusb2eth0",
+      "title": "LG-USB-2-ETH0",
+      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.4.0/org.ohmybahgosh.lgusb2eth0.manifest.json",
+      "manifest": {
+        "id": "org.ohmybahgosh.lgusb2eth0",
+        "version": "2.4.0",
+        "type": "web",
+        "title": "LG-USB-2-ETH0",
+        "appDescription": "Make a USB Ethernet adapter the TV's eth0",
+        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
+        "sourceUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0",
+        "rootRequired": true,
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.4.0/org.ohmybahgosh.lgusb2eth0_2.4.0_all.ipk",
+        "ipkHash": {
+          "sha256": "f51399cfbc543b61eae104ee5ba79166d84b68fe905b92fc9632c90980aa0552"
+        },
+        "ipkSize": 60112
+      },
+      "shortDescription": "Make a USB Ethernet adapter the TV's eth0, for the faster wired link",
+      "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/lg-usb-2-eth0.html",
+      "release": {
+        "tag": "v2.4.0",
+        "published": "2026-11-03T00:24:47Z",
+        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.4.0"
+      }
+    },
+    {
+      "id": "org.ohmybahgosh.entware",
+      "title": "Entware",
+      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/main/webos-app/src/icon160.png",
+      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/download/v2.10.0/org.ohmybahgosh.entware.manifest.json",
+      "manifest": {
+        "id": "org.ohmybahgosh.entware",
+        "version": "2.10.0",
+        "type": "web",
+        "title": "Entware",
+        "appDescription": "Install and manage Entware on a rooted LG TV",
+        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/main/webos-app/src/icon160.png",
+        "sourceUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER",
+        "rootRequired": true,
+        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/download/v2.10.0/org.ohmybahgosh.entware_2.10.0_all.ipk",
+        "ipkHash": {
+          "sha256": "9385da1d13fcc4a134f32bbac67fe5c2a52fac7f0358c073fb3a45129d9aba2c"
+        },
+        "ipkSize": 107478
+      },
+      "shortDescription": "Install and manage Entware from the remote: Linux packages, a bash shell and one-press add-ons",
+      "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/webos-entware.html",
+      "release": {
+        "tag": "v2.10.0",
+        "published": "2026-11-03T03:10:15Z",
+        "url": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/tag/v2.10.0"
+      }
+    },
+    {
+      "id": "app.tivibro.tv",
+      "title": "TiviBro",
+      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
+      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.63/app.tivibro.tv.manifest.json",
+      "manifest": {
+        "id": "app.tivibro.tv",
+        "version": "0.5.10063",
+        "type": "web",
+        "title": "TiviBro",
+        "appDescription": "Test build 0.6.0-alpha.63.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
+        "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
+        "rootRequired": false,
+        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.63/app.tivibro.tv_0.5.10063_all.ipk",
+        "ipkSize": 877096,
+        "ipkHash": {
+          "sha256": "a1a2c68540a58fb2c07a2ab6672aceb3663081fab6beeea6b14fdcc94e6c44e8"
+        }
+      },
+      "shortDescription": "Test build 0.6.0-alpha.63.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+      "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
+      "requirements": {
+        "webosRelease": ">=4.0"
+      },
+      "release": {
+        "tag": "v0.6.0-alpha.63",
+        "published": "2026-11-03T10:57:28Z",
+        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.63"
+      }
+    }
+  ]
+}
