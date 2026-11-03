@@ -388,3 +388,22 @@ html[data-theme=light] .pick{background:#fff}
 
 /* project banner at the top of a project page, like the TiviBro wordmark */
 .pbanner{display:block;width:100%;max-width:560px;height:auto;border-radius:14px;border:1px solid var(--line);margin:22px 0 8px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+
+/* home hero: the three apps on a TV, or the same over SSH */
+.hshow{min-width:0}
+.hshow .tabs{margin-bottom:14px}
+.hshow .tv{margin-bottom:30px}
+.hdock{display:flex;justify-content:center;gap:18px;margin-top:8px}
+.hdock button{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;padding:0;cursor:pointer;color:var(--fg3);font:500 12px var(--mono)}
+.hdock img{width:64px;height:64px;border-radius:16px;border:3px solid transparent;box-shadow:0 10px 26px rgba(0,0,0,.45);transition:transform .2s,border-color .2s}
+.hdock button[aria-pressed=true]{color:var(--fg)}
+.hdock button[aria-pressed=true] img{border-color:#fff;transform:scale(1.12)}
+.hdock button:hover img,.hdock button:focus-visible img{transform:scale(1.08)}
+.hcap{text-align:center;margin:14px 0 0;color:var(--fg2);font-size:15px}
+.hcap b{color:var(--fg)}
+.hrepo{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px;font-size:13px}
+.hrepo code{font:13px var(--mono);color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent);padding:5px 10px;border-radius:8px}
+html[data-theme=light] .hdock button[aria-pressed=true] img{border-color:var(--accent)}
+
+/* card icons are inline SVG, so they never depend on a font having the glyph */
+.card .ic svg{width:18px;height:18px;display:block}
