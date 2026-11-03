@@ -96,7 +96,7 @@
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">lg-usb-2-eth0</span></div>
       <img class="pbanner" src="/assets/img/eth0-banner.webp" alt="LG-USB-2-ETH0 for rooted LG webOS TVs: make a USB Ethernet adapter the TV's eth0, two to three times the built-in port, from a TV app on the remote.  The app's status screen on a TV shows the USB adapter as eth0" width="1600" height="800" fetchpriority="high">
       <h1 class="h2" style="margin-top:10px">Your TV's<br>fast lane is <span class="grad">eth0.</span></h1>
-      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB gigabit adapter is two to three times faster, even on a USB 2.0 port like the one on a 2022 C2, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  LG-USB-2-ETH0 makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.  Use the TV app from the Homebrew Channel, no SSH needed, or the same script over SSH.</p>
+      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB gigabit adapter is two to three times faster, even on a USB 2.0 port like the one on a 2022 C2, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  LG-USB-2-ETH0 makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.  Use the TV app from the Homebrew Channel, no SSH needed, or the same script over SSH.  It can also <a class="c-gr" href="#driver">find, check and install a faster Realtek driver</a> for your exact TV.</p>
       <div class="btns">
         <a class="btn pri" href="#homebrew">$ get the TV app</a>
         <a class="btn" href="#install">ssh install</a>
@@ -106,6 +106,7 @@
       <div class="badges">
         <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.4.0</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
+        <span class="badge">driver <b class="c-gr">auto setup</b></span>
         <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
         <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
@@ -125,6 +126,30 @@
       <div class="card s2 rv" style="--ca:#ffb547"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V4"/><path d="M5 11l7-7 7 7"/></svg></div><h3>100 Mbit/s ceiling</h3><p>High-bitrate remuxes, Plex and Moonlight stutter on the built-in port.  The adapter does 250 to 330 Mbit/s.</p></div>
     </div>
     <div class="card rv figcard" style="margin-top:14px"><img src="/assets/img/eth0-how-it-works.svg" alt="Before: webOS and its apps use eth0, the 100 Mbit/s built-in port, and the USB adapter sits unused as eth1, so settings say Not Connected and some streaming apps refuse to play.  After: the USB adapter is eth0 at about 300 Mbit/s and the built-in port is parked as eth2, so settings show the wired connection and apps play, two to three times faster." width="1280" height="520" loading="lazy"></div>
+  </section>
+
+  <section id="driver" data-pal="the faster Realtek driver, found and set up for you" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">get-driver</div><h2 class="h2" style="margin-top:12px">The faster driver, found and fitted for you.</h2><p>Many TVs hand Realtek adapters to the generic <code class="c-gr">cdc_ncm</code> driver, which is slower and drops out under load.  Some 2024 models have no Realtek driver at all.  LG-USB-2-ETH0 checks whether a better driver is known for your exact TV, then downloads, checks and sets it up for you.  In the TV app it's one switch: <b class="c-wh">Faster Realtek driver</b>.</p></div></div>
+    <div class="two rv">
+      <div class="steps" style="min-width:0">
+        <div class="step"><div><h3>Checks your TV</h3><p>A driver is only offered for the exact kernel it was built for, and only when an adapter it supports is plugged in.  The adapter's USB ID is checked against the driver's own list.</p></div></div>
+        <div class="step"><div><h3>Downloads and verifies</h3><p>From a fixed commit of the driver author's repository, kept only if its SHA-256 matches.  A driver built for another kernel is refused before it's loaded.</p></div></div>
+        <div class="step"><div><h3>Moves the adapter over</h3><p>Releases the adapter from the generic driver and binds it to the new one, with scatter-gather turned off so the TV's USB controller doesn't hang.  If it doesn't take within a few seconds, the adapter goes back.</p></div></div>
+        <div class="step"><div><h3>Keeps it there</h3><p>At every boot, and after standby, which resets the TV's USB ports and drops the adapter back to the slow driver.  One try per boot, so it can't cause repeated drops.  A phone tethered over USB is never touched.</p></div></div>
+      </div>
+      <div style="min-width:0">
+        <div class="tblw" style="min-width:0"><table class="tbl">
+          <thead><tr><th>driver</th><th>for</th></tr></thead>
+          <tbody>
+            <tr><td><code>r8152_oot</code><br><span class="dim">Realtek v2.22.1, by <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a></span></td><td>Kernel <code>5.4.268-329.ptl4tv.5</code>: at least the 2024 C4 and the 2022 C2 on webOS 25.  RTL8153 and RTL8156 adapters.</td></tr>
+            <tr><td><code>r8152</code><br><span class="dim">v1.10.11, by <a class="c-gr" href="https://github.com/mbenitez343/lg-webos-2024-ethernet-fix" target="_blank" rel="noopener">mbenitez343</a></span></td><td>2024 QNED and OLED (Paparoa) on webOS 25, where LG removed the Realtek driver.  Gigabit RTL8152 and RTL8153 adapters.</td></tr>
+          </tbody>
+        </table></div>
+        <div class="code" style="margin-top:16px"><pre><span class="pr">$ </span>sh LG-USB-2-ETH0.sh get-driver
+<span class="pr">$ </span>sh LG-USB-2-ETH0.sh install --module /home/root/lg-usb-2-eth0/drivers/r8152_oot.ko</pre></div>
+        <p class="dim" style="font-size:14px">On an RTL8153, the driver takes it from 200 to 255 Mbit/s with drops to a steady 290 to 330.  Set up Wi-Fi first: moving drivers takes the adapter offline for a moment.  The drivers come from DonZoomik and mbenitez343, so credit and thanks go to them.</p>
+      </div>
+    </div>
   </section>
 
   <section id="app" data-pal="the LG-USB-2-ETH0 TV app" style="padding-top:20px">
