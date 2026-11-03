@@ -83,7 +83,7 @@ Entware for rooted webOS, from a TV app in the Homebrew Channel or one line over
 | 📋 **One-tap copy** | Every install command has a copy button that strips comments and prompts. |
 | 📱 **Phone first** | Works at 320px wide with no horizontal scroll.  Wide tables scroll on their own. |
 | 🔍 **SEO and social cards** | Canonical URLs, Open Graph and Twitter cards with a custom image per page, `schema.org` JSON-LD for each project, a sitemap and robots.txt. |
-| 🚫 **No tracking** | No cookies and no ad trackers.  Visits are counted with [GoatCounter](https://www.goatcounter.com), which is privacy-friendly and stores no personal data, and Google Analytics in cookieless mode (consent for storage is denied, so it sets no cookies).  Fonts and screenshots load from jsDelivr. |
+| 📊 **Light analytics, no ads** | Visits are counted with [GoatCounter](https://www.goatcounter.com), which is privacy-friendly and stores no personal data, and Google Analytics (GA4), which sets its own first-party cookies.  Google's ads features are switched off, and the site has no ads.  Fonts and screenshots load from jsDelivr. |
 
 ## How it's built
 
