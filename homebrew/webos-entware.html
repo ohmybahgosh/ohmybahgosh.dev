@@ -1,6 +1,8 @@
 <div class="webosbrew-screenshots" style="display:flex;gap:8px;overflow-x:auto">
-<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-status.webp" alt="The Entware app's main screen: the install's status on the left, actions on the right" title="Status at a glance" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
-<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-addons.webp" alt="The Add-ons screen: nano, locate, HTTPS certificates, git, Python and htop, each with Add or Included" title="One-press add-ons" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-status.webp" alt="The Entware app's main screen on an LG C2: Entware is ready, 36 packages on app storage, with Check and repair, Package updates, Add-ons, Full check, Report a problem and Uninstall Entware" title="Status at a glance" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-addons.webp" alt="The Add-ons screen: tmux, ncdu, rsync, curl and jq with Add, and the Login banner installed" title="One-press add-ons" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-updates.webp" alt="The Package updates screen: Update all 2 packages, htop and curl each with Update, and Check again" title="Package updates" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-login.webp" alt="Logging in over SSH: a webOS wordmark, then the TV's specs in boxes for Software, Hardware and Uptime" title="The Login banner add-on" width="621" height="540" style="height:240px;width:276px" loading="lazy"></figure>
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-banner.webp" alt="Entware for rooted LG webOS TVs: hundreds of Linux packages, a real bash shell, and a TV app to run it all from the remote" title="Entware for rooted LG webOS TVs" width="960" height="480" style="height:240px;width:480px" loading="lazy"></figure>
 </div>
 <p><strong>Needs a rooted TV.  Keep telnet turned on in the Homebrew Channel as a way back in.</strong></p>
@@ -8,21 +10,23 @@
 <p>Entware brings hundreds of Linux command line packages to your TV through <code>opkg</code>: git, Python, htop, tmux, rsync and many more.  This app installs and manages it from the remote, so you don't need SSH to set it up.  It runs the same installer as the command-line version, as root through the Homebrew Channel.</p>
 <h2>In the app</h2>
 <ul>
-<li><strong>Status at a glance</strong>: whether Entware is installed and mounted, the build, packages and disk use, the boot script, the SSH shell, nano, HTTPS certificates, locate, free space and telnet recovery, plus any problems found.</li>
+<li><strong>Status at a glance</strong>: whether Entware is installed and mounted, the build, packages and disk use, where it lives, the free space, the boot script, the SSH shell, nano, HTTPS certificates, locate and telnet recovery, plus any problems found.</li>
 <li><strong>Install Entware</strong>, or <strong>Repair</strong> when something's wrong.  It picks the recommended build for your TV and keeps your packages and settings on a repair.</li>
-<li><strong>Add-ons</strong>: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl and jq, each with the setup it needs on webOS.  One press adds, finishes setting up or removes one.</li>
-<li><strong>Update packages</strong> and <strong>Uninstall Entware</strong>, with a confirmation before anything is removed.</li>
+<li><strong>Add-ons</strong>: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl, jq and a login banner, each with the setup it needs on webOS.  One press adds, finishes setting up or removes one.</li>
+<li><strong>Login banner</strong>: an add-on that shows a webOS wordmark and your TV's specs each time you log in over SSH.</li>
+<li><strong>Package updates</strong>: every package with an update, with its current and new version.  <strong>Update</strong> one or <strong>Update all</strong>.  The button says how many there are.</li>
 <li><strong>Live progress</strong>: every task runs in the background on the TV.  Closing the app doesn't stop it, and reopening the app picks the progress back up.</li>
 <li><strong>Full check</strong>: everything <code>doctor</code> looks at, on screen.</li>
 <li><strong>Report from the couch</strong>: a QR code opens a bug report on your phone with your TV, version, build and the full check already filled in.</li>
-<li><strong>Updates through the Homebrew Channel</strong>, like any other app from this repository.</li>
+<li><strong>Updates itself</strong>: when a new version is out, <strong>Update to v…</strong> downloads it, checks it against the release's checksums and reopens.  The Homebrew Channel offers the same updates.</li>
 </ul>
 <h2>Careful by default</h2>
 <ul>
 <li>Checks your TV first: root, model, webOS version, kernel, free space and the Entware download server.</li>
 <li>Recommends the 64-bit or 32-bit build from your kernel and test-runs it before anything is kept.  If 64-bit can't run, it falls back to 32-bit.</li>
+<li>Installs on the TV's app storage, which has room to spare and keeps Entware through "Reset to initial settings".  Older installs on user data move over with a checked move on their next repair, or with <strong>Move to app storage</strong>.</li>
+<li>Only uses an Entware folder that's root's alone, and adds one Homebrew Channel boot script.  System partitions are never touched.</li>
 <li>A failed install undoes itself, and your own shell files are backed up and put back.</li>
-<li>Installs into <code>/mnt/lg/user/opt</code> and adds one Homebrew Channel boot script.  System partitions are never touched.</li>
 <li><strong>Uninstall Entware</strong> in the app takes it all back out.  Removing the app alone leaves Entware installed.</li>
 </ul>
 <h2>Already using it over SSH?</h2>
@@ -33,4 +37,4 @@
 <li><a href="https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER">Source, releases and the command-line installer: github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER</a></li>
 <li><a href="https://ohmybahgosh.dev/contact/?t=ent-bug">Found a bug?  Report it</a></li>
 </ul>
-<p>Free and open source (MIT).  Made by OhMyBahGosh.  Entware is a separate project; this app installs and manages it.  Not affiliated with LG Electronics.</p>
+<p>Free and open source (MIT).  Made by OhMyBahGosh.  Entware is a separate project; this app installs and manages it.  The login banner uses neofetch by Dylan Araps (MIT).  Not affiliated with LG Electronics.</p>
