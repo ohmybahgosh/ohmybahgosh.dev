@@ -38,28 +38,28 @@
       "id": "org.ohmybahgosh.entware",
       "title": "Entware",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/download/v2.11.0/org.ohmybahgosh.entware.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/download/v2.11.1/org.ohmybahgosh.entware.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.entware",
-        "version": "2.11.0",
+        "version": "2.11.1",
         "type": "web",
         "title": "Entware",
         "appDescription": "Install and manage Entware on a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/download/v2.11.0/org.ohmybahgosh.entware_2.11.0_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/download/v2.11.1/org.ohmybahgosh.entware_2.11.1_all.ipk",
         "ipkHash": {
-          "sha256": "52580d04c3b0661bcc3afbf04770caf382dcc649ac885e3821d48216a6e60478"
+          "sha256": "18bd53f104c99d30c8bb90e3b90bd9fb57f33c352abb29fd04241448551647b4"
         },
-        "ipkSize": 114100
+        "ipkSize": 114710
       },
       "shortDescription": "Install and manage Entware from the remote: Linux packages, a bash shell, package updates and one-press add-ons",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/webos-entware.html",
       "release": {
-        "tag": "v2.11.0",
-        "published": "2026-11-04T11:51:04Z",
-        "url": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/tag/v2.11.0"
+        "tag": "v2.11.1",
+        "published": "2026-11-04T14:51:34Z",
+        "url": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/tag/v2.11.1"
       }
     },
     {
