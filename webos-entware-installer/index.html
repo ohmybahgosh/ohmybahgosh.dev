@@ -98,7 +98,7 @@
   <section class="hero">
     <div>
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-pk">webos-entware-installer</span></div>
-      <img class="pbanner" src="/assets/img/entware-banner.webp" alt="Entware for rooted LG webOS TVs: hundreds of Linux packages, a real bash shell, and a TV app to run it all from the remote" width="1600" height="800" fetchpriority="high">
+      <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/entware-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">Entware</div><div class="muted" style="margin-top:6px;font-size:17px">for rooted LG webOS TVs</div></div></div>
       <h1 class="h2" style="margin-top:10px">A real Linux<br>toolbox, <span class="grad">on your TV.</span></h1>
       <p class="lead">Entware brings hundreds of Linux command line packages to rooted LG webOS TVs through <code class="c-pk">opkg</code>, plus a bash shell and one-press add-ons like git, Python and htop.  Search and install any package from the remote.  Set it up from the TV app in the Homebrew Channel, no SSH needed, or with one line over SSH.  It checks your TV first, picks the right build, survives reboots and uninstalls cleanly.</p>
       <div class="btns">
@@ -142,13 +142,15 @@
         <div class="eyebrow">webos-entware addons</div>
         <h2 class="h2" style="margin:12px 0 16px">One press.  Set up for webOS.</h2>
         <p class="muted">Some packages need extra setup before they work on a TV.  Add-ons do it for you, from the app or the command line: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl, jq and a login banner with a webOS wordmark and your TV's specs.  Each one can be added, finished or removed on its own.</p>
-        <div class="code"><pre><span class="pr">$ </span>webos-entware addons
+      </div>
+      <div><div class="code"><pre><span class="pr">$ </span>webos-entware addons
 <span class="pr">$ </span>webos-entware add git
 <span class="pr">$ </span>webos-entware add banner
-<span class="pr">$ </span>webos-entware remove python</pre></div>
-      </div>
-      <div class="gallery" style="grid-template-columns:1fr"><figure><img src="/assets/img/entware-cli-addons.webp" alt="webos-entware addons lists each add-on and whether it's installed, then webos-entware add banner sets up the login banner" loading="lazy" width="1100" height="972" style="aspect-ratio:auto"><figcaption>webos-entware addons</figcaption></figure>
-        <figure><img src="/assets/img/entware-cli-banner.webp" alt="Logging in to an LG C2 over SSH with the login banner: a webOS wordmark in a pink to cyan gradient, then the TV's specs in boxes for Software, Hardware and Uptime" loading="lazy" width="1100" height="956" style="aspect-ratio:auto"><figcaption>the login banner</figcaption></figure></div>
+<span class="pr">$ </span>webos-entware remove python</pre></div></div>
+    </div>
+    <div class="gallery rv" style="margin-top:26px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start">
+      <figure><img src="/assets/img/entware-cli-addons.webp" alt="webos-entware addons lists each add-on and whether it's installed, then webos-entware add banner sets up the login banner" loading="lazy" width="1100" height="972" style="aspect-ratio:auto"><figcaption>webos-entware addons</figcaption></figure>
+      <figure><img src="/assets/img/entware-cli-banner.webp" alt="Logging in to an LG C2 over SSH with the login banner: a webOS wordmark in a pink to cyan gradient, then the TV's specs in boxes for Software, Hardware and Uptime" loading="lazy" width="1100" height="956" style="aspect-ratio:auto"><figcaption>the login banner</figcaption></figure>
     </div>
   </section>
 
