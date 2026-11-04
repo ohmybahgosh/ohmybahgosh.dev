@@ -15,7 +15,7 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=10609eba">
+<link rel="stylesheet" href="/assets/css/site.css?v=7c6d6b54">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="OhMyBahGosh · open-source projects and webOS homebrew">
@@ -98,6 +98,7 @@
       <a href="/tivibro/" class="hide-xs">tivibro</a>
       <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
       <a href="/webos-entware-installer/" class="hide-s">entware</a>
+      <a href="/#tools" class="hide-s">tools</a>
       <a href="/about/" class="hide-s">about</a>
       <a href="/contact/" class="hide-s">contact</a>
       <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
@@ -225,6 +226,25 @@
     </div>
   </section>
 
+  <section id="tools" data-pal="other apps and tools" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">~/repos/tools</div><h2 class="h2" style="margin-top:12px">Other apps and tools.</h2><p>Things I built for my own terminal, and shared in case they help you too.</p></div></div>
+    <div class="bento">
+      <a class="card repo s6 rv" href="/pipseek/" style="--ca:#4c9eff;--cb:#ffd43b">
+        <span class="go">↗</span>
+        <div class="two" style="gap:32px;align-items:center">
+          <div style="min-width:0">
+            <div class="path">~/pipseek <span class="pill" style="--ca:#4c9eff">v<span data-gh="pipseek:version">2.1.0</span></span> <span class="pill" style="--ca:#ffd43b">python</span></div>
+            <h3 style="display:flex;gap:14px;align-items:center"><img class="appicon sm" src="/assets/img/pipseek-icon.webp" alt="" width="48" height="48" loading="lazy">pipseek</h3>
+            <p><code class="c-cy">pip search</code>, brought back.  Search every package on PyPI by name and description from your terminal, in an interactive TUI or as plain text and JSON for scripts.  Its own full-text index of all ~930,000 projects, rebuilt daily, plus known vulnerabilities and an <code>--outdated</code> check for your environment.  No API keys.</p>
+            <div class="tags"><span>python</span><span>pypi</span><span>textual</span><span>tui</span><span>sqlite-fts5</span><span>osv</span></div>
+            <div class="meta"><span class="lang" style="--lc:#3572A5">Python</span><span>★ <b data-gh="pipseek:stars">1</b></span><span>pipx install pipseek</span></div>
+          </div>
+          <div style="min-width:0"><video src="/assets/media/pipseek-demo.mp4" poster="/assets/img/pipseek-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="958" height="580" aria-label="The pipseek TUI: typing web framework, moving through Django and Flask with details on the right, sorting by downloads, and a typo search for reqeusts suggesting requests" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)"></video></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <section id="activity" data-pal="recent activity" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">git log --all</div><h2 class="h2" style="margin-top:12px">Recent activity.</h2><p>The latest releases and commits across the projects, straight from GitHub.</p></div><a class="btn" href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">all activity ↗</a></div>
     <ul class="feed rv" id="feed" aria-live="polite"><li><span class="empty">loading activity…</span></li></ul>
@@ -311,7 +331,7 @@
   <div class="wrap">
     <div>
       <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
-      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · MIT-licensed projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
       <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
     </div>
     <nav aria-label="Footer">
@@ -319,13 +339,14 @@
       <a href="/tivibro/">tivibro</a>
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
+      <a href="/pipseek/">pipseek</a>
       <a href="/about/">about</a>
       <a href="/contact/">contact</a>
       <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=10609eba" defer></script>
+<script src="/assets/js/site.js?v=7c6d6b54" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

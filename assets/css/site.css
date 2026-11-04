@@ -14,6 +14,7 @@
 body.p-tivibro{--accent:#33e1ff;--accent2:#5b8cff}
 body.p-eth0{--accent:#3ddc97;--accent2:#33e1ff}
 body.p-entware{--accent:#ff3ea5;--accent2:#ffb547}
+body.p-pipseek{--accent:#4c9eff;--accent2:#ffd43b}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}

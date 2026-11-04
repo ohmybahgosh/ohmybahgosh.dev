@@ -14,6 +14,7 @@ REPOS = {
     "TiviBro": None,
     "LG-USB-2-ETH0": "LG-USB-2-ETH0.sh",
     "WEBOS-ENTWARE-INSTALLER": "webos-entware-installer.sh",
+    "pipseek": None,
 }
 TOKEN = os.environ.get("GITHUB_TOKEN")
 

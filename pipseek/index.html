@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>pipseek · search PyPI from your terminal</title>
+<meta name="description" content="pipseek brings back pip search: a full-text index of every project on PyPI, searched locally in about 100 ms, with an interactive TUI, package details, known vulnerabilities and an --outdated check for your environment.  Public APIs only, no keys.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/pipseek/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="dns-prefetch" href="https://api.github.com">
+<link rel="stylesheet" href="/assets/css/site.css?v=7c6d6b54">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="pipseek · search PyPI from your terminal">
+<meta property="og:description" content="pipseek brings back pip search: a full-text index of every project on PyPI, searched locally in about 100 ms, with an interactive TUI, package details, known vulnerabilities and an --outdated check for your environment.  Public APIs only, no keys.">
+<meta property="og:url" content="https://ohmybahgosh.dev/pipseek/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/pipseek.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="pipseek: pip search, brought back.  Search every package on PyPI by name and description, right from your terminal.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="pipseek · search PyPI from your terminal">
+<meta name="twitter:description" content="pipseek brings back pip search: a full-text index of every project on PyPI, searched locally in about 100 ms, with an interactive TUI, package details, known vulnerabilities and an --outdated check for your environment.  Public APIs only, no keys.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/pipseek.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "pipseek",
+   "description": "pipseek brings back pip search: a full-text index of every project on PyPI, searched locally in about 100 ms, with an interactive TUI, package details, known vulnerabilities and an --outdated check for your environment.  Public APIs only, no keys.",
+   "codeRepository": "https://github.com/ohmybahgosh/pipseek",
+   "programmingLanguage": "Python",
+   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+   "url": "https://ohmybahgosh.dev/pipseek/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "runtimePlatform": "Python 3.9+",
+   "softwareVersion": "2.1.0"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "pipseek",
+     "item": "https://ohmybahgosh.dev/pipseek/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-pipseek">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <span class="status"><span class="dot"></span>webOS homebrew</span>
+    <nav class="nav" aria-label="Main">
+      <a href="/tivibro/" class="hide-xs">tivibro</a>
+      <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
+      <a href="/webos-entware-installer/" class="hide-s">entware</a>
+      <a href="/#tools" class="hide-s" aria-current="page">tools</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="crumb"><a href="/">~</a><span>/</span><a href="/#tools">tools</a><span>/</span><span class="c-cy">pipseek</span></div>
+      <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/pipseek-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">pipseek</div><div class="muted" style="margin-top:6px;font-size:17px">pip search, brought back</div></div></div>
+      <h1 class="h2" style="margin-top:10px">Search all of PyPI.<br><span class="grad">From your terminal.</span></h1>
+      <p class="lead"><code class="c-cy">pip search</code> was switched off years ago, and PyPI's search page now sits behind a browser challenge.  pipseek keeps its own full-text index of every project on PyPI, searches it locally in about 100 ms, and pulls live details for the results you're looking at.  It also checks your own environment for outdated and vulnerable packages.  Public APIs only: no scraping, no accounts, no keys.</p>
+      <div class="btns">
+        <a class="btn pri" href="#install">$ pipx install pipseek</a>
+        <a class="btn" href="https://pypi.org/project/pipseek/" target="_blank" rel="noopener">pypi ↗</a>
+        <a class="btn" href="https://github.com/ohmybahgosh/pipseek" target="_blank" rel="noopener">source ↗</a>
+      </div>
+      <div class="badges">
+        <span class="badge">version <b>v<span data-gh="pipseek:version">2.1.0</span></b></span>
+        <span class="badge">python <b>3.9+</b></span>
+        <span class="badge">TUI <b class="c-cy">Textual</b></span>
+        <span class="badge">API keys <b class="c-gr">none</b></span>
+        <span class="badge">★ <b data-gh="pipseek:stars">1</b></span>
+        <span class="badge">license <b>GPL-3.0</b></span>
+      </div>
+    </div>
+    <div><video src="/assets/media/pipseek-demo.mp4" poster="/assets/img/pipseek-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="958" height="580" aria-label="The pipseek TUI: typing web framework, moving through Django and Flask with details on the right, searching progress bar, sorting by downloads, the next page, and a typo search for reqeusts suggesting requests" style="display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55)"></video></div>
+  </section>
+
+  <div class="stats rv" style="margin-top:30px">
+    <div><b>~930K</b><span>PyPI projects indexed</span></div>
+    <div><b>~100 ms</b><span>per search</span></div>
+    <div><b>daily</b><span>index rebuild</span></div>
+    <div><b>0</b><span>API keys needed</span></div>
+  </div>
+
+  <section id="features" data-pal="pipseek features" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">pipseek --help</div><h2 class="h2" style="margin-top:12px">Find the package.  Check the ones you have.</h2><p>Search by what a package does, not just its name, then see what's outdated or vulnerable in your own environment.</p></div></div>
+    <div class="bento">
+      <div class="card s3 rv"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></div><h3>Searches descriptions</h3><p>Full-text search over every project's name, summary and keywords.  <code>pipseek "progress bar"</code> finds tqdm, <code>pipseek "web framework"</code> finds Django, Flask and Tornado, and <code>pipseek requests</code> still puts <code>requests</code> first.</p></div>
+      <div class="card s3 rv" style="--ca:#ffd43b"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></div><h3>Ranked the way you'd expect</h3><p>Exact and prefix name matches, BM25 relevance over descriptions, and real 30-day download counts, so popular packages beat empty placeholders named after your search.</p></div>
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">$_</div><h3>An interactive TUI</h3><p>A search box, a results list and a detail pane that follows your cursor, built on Textual.  Five sort orders and paging.</p></div>
+      <div class="card s2 rv" style="--ca:#ff5e7a"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div><h3>Known vulnerabilities</h3><p>From OSV.dev, for the latest version and the one you have installed, with severity, CVE and the version that fixes it.</p></div>
+      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic">i</div><h3>Rich details</h3><p>Version, release age, downloads, stars, open issues, the OpenSSF Scorecard, license, Python requirement, links, extras and dependencies.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V4"/><path d="M5 11l7-7 7 7"/></svg></div><h3>Knows your environment</h3><p>Marks packages already installed in your active virtualenv or conda env, flags updates, and installs or upgrades with one key.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">?</div><h3>"Did you mean?"</h3><p>Typo suggestions drawn from popular packages first, so <code>reqeusts</code> points you to <code>requests</code>.</p></div>
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">{}</div><h3>Script-friendly</h3><p><code>--plain</code> prints a table, <code>--json</code> gives structured output for <code>jq</code>, and piped output switches to plain mode on its own.</p></div>
+    </div>
+  </section>
+
+  <section id="shots" data-pal="pipseek screenshots" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">ls assets/screenshots</div><h2 class="h2" style="margin-top:12px">In the terminal.</h2><p>Tap one to see it full size.</p></div></div>
+    <div class="gallery rv">
+      <figure><img src="/assets/img/pipseek-tui-search.webp" alt="Search for web framework: Tornado, Django, Flask and Pyramid in the results, Django selected, with 91,537 GitHub stars, a 6.7 out of 10 OpenSSF Scorecard, license, docs and dependencies in the detail pane" loading="lazy" width="1400" height="849" style="aspect-ratio:1400/849"><figcaption>searches descriptions</figcaption></figure>
+      <figure><img src="/assets/img/pipseek-tui-sorted.webp" alt="Search for progress bar sorted by downloads: tqdm first with 481M downloads in 30 days, marked installed 4.67.1 with an update available" loading="lazy" width="1400" height="849" style="aspect-ratio:1400/849"><figcaption>sorted by downloads</figcaption></figure>
+      <figure><img src="/assets/img/pipseek-tui-details.webp" alt="Search for progress bar by relevance: progress, tqdm, proglog, enlighten and alive-progress, with the progress package's details and a 2.8 out of 10 security score in red" loading="lazy" width="1400" height="849" style="aspect-ratio:1400/849"><figcaption>security score at a glance</figcaption></figure>
+      <figure><img src="/assets/img/pipseek-tui-vulns.webp" alt="TUI search for http library with urllib3 selected: a red badge says 10 known vulnerabilities in the installed 1.26.5, fixed in 2.8.0, with the high-severity CVEs listed underneath" loading="lazy" width="1400" height="849" style="aspect-ratio:1400/849"><figcaption>vulnerable installed version</figcaption></figure>
+      <figure><img src="/assets/img/pipseek-tui-typo.webp" alt="Search for the typo reqeusts: the status line suggests requests, grequests and quests" loading="lazy" width="1400" height="849" style="aspect-ratio:1400/849"><figcaption>did you mean?</figcaption></figure>
+      <figure><img src="/assets/img/pipseek-cli-info.webp" alt="pipseek --info httpx: a detail card with installed badge, summary, install command, release date, 753 million downloads, 15,713 GitHub stars, a 4.9 Scorecard, author, license, links, extras and dependencies" loading="lazy" width="1400" height="636" style="aspect-ratio:1400/849;object-position:top"><figcaption>pipseek --info</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="install" data-pal="install pipseek" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">install</div><h2 class="h2" style="margin-top:12px">One command.</h2><p>pipx or uv keep pipseek in its own isolated environment, which is the cleanest way.  Plain pip works too.</p></div></div>
+    <div class="rv" data-tabs>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-for="p-pipx">pipx</button>
+        <button role="tab" aria-selected="false" data-for="p-uv">uv</button>
+        <button role="tab" aria-selected="false" data-for="p-pip">pip</button>
+        <button role="tab" aria-selected="false" data-for="p-git">from github</button>
+      </div>
+      <div class="tabpanel" id="p-pipx">
+        <div class="code" style="margin-top:18px"><pre><span class="pr">$ </span>pipx install pipseek
+<span class="pr">$ </span>pipseek "web framework"
+<span class="pr">$ </span>pipx upgrade pipseek         <span class="cm"># later</span></pre></div>
+      </div>
+      <div class="tabpanel" id="p-uv" hidden>
+        <div class="code" style="margin-top:18px"><pre><span class="pr">$ </span>uv tool install pipseek
+<span class="pr">$ </span>pipseek "web framework"
+<span class="pr">$ </span>uv tool upgrade pipseek      <span class="cm"># later</span></pre></div>
+      </div>
+      <div class="tabpanel" id="p-pip" hidden>
+        <div class="code" style="margin-top:18px"><pre><span class="pr">$ </span>pip install pipseek
+<span class="pr">$ </span>pipseek "web framework"</pre></div>
+      </div>
+      <div class="tabpanel" id="p-git" hidden>
+        <div class="code" style="margin-top:18px"><pre><span class="pr">$ </span>pipx install git+https://github.com/ohmybahgosh/pipseek</pre></div>
+        <p class="muted">The latest code from GitHub instead of the PyPI release.</p>
+      </div>
+    </div>
+    <p class="dim rv" style="font-size:14px;margin-top:14px">The first run downloads the search index (about 35 MB) and builds a local database from it, which takes about 10 seconds.  After that it refreshes on its own once a week, or whenever you pass <code>--refresh</code>.  Upgrading from the v1 script?  Remove the old <code>/usr/local/bin/pipseek</code> first so it doesn't shadow the new command.</p>
+  </section>
+
+  <section id="usage" data-pal="using pipseek" style="padding-top:20px">
+    <div class="two rv" style="align-items:start">
+      <div style="min-width:0">
+        <div class="eyebrow">pipseek fastapi</div>
+        <h2 class="h2" style="margin:12px 0 16px">Keys for the TUI.</h2>
+        <div class="tblw"><table class="tbl">
+          <thead><tr><th>key</th><th>action</th></tr></thead>
+          <tbody>
+            <tr><td><code>/</code></td><td>Focus the search box (<code>Enter</code> runs the search)</td></tr>
+            <tr><td><code>↑</code> <code>↓</code> or <code>j</code> <code>k</code></td><td>Move through results; the detail pane follows</td></tr>
+            <tr><td><code>n</code> / <code>p</code></td><td>Next or previous page</td></tr>
+            <tr><td><code>s</code></td><td>Sort by relevance, downloads, updated, name or stars</td></tr>
+            <tr><td><code>c</code></td><td>Copy <code>pip install &lt;name&gt;</code></td></tr>
+            <tr><td><code>o</code> / <code>h</code></td><td>Open the package on PyPI, or its repository</td></tr>
+            <tr><td><code>i</code></td><td>Install it, or upgrade it, after showing you the exact command</td></tr>
+            <tr><td><code>q</code></td><td>Quit</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div style="min-width:0">
+        <div class="eyebrow">pipseek --plain</div>
+        <h2 class="h2" style="margin:12px 0 16px">Or for scripts.</h2>
+        <div class="code"><pre><span class="pr">$ </span>pipseek "pdf parser" --plain -n 8   <span class="cm"># a table</span>
+<span class="pr">$ </span>pipseek http -s downloads -n 10     <span class="cm"># top 10 by downloads</span>
+<span class="pr">$ </span>pipseek --info requests             <span class="cm"># one detail card</span>
+<span class="pr">$ </span>pipseek django --json | jq '.[].name'
+<span class="pr">$ </span>pipseek yaml --plain --page 2</pre></div>
+        <div class="gallery" style="grid-template-columns:1fr;margin-top:16px"><figure><img src="/assets/img/pipseek-cli-plain.webp" alt="pipseek pdf parser --plain -n 8: a table of pdfminer.six, pdfminer, docling-parse, playa-pdf and more, with version, release age, 30-day downloads, stars and summary" loading="lazy" width="1400" height="396" style="aspect-ratio:auto"><figcaption>--plain</figcaption></figure></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="outdated" data-pal="check your environment" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">pipseek --outdated</div><h2 class="h2" style="margin-top:12px">What's out of date.  What's vulnerable.</h2><p><code class="c-cy">pipseek --outdated</code> checks every package in your environment against PyPI and OSV.dev, puts the vulnerable ones first, and ends with the upgrade command.</p></div></div>
+    <div class="two rv" style="align-items:center">
+      <div style="min-width:0">
+        <div class="code"><pre><span class="pr">$ </span>pipseek --outdated           <span class="cm"># worst first</span>
+<span class="pr">$ </span>pipseek --outdated --all     <span class="cm"># every package</span>
+<span class="pr">$ </span>pipseek --outdated --json    <span class="cm"># for scripts</span>
+<span class="pr">$ </span>pipseek --outdated --strict  <span class="cm"># fail CI if vulnerable</span></pre></div>
+        <p class="muted">It checks the same environment pipseek uses for installed badges: your active virtualenv, otherwise the first <code>python3</code> on your PATH, or whatever you pass to <code>--python</code>.  On an OS-managed system Python, it still reports, but won't suggest <code>pip install</code> or install anything.</p>
+      </div>
+      <div class="gallery" style="grid-template-columns:1fr"><figure><img src="/assets/img/pipseek-cli-outdated.webp" alt="pipseek --outdated in a project virtualenv: certifi, urllib3, Werkzeug, Flask, pip, Jinja2, requests and idna listed with their known vulnerabilities and the version that fixes them, followed by outdated packages with none known, and the upgrade command" loading="lazy" width="1400" height="540" style="aspect-ratio:auto"><figcaption>pipseek --outdated</figcaption></figure>
+        <figure><img src="/assets/img/pipseek-cli-info-vulns.webp" alt="pipseek --info requests inside the virtualenv: a red badge for 4 known vulnerabilities in the installed 2.25.0, fixed in 2.33.0, none known in the latest 2.34.2, and the CVEs with their fix versions" loading="lazy" width="1400" height="717" style="aspect-ratio:auto"><figcaption>--info with a vulnerable version installed</figcaption></figure></div>
+    </div>
+  </section>
+
+  <section id="how" data-pal="how pipseek works" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">cat how-it-works</div><h2 class="h2" style="margin-top:12px">Its own index, rebuilt daily.</h2><p>PyPI has no public full-text search API, so pipseek brings its own.</p></div></div>
+    <div class="card rv figcard"><img src="/assets/img/pipseek-how-it-works.svg" alt="How pipseek works: the PyPI Simple and JSON APIs feed a daily GitHub Action that publishes a 35 MB search index; pipseek turns it into a local SQLite full-text index, adds download counts from top-pypi-packages for ranking, and fetches live stats and vulnerabilities from deps.dev and OSV.dev" loading="lazy" width="1200" height="560"></div>
+    <div class="steps rv" style="margin-top:22px">
+      <div class="step"><div><h3>A daily GitHub Action</h3><p>The PyPI Simple API reports a change serial for every project, so the build only re-fetches what changed since yesterday, and publishes the index as a release.</p></div></div>
+      <div class="step"><div><h3>A local SQLite database</h3><p>pipseek downloads that file and builds an FTS5 full-text database from it, once a week.</p></div></div>
+      <div class="step"><div><h3>Each search</h3><p>Name matches, BM25 relevance over summaries and keywords, and 30-day download counts, then live details for just the page you're viewing, cached for an hour.</p></div></div>
+      <div class="step"><div><h3>A fallback that ships inside</h3><p>If the index can't be reached, pipseek uses every project name from PyPI plus summaries for the 15,000 most popular projects, and tries again the next day.</p></div></div>
+    </div>
+  </section>
+
+  <section id="data" data-pal="where pipseek's data comes from" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">curl --head</div><h2 class="h2" style="margin-top:12px">Public data.  No keys.</h2><p>pipseek identifies itself to these services as <code>pipseek/&lt;version&gt;</code>, and the index workflow needs no secrets.</p></div></div>
+    <div class="tblw rv"><table class="tbl">
+      <thead><tr><th>data</th><th>source</th></tr></thead>
+      <tbody>
+        <tr><td>Every project name and change serial</td><td><a class="c-cy" href="https://peps.python.org/pep-0691/" target="_blank" rel="noopener">PyPI Simple API</a></td></tr>
+        <tr><td>Summaries, keywords, versions, dependencies</td><td><a class="c-cy" href="https://docs.pypi.org/api/json/" target="_blank" rel="noopener">PyPI JSON API</a></td></tr>
+        <tr><td>30-day download counts</td><td><a class="c-cy" href="https://github.com/hugovk/top-pypi-packages" target="_blank" rel="noopener">top-pypi-packages</a> by Hugo van Kemenade</td></tr>
+        <tr><td>Stars, forks, open issues, OpenSSF Scorecard</td><td><a class="c-cy" href="https://deps.dev" target="_blank" rel="noopener">deps.dev</a> by Google</td></tr>
+        <tr><td>Known vulnerabilities</td><td><a class="c-cy" href="https://osv.dev" target="_blank" rel="noopener">OSV.dev</a> by Google</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="faq" data-pal="pipseek FAQ" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
+    <div class="rv">
+      <details class="faq"><summary>Why not just use pypi.org/search?</summary><div>You can in a browser, but it can't be scripted any more: it sits behind a JavaScript challenge meant to stop bots.  pipseek doesn't try to get around it.  It uses PyPI's official APIs instead, which are made for tools.</div></details>
+      <details class="faq"><summary>How fresh are the results?</summary><div>The index is rebuilt every day, and pipseek downloads it weekly.  Versions, release dates and stats for the results you look at are live, cached for an hour.</div></details>
+      <details class="faq"><summary>How much disk space does it use?</summary><div>About 175 MB for the search database, in <code>~/.cache/pipseek</code> on Linux, <code>~/Library/Caches/pipseek</code> on macOS, or <code>%LOCALAPPDATA%\pipseek</code> on Windows.</div></details>
+      <details class="faq"><summary>Is pipseek --outdated a replacement for pip-audit?</summary><div>For a quick look, often yes: it uses the same OSV data and adds what's outdated.  pip-audit goes further for CI pipelines (requirements files, SBOMs, auto-fixing), so use it when you need those.</div></details>
+      <details class="faq"><summary>Does it change anything on my system?</summary><div>No.  pipseek only reads public data and writes to its own cache folder.  The one exception is the <code>i</code> key in the TUI, which runs <code>pip install</code> after showing you the exact command, and refuses on an OS-managed Python.</div></details>
+      <details class="faq"><summary>Was this written by AI?</summary><div>v1 (early 2025) was one script I wrote that scraped PyPI's search page.  v2 is a ground-up rewrite with AI coding agents (Claude), directed, reviewed and tested by me.  pytest and ruff run on Linux, macOS and Windows on every push.  <a class="c-cy" href="/#built">How these are built</a>.</div></details>
+    </div>
+  </section>
+
+  <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
+    <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px">Open an issue on GitHub.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="https://github.com/ohmybahgosh/pipseek/issues/new" target="_blank" rel="noopener">open an issue ↗</a><a class="btn" href="https://github.com/ohmybahgosh/pipseek/blob/main/CHANGELOG.md" target="_blank" rel="noopener">changelog ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+  </section>
+
+  <section id="releases" data-pal="pipseek release notes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git tag --sort=-creatordate</div><h2 class="h2" style="margin-top:12px">Release notes.</h2><p>Every release and what changed, pulled from GitHub automatically.</p></div><a class="btn" href="https://github.com/ohmybahgosh/pipseek/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+    <div class="timeline rv" id="timeline" data-repo="pipseek" aria-live="polite"><p class="muted">loading releases…</p></div>
+  </section>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=7c6d6b54" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
