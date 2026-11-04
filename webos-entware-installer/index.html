@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Entware for rooted LG webOS · TV app and installer</title>
-<meta name="description" content="Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell, package updates, one-press add-ons and logs, on the TV's app storage.  Checks your TV first, survives reboots and uninstalls cleanly.">
+<meta name="description" content="Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell and 25 one-press add-ons, from git and Python to Tailscale, file sharing and Syncthing.  Checks your TV first, survives reboots and uninstalls cleanly.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://ohmybahgosh.dev/webos-entware-installer/">
@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="Entware for rooted LG webOS · TV app and installer">
-<meta property="og:description" content="Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell, package updates, one-press add-ons and logs, on the TV's app storage.  Checks your TV first, survives reboots and uninstalls cleanly.">
+<meta property="og:description" content="Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell and 25 one-press add-ons, from git and Python to Tailscale, file sharing and Syncthing.  Checks your TV first, survives reboots and uninstalls cleanly.">
 <meta property="og:url" content="https://ohmybahgosh.dev/webos-entware-installer/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
 <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Entware for rooted LG webOS · TV app and installer">
-<meta name="twitter:description" content="Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell, package updates, one-press add-ons and logs, on the TV's app storage.  Checks your TV first, survives reboots and uninstalls cleanly.">
+<meta name="twitter:description" content="Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell and 25 one-press add-ons, from git and Python to Tailscale, file sharing and Syncthing.  Checks your TV first, survives reboots and uninstalls cleanly.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
 <meta name="author" content="OhMyBahGosh">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -40,7 +40,7 @@
   {
    "@type": "SoftwareSourceCode",
    "name": "WEBOS-ENTWARE-INSTALLER",
-   "description": "Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell, package updates, one-press add-ons and logs, on the TV's app storage.  Checks your TV first, survives reboots and uninstalls cleanly.",
+   "description": "Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell and 25 one-press add-ons, from git and Python to Tailscale, file sharing and Syncthing.  Checks your TV first, survives reboots and uninstalls cleanly.",
    "codeRepository": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER",
    "programmingLanguage": "Shell",
    "license": "https://opensource.org/licenses/MIT",
@@ -49,7 +49,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "2.11.0"
+   "softwareVersion": "2.13.2"
   },
   {
    "@type": "BreadcrumbList",
@@ -101,14 +101,14 @@
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-pk">webos-entware-installer</span></div>
       <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/entware-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">Entware</div><div class="muted" style="margin-top:6px;font-size:17px">for rooted LG webOS TVs</div></div></div>
       <h1 class="h2" style="margin-top:10px">A real Linux<br>toolbox, <span class="grad">on your TV.</span></h1>
-      <p class="lead">Entware brings hundreds of Linux command line packages to rooted LG webOS TVs through <code class="c-pk">opkg</code>, plus a bash shell and one-press add-ons like git, Python and htop.  Search and install any package from the remote.  Set it up from the TV app in the Homebrew Channel, no SSH needed, or with one line over SSH.  It checks your TV first, picks the right build, survives reboots and uninstalls cleanly.</p>
+      <p class="lead">Entware brings hundreds of Linux command line packages to rooted LG webOS TVs through <code class="c-pk">opkg</code>, plus a bash shell and 25 one-press add-ons, from git, Python and htop to Tailscale, Samba file sharing and Syncthing.  Search and install any package from the remote.  Set it up from the TV app in the Homebrew Channel, no SSH needed, or with one line over SSH.  It checks your TV first, picks the right build, survives reboots and uninstalls cleanly.</p>
       <div class="btns">
         <a class="btn pri" href="#homebrew">$ get the TV app</a>
         <a class="btn" href="#install">ssh install</a>
         <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b>v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.11.0</span></b></span>
+        <span class="badge">version <b>v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.13.2</span></b></span>
         <span class="badge">TV app <b class="c-pk">Homebrew Channel</b></span>
         <span class="badge">webOS <b>23 · 24 · 25</b></span>
         <span class="badge">arch <b>aarch64 · armv7</b></span>
@@ -118,7 +118,7 @@
       </div>
     </div>
     <div class="tv">
-      <video src="/assets/media/entware-app-demo.mp4" poster="/assets/img/entware-app-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The TV app with the remote: opening Add-ons, adding the Login banner and watching it install, then back on the main screen with Packages next"></video>
+      <video src="/assets/media/entware-app-demo.mp4" poster="/assets/img/entware-app-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The TV app with the remote: opening Add-ons, adding the Login banner and watching it install, then opening Package updates"></video>
     </div>
   </section>
 
@@ -128,7 +128,7 @@
       <div class="card s3 rv"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Checks before it touches</h3><p>Root, model, webOS version, kernel, Homebrew Channel, free space and the Entware server, all before anything changes.</p></div>
       <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">64</div><h3>Picks the right build</h3><p>Recommends 64-bit <code>aarch64</code> or 32-bit <code>armv7</code> from your kernel, explains why, and test-runs it.  If 64-bit can't run, it falls back.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>Never half-installed</h3><p>A fresh install that fails partway undoes everything.  A failed repair keeps your packages.</p></div>
-      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></svg></div><h3>Survives reboots</h3><p>A Homebrew Channel boot script remounts <code>/opt</code> and starts services, with a backup remount at SSH login.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></svg></div><h3>Survives reboots</h3><p>A Homebrew Channel boot script remounts <code>/opt</code> and starts services with the PATH they need, including ones you installed yourself, with a backup remount at SSH login.</p></div>
       <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div><h3><code>doctor</code></h3><p>Shows what's installed and says exactly what to fix.  Ends with "Everything looks right."</p></div>
       <div class="card s3 rv"><div class="ic">$_</div><h3>A shell worth living in</h3><p>Optional bash with nano, colors, a neon prompt and handy aliases, plus a safe fallback to the stock shell if bash ever breaks.  Your own <code>.profile</code> and <code>.bashrc</code> are backed up and restored.</p></div>
       <div class="card s3 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18"/><path d="M7 6.5h.01M7 11.5h.01M7 16.5h.01"/></svg></div><h3>Room to grow</h3><p>New installs go on the TV's app storage, about 2.7 GB on a C2 against 720 MB of user data, and it keeps Entware through "Reset to initial settings".  <a class="c-pk" href="#location">Where it lives</a>.</p></div>
@@ -142,7 +142,8 @@
       <div>
         <div class="eyebrow">webos-entware addons</div>
         <h2 class="h2" style="margin:12px 0 16px">One press.  Set up for webOS.</h2>
-        <p class="muted">Some packages need extra setup before they work on a TV.  Add-ons do it for you, from the app or the command line: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl, jq and a login banner with a webOS wordmark and your TV's specs.  Each one can be added, finished or removed on its own.</p>
+        <p class="muted">Some packages need extra setup before they work on a TV.  Add-ons do it for you, from the app or the command line.  There are 25: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl, jq, rclone, Vim, Midnight Commander, micro, network, archive and search tools, a login banner with a webOS wordmark and your TV's specs, and six <a class="c-pk" href="#services">network services</a>.  Each one can be added, finished or removed on its own.</p>
+        <p class="muted">It checks what's already there first.  Packages already installed aren't downloaded again, and when webOS has its own copy of a command, like <code>curl</code> or <code>python3</code>, it says so and asks first.</p>
       </div>
       <div><div class="code"><pre><span class="pr">$ </span>webos-entware addons
 <span class="pr">$ </span>webos-entware add git
@@ -155,10 +156,53 @@
     </div>
   </section>
 
+  <section id="services" data-pal="Entware network services" style="padding-top:20px;min-width:0">
+    <div class="sec-head rv"><div><div class="eyebrow">webos-entware info samba</div><h2 class="h2" style="margin-top:12px">Network services.  Locked down first.</h2><p>Six add-ons run a service that starts with the TV.  Entware's stock settings for some of them let anyone on your network in, so each one is set up before it first starts.</p></div></div>
+    <div class="tblw rv"><table class="tbl">
+      <thead><tr><th>add-on</th><th>what you get</th><th>where</th></tr></thead>
+      <tbody>
+        <tr><td><code>tailscale</code></td><td>Reach the TV over SSH from anywhere on your tailnet, with no ports opened.  The app shows a QR code of the sign-in link</td><td><code>ssh root@&lt;tailnet IP&gt;</code></td></tr>
+        <tr><td><code>samba</code></td><td>Share <code>/opt/files</code> with Windows and Mac, SMB2 and up</td><td><code>\\&lt;TV IP&gt;\TV</code>, user <code>tv</code></td></tr>
+        <tr><td><code>filebrowser</code></td><td>Upload, download and manage <code>/opt/files</code> from a browser on your phone or computer</td><td><code>http://&lt;TV IP&gt;:8090</code>, user <code>admin</code></td></tr>
+        <tr><td><code>minidlna</code></td><td>A DLNA media server: play videos, music and photos from <code>/opt/files</code> and USB drives on other TVs, consoles and VLC.  DLNA has no login, and it only reads</td><td>"LG TV (Entware)"</td></tr>
+        <tr><td><code>transmission</code></td><td>Torrents from a browser, saved to <code>/opt/files/Downloads</code></td><td><code>http://&lt;TV IP&gt;:9091</code>, user <code>tv</code></td></tr>
+        <tr><td><code>syncthing</code></td><td>Keep a folder like <code>/opt/files/Sync</code> in sync with your phone and computers</td><td><code>http://&lt;TV IP&gt;:8384</code>, user <code>tv</code></td></tr>
+      </tbody>
+    </table></div>
+    <div class="two rv" style="align-items:center;margin-top:28px">
+      <div style="min-width:0">
+        <p class="muted"><b class="c-wh">A password made on the TV</b>, 16 random letters and numbers, for anything with a login.  Only root can read it, and adding the add-on again keeps it.</p>
+        <p class="muted"><b class="c-wh">No guest access</b>, and nothing starts with Entware's stock settings.  If a setup doesn't finish, the service is stopped and kept from starting at boot.</p>
+        <p class="muted"><b class="c-wh">One shared folder</b>, <code>/opt/files</code>, with <code>Downloads</code>, <code>Media</code> and <code>Sync</code>, and USB drives in <code>USB</code>.  Removing a service never deletes your files.</p>
+        <p class="muted"><b class="c-wh">Checked first:</b> a service won't start if something else on the TV has its port.  Everything is plain http on your home network, so browsers show "Not secure", with no certificate warnings.</p>
+        <div class="code"><pre><span class="pr">$ </span>webos-entware add samba
+<span class="pr">$ </span>webos-entware info samba            <span class="cm"># address, user and password</span>
+<span class="pr">$ </span>webos-entware password samba        <span class="cm"># a new random one</span>
+<span class="pr">$ </span>webos-entware password samba --ask  <span class="cm"># or type your own</span></pre></div>
+      </div>
+      <div><div class="tv"><img src="/assets/img/entware-app-addon-info.webp" alt="File Browser in the TV app's Add-ons: Running, with a QR code of http://192.168.50.96:8090, the address, user admin and its password, and Remove File Browser" width="1280" height="720" loading="lazy"></div><p class="dim" style="font-size:14px;margin-top:34px">Open a service in <b>Add-ons</b> for its address and password, with a QR code for your phone, and <b>New random password</b>.</p></div>
+    </div>
+  </section>
+
+  <section id="phone" data-pal="manage Entware from your phone" style="padding-top:20px">
+    <div class="two rv" style="align-items:center">
+      <div style="min-width:0">
+        <div class="eyebrow">webos-entware web start</div>
+        <h2 class="h2" style="margin:12px 0 16px">Manage it from your phone.</h2>
+        <p class="muted"><b class="c-wh">Add-ons &gt; Manage from your phone</b> shows a QR code.  Scan it and your phone's browser opens a dashboard, signed in, like TiviBro's web editor.  Add and remove add-ons, see each service's address and password with <b class="c-wh">Show password</b> and <b class="c-wh">Copy password</b>, and <b class="c-wh">Change password</b>: a random one, or type your own with <b class="c-wh">Show</b> and a checklist as you type.  Symbols are fine.</p>
+        <p class="muted"><b class="c-wh">A sign-in code</b> on the TV, eight characters that can't be mistaken for each other across a room.  Five wrong codes lock that phone out for a minute.</p>
+        <p class="muted"><b class="c-wh">Home network and tailnet only.</b>  It stops after 30 minutes unused, or when you choose <b class="c-wh">Stop</b> on the TV, and it can't do more than the TV app can.</p>
+        <div class="code"><pre><span class="pr">$ </span>webos-entware web start   <span class="cm"># prints the address and code</span>
+<span class="pr">$ </span>webos-entware web stop</pre></div>
+      </div>
+      <div style="text-align:center"><img src="/assets/img/entware-web-dashboard.webp" alt="The phone dashboard: Tailscale asking you to sign in, and File Browser running with its address, user admin, its password with Show and Copy, and Open, Change password and Remove" width="600" height="1308" loading="lazy" style="width:min(300px,80%);height:auto;border-radius:28px;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.5)"></div>
+    </div>
+  </section>
+
   <section id="app" data-pal="the Entware TV app" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">the tv app</div><h2 class="h2" style="margin-top:12px;display:flex;gap:16px;align-items:center"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48">No SSH needed.</h2><p>The TV app runs the same installer underneath, as root through the Homebrew Channel.  Install, repair, packages, add-ons, updates, logs and uninstall, all from the remote.</p></div><a class="btn pri" href="#homebrew">get it ↓</a></div>
     <div class="two rv" style="align-items:start">
-      <div class="tv stick" style="margin-bottom:26px"><img src="/assets/img/entware-app-status.webp" alt="The Entware app on an LG C2: Entware is ready, 36 packages on app storage, no problems found, with Check and repair, Package updates (2 updates available), Packages, Add-ons, Full check and logs, Report for GitHub and Uninstall Entware" width="1280" height="720" loading="lazy"></div>
+      <div class="tv stick" style="margin-bottom:26px"><img src="/assets/img/entware-app-status.webp" alt="The Entware app on an LG C2: Entware is ready, 36 packages on app storage, no problems found, with Check and repair, Package updates (2 updates available), Packages, Add-ons (Tailscale, file sharing, git, Python and more), Full check and logs, Report for GitHub and Uninstall Entware" width="1280" height="720" loading="lazy"></div>
       <div class="appgrid">
         <div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg></div><h3>Status at a glance</h3><p>Build, packages, disk use, where it lives, free space on both storage areas, boot script, SSH shell and telnet recovery, plus any problems found.</p></div>
         <div class="card" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>Install or repair</h3><p>The recommended build for your TV, on app storage.  A repair keeps your packages and settings, and moves older installs off user data.</p></div>
@@ -174,7 +218,7 @@
       <figure><img src="/assets/img/entware-app-packages.webp" alt="The Packages screen: 37 packages installed, a search field at the top, and each package's version and size, with Remove, or why it stays" loading="lazy" width="1280" height="720"><figcaption>packages</figcaption></figure>
       <figure><img src="/assets/img/entware-app-packages-search.webp" alt="Searching Entware's packages from the TV keyboard: the matches for a word, names first, each with Install, or Installed" loading="lazy" width="1280" height="720"><figcaption>search and install</figcaption></figure>
       <figure><img src="/assets/img/entware-app-logs.webp" alt="Full check and logs: the full check, this boot's log, and recent tasks like Install htop and Add banner, each with View" loading="lazy" width="1280" height="720"><figcaption>full check and logs</figcaption></figure>
-      <figure><img src="/assets/img/entware-app-addons.webp" alt="The Add-ons screen scrolled to the bottom: tmux, ncdu, rsync, curl and jq with Add, and the Login banner installed" loading="lazy" width="1280" height="720"><figcaption>one-press add-ons</figcaption></figure>
+      <figure><img src="/assets/img/entware-app-addons.webp" alt="The Add-ons screen at the network services: Tailscale asking you to sign in, and Samba, File Browser, the DLNA media server, Transmission and Syncthing running" loading="lazy" width="1280" height="720"><figcaption>network services</figcaption></figure>
       <figure><img src="/assets/img/entware-app-updates.webp" alt="The Package updates screen: Update all 2 packages, htop 3.4.1-1 to 3.4.2-1 and curl 8.11.1-1 to 8.12.0-1, each with Update, and Check again" loading="lazy" width="1280" height="720"><figcaption>package updates</figcaption></figure>
       <figure><img src="/assets/img/entware-app-report.webp" alt="Report for GitHub: It works on my TV for a compatibility report, or Something went wrong for a bug report, each with a QR code that fills in the TV's details" loading="lazy" width="1280" height="720"><figcaption>report for GitHub</figcaption></figure>
     </div>
@@ -186,7 +230,7 @@
       <div>
         <div class="eyebrow">webos-entware search top</div>
         <h2 class="h2" style="margin:12px 0 16px">Any package.  From the couch.</h2>
-        <p class="muted"><b class="c-wh">Packages</b> opens on everything installed, with its version, size and <b class="c-wh">Remove</b>.  The search field opens the TV keyboard: type a word like htop or python to search all 2,900+ Entware packages, exact names first, and <b class="c-wh">Install</b> one with the same webOS setup <code>ent install</code> does.  Packages that Entware, the shell setup or other packages need say why they stay.</p>
+        <p class="muted"><b class="c-wh">Packages</b> opens on everything installed, with its version, size and <b class="c-wh">Remove</b>.  The search field opens the TV keyboard: type a word like htop or python to search all 2,900+ Entware packages, exact names first, and <b class="c-wh">Install</b> one with the same webOS setup <code>ent install</code> does.  Packages that Entware, the shell setup or other packages need say why they stay.  Back out of one and the list is there straight away.</p>
         <div class="code"><pre><span class="pr">$ </span>webos-entware installed
 <span class="pr">$ </span>webos-entware search top
 <span class="pr">$ </span>webos-entware pkg-add iftop
@@ -294,6 +338,9 @@
         <tr><td><code>webos-entware search &lt;word&gt;</code></td><td>Search Entware's packages, names first, marking what's installed</td></tr>
         <tr><td><code>webos-entware pkg-add &lt;name&gt;</code></td><td>Install one package with its webOS setup, like <code>ent install</code>.  <code>pkg-remove &lt;name&gt;</code> uninstalls one, keeping packages Entware and other packages need</td></tr>
         <tr><td><code>webos-entware logs</code></td><td>This boot's boot script log and the TV app's last 10 tasks.  <code>log &lt;name&gt;</code> shows one.  Task logs are kept in <code>/opt/var/log/webos-entware</code></td></tr>
+        <tr><td><code>webos-entware info &lt;name&gt;</code></td><td>How to reach a <a class="c-pk" href="#services">network service</a>, and its password</td></tr>
+        <tr><td><code>webos-entware password &lt;name&gt;</code></td><td>A new random password for a service.  <code>--ask</code> to type your own: 12 to 64 characters, symbols welcome, no spaces</td></tr>
+        <tr><td><code>webos-entware web start</code></td><td>The <a class="c-pk" href="#phone">phone dashboard</a>: prints its address and sign-in code.  <code>web stop</code> stops it</td></tr>
         <tr><td><code>webos-entware app-update</code></td><td>Update the TV app and this command to the newest release, checked against its checksums</td></tr>
         <tr><td><code>webos-entware move appstore</code></td><td>Move Entware to app storage, or <code>move user</code> to user data</td></tr>
         <tr><td><code>webos-entware uninstall</code></td><td>Remove Entware and everything the installer added</td></tr>
