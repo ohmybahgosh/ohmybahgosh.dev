@@ -1,6 +1,7 @@
 <div class="webosbrew-screenshots" style="display:flex;gap:8px;overflow-x:auto">
-<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-status.webp" alt="The Entware app's main screen on an LG C2: Entware is ready, 36 packages on app storage, with Check and repair, Package updates, Add-ons, Full check, Report a problem and Uninstall Entware" title="Status at a glance" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
-<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-addons.webp" alt="The Add-ons screen: tmux, ncdu, rsync, curl and jq with Add, and the Login banner installed" title="One-press add-ons" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-status.webp" alt="The Entware app's main screen on an LG C2: Entware is ready, 36 packages on app storage, with Check and repair, Package updates, Packages, Add-ons, Full check and logs, Report for GitHub and Uninstall Entware" title="Status at a glance" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-packages.webp" alt="The Packages screen: 37 packages installed, a search field at the top, and each package's version and size, with Remove, or why it stays" title="Packages" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-addons.webp" alt="The Add-ons screen scrolled to the bottom: tmux, ncdu, rsync, curl and jq with Add, and the Login banner installed" title="One-press add-ons" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-updates.webp" alt="The Package updates screen: Update all 2 packages, htop and curl each with Update, and Check again" title="Package updates" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-login.webp" alt="Logging in over SSH: a webOS wordmark, then the TV's specs in boxes for Software, Hardware and Uptime" title="The Login banner add-on" width="621" height="540" style="height:240px;width:276px" loading="lazy"></figure>
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/webos-entware-banner.webp" alt="Entware for rooted LG webOS TVs: hundreds of Linux packages, a real bash shell, and a TV app to run it all from the remote" title="Entware for rooted LG webOS TVs" width="960" height="480" style="height:240px;width:480px" loading="lazy"></figure>
@@ -14,11 +15,13 @@
 <li><strong>Install Entware</strong>, or <strong>Repair</strong> when something's wrong.  It picks the recommended build for your TV and keeps your packages and settings on a repair.</li>
 <li><strong>Add-ons</strong>: nano with syntax colors, locate, HTTPS certificates, git, Python, htop, tmux, ncdu, rsync, curl, jq and a login banner, each with the setup it needs on webOS.  One press adds, finishes setting up or removes one.</li>
 <li><strong>Login banner</strong>: an add-on that shows a webOS wordmark and your TV's specs each time you log in over SSH.  It downloads neofetch 7.1.0 from GitHub and only uses it if it matches the release's checksum.  <code>touch ~/.hushlogin</code> hides it.</li>
+<li><strong>Packages</strong>: every package that's installed, with its version and size and <strong>Remove</strong>.  The search field opens the TV's keyboard: type a word like htop or python, and <strong>Install</strong> any of the 2,900+ Entware packages that match, with the same webOS setup <code>ent install</code> does.  Packages Entware needs, and ones other packages need, say why they stay.</li>
 <li><strong>Package updates</strong>: every package with an update, with its current and new version.  <strong>Update</strong> one or <strong>Update all</strong>.  The button says how many there are, and the app checks for new ones once a day.</li>
 <li><strong>Live progress</strong>: every task runs in the background on the TV.  Closing the app doesn't stop it, and reopening the app picks the progress back up.</li>
-<li><strong>Full check</strong>: everything <code>doctor</code> looks at, on screen.</li>
-<li><strong>Report from the couch</strong>: a QR code opens a bug report on your phone with your TV, version, build and the full check already filled in.</li>
+<li><strong>Full check and logs</strong>: everything <code>doctor</code> looks at, on screen, plus this boot's log from the boot script and the logs of the last 10 tasks the app ran.</li>
+<li><strong>Report for GitHub</strong>: a QR code that opens a report on your phone with your TV, version, build and the full check already filled in.  <strong>It works on my TV</strong> opens a compatibility report, and <strong>Something went wrong</strong> a bug report.</li>
 <li><strong>Updates itself</strong>: when a new version is out, <strong>Update to v…</strong> downloads it from GitHub, checks it against the release's <code>SHA256SUMS</code>, installs it and reopens.  The Homebrew Channel offers the same updates.</li>
+<li><strong>What's new</strong>: after the app updates, it shows what changed, once.</li>
 </ul>
 <h2>Careful by default</h2>
 <ul>
@@ -35,6 +38,7 @@
 <ul>
 <li><a href="https://ohmybahgosh.dev/webos-entware-installer/">Guide and support: ohmybahgosh.dev/webos-entware-installer</a></li>
 <li><a href="https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER">Source, releases and the command-line installer: github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER</a></li>
+<li><a href="https://ohmybahgosh.dev/contact/?t=ent-compat">Tried it on your TV?  Send a compatibility report</a></li>
 <li><a href="https://ohmybahgosh.dev/contact/?t=ent-bug">Found a bug?  Report it</a></li>
 </ul>
 <p>Free and open source (MIT).  Made by OhMyBahGosh.  Entware is a separate project; this app installs and manages it.  The login banner uses neofetch by Dylan Araps (MIT).  Not affiliated with LG Electronics.</p>
