@@ -408,3 +408,4 @@ html[data-theme=light] .hdock a[aria-current=true] img{border-color:var(--accent
 /* card icons are inline SVG, so they never depend on a font having the glyph */
 .card .ic svg{width:18px;height:18px;display:block}
 a.tv{display:block;cursor:pointer}a.tv:hover{border-color:var(--line2)}
+@media (min-width:901px){.tv.stick{position:sticky;top:96px}}
