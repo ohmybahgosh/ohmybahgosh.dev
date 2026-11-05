@@ -49,7 +49,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "Python 3.9+",
-   "softwareVersion": "2.2.1"
+   "softwareVersion": "2.2.2"
   },
   {
    "@type": "BreadcrumbList",
@@ -109,7 +109,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/pipseek" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b>v<span data-gh="pipseek:version">2.2.1</span></b></span>
+        <span class="badge">version <b>v<span data-gh="pipseek:version">2.2.2</span></b></span>
         <span class="badge">python <b>3.9+</b></span>
         <span class="badge">TUI <b class="c-cy">Textual</b></span>
         <span class="badge">API keys <b class="c-gr">none</b></span>
@@ -181,7 +181,7 @@
         <p class="muted">The latest code from GitHub instead of the PyPI release.</p>
       </div>
     </div>
-    <p class="dim rv" style="font-size:14px;margin-top:14px">The first run downloads the search index (about 35 MB), checks it against its published SHA-256 checksum and builds a local database from it, which takes about 10 seconds and peaks around 60 MB of memory.  After that it refreshes on its own once a week, or whenever you pass <code>--refresh</code>.  Upgrading from the v1 script?  Remove the old <code>/usr/local/bin/pipseek</code> first so it doesn't shadow the new command.</p>
+    <p class="dim rv" style="font-size:14px;margin-top:14px">The first run downloads the search index (about 35 MB), checks it against its published SHA-256 checksum and builds a local database from it, which takes about 10 seconds and peaks around 60 MB of memory.  After that it checks once a day whether a newer index is out, using its tiny checksum file, and downloads it only when it changed, so new packages show up within about a day.  <code>--refresh</code> downloads it again right away.  Upgrading from the v1 script?  Remove the old <code>/usr/local/bin/pipseek</code> first so it doesn't shadow the new command.</p>
   </section>
 
   <section id="usage" data-pal="using pipseek" style="padding-top:20px">
@@ -245,7 +245,7 @@
     <div class="card rv figcard"><img src="/assets/img/pipseek-how-it-works.svg" alt="How pipseek works: the PyPI Simple and JSON APIs feed a daily GitHub Action that publishes a 35 MB search index; pipseek turns it into a local SQLite full-text index, adds download counts from top-pypi-packages for ranking, and fetches live stats and vulnerabilities from deps.dev and OSV.dev" loading="lazy" width="1200" height="560"></div>
     <div class="steps rv" style="margin-top:22px">
       <div class="step"><div><h3>A daily GitHub Action</h3><p>The PyPI Simple API reports a change serial for every project, so the build only re-fetches what changed since yesterday, and publishes the index with its SHA-256 checksum.  A weekly watchdog checks that it's fresh and keeps the daily job switched on.</p></div></div>
-      <div class="step"><div><h3>A local SQLite database</h3><p>Once a week, pipseek downloads that file, checks its checksum and streams it into an FTS5 full-text database.  A download that's corrupt, oversized or mostly missing summaries is rejected, and the database you already have is kept.</p></div></div>
+      <div class="step"><div><h3>A local SQLite database</h3><p>Once a day, pipseek checks whether that file changed.  When it did, pipseek downloads it, checks its checksum and streams it into an FTS5 full-text database.  A download that's corrupt, oversized or mostly missing summaries is rejected, and the database you already have is kept.</p></div></div>
       <div class="step"><div><h3>Each search</h3><p>Name matches, BM25 relevance over summaries and keywords, and 30-day download counts, then live details for just the page you're viewing, cached for an hour.</p></div></div>
       <div class="step"><div><h3>A fallback that ships inside</h3><p>If the index can't be reached, pipseek uses every project name from PyPI plus summaries for the 15,000 most popular projects, and tries again the next day.</p></div></div>
     </div>
@@ -269,7 +269,7 @@
     <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
     <div class="rv">
       <details class="faq"><summary>Why not just use pypi.org/search?</summary><div>You can in a browser, but it can't be scripted any more: it sits behind a JavaScript challenge meant to stop bots.  pipseek doesn't try to get around it.  It uses PyPI's official APIs instead, which are made for tools.</div></details>
-      <details class="faq"><summary>How fresh are the results?</summary><div>The index is rebuilt every day, and pipseek downloads it weekly.  Versions, release dates and stats for the results you look at are live, cached for an hour.</div></details>
+      <details class="faq"><summary>How fresh are the results?</summary><div>The index is rebuilt every day, and pipseek checks for a new one every day, so a package published today shows up in search within a day or so.  Offline, pipseek keeps using its copy and rebuilds it after a week.  Versions, release dates and stats for the results you look at are live, cached for an hour.</div></details>
       <details class="faq"><summary>How much disk space does it use?</summary><div>About 175 MB for the search database, in <code>~/.cache/pipseek</code> on Linux, <code>~/Library/Caches/pipseek</code> on macOS, or <code>%LOCALAPPDATA%\pipseek</code> on Windows.  <code>pipseek --clear-cache</code> removes it, along with everything else pipseek has cached.</div></details>
       <details class="faq"><summary>Does it work offline?</summary><div>Yes, once the index is built.  Searching is local.  For details, pipseek uses anything it has cached, and otherwise shows the name and summary from the local index with a note that PyPI couldn't be reached.  <code>--info</code> works the same way.</div></details>
       <details class="faq"><summary>Can I use my own index?</summary><div>Yes.  <code>python -m pipseek.build_index --out pypi-index.tsv.gz</code> builds one from PyPI's JSON API, over several runs the first time.  Point <code>PIPSEEK_INDEX_URL</code> at it: an http(s) URL, a <code>file://</code> URL or a local path.</div></details>
