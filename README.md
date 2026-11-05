@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://ohmybahgosh.dev"><img src="docs/banner.svg" width="100%" alt="ohmybahgosh.dev: software LG forgot to ship.  Homebrew Channel apps for LG webOS TVs: TiviBro, LG-USB-2-ETH0 and Entware"></a>
+<a href="https://ohmybahgosh.dev"><img src="docs/banner.svg" width="100%" alt="ohmybahgosh.dev: open-source things I build and share, now focused on LG webOS homebrew: TiviBro, LG-USB-2-ETH0, Entware, Luna Atlas and pipseek"></a>
 
 <br>
 
