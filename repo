@@ -66,31 +66,31 @@
       "id": "app.tivibro.tv",
       "title": "TiviBro",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.87/app.tivibro.tv.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.88/app.tivibro.tv.manifest.json",
       "manifest": {
         "id": "app.tivibro.tv",
-        "version": "0.5.10087",
+        "version": "0.5.10088",
         "type": "web",
         "title": "TiviBro",
-        "appDescription": "Test build 0.6.0-alpha.87.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+        "appDescription": "Test build 0.6.0-alpha.88.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
         "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
         "rootRequired": false,
-        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.87/app.tivibro.tv_0.5.10087_all.ipk",
-        "ipkSize": 4283738,
+        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.88/app.tivibro.tv_0.5.10088_all.ipk",
+        "ipkSize": 4285994,
         "ipkHash": {
-          "sha256": "66c14bb52376dc14a10af8f681b90dba025935d034c4029d6d30e661fe1b0817"
+          "sha256": "ae83d97e71127915164d59bd710785c802faa95475229573e38581d331cfc5f8"
         }
       },
-      "shortDescription": "Test build 0.6.0-alpha.87.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+      "shortDescription": "Test build 0.6.0-alpha.88.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
       "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
       "requirements": {
         "webosRelease": ">=4.0"
       },
       "release": {
-        "tag": "v0.6.0-alpha.87",
-        "published": "2026-11-05T14:44:55Z",
-        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.87"
+        "tag": "v0.6.0-alpha.88",
+        "published": "2026-11-05T18:05:01Z",
+        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.88"
       }
     }
   ]
