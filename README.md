@@ -74,6 +74,8 @@ A real Linux toolbox for rooted webOS: hundreds of packages, a bash shell, packa
 </tr>
 </table>
 
+Also on the site, and not TV apps so not in the Homebrew Channel repository: **[Luna Atlas](https://ohmybahgosh.dev/luna-atlas/)**, a searchable catalog of every LG webOS `luna-send` command (8,125 across 501 services), and **[pipseek](https://ohmybahgosh.dev/pipseek/)**, a fast PyPI package search CLI.
+
 ## Install from the Homebrew Channel
 
 On a rooted LG TV, open the Homebrew Channel, select the gear icon, go to **Repositories**, choose **Add repository** and enter:
