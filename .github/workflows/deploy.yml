@@ -30,6 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 tools/update-data.py data/repos.json
+      - name: Draw the README badges
+        continue-on-error: true   # keeps the committed badges if the data step failed
+        run: python3 tools/make-badges.py data/repos.json badges
       - name: Refresh the Luna Atlas catalog
         continue-on-error: true   # keeps the committed copy if GitHub is unreachable
         run: |
