@@ -65,6 +65,7 @@
     }));
     const c = j.counts || {};
     fill('methods', c.methods || M.length);
+    el.q.placeholder = el.q.placeholder.replace(/[\d,]+ methods/, fmt(c.methods || M.length) + ' methods');
     fill('services', c.services || S.length);
     const bd = c.by_doc || {};
     fill('documented', bd.documented || 0);
