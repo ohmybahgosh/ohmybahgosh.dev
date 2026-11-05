@@ -96,11 +96,13 @@
 @media (max-width:860px){.legend{grid-template-columns:minmax(0,1fr)}}
 
 /* tablet and phone: one column at a time */
+.atlas-skip{display:none;margin-top:14px;font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px}
 @media (max-width:980px){
   .atlas-body{grid-template-columns:minmax(0,1fr);height:auto}
   .atlas-col{border-right:0;display:none}
   .atlas[data-view="side"] .atlas-side,.atlas[data-view="list"] .atlas-listcol,.atlas[data-view="detail"] .atlas-detailcol{display:flex}
-  .atlas-scroll{height:66vh;flex:none}
+  .atlas-scroll{height:min(50vh,440px);height:min(50svh,440px);flex:none;overscroll-behavior-y:auto}
+  .atlas-skip{display:inline-flex}
   .atlas-detailcol .atlas-scroll{height:auto}
   .atlas-back{display:inline}
   .atlas-meta{margin-left:0;width:100%}
