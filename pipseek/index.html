@@ -49,7 +49,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "Python 3.9+",
-   "softwareVersion": "2.1.0"
+   "softwareVersion": "2.2.1"
   },
   {
    "@type": "BreadcrumbList",
@@ -101,14 +101,14 @@
       <div class="crumb"><a href="/">~</a><span>/</span><a href="/#tools">tools</a><span>/</span><span class="c-cy">pipseek</span></div>
       <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/pipseek-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">pipseek</div><div class="muted" style="margin-top:6px;font-size:17px">pip search, brought back</div></div></div>
       <h1 class="h2" style="margin-top:10px">Search all of PyPI.<br><span class="grad">From your terminal.</span></h1>
-      <p class="lead"><code class="c-cy">pip search</code> was switched off years ago, and PyPI's search page now sits behind a browser challenge.  pipseek keeps its own full-text index of every project on PyPI, searches it locally in about 100 ms, and pulls live details for the results you're looking at.  It also checks your own environment for outdated and vulnerable packages.  Public APIs only: no scraping, no accounts, no keys.</p>
+      <p class="lead"><code class="c-cy">pip search</code> was switched off years ago, and PyPI's search page now sits behind a browser challenge.  pipseek keeps its own full-text index of every project on PyPI, searches it locally in about 100 ms, even offline, and pulls live details for the results you're looking at.  It also checks your own environment for outdated and vulnerable packages.  Public APIs only: no scraping, no accounts, no keys.</p>
       <div class="btns">
         <a class="btn pri" href="#install">$ pipx install pipseek</a>
         <a class="btn" href="https://pypi.org/project/pipseek/" target="_blank" rel="noopener">pypi ↗</a>
         <a class="btn" href="https://github.com/ohmybahgosh/pipseek" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b>v<span data-gh="pipseek:version">2.1.0</span></b></span>
+        <span class="badge">version <b>v<span data-gh="pipseek:version">2.2.1</span></b></span>
         <span class="badge">python <b>3.9+</b></span>
         <span class="badge">TUI <b class="c-cy">Textual</b></span>
         <span class="badge">API keys <b class="c-gr">none</b></span>
@@ -133,7 +133,7 @@
       <div class="card s3 rv" style="--ca:#ffd43b"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></div><h3>Ranked the way you'd expect</h3><p>Exact and prefix name matches, BM25 relevance over descriptions, and real 30-day download counts, so popular packages beat empty placeholders named after your search.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">$_</div><h3>An interactive TUI</h3><p>A search box, a results list and a detail pane that follows your cursor, built on Textual.  Five sort orders and paging.</p></div>
       <div class="card s2 rv" style="--ca:#ff5e7a"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div><h3>Known vulnerabilities</h3><p>From OSV.dev, for the latest version and the one you have installed, with severity, CVE and the version that fixes it.</p></div>
-      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic">i</div><h3>Rich details</h3><p>Version, release age, downloads, stars, open issues, the OpenSSF Scorecard, license, Python requirement, links, extras and dependencies.</p></div>
+      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic">i</div><h3>Rich details</h3><p>Version, release age, downloads, stars, open issues, the OpenSSF Scorecard, license, Python requirement, links, extras and dependencies.  Text from PyPI is always shown as plain text, so a package can't hide links, fake badges or crash a search.</p></div>
       <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V4"/><path d="M5 11l7-7 7 7"/></svg></div><h3>Knows your environment</h3><p>Marks packages already installed in your active virtualenv or conda env, flags updates, and installs or upgrades with one key.</p></div>
       <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">?</div><h3>"Did you mean?"</h3><p>Typo suggestions drawn from popular packages first, so <code>reqeusts</code> points you to <code>requests</code>.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">{}</div><h3>Script-friendly</h3><p><code>--plain</code> prints a table, <code>--json</code> gives structured output for <code>jq</code>, and piped output switches to plain mode on its own.</p></div>
@@ -180,7 +180,7 @@
         <p class="muted">The latest code from GitHub instead of the PyPI release.</p>
       </div>
     </div>
-    <p class="dim rv" style="font-size:14px;margin-top:14px">The first run downloads the search index (about 35 MB) and builds a local database from it, which takes about 10 seconds.  After that it refreshes on its own once a week, or whenever you pass <code>--refresh</code>.  Upgrading from the v1 script?  Remove the old <code>/usr/local/bin/pipseek</code> first so it doesn't shadow the new command.</p>
+    <p class="dim rv" style="font-size:14px;margin-top:14px">The first run downloads the search index (about 35 MB), checks it against its published SHA-256 checksum and builds a local database from it, which takes about 10 seconds and peaks around 60 MB of memory.  After that it refreshes on its own once a week, or whenever you pass <code>--refresh</code>.  Upgrading from the v1 script?  Remove the old <code>/usr/local/bin/pipseek</code> first so it doesn't shadow the new command.</p>
   </section>
 
   <section id="usage" data-pal="using pipseek" style="padding-top:20px">
@@ -219,11 +219,20 @@
     <div class="sec-head rv"><div><div class="eyebrow">pipseek --outdated</div><h2 class="h2" style="margin-top:12px">What's out of date.  What's vulnerable.</h2><p><code class="c-cy">pipseek --outdated</code> checks every package in your environment against PyPI and OSV.dev, puts the vulnerable ones first, and ends with the upgrade command.</p></div></div>
     <div class="two rv" style="align-items:center">
       <div style="min-width:0">
-        <div class="code"><pre><span class="pr">$ </span>pipseek --outdated           <span class="cm"># worst first</span>
-<span class="pr">$ </span>pipseek --outdated --all     <span class="cm"># every package</span>
-<span class="pr">$ </span>pipseek --outdated --json    <span class="cm"># for scripts</span>
-<span class="pr">$ </span>pipseek --outdated --strict  <span class="cm"># fail CI if vulnerable</span></pre></div>
-        <p class="muted">It checks the same environment pipseek uses for installed badges: your active virtualenv, otherwise the first <code>python3</code> on your PATH, or whatever you pass to <code>--python</code>.  On an OS-managed system Python, it still reports, but won't suggest <code>pip install</code> or install anything.</p>
+        <div class="code"><pre><span class="pr">$ </span>pipseek --outdated            <span class="cm"># worst first</span>
+<span class="pr">$ </span>pipseek --outdated --all      <span class="cm"># every package</span>
+<span class="pr">$ </span>pipseek --outdated --json     <span class="cm"># for scripts</span>
+<span class="pr">$ </span>pipseek --outdated --strict   <span class="cm"># fail CI if vulnerable</span>
+<span class="pr">$ </span>pipseek --outdated --no-stats <span class="cm"># skip OSV.dev</span></pre></div>
+        <div class="tblw" style="margin-top:14px"><table class="tbl">
+          <thead><tr><th>--strict exit</th><th>meaning</th></tr></thead>
+          <tbody>
+            <tr><td><code>0</code></td><td>Nothing installed is known to be vulnerable</td></tr>
+            <tr><td><code>1</code></td><td>Something installed has a known vulnerability</td></tr>
+            <tr><td><code>2</code></td><td>Some lookups failed, so the check is incomplete</td></tr>
+          </tbody>
+        </table></div>
+        <p class="muted">It checks the same environment pipseek uses for installed badges: your active virtualenv, otherwise the first <code>python3</code> on your PATH, or whatever you pass to <code>--python</code>.  When a lookup fails, it says which packages it couldn't check instead of calling them safe: in <code>--json</code>, <code>"vulnerabilities": null</code> means unknown and <code>[]</code> means none are known.  <code>--no-stats</code> skips the vulnerability checks and can't be combined with <code>--strict</code>, and <code>--all</code> and <code>--strict</code> only work with <code>--outdated</code>.  On an OS-managed system Python, it still reports, but won't suggest <code>pip install</code> or install anything.</p>
       </div>
       <div class="gallery" style="grid-template-columns:1fr"><figure><img src="/assets/img/pipseek-cli-outdated.webp" alt="pipseek --outdated in a project virtualenv: certifi, urllib3, Werkzeug, Flask, pip, Jinja2, requests and idna listed with their known vulnerabilities and the version that fixes them, followed by outdated packages with none known, and the upgrade command" loading="lazy" width="1400" height="540" style="aspect-ratio:auto"><figcaption>pipseek --outdated</figcaption></figure>
         <figure><img src="/assets/img/pipseek-cli-info-vulns.webp" alt="pipseek --info requests inside the virtualenv: a red badge for 4 known vulnerabilities in the installed 2.25.0, fixed in 2.33.0, none known in the latest 2.34.2, and the CVEs with their fix versions" loading="lazy" width="1400" height="717" style="aspect-ratio:auto"><figcaption>--info with a vulnerable version installed</figcaption></figure></div>
@@ -234,8 +243,8 @@
     <div class="sec-head rv"><div><div class="eyebrow">cat how-it-works</div><h2 class="h2" style="margin-top:12px">Its own index, rebuilt daily.</h2><p>PyPI has no public full-text search API, so pipseek brings its own.</p></div></div>
     <div class="card rv figcard"><img src="/assets/img/pipseek-how-it-works.svg" alt="How pipseek works: the PyPI Simple and JSON APIs feed a daily GitHub Action that publishes a 35 MB search index; pipseek turns it into a local SQLite full-text index, adds download counts from top-pypi-packages for ranking, and fetches live stats and vulnerabilities from deps.dev and OSV.dev" loading="lazy" width="1200" height="560"></div>
     <div class="steps rv" style="margin-top:22px">
-      <div class="step"><div><h3>A daily GitHub Action</h3><p>The PyPI Simple API reports a change serial for every project, so the build only re-fetches what changed since yesterday, and publishes the index as a release.</p></div></div>
-      <div class="step"><div><h3>A local SQLite database</h3><p>pipseek downloads that file and builds an FTS5 full-text database from it, once a week.</p></div></div>
+      <div class="step"><div><h3>A daily GitHub Action</h3><p>The PyPI Simple API reports a change serial for every project, so the build only re-fetches what changed since yesterday, and publishes the index with its SHA-256 checksum.  A weekly watchdog checks that it's fresh and keeps the daily job switched on.</p></div></div>
+      <div class="step"><div><h3>A local SQLite database</h3><p>Once a week, pipseek downloads that file, checks its checksum and streams it into an FTS5 full-text database.  A download that's corrupt, oversized or mostly missing summaries is rejected, and the database you already have is kept.</p></div></div>
       <div class="step"><div><h3>Each search</h3><p>Name matches, BM25 relevance over summaries and keywords, and 30-day download counts, then live details for just the page you're viewing, cached for an hour.</p></div></div>
       <div class="step"><div><h3>A fallback that ships inside</h3><p>If the index can't be reached, pipseek uses every project name from PyPI plus summaries for the 15,000 most popular projects, and tries again the next day.</p></div></div>
     </div>
@@ -260,10 +269,12 @@
     <div class="rv">
       <details class="faq"><summary>Why not just use pypi.org/search?</summary><div>You can in a browser, but it can't be scripted any more: it sits behind a JavaScript challenge meant to stop bots.  pipseek doesn't try to get around it.  It uses PyPI's official APIs instead, which are made for tools.</div></details>
       <details class="faq"><summary>How fresh are the results?</summary><div>The index is rebuilt every day, and pipseek downloads it weekly.  Versions, release dates and stats for the results you look at are live, cached for an hour.</div></details>
-      <details class="faq"><summary>How much disk space does it use?</summary><div>About 175 MB for the search database, in <code>~/.cache/pipseek</code> on Linux, <code>~/Library/Caches/pipseek</code> on macOS, or <code>%LOCALAPPDATA%\pipseek</code> on Windows.</div></details>
+      <details class="faq"><summary>How much disk space does it use?</summary><div>About 175 MB for the search database, in <code>~/.cache/pipseek</code> on Linux, <code>~/Library/Caches/pipseek</code> on macOS, or <code>%LOCALAPPDATA%\pipseek</code> on Windows.  <code>pipseek --clear-cache</code> removes it, along with everything else pipseek has cached.</div></details>
+      <details class="faq"><summary>Does it work offline?</summary><div>Yes, once the index is built.  Searching is local.  For details, pipseek uses anything it has cached, and otherwise shows the name and summary from the local index with a note that PyPI couldn't be reached.  <code>--info</code> works the same way.</div></details>
+      <details class="faq"><summary>Can I use my own index?</summary><div>Yes.  <code>python -m pipseek.build_index --out pypi-index.tsv.gz</code> builds one from PyPI's JSON API, over several runs the first time.  Point <code>PIPSEEK_INDEX_URL</code> at it: an http(s) URL, a <code>file://</code> URL or a local path.</div></details>
       <details class="faq"><summary>Is pipseek --outdated a replacement for pip-audit?</summary><div>For a quick look, often yes: it uses the same OSV data and adds what's outdated.  pip-audit goes further for CI pipelines (requirements files, SBOMs, auto-fixing), so use it when you need those.</div></details>
       <details class="faq"><summary>Does it change anything on my system?</summary><div>No.  pipseek only reads public data and writes to its own cache folder.  The one exception is the <code>i</code> key in the TUI, which runs <code>pip install</code> after showing you the exact command, and refuses on an OS-managed Python.</div></details>
-      <details class="faq"><summary>Was this written by AI?</summary><div>v1 (early 2025) was one script I wrote that scraped PyPI's search page.  v2 is a ground-up rewrite with AI coding agents (Claude), directed, reviewed and tested by me.  pytest and ruff run on Linux, macOS and Windows on every push.  <a class="c-cy" href="/#built">How these are built</a>.</div></details>
+      <details class="faq"><summary>Was this written by AI?</summary><div>v1 (early 2025) was one script I wrote that scraped PyPI's search page.  v2 is a ground-up rewrite with AI coding agents (Claude), directed, reviewed and tested by me.  On every push, CI runs pytest and ruff on Python 3.9, 3.13 and 3.14 on Linux, macOS and Windows, and builds the package.  <a class="c-cy" href="/#built">How these are built</a>.</div></details>
     </div>
   </section>
 
