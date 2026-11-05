@@ -5,6 +5,7 @@
 <figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/lg-usb-2-eth0-speeds.webp" alt="Real speeds: about 95 Mbit/s on the built-in port, up to 330 Mbit/s with a Realtek or ASIX USB adapter" title="Real speeds on real TVs" width="1280" height="610" style="height:240px;width:504px" loading="lazy"></figure>
 </div>
 <p><strong>Needs a rooted TV.  Set up Wi-Fi before you switch: switching takes the wired ports down for a moment, and Wi-Fi is your way back in.</strong></p>
+<p><strong>Keep firmware updates off.</strong>  LG's current firmware, webOS 26 included, patches the known root methods.  Turn on Block system updates in the Homebrew Channel, and Block updates harder in this app.</p>
 <h1>LG-USB-2-ETH0</h1>
 <p>LG TVs ship with a 100 Mbit/s wired port.  A gigabit USB Ethernet adapter is two to three times faster on the same TV, even on a USB 2.0 port, but webOS names it <code>eth1</code> and parts of webOS only look at <code>eth0</code>.  So the settings screen says "Not Connected" while the internet works, and some streaming apps refuse to play.</p>
 <p>This app makes the adapter the TV's <code>eth0</code> and parks the built-in port under another name, so webOS and its apps treat the adapter as the TV's wired connection.  A small boot hook does it again at every start.</p>
@@ -20,9 +21,10 @@
 <li><strong>Switch now</strong>, <strong>Run at every boot</strong> and <strong>Follow plug and unplug</strong>, as simple on/off switches.</li>
 <li><strong>Wi-Fi as a backup</strong>: if the cable stops working for a minute while Wi-Fi is off, the TV turns Wi-Fi on and joins a network it already knows.  Once the cable works again, Wi-Fi goes back off, so traffic returns to the adapter.  Off until you turn it on.</li>
 <li><strong>Faster driver</strong>: offered only when a Realtek or ASIX driver is known to work on your TV's exact kernel and an adapter it supports is plugged in.  Some TVs have no driver for the chip at all, like 2024 QNED and OLED models for Realtek, or a 2020 UN7300 and a 2025 B5 for ASIX.  It downloads, checks and sets up the driver in one go.</li>
+<li><strong>Block updates harder</strong>: on top of the Homebrew Channel's Block system updates, never instead of it.  It turns off webOS's own update check, blocks the update servers that block misses, drops traffic to LG's update IP with one firewall rule, and clears cached update details.  At every boot, and turning it off undoes only its own changes.</li>
 <li><strong>Speed test</strong>: download, upload and latency through the TV's current connection, against Cloudflare's nearest server.</li>
-<li><strong>Report from the couch</strong>: a QR code opens a compatibility report on your phone with your TV, adapter, speed and the full report already filled in, MAC addresses hidden.</li>
-<li><strong>Updates through the Homebrew Channel</strong>, like any other app from this repository.</li>
+<li><strong>Report from the couch</strong>: a QR code opens a compatibility report on your phone with your TV, its chip and built-in USB network drivers, your adapter, speed and the full report already filled in, MAC addresses hidden.</li>
+<li><strong>Updates through the Homebrew Channel</strong>, like any other app from this repository.  After an update, the app opens with a short list of what's new.</li>
 <li><strong>Upgrading from v1?</strong>  The app walks you through it, step by step, no SSH needed.</li>
 </ul>
 <h2>Real speeds</h2>
