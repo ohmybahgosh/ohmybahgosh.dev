@@ -64,7 +64,7 @@
 <!-- Google Analytics (GA4); ads features stay off -->
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
-<link rel="stylesheet" href="/luna-atlas/atlas.css?v=9c5bb04c">
+<link rel="stylesheet" href="/assets/css/luna-atlas.css?v=e887d740">
 </head>
 <body class="p-lunaatlas">
 <div class="bgfx" aria-hidden="true"></div>
@@ -105,6 +105,8 @@
         <span class="badge">documented <b data-atlas-count="documented">1,849</b></span>
         <span class="badge">webOS <b>4+</b></span>
         <span class="badge">★ <b data-gh="WEBOS-LUNA-SEND-ATLAS:stars">1</b></span>
+        <span class="badge">release <b data-gh="WEBOS-LUNA-SEND-ATLAS:version">none yet</b></span>
+        <span class="badge">updated <b data-gh="WEBOS-LUNA-SEND-ATLAS:pushed">recently</b></span>
         <span class="badge">license <b>MIT</b></span>
       </div>
     </div>
@@ -135,9 +137,11 @@
       <div class="atlas-bar">
         <label class="atlas-search"><span class="ic" aria-hidden="true">⌕</span><input id="atlas-q" type="search" placeholder="search 8,167 methods: createToast, volume, wifi, reboot…" autocomplete="off" spellcheck="false" aria-label="Search methods, services, URIs and descriptions"><kbd aria-hidden="true">/</kbd></label>
         <div class="atlas-filters">
+          <select id="atlas-svc" aria-label="Service"><option value="">every service</option></select>
           <select id="atlas-cat" aria-label="Category"><option value="">every category</option></select>
           <select id="atlas-acc" aria-label="Access level"><option value="">any access</option></select>
           <select id="atlas-conf" aria-label="Confidence"><option value="">any confidence</option></select>
+          <label class="atlas-toggle" id="atlas-subw"><input id="atlas-sub" type="checkbox"> subscribable</label>
           <label class="atlas-toggle" id="atlas-dzw"><input id="atlas-dz" type="checkbox"> ⚠ dangerous only</label>
           <div class="atlas-meta"><span id="atlas-count">loading…</span><button class="atlas-clear" id="atlas-clear" type="button" hidden>clear filters</button></div>
         </div>
@@ -184,7 +188,7 @@
   </section>
 
   <section id="status" data-pal="Luna Atlas status" style="padding-top:20px">
-    <div class="callout rv"><b>The catalog is the finished part.</b>  The repo also has a webOS app, a <code>luna-atlas.sh</code> script and a browser panel that read the same catalog.  Those are early previews and not ready for real use yet: the focus is documenting every Luna call first, then the app side.  Method names are solid, parameters are still being filled in, and categories may move.</div>
+    <div class="callout rv"><b>The catalog is the finished part.</b>  The repo also has a webOS app, a <code>luna-atlas.sh</code> script and a browser panel that read the same catalog.  Those are early previews and not ready for real use yet: the focus is documenting every Luna call first, then the app side.  Method names are solid, parameters are still being filled in, and categories may move.<br><br><b>What it isn't.</b>  It maps the services and methods that exist on a TV you own, private and dangerous ones included.  It doesn't publish exploits: no region or country lock bypasses, no DRM workarounds, and no way around LG's store sign-in or app signing.</div>
   </section>
 
   <section id="sources" data-pal="where the descriptions come from" style="padding-top:20px">
@@ -209,7 +213,8 @@
       <details class="faq"><summary>Do I need a rooted TV?</summary><div>To run most of these, yes, or Developer Mode for some.  <code>luna-send</code> is on every webOS TV, but private and root methods only answer a privileged caller.  Reading the catalog needs nothing at all.</div></details>
       <details class="faq"><summary>What does "inferred" mean?</summary><div>The method exists on a real TV, but LG publishes nothing about it.  Its description is worked out from the method name alone, and its parameters are left empty instead of guessed.  Treat it as a pointer, not documentation.</div></details>
       <details class="faq"><summary>Is it safe to try methods?</summary><div>Reading methods (<code>get…</code>, <code>list…</code>, status calls) usually are.  Anything that sets, resets, deletes or reboots can change the TV, and the ones that can do real damage are flagged dangerous.  There's no warranty, so know what a call does before you send it.</div></details>
-      <details class="faq"><summary>Can I use the data in my own project?</summary><div>Yes.  It's MIT licensed, and the full catalog is plain JSON and JSONL in the repo.  This page reads the same <code>catalog.json</code>.</div></details>
+      <details class="faq"><summary>Does it include bypasses or exploits?</summary><div>No.  It documents what exists on the Luna bus so you can understand and control a TV you own.  Bypassing region or country locks, DRM, or LG's store sign-in and app signing is out of scope.</div></details>
+      <details class="faq"><summary>Can I use the data in my own project?</summary><div>Yes.  It's MIT licensed, and the full catalog is plain JSON and JSONL in the repo.  This page reads the same <code>catalog.json</code> straight from the repo, so it's current as soon as the repo is.</div></details>
       <details class="faq"><summary>Was this written by AI?</summary><div>It's built with AI coding agents (Claude), directed, reviewed and checked by me against a real LG C2.  The confidence flags exist so nothing a model guessed passes for documentation.  <a class="c-cy" href="/#built">How these are built</a>.</div></details>
     </div>
   </section>
@@ -241,6 +246,6 @@
 </footer>
 <script src="/assets/js/site.js?v=96df3b1a" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<script src="/luna-atlas/atlas.js?v=9c5bb04c" defer></script>
+<script src="/assets/js/luna-atlas.js?v=e887d740" defer></script>
 </body>
 </html>

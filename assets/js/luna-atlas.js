@@ -1,11 +1,12 @@
 /* Luna Atlas catalog browser: search, filters, master/detail, deep links.  No dependencies.
-   Data: catalog.json next to this page (refreshed on deploy), or the repo's copy on GitHub. */
+   Data: the repo's web/catalog.json on GitHub, fetched live, with the copy saved on each deploy as a fallback.
+   Links: #/service/method?q=…&svc-filters, so any method or filtered view can be shared. */
 (() => {
   'use strict';
   const root = document.getElementById('atlas');
   if (!root) return;
 
-  const SOURCES = ['/luna-atlas/catalog.json', 'https://raw.githubusercontent.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/main/web/catalog.json'];
+  const SOURCES = ['https://raw.githubusercontent.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/main/web/catalog.json', '/luna-atlas/catalog.json'];
   const ROW = 58;
   const $ = (s, r = root) => r.querySelector(s);
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -17,7 +18,7 @@
   const NOTE_STUB = 'Found on a TV, but nothing is documented about it yet.';
 
   const el = {
-    q: $('#atlas-q'), cat: $('#atlas-cat'), acc: $('#atlas-acc'), conf: $('#atlas-conf'), dz: $('#atlas-dz'),
+    q: $('#atlas-q'), svcSel: $('#atlas-svc'), sub: $('#atlas-sub'), subw: $('#atlas-subw'), cat: $('#atlas-cat'), acc: $('#atlas-acc'), conf: $('#atlas-conf'), dz: $('#atlas-dz'),
     dzw: $('#atlas-dzw'), count: $('#atlas-count'), clear: $('#atlas-clear'), side: $('#atlas-side'),
     svcHead: $('#atlas-svchead'), list: $('#atlas-list'), listTitle: $('#atlas-listtitle'), detail: $('#atlas-detail'),
     body: $('#atlas-body'), loading: $('#atlas-loading'), seg: root.querySelectorAll('[data-side]'),
@@ -29,19 +30,27 @@
   let list = [];       // indexes into M for the method list
   let svcCount = [];   // matches per service for the current filters
   let catCount = {};   // matches per category for the current filters
-  const st = { q: '', cat: '', acc: '', conf: '', danger: false, svc: -1, sel: -1, side: 'services' };
+  const st = { q: '', cat: '', acc: '', conf: '', danger: false, sub: false, svc: -1, sel: -1, side: 'services' };
 
   /* ---------- load ---------- */
+  let loading = false;
   async function load() {
+    if (loading || M.length) return;   // parsed once, then searched in memory
+    loading = true;
+    el.loading.innerHTML = 'loading the catalog (about 2 MB)…<div class="bar"><i></i></div>';
     for (const src of SOURCES) {
+      const ac = 'AbortController' in window ? new AbortController() : null;
+      const tm = ac && setTimeout(() => ac.abort(), 15000);
       try {
-        const r = await fetch(src, { cache: 'no-cache' });
+        const r = await fetch(src, ac ? { signal: ac.signal } : {});
         if (!r.ok) continue;
         const j = await r.json();
-        if (j && Array.isArray(j.services)) return init(j);
+        if (j && Array.isArray(j.services)) { clearTimeout(tm); loading = false; return init(j); }
       } catch (e) { /* try the next source */ }
+      clearTimeout(tm);
     }
-    el.loading.innerHTML = 'The catalog didn\'t load.  <a class="c-gr" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS">Browse it on GitHub ↗</a>';
+    loading = false;
+    el.loading.innerHTML = 'The catalog didn\'t load.  <button class="atlas-clear" type="button" data-retry>try again</button> or <a class="c-gr" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/tree/main/catalog" target="_blank" rel="noopener">browse it on GitHub ↗</a>';
   }
 
   function init(j) {
@@ -68,6 +77,7 @@
     const ba = c.by_access || {};
     el.acc.innerHTML = '<option value="">any access</option>' + ACCESS.filter((a) => ba[a]).map((a) => `<option value="${a}">${a} (${fmt(ba[a])})</option>`).join('');
     el.conf.innerHTML = '<option value="">any confidence</option>' + CONF.filter((k) => bd[k]).map((k) => `<option value="${k}">${k} (${fmt(bd[k])})</option>`).join('');
+    el.svcSel.innerHTML = '<option value="">every service</option>' + S.map((s) => `<option value="${s.i}">${esc(s.name)} (${fmt(s.n)})</option>`).join('');
 
     el.loading.hidden = true;
     el.body.hidden = false;
@@ -88,6 +98,7 @@
       if (st.acc && m.a !== st.acc) continue;
       if (st.conf && m.dc !== st.conf) continue;
       if (st.danger && !m.d) continue;
+      if (st.sub && !m.s) continue;
       if (toks.length && !toks.every((t) => m.hay.includes(t))) continue;
       catCount[m.c] = (catCount[m.c] || 0) + 1;
       if (st.cat && m.c !== st.cat) continue;
@@ -102,7 +113,7 @@
       list.sort((a, b) => score(M[a]) - score(M[b]) || M[a].m.length - M[b].m.length);
     }
   }
-  const filtering = () => !!(st.q || st.cat || st.acc || st.conf || st.danger);
+  const filtering = () => !!(st.q || st.cat || st.acc || st.conf || st.danger || st.sub);
 
   /* ---------- render ---------- */
   function render() {
@@ -116,6 +127,9 @@
     el.count.innerHTML = `<b>${fmt(list.length)}</b> of ${fmt(M.length)} methods`;
     el.clear.hidden = !filtering() && st.svc < 0;
     el.dzw.classList.toggle('on', st.danger);
+    el.subw.classList.toggle('on', st.sub);
+    el.svcSel.value = st.svc >= 0 ? String(st.svc) : '';
+    syncURL();
   }
 
   function renderSide() {
@@ -194,17 +208,54 @@
       `<h4>parameters</h4>${ph}` +
       `<h4>run it</h4><div class="code"><pre><span class="pr">$ </span>${esc(cmd)}</pre><button class="copy" type="button" data-copy="${esc(cmd)}">copy</button></div>` +
       (m.s ? '<p class="note" style="margin-top:8px">Supports subscriptions: add <code>"subscribe": true</code> and drop <code>-n 1</code> to keep listening.</p>' : '') +
-      `<p class="share">link: <button type="button" data-copy="${esc(location.origin + location.pathname + link(s.name, m.m))}">copy link to this method</button></p>`;
+      `<p class="share">link: <button type="button" data-copy="${esc(location.origin + location.pathname + link(s.name, m.m, false))}">copy link to this method</button></p>`;
   }
 
-  /* ---------- deep links: #/service or #/service/method ---------- */
-  function link(svc, m) { return '#/' + encodeURI(svc) + (m != null ? '/' + encodeURI(m) : ''); }
+  /* ---------- deep links: #/service, #/service/method, plus ?q=&cat=&acc=&conf=&sub=1&dz=1 ---------- */
+  function qs() {
+    const p = new URLSearchParams();
+    if (st.q) p.set('q', st.q);
+    if (st.cat) p.set('cat', st.cat);
+    if (st.acc) p.set('acc', st.acc);
+    if (st.conf) p.set('conf', st.conf);
+    if (st.sub) p.set('sub', '1');
+    if (st.danger) p.set('dz', '1');
+    const s = p.toString();
+    return s ? '?' + s : '';
+  }
+  function link(svc, m, withFilters = true) { return '#/' + encodeURI(svc) + (m != null ? '/' + encodeURI(m) : '') + (withFilters ? qs() : ''); }
+  function buildHash() {
+    if (st.sel >= 0) return link(S[M[st.sel].si].name, M[st.sel].m);
+    if (st.svc >= 0) return link(S[st.svc].name);
+    const q = qs();
+    return q ? '#/' + q : '';
+  }
+  // filters only replace the current entry, so Back still steps through the methods you opened
+  function syncURL() {
+    const h = buildHash();
+    if (h === location.hash || (!h && !location.hash.startsWith('#/'))) return;   // leave page anchors like #faq alone
+    history.replaceState(null, '', location.pathname + location.search + h);
+  }
+  function syncInputs() {
+    el.q.value = st.q; el.cat.value = st.cat; el.acc.value = st.acc; el.conf.value = st.conf;
+    el.dz.checked = st.danger; el.sub.checked = st.sub;
+  }
   let keepScope = false;   // set by a click in the list: show the method, keep the list as it is
   function applyHash(first) {
     const h = location.hash;
     if (!h.startsWith('#/')) return;
+    const qi = h.indexOf('?');
+    const p = new URLSearchParams(qi < 0 ? '' : h.slice(qi + 1));
+    const okv = (v, all) => (v && all.includes(v) ? v : '');
+    Object.assign(st, {
+      q: (p.get('q') || '').slice(0, 200), cat: p.get('cat') || '', acc: okv(p.get('acc'), ACCESS), conf: okv(p.get('conf'), CONF),
+      sub: p.get('sub') === '1', danger: p.get('dz') === '1',
+    });
+    if (st.cat && !el.cat.querySelector(`option[value="${CSS.escape(st.cat)}"]`)) st.cat = '';
+    syncInputs();
     let path;
-    try { path = decodeURI(h.slice(2)); } catch (e) { return; }
+    try { path = decodeURI(qi < 0 ? h.slice(2) : h.slice(2, qi)); } catch (e) { return; }
+    if (!path) { if (!keepScope) { st.svc = -1; } st.sel = -1; keepScope = false; root.dataset.view = 'list'; return; }
     const cut = path.indexOf('/');
     const svc = cut < 0 ? path : path.slice(0, cut);
     const meth = cut < 0 ? null : path.slice(cut + 1);
@@ -222,7 +273,7 @@
     if (first) setTimeout(() => root.scrollIntoView({ block: 'start' }), 50);
   }
   window.addEventListener('hashchange', () => {
-    if (!M.length) return;
+    if (!M.length || !location.hash.startsWith('#/')) return;
     const keep = keepScope;
     applyHash(false);
     if (keep) { renderList(false); renderDetail(); highlight(); } else { render(); scrollToSel(); }
@@ -243,14 +294,16 @@
 
   /* ---------- events ---------- */
   let qt;
-  el.q.addEventListener('input', () => { clearTimeout(qt); qt = setTimeout(() => { st.q = el.q.value.trim(); render(); }, 60); });
+  el.q.addEventListener('input', () => { clearTimeout(qt); qt = setTimeout(() => { st.q = el.q.value.trim(); render(); }, 140); });
+  el.svcSel.addEventListener('change', () => { st.svc = el.svcSel.value === '' ? -1 : Number(el.svcSel.value); st.sel = -1; root.dataset.view = 'list'; render(); });
+  el.sub.addEventListener('change', () => { st.sub = el.sub.checked; render(); });
   el.cat.addEventListener('change', () => { st.cat = el.cat.value; render(); });
   el.acc.addEventListener('change', () => { st.acc = el.acc.value; render(); });
   el.conf.addEventListener('change', () => { st.conf = el.conf.value; render(); });
   el.dz.addEventListener('change', () => { st.danger = el.dz.checked; render(); });
   el.clear.addEventListener('click', () => {
-    Object.assign(st, { q: '', cat: '', acc: '', conf: '', danger: false, svc: -1, sel: -1 });
-    el.q.value = ''; el.cat.value = ''; el.acc.value = ''; el.conf.value = ''; el.dz.checked = false;
+    Object.assign(st, { q: '', cat: '', acc: '', conf: '', danger: false, sub: false, svc: -1, sel: -1 });
+    syncInputs();
     setHash('');
     render();
   });
@@ -261,7 +314,7 @@
     if (b.dataset.svc != null) {
       const si = Number(b.dataset.svc);
       st.svc = si; st.sel = -1;
-      setHash(si >= 0 ? link(S[si].name) : '');
+      setHash(buildHash());
     } else {
       st.cat = b.dataset.cat; el.cat.value = st.cat; st.svc = -1; st.sel = -1;
     }
@@ -277,6 +330,7 @@
   });
   function highlight() { el.list.querySelectorAll('.vrow').forEach((r) => r.setAttribute('aria-current', String(Number(r.dataset.i) === st.sel))); }
   root.addEventListener('click', (e) => {
+    if (e.target.closest('[data-retry]')) { load(); return; }
     const g = e.target.closest('[data-goto]');
     if (g) { setHash(link(g.dataset.goto)); return; }
     const back = e.target.closest('[data-back]');
