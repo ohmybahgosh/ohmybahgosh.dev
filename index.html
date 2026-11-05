@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>OhMyBahGosh · open-source webOS homebrew and developer tools</title>
+<title>OhMyBahGosh · open-source projects, currently webOS homebrew</title>
 <meta name="description" content="The home of OhMyBahGosh's open-source projects: LG webOS homebrew (the TiviBro IPTV player, LG-USB-2-ETH0 and the webOS Entware installer) and developer tools like pipseek, the pip search PyPI switched off.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
@@ -15,10 +15,10 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=9fd93c28">
+<link rel="stylesheet" href="/assets/css/site.css?v=96df3b1a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
-<meta property="og:title" content="OhMyBahGosh · open-source webOS homebrew and developer tools">
+<meta property="og:title" content="OhMyBahGosh · open-source projects, currently webOS homebrew">
 <meta property="og:description" content="The home of OhMyBahGosh's open-source projects: LG webOS homebrew (the TiviBro IPTV player, LG-USB-2-ETH0 and the webOS Entware installer) and developer tools like pipseek, the pip search PyPI switched off.">
 <meta property="og:url" content="https://ohmybahgosh.dev/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/home.png">
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps and shell tools for rooted LG webOS TVs">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="OhMyBahGosh · open-source webOS homebrew and developer tools">
+<meta name="twitter:title" content="OhMyBahGosh · open-source projects, currently webOS homebrew">
 <meta name="twitter:description" content="The home of OhMyBahGosh's open-source projects: LG webOS homebrew (the TiviBro IPTV player, LG-USB-2-ETH0 and the webOS Entware installer) and developer tools like pipseek, the pip search PyPI switched off.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
@@ -93,7 +93,7 @@
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
-    <span class="status"><span class="dot"></span>webOS homebrew · dev tools</span>
+    <span class="status"><span class="dot"></span>dev showcase · now webOS</span>
     <nav class="nav" aria-label="Main">
       <a href="/tivibro/" class="hide-xs">tivibro</a>
       <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
@@ -111,17 +111,28 @@
 <main>
 <div class="wrap">
   <section class="hero" style="padding-bottom:56px">
-    <div>
-      <div class="eyebrow">open source · webOS homebrew · dev tools</div>
-      <h1 class="h1" style="margin-top:16px">Software LG<br>forgot to <span class="grad">ship.</span></h1>
-      <p class="lead">Open-source software I build and share.  Mostly apps for LG webOS TVs: an IPTV player, a faster wired connection and a real Linux toolbox, run from the remote or over SSH, tried on a real TV and removed cleanly.  Plus tools for developers, starting with pipseek.</p>
+    <div style="min-width:0">
+      <div class="eyebrow">open source · dev showcase</div>
+      <h1 class="h1 hname" style="margin-top:16px"><span class="tilde">~/</span>ohmybahgosh</h1>
+      <div class="hcli" aria-label="Current focus: LG webOS homebrew.  Projects: TiviBro, LG-USB-2-ETH0, Entware, Luna Atlas and pipseek.">
+        <div><span class="p">$</span> cat focus</div>
+        <div class="out"><span class="fdot"></span>LG webOS homebrew</div>
+        <div style="margin-top:10px"><span class="p">$</span> ls projects/</div>
+        <div class="out ls">
+          <a href="/tivibro/" style="--c:#33e1ff">tivibro/</a>
+          <a href="/lg-usb-2-eth0/" style="--c:#3ddc97">usb-2-eth0/</a>
+          <a href="/webos-entware-installer/" style="--c:#ff3ea5">entware/</a>
+          <a href="/luna-atlas/" style="--c:#3ddc97">luna-atlas/</a>
+          <a href="/pipseek/" style="--c:#4c9eff">pipseek/</a>
+        </div>
+      </div>
+      <p class="lead">Open-source things I build, test on real hardware and share.  Right now that's apps for rooted LG TVs.  More lands here as I build it.</p>
       <div class="btns">
         <a class="btn pri" href="#homebrew">$ add the repo</a>
         <a class="btn" href="#repos">ls ~/repos</a>
         <a class="btn" href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
       </div>
       <div class="hrepo"><span class="dim mono">Homebrew Channel repository</span><code>https://ohmybahgosh.dev/repo</code></div>
-      <div class="hrepo" style="margin-top:10px"><span class="dim mono">Also here</span><a href="/pipseek/" style="text-decoration:none"><code>pipseek</code></a><span class="muted">search PyPI from your terminal</span><a class="c-cy mono" href="#tools" style="font-size:13px">all tools ↓</a></div>
     </div>
     <div class="hshow" data-tabs>
       <div class="tabs" role="tablist" aria-label="Show the apps on the TV or over SSH">
@@ -365,7 +376,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=9fd93c28" defer></script>
+<script src="/assets/js/site.js?v=96df3b1a" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

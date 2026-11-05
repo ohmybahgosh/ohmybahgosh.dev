@@ -411,3 +411,14 @@ html[data-theme=light] .hdock a[aria-current=true] img{border-color:var(--accent
 .card .ic svg{width:18px;height:18px;display:block}
 a.tv{display:block;cursor:pointer}a.tv:hover{border-color:var(--line2)}
 @media (min-width:901px){.tv.stick{position:sticky;top:96px}}
+
+/* home hero: ~/ohmybahgosh */
+.hname{font-size:clamp(38px,4.6vw,70px);letter-spacing:-.03em;white-space:nowrap}
+.hname .tilde{color:var(--accent);opacity:.75}
+.hcli{margin:22px 0 4px;font:15px/1.75 var(--mono);color:var(--fg2,#cfd8d3);border-left:2px solid color-mix(in srgb,var(--accent) 55%,transparent);padding:4px 0 4px 16px}
+.hcli .p{color:var(--accent);margin-right:6px}
+.hcli .out{color:var(--fg,#e8efeb);padding-left:18px}
+.hcli .fdot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3ddc97;box-shadow:0 0 10px #3ddc97;margin-right:10px;vertical-align:1px}
+.hcli .ls{display:flex;flex-wrap:wrap;gap:4px 18px}
+.hcli .ls a{color:var(--c);text-decoration:none;font-weight:600}
+.hcli .ls a:hover{text-decoration:underline}
