@@ -30,6 +30,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 tools/update-data.py data/repos.json
+      - name: Refresh the Luna Atlas catalog
+        continue-on-error: true   # keeps the committed copy if GitHub is unreachable
+        run: |
+          curl -fsSL --retry 3 -o /tmp/catalog.json https://raw.githubusercontent.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/main/web/catalog.json
+          python3 -c "import json,sys; d=json.load(open('/tmp/catalog.json')); assert len(d['services']) > 100 and d['counts']['methods'] > 1000"
+          mv /tmp/catalog.json luna-atlas/catalog.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

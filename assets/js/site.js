@@ -9,6 +9,7 @@
     { name: 'TiviBro', slug: 'tivibro', desc: 'The IPTV player LG TVs never got' },
     { name: 'LG-USB-2-ETH0', slug: 'lg-usb-2-eth0', desc: 'USB Ethernet becomes the TV\'s eth0' },
     { name: 'WEBOS-ENTWARE-INSTALLER', slug: 'webos-entware-installer', desc: 'Entware for rooted webOS: TV app, packages, add-ons' },
+    { name: 'WEBOS-LUNA-SEND-ATLAS', slug: 'luna-atlas', desc: 'Every LG webOS luna-send command, documented' },
     { name: 'pipseek', slug: 'pipseek', desc: 'Search PyPI from your terminal', tool: true },
   ];
 
@@ -120,8 +121,8 @@
   $$('.term[data-typed]').forEach(runTerm);
   const plain = (md) => md.replace(/```[\s\S]*?```/g, ' ').replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
     .replace(/<[^>]+>/g, '').replace(/^#+\s*/gm, '').replace(/[*_`>|]/g, '').replace(/^\s*[-+]\s+/gm, '• ').replace(/\s+/g, ' ').trim();
-  const COLORS = { 'TiviBro': '#33e1ff', 'LG-USB-2-ETH0': '#3ddc97', 'WEBOS-ENTWARE-INSTALLER': '#ff3ea5', 'pipseek': '#4c9eff' };
-  const SHORT = { 'TiviBro': 'TiviBro', 'LG-USB-2-ETH0': 'USB-2-ETH0', 'WEBOS-ENTWARE-INSTALLER': 'Entware', 'pipseek': 'pipseek' };
+  const COLORS = { 'TiviBro': '#33e1ff', 'LG-USB-2-ETH0': '#3ddc97', 'WEBOS-ENTWARE-INSTALLER': '#ff3ea5', 'pipseek': '#4c9eff', 'WEBOS-LUNA-SEND-ATLAS': '#3ddc97' };
+  const SHORT = { 'TiviBro': 'TiviBro', 'LG-USB-2-ETH0': 'USB-2-ETH0', 'WEBOS-ENTWARE-INSTALLER': 'Entware', 'pipseek': 'pipseek', 'WEBOS-LUNA-SEND-ATLAS': 'Luna Atlas' };
 
   gh().then((d) => {
     let total = 0;

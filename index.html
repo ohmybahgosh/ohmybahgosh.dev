@@ -15,7 +15,7 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=7c6d6b54">
+<link rel="stylesheet" href="/assets/css/site.css?v=9fd93c28">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="OhMyBahGosh · open-source webOS homebrew and developer tools">
@@ -98,6 +98,7 @@
       <a href="/tivibro/" class="hide-xs">tivibro</a>
       <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
       <a href="/webos-entware-installer/" class="hide-s">entware</a>
+      <a href="/luna-atlas/" class="hide-s">atlas</a>
       <a href="/#tools" class="hide-s">tools</a>
       <a href="/about/" class="hide-s">about</a>
       <a href="/contact/" class="hide-s">contact</a>
@@ -169,8 +170,8 @@
     <div class="sec-head rv">
       <div>
         <div class="eyebrow">~/repos/webos</div>
-        <h2 class="h2" style="margin-top:12px">Three tools.  One rooted TV.</h2>
-        <p>An IPTV player that feels like cable, a faster wired connection, and a real Linux toolbox.  Each one checks your TV first and undoes itself cleanly.</p>
+        <h2 class="h2" style="margin-top:12px">Built for one rooted TV.</h2>
+        <p>An IPTV player that feels like cable, a faster wired connection, a real Linux toolbox, and a map of every luna-send command.  Each app checks your TV first and undoes itself cleanly.</p>
       </div>
       <div class="dim mono" style="font-size:13px">★ <b class="c-wh" data-gh="total:stars">23</b> stars across the webOS repos</div>
     </div>
@@ -208,6 +209,22 @@
         <div class="tags"><span>entware</span><span>opkg</span><span>webos-app</span><span>app-storage</span><span>aarch64</span><span>armv7</span></div>
         <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="WEBOS-ENTWARE-INSTALLER:stars">3</b></span><span>webOS 23 · 24 · 25</span></div>
         <div class="tv" style="margin:22px 0 26px"><video src="/assets/media/entware-app-demo.mp4" poster="/assets/img/entware-app-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The Entware TV app with the remote: opening Add-ons, adding the Login banner and watching it install, then opening Package updates"></video></div>
+      </a>
+
+      <a class="card repo s6 rv" href="/luna-atlas/" style="--ca:#3ddc97;--cb:#33e1ff">
+        <span class="go">↗</span>
+        <div class="two" style="gap:32px;align-items:center">
+          <div style="min-width:0">
+            <div class="path">~/luna-atlas <span class="pill" style="--ca:#3ddc97">catalog</span> <span class="pill" style="--ca:#33e1ff">8,167 methods</span></div>
+            <h3 style="display:flex;gap:14px;align-items:center"><img class="appicon sm" src="/assets/img/luna-atlas-icon.webp" alt="" width="48" height="48" loading="lazy">Luna Atlas</h3>
+            <p>Every LG webOS <code class="c-gr">luna-send</code> command in one place: 8,167 methods across 501 services, searchable right on the page.  Each one has its access level, a confidence flag that says what's documented and what's inferred, parameters where known, and a ready-to-run command.</p>
+            <div class="tags"><span>luna-send</span><span>luna-service-bus</span><span>webos</span><span>reference</span><span>catalog</span></div>
+            <div class="meta"><span class="lang" style="--lc:#3ddc97">JSON</span><span>★ <b data-gh="WEBOS-LUNA-SEND-ATLAS:stars">1</b></span><span>1,849 documented · 6,316 inferred</span></div>
+          </div>
+          <div style="min-width:0"><div style="border-radius:12px;background:#070a14;border:1px solid var(--line);padding:16px 18px;font:13px/1.7 var(--mono);color:#c9d4f2;overflow-x:auto;white-space:pre"><span class="c-gr">$ </span>luna-send -n 1 -f \
+    luna://com.webos.notification/createToast \
+    '{"message":"Hello from luna-send"}'</div></div>
+        </div>
       </a>
     </div>
   </section>
@@ -340,6 +357,7 @@
       <a href="/tivibro/">tivibro</a>
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
+      <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/about/">about</a>
       <a href="/contact/">contact</a>
@@ -347,7 +365,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=7c6d6b54" defer></script>
+<script src="/assets/js/site.js?v=9fd93c28" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

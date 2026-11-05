@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Luna Atlas · every LG webOS luna-send command</title>
+<meta name="description" content="Luna Atlas is a searchable catalog of every LG webOS luna-send (Luna Service Bus) command: 8,167 methods across 501 services, each with its access level, a confidence flag, parameters where known, and a ready-to-run command.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="dns-prefetch" href="https://api.github.com">
+<link rel="stylesheet" href="/assets/css/site.css?v=9fd93c28">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Luna Atlas · every LG webOS luna-send command">
+<meta property="og:description" content="Luna Atlas is a searchable catalog of every LG webOS luna-send (Luna Service Bus) command: 8,167 methods across 501 services, each with its access level, a confidence flag, parameters where known, and a ready-to-run command.">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command, documented.  8,167 methods across 501 services.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Luna Atlas · every LG webOS luna-send command">
+<meta name="twitter:description" content="Luna Atlas is a searchable catalog of every LG webOS luna-send (Luna Service Bus) command: 8,167 methods across 501 services, each with its access level, a confidence flag, parameters where known, and a ready-to-run command.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "SoftwareApplication",
+   "name": "Luna Atlas",
+   "alternateName": "WEBOS-LUNA-SEND-ATLAS",
+   "description": "Luna Atlas is a searchable catalog of every LG webOS luna-send (Luna Service Bus) command: 8,167 methods across 501 services, each with its access level, a confidence flag, parameters where known, and a ready-to-run command.",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "LG webOS",
+   "url": "https://ohmybahgosh.dev/luna-atlas/",
+   "codeRepository": "https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS",
+   "license": "https://opensource.org/licenses/MIT",
+   "isAccessibleForFree": true,
+   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+   "author": { "@id": "https://ohmybahgosh.dev/#person" }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ohmybahgosh.dev/" },
+    { "@type": "ListItem", "position": 2, "name": "Luna Atlas", "item": "https://ohmybahgosh.dev/luna-atlas/" }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+<link rel="stylesheet" href="/luna-atlas/atlas.css?v=46add872">
+</head>
+<body class="p-lunaatlas">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <span class="status"><span class="dot"></span>webOS homebrew · dev tools</span>
+    <nav class="nav" aria-label="Main">
+      <a href="/tivibro/" class="hide-xs">tivibro</a>
+      <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
+      <a href="/webos-entware-installer/" class="hide-s">entware</a>
+      <a href="/luna-atlas/" class="hide-s" aria-current="page">atlas</a>
+      <a href="/#tools" class="hide-s">tools</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="crumb"><a href="/">~</a><span>/</span><a href="/#repos">webos</a><span>/</span><span class="c-gr">luna-atlas</span></div>
+      <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/luna-atlas-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">Luna Atlas</div><div class="muted" style="margin-top:6px;font-size:17px">every luna-send command, documented</div></div></div>
+      <h1 class="h2" style="margin-top:10px">The webOS Luna bus,<br><span class="grad">mapped.</span></h1>
+      <p class="lead">Every LG webOS TV ships <code class="c-gr">luna-send</code>, the command that talks to the Luna Service Bus: power, apps, inputs, picture and sound, Wi-Fi, notifications and hundreds more.  There has never been a complete list of what you can say to it.  This is that list: <b class="c-wh"><span data-atlas-count="methods">8,167</span> methods across <span data-atlas-count="services">501</span> services</b>, each with its access level, where it came from, and a ready-to-run command.</p>
+      <div class="btns">
+        <a class="btn pri" href="#catalog">$ browse the catalog</a>
+        <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS" target="_blank" rel="noopener">source ↗</a>
+        <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/tree/main/catalog" target="_blank" rel="noopener">raw catalog ↗</a>
+      </div>
+      <div class="badges">
+        <span class="badge">methods <b class="c-gr" data-atlas-count="methods">8,167</b></span>
+        <span class="badge">services <b data-atlas-count="services">501</b></span>
+        <span class="badge">documented <b data-atlas-count="documented">1,849</b></span>
+        <span class="badge">webOS <b>4+</b></span>
+        <span class="badge">★ <b data-gh="WEBOS-LUNA-SEND-ATLAS:stars">1</b></span>
+        <span class="badge">license <b>MIT</b></span>
+      </div>
+    </div>
+    <div>
+      <div class="term" data-typed style="--th:330px" data-prompt="&lt;span class=c-gr&gt;root@LGwebOSTV&lt;/span&gt;:&lt;span class=c-cy&gt;~&lt;/span&gt;# ">
+        <div class="tb"><i></i><i></i><i></i><span>root@LGwebOSTV: ~ · ssh</span></div>
+        <div class="scr" aria-label="An SSH session on an LG TV: luna-send shows a toast on the screen, then reads the TV's model name"></div>
+        <script type="text/x-term">[
+          ["$","luna-send -n 1 -f luna://com.webos.notification/createToast '{\"message\":\"Hello from luna-send\"}'"],
+          ["o!","<span class=c-mu>{</span> <span class=c-cy>\"returnValue\"</span>: <span class=c-gr>true</span> <span class=c-mu>, ...}</span>"],
+          ["$","luna-send -n 1 -f luna://com.webos.service.tv.systemproperty/getSystemInfo '{\"keys\":[\"modelName\"]}'"],
+          ["o!","<span class=c-mu>{</span> <span class=c-cy>\"modelName\"</span>: <span class=c-am>\"OLED65C2PUA\"</span>, <span class=c-cy>\"returnValue\"</span>: <span class=c-gr>true</span> <span class=c-mu>}</span>"]
+        ]</script>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats rv" style="margin-top:30px">
+    <div><b data-atlas-count="methods">8,167</b><span>methods</span></div>
+    <div><b data-atlas-count="services">501</b><span>services</span></div>
+    <div><b data-atlas-count="documented">1,849</b><span>documented</span></div>
+    <div><b data-atlas-count="inferred">6,316</b><span>inferred, flagged</span></div>
+  </div>
+
+  <section id="catalog" data-pal="browse the luna-send catalog" style="padding-top:40px;min-width:0">
+    <div class="sec-head rv"><div><div class="eyebrow">luna-atlas search</div><h2 class="h2" style="margin-top:12px">Browse every call.</h2><p>Search by method, service, URI or description, filter by category, access and confidence, and open any method for its parameters and a command to run.  Every view has its own link to share.</p></div></div>
+    <div class="atlas" id="atlas" data-view="list">
+      <div class="atlas-bar">
+        <label class="atlas-search"><span class="ic" aria-hidden="true">⌕</span><input id="atlas-q" type="search" placeholder="search 8,167 methods: createToast, volume, wifi, reboot…" autocomplete="off" spellcheck="false" aria-label="Search methods, services, URIs and descriptions"><kbd aria-hidden="true">/</kbd></label>
+        <div class="atlas-filters">
+          <select id="atlas-cat" aria-label="Category"><option value="">every category</option></select>
+          <select id="atlas-acc" aria-label="Access level"><option value="">any access</option></select>
+          <select id="atlas-conf" aria-label="Confidence"><option value="">any confidence</option></select>
+          <label class="atlas-toggle" id="atlas-dzw"><input id="atlas-dz" type="checkbox"> ⚠ dangerous only</label>
+          <div class="atlas-meta"><span id="atlas-count">loading…</span><button class="atlas-clear" id="atlas-clear" type="button" hidden>clear filters</button></div>
+        </div>
+      </div>
+      <div class="atlas-loading" id="atlas-loading">loading the catalog (about 2 MB)…<div class="bar"><i></i></div></div>
+      <div class="atlas-body" id="atlas-body" hidden>
+        <div class="atlas-col atlas-side">
+          <div class="atlas-head"><span class="atlas-seg"><button type="button" data-side="services" aria-pressed="true">services</button><button type="button" data-side="categories" aria-pressed="false">categories</button></span></div>
+          <div class="atlas-scroll" id="atlas-side"></div>
+        </div>
+        <div class="atlas-col atlas-listcol">
+          <div class="atlas-head"><button class="atlas-back" type="button" data-back="side">← services</button><span id="atlas-listtitle">methods</span><span class="sp"></span></div>
+          <div class="atlas-svc" id="atlas-svchead" hidden></div>
+          <div class="atlas-scroll atlas-list" id="atlas-list"></div>
+        </div>
+        <div class="atlas-col atlas-detailcol">
+          <div class="atlas-head"><button class="atlas-back" type="button" data-back="list">← methods</button><span>method</span></div>
+          <div class="atlas-scroll"><div class="atlas-detail" id="atlas-detail"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="legend rv" style="margin-top:18px">
+      <div class="card" style="padding:18px"><span class="ab c-documented">documented</span><p class="muted" style="margin-top:10px"><b class="c-wh"><span data-atlas-count="documented">1,849</span> methods</b> from authoritative sources: the webOS OSE docs, LG's own docs, and community projects.  Each record lists the URLs it came from.</p></div>
+      <div class="card" style="padding:18px"><span class="ab c-inferred">inferred</span><p class="muted" style="margin-top:10px"><b class="c-wh"><span data-atlas-count="inferred">6,316</span> methods</b> are LG-proprietary, found on a real TV with no public docs.  The description comes only from the method name, and no parameters are invented.</p></div>
+      <div class="card" style="padding:18px"><span class="ab c-stub">stub</span><p class="muted" style="margin-top:10px">A handful of entries found on a TV with nothing known about them yet.  Listed so the map is complete, marked so nobody mistakes them for docs.</p></div>
+    </div>
+    <p class="dim rv" style="font-size:14px;margin-top:14px">Access levels: <span class="ab sm a-public">public</span> callable by apps with the right permission, <span class="ab sm a-private">private</span> needs root or system rights, <span class="ab sm a-ssap">ssap</span> reachable over the SSAP websocket, <span class="ab sm a-root">root</span> root only, <span class="ab sm a-unknown">unknown</span> the source didn't say.  <span class="ab sm danger">⚠</span> marks <span data-atlas-count="dangerous">314</span> calls that can factory reset, wipe data or break the set.</p>
+  </section>
+
+  <section id="what" data-pal="what luna-send is" style="padding-top:20px">
+    <div class="two rv" style="align-items:center">
+      <div style="min-width:0">
+        <div class="eyebrow">man luna-send</div>
+        <h2 class="h2" style="margin:12px 0 16px">One bus.  Every service.</h2>
+        <p class="muted">The Luna Service Bus is the internal message bus every webOS system service listens on.  On a rooted TV or in Developer Mode, <code>luna-send</code> is how you drive any of it from a shell: show a toast, switch inputs, read the model, change a picture setting, or ask a service what it can do.</p>
+        <p class="muted">Methods marked <span class="ab sm sub">sub</span> also stream updates: add <code>"subscribe": true</code> and drop <code>-n 1</code> to keep listening.</p>
+        <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast '{"message":"Hello from luna-send"}'</pre></div>
+      </div>
+      <div class="bento" style="grid-template-columns:minmax(0,1fr)">
+        <div class="card rv" style="--ca:#e5484d"><div class="ic">⚠</div><h3>This drives a real TV</h3><p>Many calls change settings, inputs, power or the panel, and a few can factory reset, wipe data or brick the set.  Those are flagged and listed in <a class="c-pk" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.  Running one is exactly as safe as typing the same <code>luna-send</code> yourself.</p></div>
+        <div class="card rv" style="--ca:#ffb547"><div class="ic">?</div><h3>Honest about what's known</h3><p>Every method carries a confidence flag, and so does every service description.  Inferred entries say so, and their parameters are left blank rather than guessed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="status" data-pal="Luna Atlas status" style="padding-top:20px">
+    <div class="callout rv"><b>The catalog is the finished part.</b>  The repo also has a webOS app, a <code>luna-atlas.sh</code> script and a browser panel that read the same catalog.  Those are early previews and not ready for real use yet: the focus is documenting every Luna call first, then the app side.  Method names are solid, parameters are still being filled in, and categories may move.</div>
+  </section>
+
+  <section id="sources" data-pal="where the descriptions come from" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">cat SOURCES.md</div><h2 class="h2" style="margin-top:12px">Where it comes from.</h2><p>Every record lists the exact URLs it came from.  Most methods were found by introspecting a real LG TV.  Descriptions and parameters come from public documentation and community projects wherever they exist.</p></div><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/SOURCES.md" target="_blank" rel="noopener">every source ↗</a></div>
+    <div class="tblw rv"><table class="tbl">
+      <thead><tr><th>source</th><th>records</th></tr></thead>
+      <tbody>
+        <tr><td>On-device introspection of an LG OLED (webOS TV 7.0, W22O)</td><td>5,900+</td></tr>
+        <tr><td><a class="c-gr" href="https://www.webosose.org" target="_blank" rel="noopener">webOS Open Source Edition</a> docs</td><td>1,084</td></tr>
+        <tr><td><a class="c-gr" href="https://github.com/SunnySide007/lumen-webos" target="_blank" rel="noopener">lumen-webos</a></td><td>509</td></tr>
+        <tr><td><a class="c-gr" href="https://github.com/webosose/db8" target="_blank" rel="noopener">webosose/db8</a></td><td>231</td></tr>
+        <tr><td><a class="c-gr" href="https://github.com/chros73/bscpylgtv" target="_blank" rel="noopener">bscpylgtv</a></td><td>124</td></tr>
+        <tr><td><a class="c-gr" href="https://webostv.developer.lge.com" target="_blank" rel="noopener">LG webOS TV developer docs</a></td><td>81</td></tr>
+        <tr><td>Dozens more: Home Assistant, homebridge, LGTV Companion, ColorControl, webosbrew and others</td><td>…</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="faq" data-pal="Luna Atlas FAQ" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
+    <div class="rv">
+      <details class="faq"><summary>Do I need a rooted TV?</summary><div>To run most of these, yes, or Developer Mode for some.  <code>luna-send</code> is on every webOS TV, but private and root methods only answer a privileged caller.  Reading the catalog needs nothing at all.</div></details>
+      <details class="faq"><summary>What does "inferred" mean?</summary><div>The method exists on a real TV, but LG publishes nothing about it.  Its description is worked out from the method name alone, and its parameters are left empty instead of guessed.  Treat it as a pointer, not documentation.</div></details>
+      <details class="faq"><summary>Is it safe to try methods?</summary><div>Reading methods (<code>get…</code>, <code>list…</code>, status calls) usually are.  Anything that sets, resets, deletes or reboots can change the TV, and the ones that can do real damage are flagged dangerous.  There's no warranty, so know what a call does before you send it.</div></details>
+      <details class="faq"><summary>Can I use the data in my own project?</summary><div>Yes.  It's MIT licensed, and the full catalog is plain JSON and JSONL in the repo.  This page reads the same <code>catalog.json</code>.</div></details>
+      <details class="faq"><summary>Was this written by AI?</summary><div>It's built with AI coding agents (Claude), directed, reviewed and checked by me against a real LG C2.  The confidence flags exist so nothing a model guessed passes for documentation.  <a class="c-cy" href="/#built">How these are built</a>.</div></details>
+    </div>
+  </section>
+
+  <section id="help" data-pal="add to the catalog" style="padding-top:20px">
+    <div class="card rv" style="padding:28px"><div class="eyebrow">know something we don't?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Fill in a method, fix a description.</h2><p class="muted" style="margin:0 0 18px">Parameters for an inferred method, a better description, or a dump from a different TV all make the map better.  Open an issue or a pull request on GitHub.</p><div class="btns"><a class="btn pri" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/issues/new" target="_blank" rel="noopener">open an issue ↗</a><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS" target="_blank" rel="noopener">the repo ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+  </section>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=9fd93c28" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script src="/luna-atlas/atlas.js?v=46add872" defer></script>
+</body>
+</html>
