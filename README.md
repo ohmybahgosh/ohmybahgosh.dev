@@ -63,7 +63,7 @@ Makes a USB Ethernet adapter the TV's `eth0`, so settings and streaming apps use
 
 <a href="https://ohmybahgosh.dev/webos-entware-installer/"><img src="docs/page-entware.webp" width="100%" alt="The Entware page: its banner and the headline A real Linux toolbox, on your TV, beside the TV app's Add-ons screen"></a>
 
-A real Linux toolbox for rooted webOS: hundreds of packages, a bash shell, package updates and one-press add-ons like git, Python, htop and a login banner.  Installs on the TV's roomy app storage, picks the right 64-bit or 32-bit build, survives reboots and uninstalls cleanly.
+A real Linux toolbox for rooted webOS: browse 1,100+ packages by category from the remote, a bash shell, package updates and one-press add-ons like git, Python, htop and Tailscale.  Over SSH, `tv` runs the TV and `ent` runs Entware, with Tab completion.  Installs on the TV's roomy app storage, picks the right 64-bit or 32-bit build, survives reboots and uninstalls cleanly.
 
 [![Stars](https://img.shields.io/github/stars/ohmybahgosh/WEBOS-ENTWARE-INSTALLER?style=flat-square&color=ff3ea5&labelColor=0a0e1a)](https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER)
 [![Release](https://img.shields.io/github/v/release/ohmybahgosh/WEBOS-ENTWARE-INSTALLER?style=flat-square&color=ff3ea5&labelColor=0a0e1a&label=release)](https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases)
