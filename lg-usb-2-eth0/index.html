@@ -101,7 +101,7 @@
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">lg-usb-2-eth0</span></div>
       <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/eth0-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div style="min-width:0"><div class="grad" style="font:800 clamp(28px,4.4vw,50px)/1 var(--sans);letter-spacing:-.02em;white-space:nowrap">LG-USB-2-ETH0</div><div class="muted" style="margin-top:6px;font-size:17px">for rooted LG webOS TVs</div></div></div>
       <h1 class="h2" style="margin-top:10px">Your TV's<br>fast lane is <span class="grad">eth0.</span></h1>
-      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB gigabit adapter is two to three times faster, even on a USB 2.0 port like the one on a 2022 C2, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  LG-USB-2-ETH0 makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.  Use the TV app from the Homebrew Channel, no SSH needed, or the same script over SSH.  It can also <a class="c-gr" href="#driver">find, check and install a faster driver</a> for Realtek and ASIX adapters on your exact TV, and <a class="c-gr" href="#updates">block firmware updates harder</a> so an update doesn't take root away.</p>
+      <p class="lead">LG TVs ship with a 100 Mbit/s wired port.  A USB gigabit adapter is two to three times faster, even on a USB 2.0 port like the one on a 2022 C2, but webOS calls it <code class="c-gr">eth1</code> and ignores it.  LG-USB-2-ETH0 makes the adapter the TV's <code class="c-gr">eth0</code>, safely and at every boot.  Use the TV app from the Homebrew Channel, no SSH needed, or the same script over SSH.  It can also <a class="c-gr" href="#driver">find, check and install a faster driver</a> for Realtek and ASIX adapters on your exact TV, <a class="c-gr" href="#testing">test new drivers</a> built for many more TVs, and <a class="c-gr" href="#updates">block firmware updates harder</a> so an update doesn't take root away.</p>
       <div class="btns">
         <a class="btn pri" href="#homebrew">$ get the TV app</a>
         <a class="btn" href="#install">ssh install</a>
@@ -109,9 +109,10 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.4.7</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.4.10</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
+        <span class="badge">in testing <b class="c-gr">~80 builds</b></span>
         <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
         <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
@@ -123,15 +124,16 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.4 to 2.4.7" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.4 to 2.4.7</div><h2 class="h2" style="margin-top:12px">More TVs, more drivers, fewer surprise updates.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.6 to 2.4.10" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.6 to 2.4.10</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.4.10</b></td><td><b class="c-wh">Drivers to test for Realtek-chip TVs on webOS 22, 23, 24 and 25</b>, including 2022 A2 and B2 OLEDs updated to webOS 24, and for 2020 TVs with the K6Hp chip (like the NANO87).  Realtek and ASIX builds for about 80 kernel and chip pairs now (<a class="c-gr" href="#testing">the list</a>).</td></tr>
+        <tr><td><b class="c-gr">2.4.9</b></td><td>Drivers to test for 2020 TVs with the K6Lp chip (like the UN7300), which have no Realtek or ASIX driver.  The app now says once when there's a driver to test for your TV.</td></tr>
+        <tr><td><b class="c-gr">2.4.8</b></td><td><b class="c-wh">Test a new driver</b>, in the app and as <code>test-driver</code>.  It tries a driver built for your exact kernel that hasn't run on a TV yet, until the next restart only, checks it gets online, and shows a QR code that opens a filled-in test report.  Drivers are now built from LG's own kernel source, the way DonZoomik built his.</td></tr>
         <tr><td><b class="c-gr">2.4.7</b></td><td><b class="c-wh">Block updates harder</b>, a new switch in the app and <code>--block-updates</code> for the script, on top of the Homebrew Channel's own block (<a class="c-gr" href="#updates">more below</a>).  A <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/blob/main/docs/firmware-audit.md" target="_blank" rel="noopener">firmware audit</a> of 13 LG models from 2019 to 2025, webOS 26 included.  <code>report</code> now names the TV's chip and the USB network drivers built into its kernel, and <code>status</code> says when firmware updates aren't blocked at all, or only by the Homebrew Channel's block.</td></tr>
         <tr><td><b class="c-gr">2.4.6</b></td><td>Two more driver sources: dd3git's ASIX driver for 2025 B5 TVs, which the firmware audit shows also fits the 2024 B4 and QNED85, and throwaway96's Realtek and ASIX drivers for TVs with the K5Lp chip, picked by chip.  A new banner and speeds chart with the ASIX results.</td></tr>
-        <tr><td><b class="c-gr">2.4.5</b></td><td>An ASIX driver for 2020 TVs on webOS 5, from OCT0PUSCRIME.  Every driver is now also kept in <a class="c-gr" href="https://github.com/ohmybahgosh/lg-webos-usb-drivers" target="_blank" rel="noopener">lg-webos-usb-drivers</a>, so it still installs if an author's copy goes away.  "Faster Realtek driver" is now just <b class="c-wh">Faster driver</b>.</td></tr>
-        <tr><td><b class="c-gr">2.4.4</b></td><td>What's new shows when the app opens again after an update, instead of just before it closes.</td></tr>
       </tbody>
     </table></div>
     <div class="callout rv" style="margin-top:18px;--accent:#ffb547"><b>Keep firmware updates off on a rooted TV.</b>  LG's current firmware, webOS 26 included, patches the known ways to root a TV, and an update can take root away for good.  <a class="c-gr" href="#updates">How to block them</a>.</div>
@@ -171,6 +173,35 @@
 <span class="pr">$ </span>sh LG-USB-2-ETH0.sh install --module /home/root/lg-usb-2-eth0/drivers/r8152_oot.ko</pre></div>
         <p class="dim" style="font-size:14px">Use the file <code>get-driver</code> downloaded: <code>r8152_oot.ko</code>, <code>r8152.ko</code> or <code>ax88179_178a.ko</code>.</p>
         <p class="dim" style="font-size:14px">On an RTL8153, the driver takes it from 200 to 255 Mbit/s with drops to a steady 290 to 330.  On a 2020 UN7300, where the adapter wasn't detected at all, OCT0PUSCRIME's ASIX driver brings a TP-Link UE306 to 228 down and 325 up.  Set up Wi-Fi first: moving drivers takes the adapter offline for a moment.  Every driver is also kept, byte for byte and credited to its author, in the <a class="c-gr" href="https://github.com/ohmybahgosh/lg-webos-usb-drivers" target="_blank" rel="noopener">lg-webos-usb-drivers</a> mirror at a fixed commit, so it still installs if an author's copy ever goes away.  The drivers come from DonZoomik, mbenitez343, OCT0PUSCRIME, dd3git and throwaway96, so credit and thanks go to them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testing" data-pal="drivers in testing, built from LG's kernel source" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  About 80 builds, one per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
+    <div class="tblw rv"><table class="tbl">
+      <thead><tr><th>kernel (<code>uname -r</code>)</th><th>TVs</th></tr></thead>
+      <tbody>
+        <tr><td><code>5.4.268-329.ptl4tv.2</code><br><span class="dim">Realtek</span></td><td>2022 to 2025 OLEDs on firmware 33.20 to 33.23</td></tr>
+        <tr><td><code>5.4.268-320</code><br><span class="dim">Realtek</span></td><td>OLEDs on webOS 24, firmware 23.20 to 23.25</td></tr>
+        <tr><td><code>5.4.96-307</code><br><span class="dim">Realtek</span></td><td>2022 and 2023 OLEDs on firmware 03.31, 03.33 and 13.30</td></tr>
+        <tr><td><code>5.4.268-294.*</code><br><span class="dim">Realtek, ASIX on K25Lp</span></td><td>webOS 25 TVs with Realtek chips, like the B4 and B5</td></tr>
+        <tr><td><code>5.4.268-223.*</code><br><span class="dim">Realtek and ASIX</span></td><td>webOS 24 TVs with Realtek chips, including 2022 A2 and B2 OLEDs updated to webOS 24</td></tr>
+        <tr><td><code>5.4.96-223.*</code><br><span class="dim">Realtek and ASIX</span></td><td>2024 TVs on their first webOS 24 firmware</td></tr>
+        <tr><td><code>5.4.96-132.*</code><br><span class="dim">Realtek and ASIX</span></td><td>webOS 23 TVs with K8 chips</td></tr>
+        <tr><td><code>5.4.96-115.*</code><br><span class="dim">Realtek and ASIX</span></td><td>webOS 22 TVs with K8 chips, like the 2022 NANO75</td></tr>
+        <tr><td><code>4.4.84-612.*</code><br><span class="dim">Realtek and ASIX</span></td><td>2020 TVs with the K6Lp or K6Hp chip, like the UN7300 and NANO87</td></tr>
+      </tbody>
+    </table></div>
+    <div class="two rv" style="margin-top:16px">
+      <div class="steps" style="min-width:0">
+        <div class="step"><div><h3>Picks the build</h3><p>For your kernel, your chip and the adapter plugged in.  One kernel name can run on several Realtek chips with different configs, so there's a build per chip.</p></div></div>
+        <div class="step"><div><h3>Loads it for now only</h3><p>Downloaded from a fixed commit, kept only if its SHA-256 matches and it's built for exactly your kernel.  Nothing loads it at boot, so a restart puts the TV back as it was.</p></div></div>
+        <div class="step"><div><h3>Checks and reports</h3><p>Moves the adapter to it, waits for it to get online and pings out.  Then a QR code opens a filled-in test report on your phone, with no MAC or IP addresses.  If the driver froze the TV, the next run says so and reports that too.</p></div></div>
+      </div>
+      <div style="min-width:0">
+        <div class="code"><pre><span class="pr">$ </span>sh LG-USB-2-ETH0.sh test-driver</pre></div>
+        <p class="dim" style="font-size:14px">Or in the TV app: a <b class="c-wh">Test a new driver</b> row shows up when your TV runs one of these kernels.  The full list, kernel by kernel and chip by chip, with each module's checks: <a class="c-gr" href="https://github.com/ohmybahgosh/lg-webos-usb-drivers#experimental-waiting-for-testers" target="_blank" rel="noopener">lg-webos-usb-drivers</a>.  How they're built: <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/blob/main/docs/driver-build.md" target="_blank" rel="noopener">driver-build.md</a>.  Thanks to DonZoomik for the method and OCT0PUSCRIME for the 32-bit build steps.</p>
       </div>
     </div>
   </section>
@@ -260,6 +291,7 @@
         <tr><td><code>status</code> / <code>doctor</code></td><td>Read-only report and checks.  Safe any time.  Also says when firmware updates aren't blocked, or only by the Homebrew Channel's block.</td></tr>
         <tr><td><code>report</code></td><td>Paste-ready report for a GitHub issue: TV, chip, kernel, the USB network drivers built into it, interfaces and settings.  MAC addresses masked.</td></tr>
         <tr><td><code>get-driver</code></td><td>Downloads a better driver if one is known for your exact kernel, and checks its SHA-256.  <code>--file PATH</code> uses a copy you downloaded yourself.</td></tr>
+        <tr><td><code>test-driver</code></td><td>Tries a new driver built for your exact kernel and chip that hasn't run on a TV yet, until the next restart only, and makes a report to send.  <code>--last</code> shows the last result.</td></tr>
         <tr><td><code>speedtest</code></td><td>Latency, download and upload through the TV's current connection, against Cloudflare's nearest server.  Uses a few hundred MB.</td></tr>
         <tr><td><code>update</code></td><td>Checks for a newer release and installs it after checking its SHA-256.  <code>--check</code> only checks.  Your settings stay.</td></tr>
         <tr><td><code>disable</code> / <code>enable</code></td><td>Keep the hook but stop it running at boot, or turn it back on.</td></tr>
@@ -280,7 +312,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.4.7}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.4.10}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
