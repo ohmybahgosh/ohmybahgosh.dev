@@ -16,6 +16,15 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
 <link rel="stylesheet" href="/assets/css/site.css?v=96df3b1a">
+<style>
+.helptest{display:flex;gap:10px;align-items:center;margin:18px 0 0;padding:10px 14px;border:1px solid color-mix(in srgb,#3ddc97 45%,transparent);border-radius:12px;background:color-mix(in srgb,#3ddc97 9%,transparent);font:500 13px/1.45 var(--mono);color:#3ddc97;cursor:pointer}
+.helptest:hover,.helptest:focus-visible{background:color-mix(in srgb,#3ddc97 16%,transparent);outline:none}
+.helptest .dot{flex:none;width:8px;height:8px;border-radius:50%;background:#3ddc97;box-shadow:0 0 0 0 #3ddc9799;animation:htpulse 2s infinite}
+.helptest b{color:var(--wh,#fff);font-weight:600}
+html[data-theme=light] .helptest{color:color-mix(in srgb,#3ddc97 55%,#000)}
+html[data-theme=light] .helptest b{color:#000}
+@keyframes htpulse{70%{box-shadow:0 0 0 8px #3ddc9700}100%{box-shadow:0 0 0 0 #3ddc9700}}
+</style>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="OhMyBahGosh · open-source projects, currently webOS homebrew">
@@ -209,6 +218,7 @@
         <p>LG TVs ship with a 100 Mbit/s port.  This makes a USB Ethernet adapter the TV's <code class="c-gr">eth0</code>, so settings and streaming apps use the faster wired link.  Two to three times the speed, at every boot, from a TV app in the Homebrew Channel, with Wi-Fi as a backup if the cable stops working.</p>
         <div class="tags"><span>posix-sh</span><span>busybox</span><span>usb-ethernet</span><span>r8152</span><span>ax88179</span><span>wifi-fallback</span></div>
         <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span><span>listed in awesome-webos</span></div>
+        <div class="helptest" role="link" tabindex="0" data-href="/lg-usb-2-eth0/#testing" aria-label="Help test: about 100 new drivers for 2020 to 2025 LG TVs are waiting for testers"><span class="dot" aria-hidden="true"></span><span><b>Help test:</b> rooted LG TV and a USB adapter?  About 100 new drivers for 2020 to 2025 TVs are waiting for their first report. →</span></div>
         <div class="tv" style="margin:22px 0 26px"><video src="/assets/media/eth0-app-tour.mp4" poster="/assets/img/eth0-app-tour-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The LG-USB-2-ETH0 app on an LG C2: scrolling the menu, opening the Wi-Fi as a backup confirmation and the Report for GitHub QR code, then back to the top."></video></div>
       </a>
 
@@ -376,6 +386,13 @@
     </nav>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.helptest[data-href]').forEach(el => {
+  const go = e => { e.preventDefault(); e.stopPropagation(); location.href = el.dataset.href; };
+  el.addEventListener('click', go);
+  el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') go(e); });
+});
+</script>
 <script src="/assets/js/site.js?v=96df3b1a" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
