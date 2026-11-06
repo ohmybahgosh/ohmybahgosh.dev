@@ -109,7 +109,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.4.12</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.4.13</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">~100 builds</b></span>
@@ -124,11 +124,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.4.12" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.4.12</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.4.13" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.4.13</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.4.13</b></td><td>Status now lists USB network drivers built into the kernel, marked <code>(built in)</code>, like <code>r8152</code> on a 2019 C9, which <code>lsmod</code> never shows.  The report counts them too.</td></tr>
         <tr><td><b class="c-gr">2.4.12</b></td><td><b class="c-wh">RTL8156 (2.5 gigabit) drivers to test for 2020 TVs</b>, with Realtek's newer driver ported back to kernel 4.4, plus drivers for <code>4.4.84-612.jcl4tv.40</code>.  When a test report says a driver works, the repo now opens a pull request on its own that moves it to <b class="c-wh">Faster driver</b>.</td></tr>
         <tr><td><b class="c-gr">2.4.11</b></td><td>Drivers to test for the webOS 25 paparoa kernels, on K24, K24N, K25Lp and four K8 chips.  Where mbenitez343's tested driver already covers the adapter it still comes first, so these add RTL8156 (2.5 gigabit) and ASIX support.</td></tr>
         <tr><td><b class="c-gr">2.4.10</b></td><td><b class="c-wh">Drivers to test for Realtek-chip TVs on webOS 22, 23, 24 and 25</b>, including 2022 A2 and B2 OLEDs updated to webOS 24, and for 2020 TVs with the K6Hp chip (like the NANO87).  Realtek and ASIX builds for about 80 kernel and chip pairs now (<a class="c-gr" href="#testing">the list</a>).</td></tr>
@@ -315,7 +316,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.4.12}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.4.13}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
