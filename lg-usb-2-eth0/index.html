@@ -109,7 +109,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.6.0</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.6.1</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">294 builds</b></span>
@@ -124,11 +124,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.6.0" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.6.0</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.6.1" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.6.1</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.6.1</b></td><td><b class="c-wh">Test a new driver</b> shows up on TVs that don't report their chip the usual way, like a 2020 UN7300 on webOS 5.  The script now also reads the chip name LG's firmware keeps on the TV.</td></tr>
         <tr><td><b class="c-gr">2.6.0</b></td><td><b class="c-wh">ASIX, Davicom and Aquantia drivers for LG's LM21A-family LCDs</b>, whose kernels leave out <code>usbnet</code>, the core those drivers build on.  The script now downloads the kernel's own <code>usbnet.ko</code> with the driver, checks it and loads it first.  New drivers to test for the 2021 UP and NANO and the 2023 UR on webOS 23 to 25, and a webOS 26 table by model in the README.</td></tr>
         <tr><td><b class="c-gr">2.5.0</b></td><td><b class="c-wh">After a firmware update, Faster driver switches to the new kernel's driver in one press.</b>  Drivers to test for three more kinds of adapter (Aquantia AQC111, Davicom DM9601, Microchip LAN78xx), which no LG kernel includes, and Realtek drivers for the 2022 UQ LCDs, whose kernel has no USB network drivers at all.  Ready for webOS 26: the 2026 models only load drivers LG signed, so the script says so instead of offering any, and the in-app update uses the folder webOS 26's installer can read.</td></tr>
         <tr><td><b class="c-gr">2.4.16</b></td><td>From the first driver test report: a driver test, and <b class="c-wh">Faster driver</b>, now move the adapter over even when Realtek mode already put it on the TV's own <code>r8152</code>.  The test report also says which driver it was on before.</td></tr>
@@ -331,7 +332,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.6.0}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.6.1}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
