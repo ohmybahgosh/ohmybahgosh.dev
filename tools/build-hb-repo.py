@@ -26,6 +26,8 @@ def get_json(url, api=True):
 
 def latest_release(repo, allow_pre):
     rels = get_json(f"https://api.github.com/repos/{repo}/releases?per_page=20")
+    # GitHub doesn't list releases newest first (it put alpha.99 above alpha.101), so sort by when they were published.
+    rels.sort(key=lambda r: r.get("published_at") or r.get("created_at") or "", reverse=True)
     for r in rels:
         if r.get("draft"):
             continue

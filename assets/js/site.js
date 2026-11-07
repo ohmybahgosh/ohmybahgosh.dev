@@ -97,8 +97,11 @@
     const d = {};
     const get = (u) => fetch('https://api.github.com/repos/ohmybahgosh/' + u).then((x) => x.ok ? x.json() : null).catch(() => null);
     await Promise.all(REPOS.map(async (r) => {
-      const [a, rel, com] = await Promise.all([get(r.name), get(r.name + '/releases?per_page=6'), get(r.name + '/commits?per_page=4')]);
+      const [a, rel0, com] = await Promise.all([get(r.name), get(r.name + '/releases?per_page=20'), get(r.name + '/commits?per_page=4')]);
       if (!a) return;
+      // GitHub doesn't list releases newest first (alpha.99 above alpha.101): by when they were published.
+      const at = (x) => x.published_at || x.created_at || '';
+      const rel = rel0 && rel0.filter((x) => !x.draft).sort((x, y) => (at(y) > at(x) ? 1 : at(y) < at(x) ? -1 : 0)).slice(0, 6);
       const tag = rel && rel[0] ? rel[0].tag_name : null;
       d[r.name] = {
         stars: a.stargazers_count, forks: a.forks_count, issues: a.open_issues_count, pushed: a.pushed_at,

@@ -57,6 +57,8 @@ def repo_data(name, version_file):
     rels = get(f"{base}/releases?per_page=10") or []
     commits = get(f"{base}/commits?per_page=6") or []
     rels = [r for r in rels if not r.get("draft")]
+    # GitHub doesn't list releases newest first (it put alpha.99 above alpha.101), so sort by when they were published.
+    rels.sort(key=lambda r: r.get("published_at") or r.get("created_at") or "", reverse=True)
 
     script_version = None
     if version_file:
