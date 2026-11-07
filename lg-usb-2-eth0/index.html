@@ -109,10 +109,10 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.6.4</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.6.5</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
-        <span class="badge">in testing <b class="c-gr">298 builds</b></span>
+        <span class="badge">in testing <b class="c-gr">297 builds</b></span>
         <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
         <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
@@ -124,11 +124,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.6.4" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.6.4</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.6.5" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.6.5</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.6.5</b></td><td>A second driver reported working: Realtek's <code>r8152_oot</code> for OLEDs on webOS 24 (kernel <code>5.4.268-320</code>), tested on a 2024 G4.  It's now <b class="c-wh">Faster driver</b> there, and brings 2.5G RTL8156 support.</td></tr>
         <tr><td><b class="c-gr">2.6.4</b></td><td><b class="c-wh">Switch now</b> works on TVs whose own wired port shows up as a virtual device, like a 2020 UN7300 on webOS 5, where it used to leave everything alone.</td></tr>
         <tr><td><b class="c-gr">2.6.3</b></td><td><b class="c-wh">The first driver built here reported working:</b> the Realtek <code>r8152</code> for the 2020 UN7300 on webOS 5, with a Cable Matters RTL8153 at a gigabit link.  It's now offered as <b class="c-wh">Faster driver</b> to every UN7300 on that kernel.</td></tr>
         <tr><td><b class="c-gr">2.6.2</b></td><td>Drivers to test for LG's StanbyME rolling-stand screen on webOS 24: Realtek, ASIX, Davicom and Aquantia, with the <code>usbnet</code> its kernel leaves out.</td></tr>
@@ -189,14 +190,14 @@
   </section>
 
   <section id="testing" data-pal="drivers in testing, built from LG's kernel source" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  298 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
+    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  297 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>kernel (<code>uname -r</code>)</th><th>TVs</th></tr></thead>
       <tbody>
         <tr><td><code>5.4.268-329.ptl4tv.5</code><br><span class="dim">Aquantia, Davicom, Microchip</span></td><td>2022 to 2025 OLEDs on webOS 25 (C2, C3, C4, G4).  Their Realtek driver is DonZoomik's, already in Faster driver</td></tr>
         <tr><td><code>4.4.84-899.*</code>, <code>5.4.96-934.*</code>, <code>5.4.96-955.20.namtok.1</code>, <code>5.4.268-966.*</code>, <code>5.4.268-955.16.*</code><br><span class="dim">Realtek and ASIX, with the kernel's own usbnet</span></td><td>2021 UP and NANO, 2022 UQ and 2023 UR LCDs and the StanbyME (LM21A-family chips), whose kernel has no USB network drivers at all</td></tr>
         <tr><td><code>5.4.268-329.ptl4tv.2</code><br><span class="dim">Realtek</span></td><td>2022 to 2025 OLEDs on firmware 33.20 to 33.23</td></tr>
-        <tr><td><code>5.4.268-320</code><br><span class="dim">Realtek</span></td><td>OLEDs on webOS 24, firmware 23.20 to 23.25</td></tr>
+        <tr><td><code>5.4.268-320</code><br><span class="dim">Aquantia, Davicom, Microchip</span></td><td>OLEDs on webOS 24, firmware 23.20 to 23.25.  Their Realtek driver was reported working and is in Faster driver</td></tr>
         <tr><td><code>5.4.96-307</code><br><span class="dim">Realtek</span></td><td>2022 and 2023 OLEDs on firmware 03.31, 03.33 and 13.30</td></tr>
         <tr><td><code>5.4.268-294.*</code><br><span class="dim">Realtek and ASIX</span></td><td>webOS 25 TVs with Realtek chips, like the B4 and B5, including the paparoa kernels</td></tr>
         <tr><td><code>5.4.268-223.*</code><br><span class="dim">Realtek and ASIX</span></td><td>webOS 24 TVs with Realtek chips, including 2022 A2 and B2 OLEDs updated to webOS 24</td></tr>
@@ -335,7 +336,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.6.4}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.6.5}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
