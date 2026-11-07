@@ -109,7 +109,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.8.1</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.9.0</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">334 builds</b></span>
@@ -124,11 +124,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.8.1" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.8.1</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.9.0" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.9.0</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.9.0</b></td><td><b class="c-wh">The TV app speaks Spanish too.</b>  The Language row goes Auto, English, Русский, Español, and the status screen's tips and the messages at boot follow along.</td></tr>
         <tr><td><b class="c-gr">2.8.1</b></td><td>The problems and tips on the status screen, and the messages the TV shows at boot, are in Russian too now, pointing at the app's menu instead of commands.</td></tr>
         <tr><td><b class="c-gr">2.8.0</b></td><td><b class="c-wh">The TV app speaks Russian.</b>  It follows the TV's menu language, and a new Language row picks Auto, English or Русский by hand.  More languages are easy to add.</td></tr>
         <tr><td><b class="c-gr">2.7.4</b></td><td><b class="c-wh">Drivers to test for 2018 LCDs on webOS 4.0:</b> the LK61 and the UK62 to UK69, which have no USB network driver at all, get Realtek, ASIX and Davicom with the usbnet core they need.</td></tr>
@@ -233,7 +234,7 @@
   </section>
 
   <section id="app" data-pal="the LG-USB-2-ETH0 TV app" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">the tv app</div><h2 class="h2" style="margin-top:12px;display:flex;gap:16px;align-items:center"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48">No SSH needed.</h2><p>The TV app runs the same script underneath, as root through the Homebrew Channel.  Everything is a switch on the remote.</p></div><a class="btn pri" href="#homebrew">get it ↓</a></div>
+    <div class="sec-head rv"><div><div class="eyebrow">the tv app</div><h2 class="h2" style="margin-top:12px;display:flex;gap:16px;align-items:center"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48">No SSH needed.</h2><p>The TV app runs the same script underneath, as root through the Homebrew Channel.  Everything is a switch on the remote, in English, Russian or Spanish: it follows the TV's menu language, or pick one on the Language row.</p></div><a class="btn pri" href="#homebrew">get it ↓</a></div>
     <div class="tv rv" style="max-width:960px;margin:0 auto 48px"><video src="/assets/media/eth0-app-demo.mp4" poster="/assets/img/eth0-app-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The TV app: moving down to Speed test, running it (272 down, 287 up, 7 ms), then opening the GitHub report QR code"></video></div>
     <div class="bento">
       <div class="card s2 rv"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg></div><h3>Status at a glance</h3><p>Whether the adapter is <code>eth0</code>, its driver, link speed, USB bus, address, Wi-Fi, and any problems found, like a cable that only connects at 100 Mbit/s.</p></div>
@@ -348,7 +349,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.8.1}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.9.0}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
