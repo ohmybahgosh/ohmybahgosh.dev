@@ -109,7 +109,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.6.3</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.6.4</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">298 builds</b></span>
@@ -124,11 +124,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.6.3" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.6.3</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.6.4" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.6.4</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.6.4</b></td><td><b class="c-wh">Switch now</b> works on TVs whose own wired port shows up as a virtual device, like a 2020 UN7300 on webOS 5, where it used to leave everything alone.</td></tr>
         <tr><td><b class="c-gr">2.6.3</b></td><td><b class="c-wh">The first driver built here reported working:</b> the Realtek <code>r8152</code> for the 2020 UN7300 on webOS 5, with a Cable Matters RTL8153 at a gigabit link.  It's now offered as <b class="c-wh">Faster driver</b> to every UN7300 on that kernel.</td></tr>
         <tr><td><b class="c-gr">2.6.2</b></td><td>Drivers to test for LG's StanbyME rolling-stand screen on webOS 24: Realtek, ASIX, Davicom and Aquantia, with the <code>usbnet</code> its kernel leaves out.</td></tr>
         <tr><td><b class="c-gr">2.6.1</b></td><td><b class="c-wh">Test a new driver</b> shows up on TVs that don't report their chip the usual way, like a 2020 UN7300 on webOS 5.  The script now also reads the chip name LG's firmware keeps on the TV.</td></tr>
@@ -334,7 +335,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.6.3}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.6.4}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
