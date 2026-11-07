@@ -10,28 +10,28 @@
       "id": "org.ohmybahgosh.lgusb2eth0",
       "title": "LG-USB-2-ETH0",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.7.4/org.ohmybahgosh.lgusb2eth0.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.8.0/org.ohmybahgosh.lgusb2eth0.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.lgusb2eth0",
-        "version": "2.7.4",
+        "version": "2.8.0",
         "type": "web",
         "title": "LG-USB-2-ETH0",
         "appDescription": "Make a USB Ethernet adapter the TV's eth0",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.7.4/org.ohmybahgosh.lgusb2eth0_2.7.4_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.8.0/org.ohmybahgosh.lgusb2eth0_2.8.0_all.ipk",
         "ipkHash": {
-          "sha256": "cdf83f5cc05bca0dabada95a4b927d18d79758ba2ca0e8f4c3235cd76a0691a1"
+          "sha256": "b89cbe076412cb2643d784cb7d6f183e9bd4abbcae798df040e78575e3887ddb"
         },
-        "ipkSize": 101704
+        "ipkSize": 111612
       },
       "shortDescription": "Make a USB Ethernet adapter the TV's eth0, for the faster wired link",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/lg-usb-2-eth0.html",
       "release": {
-        "tag": "v2.7.4",
-        "published": "2026-11-07T20:56:22Z",
-        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.7.4"
+        "tag": "v2.8.0",
+        "published": "2026-11-07T21:18:20Z",
+        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.8.0"
       }
     },
     {
