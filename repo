@@ -66,28 +66,28 @@
       "id": "org.ohmybahgosh.sshdoctor",
       "title": "SSH Doctor",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.1.0/org.ohmybahgosh.sshdoctor.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.2.0/org.ohmybahgosh.sshdoctor.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.sshdoctor",
-        "version": "0.1.0",
+        "version": "0.2.0",
         "type": "web",
         "title": "SSH Doctor",
         "appDescription": "Check and fix SSH on a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.1.0/org.ohmybahgosh.sshdoctor_0.1.0_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.2.0/org.ohmybahgosh.sshdoctor_0.2.0_all.ipk",
         "ipkHash": {
-          "sha256": "06ce31dd44ae196026f4df7da478492fac1e4356ee33da934612da793a7a9636"
+          "sha256": "6064036c3b36489fcadeda82a5001f40f2da8905c7e486a93cd918473e05ca2b"
         },
-        "ipkSize": 99044
+        "ipkSize": 155260
       },
       "shortDescription": "Check and fix SSH on a rooted TV, and add a key from your phone or computer with a pairing code",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/ssh-doctor.html",
       "release": {
-        "tag": "v0.1.0",
-        "published": "2026-11-08T03:42:29Z",
-        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.1.0"
+        "tag": "v0.2.0",
+        "published": "2026-11-08T14:29:59Z",
+        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.2.0"
       }
     },
     {
