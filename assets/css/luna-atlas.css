@@ -111,3 +111,6 @@
   .atlas-meta{margin-left:0;width:100%}
 }
 html[data-theme=light] .atlas{background:#fff}
+
+/* long luna-send lines wrap instead of sliding under the copy button (mobile) */
+#recipes .code pre,#what .code pre{white-space:pre-wrap;overflow-wrap:anywhere}
