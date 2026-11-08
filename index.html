@@ -151,10 +151,11 @@ html[data-theme=light] .helptest b{color:#000}
       </div>
       <div class="tabpanel" id="h-tv">
         <a class="tv" id="hero-link" href="/tivibro/" aria-label="Open the TiviBro page"><video id="hero-video" src="/assets/media/tivibro-guide.mp4" poster="/assets/img/tivibro-guide-poster.webp" autoplay muted playsinline preload="metadata" width="1920" height="1080" aria-label="The TiviBro guide: browse, preview in the window, then fullscreen"></video></a>
-        <nav class="hdock" aria-label="The three apps">
+        <nav class="hdock" aria-label="The four apps">
           <a href="/tivibro/" aria-current="true" data-i="0"><img src="/assets/img/tivibro-icon.webp" alt="" width="160" height="160"><span>TiviBro</span></a>
           <a href="/lg-usb-2-eth0/" aria-current="false" data-i="1"><img src="/assets/img/eth0-icon.webp" alt="" width="160" height="160"><span>LG-USB-2-ETH0</span></a>
           <a href="/webos-entware-installer/" aria-current="false" data-i="2"><img src="/assets/img/entware-icon.webp" alt="" width="160" height="160"><span>Entware</span></a>
+          <a href="/ssh-doctor/" aria-current="false" data-i="3"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="160" height="160"><span>SSH Doctor</span></a>
         </nav>
         <p class="hcap" aria-live="polite"><b>TiviBro</b> <span>The IPTV player LG TVs never got.</span> <a href="/tivibro/">more ↗</a></p>
       </div>
@@ -243,7 +244,7 @@ html[data-theme=light] .helptest b{color:#000}
             <div class="tags"><span>dropbear</span><span>ssh-keys</span><span>posix-sh</span><span>pairing-code</span><span>webos-app</span></div>
             <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="LG-WEBOS-SSH-DOCTOR:stars">0</b></span><span>en · ru · es</span></div>
           </div>
-          <div class="tv" style="margin-bottom:26px"><img src="/assets/img/ssh-doctor-main.webp" alt="SSH Doctor on a TV: SSH works on port 2222, with your password and 2 keys" width="1280" height="720" loading="lazy"></div>
+          <div class="tv" style="margin-bottom:26px"><video src="/assets/media/ssh-doctor-app-tour.mp4" poster="/assets/img/ssh-doctor-app-tour-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The SSH Doctor TV app: SSH settings with a port change underway, More tools and the login history, then Set up a key with its QR code and pairing code"></video></div>
         </div>
       </a>
 
@@ -355,7 +356,8 @@ html[data-theme=light] .helptest b{color:#000}
   const apps = [
     { name: 'TiviBro', cap: 'The IPTV player LG TVs never got.', url: '/tivibro/', src: '/assets/media/tivibro-guide.mp4', poster: '/assets/img/tivibro-guide-poster.webp', w: 1920, h: 1080, label: 'The TiviBro guide: browse, preview in the window, then fullscreen' },
     { name: 'LG-USB-2-ETH0', cap: 'A USB adapter as the TV\'s eth0, two to three times faster.', url: '/lg-usb-2-eth0/', src: '/assets/media/eth0-app-tour.mp4', poster: '/assets/img/eth0-app-tour-poster.webp', w: 960, h: 540, label: 'The LG-USB-2-ETH0 app as a 2019 C9 with a Realtek adapter in Realtek mode: scrolling the menu, opening the Wi-Fi as a backup confirmation and the Report for GitHub QR code, then back to the top.' },
-    { name: 'Entware', cap: 'Linux packages, add-ons and network services from the remote.', url: '/webos-entware-installer/', src: '/assets/media/entware-app-demo.mp4', poster: '/assets/img/entware-app-demo-poster.webp', w: 960, h: 540, label: 'The Entware TV app with the remote: opening Add-ons, adding the Login banner and watching it install, then opening Package updates' }
+    { name: 'Entware', cap: 'Linux packages, add-ons and network services from the remote.', url: '/webos-entware-installer/', src: '/assets/media/entware-app-demo.mp4', poster: '/assets/img/entware-app-demo-poster.webp', w: 960, h: 540, label: 'The Entware TV app with the remote: opening Add-ons, adding the Login banner and watching it install, then opening Package updates' },
+    { name: 'SSH Doctor', cap: 'Check and fix SSH from the TV, and pair a key with a code.', url: '/ssh-doctor/', src: '/assets/media/ssh-doctor-app-tour.mp4', poster: '/assets/img/ssh-doctor-app-tour-poster.webp', w: 960, h: 540, label: 'The SSH Doctor TV app: SSH settings with a port change underway, More tools and the login history, then Set up a key with its QR code and pairing code' }
   ];
   const v = document.getElementById('hero-video');
   if (!v) return;
