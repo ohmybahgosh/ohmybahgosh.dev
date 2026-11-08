@@ -119,10 +119,10 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.9.3</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.9.4</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
-        <span class="badge">in testing <b class="c-gr">347 builds</b></span>
+        <span class="badge">in testing <b class="c-gr">351 builds</b></span>
         <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">27</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
         <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
@@ -134,11 +134,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.9.3" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.9.3</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.9.4" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.9.4</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.9.4</b></td><td>Drivers to test for the 2017 LJ HD and Full HD LCDs (M2R chip, webOS 3.5), like the 32LJ590U and 43LJ614V: Realtek, ASIX AX88179 and Davicom, with a <code>usbnet.ko</code> since this kernel has no USB network driver at all.</td></tr>
         <tr><td><b class="c-gr">2.9.3</b></td><td>Drivers to test for the 2017 UJ63, UJ67 and UJ70 (K3LP chip, webOS 3.5): Realtek, ASIX AX88179, Davicom and Microchip.  Their AX88772 adapters already work.</td></tr>
         <tr><td><b class="c-gr">2.9.2</b></td><td>The 2019 LM63 (M3R chip) on its older 04.72 and 05.00 firmware gets the same drivers to test as on 05.40.</td></tr>
         <tr><td><b class="c-gr">2.9.1</b></td><td><b class="c-wh">Drivers for 2018 OLEDs and NanoCells.</b>  B8, C8, E8, SK NanoCells and some UK LCDs (O18, M16PP chips) get RTL8156, ASIX, Davicom and Microchip drivers to test.</td></tr>
@@ -212,7 +213,7 @@
   </section>
 
   <section id="testing" data-pal="drivers in testing, built from LG's kernel source" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  347 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
+    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  351 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>kernel (<code>uname -r</code>)</th><th>TVs</th></tr></thead>
       <tbody>
@@ -228,6 +229,7 @@
         <tr><td><code>5.4.96-115.*</code><br><span class="dim">Realtek and ASIX</span></td><td>webOS 22 TVs with K8 chips, like the 2022 NANO75</td></tr>
         <tr><td><code>4.4.84-404.glacier.10</code>, <code>4.4.84-636.glacier.26</code><br><span class="dim">Realtek and ASIX, with usbnet</span></td><td>2018 LK61 (M3 chip) and UK62 to UK69 (LM18A chip) on webOS 4.0</td></tr>
         <tr><td><code>4.4.84-150.glacier.2</code><br><span class="dim">RTL8156, ASIX, Davicom and Microchip, with usbnet</span></td><td>2018 OLEDs (B8, C8, E8 and others), SK NanoCells and some UK LCDs (O18, M16PP and M16PP LITE chips) on webOS 4.0</td></tr>
+        <tr><td><code>4.4.3-78.drd4tv.2</code><br><span class="dim">Realtek, ASIX AX88179 and Davicom, with a usbnet.ko</span></td><td>2017 LJ HD and Full HD LCDs (M2R chip) on webOS 3.5</td></tr>
         <tr><td><code>4.4.3-208.drd4tv.3</code><br><span class="dim">Realtek, ASIX AX88179, Davicom and Microchip</span></td><td>2017 UJ63, UJ67 and UJ70 (K3LP chip) on webOS 3.5</td></tr>
         <tr><td><code>4.4.84-p.649.*</code>, <code>4.4.84-417.*</code>, <code>4.4.84-432</code>, <code>4.4.84-433</code><br><span class="dim">Realtek and ASIX, with usbnet on the LM63</span></td><td>2019 UM7000 to UM7800 (K5LP chip) and LM63 (M3R chip) on webOS 4.5</td></tr>
         <tr><td><code>4.4.84-219.jcl4tvmr.6</code>, <code>4.4.84-229.kcl4tv.6</code><br><span class="dim">Realtek and ASIX</span></td><td>2020 NANO97, NANO99 and ZX 8K (O208K chip) and 2021 NANO96 to NANO99 and QNED90 to QNED99 (E60N chip).  Not the CX or C1, which have them built in</td></tr>
@@ -364,7 +366,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.9.3}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.9.4}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
