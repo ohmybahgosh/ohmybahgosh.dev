@@ -10,28 +10,28 @@
       "id": "org.ohmybahgosh.lgusb2eth0",
       "title": "LG-USB-2-ETH0",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.9.3/org.ohmybahgosh.lgusb2eth0.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.9.4/org.ohmybahgosh.lgusb2eth0.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.lgusb2eth0",
-        "version": "2.9.3",
+        "version": "2.9.4",
         "type": "web",
         "title": "LG-USB-2-ETH0",
         "appDescription": "Make a USB Ethernet adapter the TV's eth0",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.9.3/org.ohmybahgosh.lgusb2eth0_2.9.3_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.9.4/org.ohmybahgosh.lgusb2eth0_2.9.4_all.ipk",
         "ipkHash": {
-          "sha256": "98df831954c3fcedb01428241fbfcfc4ca8ecb5669ec2d11348c999b11ea388c"
+          "sha256": "7d3df8a040178c3a050276dac08e74f1beceff7f9c8b4ff41e67ffa16e8195c0"
         },
-        "ipkSize": 125686
+        "ipkSize": 125992
       },
       "shortDescription": "Make a USB Ethernet adapter the TV's eth0, for the faster wired link",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/lg-usb-2-eth0.html",
       "release": {
-        "tag": "v2.9.3",
-        "published": "2026-11-08T12:21:28Z",
-        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.9.3"
+        "tag": "v2.9.4",
+        "published": "2026-11-08T17:20:56Z",
+        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.9.4"
       }
     },
     {
@@ -66,28 +66,28 @@
       "id": "org.ohmybahgosh.sshdoctor",
       "title": "SSH Doctor",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.2.0/org.ohmybahgosh.sshdoctor.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.3.0/org.ohmybahgosh.sshdoctor.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.sshdoctor",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "type": "web",
         "title": "SSH Doctor",
         "appDescription": "Check and fix SSH on a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.2.0/org.ohmybahgosh.sshdoctor_0.2.0_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.3.0/org.ohmybahgosh.sshdoctor_0.3.0_all.ipk",
         "ipkHash": {
-          "sha256": "6064036c3b36489fcadeda82a5001f40f2da8905c7e486a93cd918473e05ca2b"
+          "sha256": "39c5a3cc86053e39c4b962d3748c4bbe794cde15bb39e683f20ff1181d3eae10"
         },
-        "ipkSize": 155260
+        "ipkSize": 164410
       },
       "shortDescription": "Check and fix SSH on a rooted TV, and add a key from your phone or computer with a pairing code",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/ssh-doctor.html",
       "release": {
-        "tag": "v0.2.0",
-        "published": "2026-11-08T14:29:59Z",
-        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.2.0"
+        "tag": "v0.3.0",
+        "published": "2026-11-08T17:20:01Z",
+        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.3.0"
       }
     },
     {
