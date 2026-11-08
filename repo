@@ -1,9 +1,9 @@
 {
   "paging": {
     "page": 1,
-    "count": 3,
+    "count": 4,
     "maxPage": 1,
-    "itemsTotal": 3
+    "itemsTotal": 4
   },
   "packages": [
     {
@@ -60,6 +60,34 @@
         "tag": "v2.15.1",
         "published": "2026-11-05T15:14:43Z",
         "url": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/tag/v2.15.1"
+      }
+    },
+    {
+      "id": "org.ohmybahgosh.sshdoctor",
+      "title": "SSH Doctor",
+      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.1.0/org.ohmybahgosh.sshdoctor.manifest.json",
+      "manifest": {
+        "id": "org.ohmybahgosh.sshdoctor",
+        "version": "0.1.0",
+        "type": "web",
+        "title": "SSH Doctor",
+        "appDescription": "Check and fix SSH on a rooted LG TV",
+        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
+        "sourceUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR",
+        "rootRequired": true,
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.1.0/org.ohmybahgosh.sshdoctor_0.1.0_all.ipk",
+        "ipkHash": {
+          "sha256": "06ce31dd44ae196026f4df7da478492fac1e4356ee33da934612da793a7a9636"
+        },
+        "ipkSize": 99044
+      },
+      "shortDescription": "Check and fix SSH on a rooted TV, and add a key from your phone or computer with a pairing code",
+      "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/ssh-doctor.html",
+      "release": {
+        "tag": "v0.1.0",
+        "published": "2026-11-08T03:42:29Z",
+        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.1.0"
       }
     },
     {
