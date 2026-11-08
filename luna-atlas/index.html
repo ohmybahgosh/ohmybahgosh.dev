@@ -106,6 +106,7 @@
       <p class="lead">Every LG webOS TV ships <code class="c-gr">luna-send</code>, the command that talks to the Luna Service Bus: power, apps, inputs, picture and sound, Wi-Fi, notifications and hundreds more.  There has never been a complete list of what you can say to it.  This is that list: <b class="c-wh"><span data-atlas-count="methods">8,125</span> methods across <span data-atlas-count="services">501</span> services</b>, each with its access level, where it came from, and a ready-to-run command.</p>
       <div class="btns">
         <a class="btn pri" href="#catalog">$ browse the catalog</a>
+        <a class="btn" href="#recipes">$ recipes</a>
         <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS" target="_blank" rel="noopener">source ↗</a>
         <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/tree/main/catalog" target="_blank" rel="noopener">raw catalog ↗</a>
       </div>
@@ -181,6 +182,18 @@
     <p class="dim rv" style="font-size:14px;margin-top:14px">Access levels: <span class="ab sm a-public">public</span> callable by apps with the right permission, <span class="ab sm a-private">private</span> needs root or system rights, <span class="ab sm a-ssap">ssap</span> reachable over the SSAP websocket, <span class="ab sm a-root">root</span> root only, <span class="ab sm a-unknown">unknown</span> the source didn't say.  <span class="ab sm danger">⚠</span> marks <span data-atlas-count="dangerous">314</span> calls that can factory reset, wipe data or break the set.</p>
   </section>
 
+  <section id="recipes" data-pal="ready-to-run luna-send recipes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">luna-send recipes</div><h2 class="h2" style="margin-top:12px">Ready to run.</h2><p>Copy-paste lines for the things people actually want: a toast, screen off, a screenshot, the current app, volume, the model name.  The full list, dangerous calls included, is in the repo.</p></div><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/recipes.md" target="_blank" rel="noopener">all recipes ↗</a></div>
+    <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+      <div><div class="eyebrow" style="margin-bottom:8px">show a toast</div><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast '{"message":"Hello from luna-send"}'</pre></div></div>
+      <div><div class="eyebrow" style="margin-bottom:8px">screen off (backlight only)</div><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/turnOffScreen '{}'</pre></div></div>
+      <div><div class="eyebrow" style="margin-bottom:8px">screenshot to a file</div><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.capture/executeOneShot '{"path":"/tmp/capture.png","method":"DISPLAY","format":"PNG"}'</pre></div></div>
+      <div><div class="eyebrow" style="margin-bottom:8px">what's on screen now</div><div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.applicationManager/getForegroundAppInfo '{"subscribe":true}'</pre></div></div>
+      <div><div class="eyebrow" style="margin-bottom:8px">volume up</div><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/volumeUp '{}'</pre></div></div>
+      <div><div class="eyebrow" style="margin-bottom:8px">model and webOS version</div><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/osInfo/query '{"parameters":["webos_release"]}'</pre></div></div>
+    </div>
+  </section>
+
   <section id="what" data-pal="what luna-send is" style="padding-top:20px">
     <div class="two rv" style="align-items:center">
       <div style="min-width:0">
@@ -189,7 +202,6 @@
         <p class="muted">The Luna Service Bus is the internal message bus every webOS system service listens on.  On a rooted TV or in Developer Mode, <code>luna-send</code> is how you drive any of it from a shell: show a toast, switch inputs, read the model, change a picture setting, or ask a service what it can do.</p>
         <p class="muted">Methods marked <span class="ab sm sub">sub</span> also stream updates: add <code>"subscribe": true</code> and drop <code>-n 1</code> to keep listening.</p>
         <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast '{"message":"Hello from luna-send"}'</pre></div>
-        <p class="dim" style="font-size:14px;margin-top:12px"><a class="c-cy" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/recipes.md" target="_blank" rel="noopener">More ready-to-run commands: screen off, screenshot, volume, settings ↗</a></p>
       </div>
       <div class="bento" style="grid-template-columns:minmax(0,1fr)">
         <div class="card rv" style="--ca:#e5484d"><div class="ic">⚠</div><h3>This drives a real TV</h3><p>Many calls change settings, inputs, power or the panel, and a few can factory reset, wipe data or brick the set.  Those are flagged and listed in <a class="c-pk" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.  Running one is exactly as safe as typing the same <code>luna-send</code> yourself.</p></div>
