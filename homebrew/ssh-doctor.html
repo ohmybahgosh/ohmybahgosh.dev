@@ -1,0 +1,30 @@
+<div class="webosbrew-screenshots" style="display:flex;gap:8px;overflow-x:auto">
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/ssh-doctor-check.webp" alt="The check on a 2022 C2: SSH works, running on port 22, 2 keys, keys file fine, telnet on" title="The check" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/ssh-doctor-fix.webp" alt="A TV whose keys file needs fixing: Windows line endings, lines that aren't keys, and loose permissions, with Turn SSH on now and Fix my keys file buttons" title="What's wrong, and the fix" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/ssh-doctor-pair.webp" alt="Set up a key: a QR code, the TV's address on port 28622, and a short code to type" title="Set up a key" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/ssh-doctor-howto.webp" alt="How to log in: the ssh command, and what to do about REMOTE HOST IDENTIFICATION HAS CHANGED, with the TV's key fingerprint" title="How to log in" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+</div>
+<p><strong>Needs a rooted TV with the Homebrew Channel.</strong>  It runs as root through the Homebrew Channel, not over SSH, so it works even when SSH is completely broken.</p>
+<h1>SSH Doctor</h1>
+<p>SSH on a rooted LG TV is easy to break and hard to fix: a key pasted from Windows, a private key pasted instead of the public one, a keys file that turned the <code>alpine</code> password off, or SSH turned on in the Homebrew Channel but never started.  This app finds out what's wrong and fixes it with the remote.</p>
+<h2>The check</h2>
+<ul>
+<li>Whether SSH is on in the Homebrew Channel, and whether its server is running on port 22.</li>
+<li>How you can log in: the <code>alpine</code> password, your keys, or nobody.</li>
+<li>Whether <code>authorized_keys</code> is usable: Windows line endings, hidden characters, keys split over several lines, PuTTY's key format, private keys, and permissions.</li>
+<li>Telnet as a way back in, failsafe mode, the TV's address, and its SSH key fingerprints.</li>
+</ul>
+<h2>Fixes, one button each</h2>
+<ul>
+<li><strong>Turn SSH on now</strong>, without the restart the Homebrew Channel needs.</li>
+<li><strong>Fix my keys file</strong>: repairs it and moves anything that isn't a public key to a side file.</li>
+<li><strong>Go back to password login</strong>, for anyone locked out: user root, password alpine.</li>
+<li><strong>Undo a change</strong>: every fix keeps a backup first.</li>
+</ul>
+<h2>Set up a key with a pairing code</h2>
+<p>The TV shows a QR code, its address and a short code.  Open the page on your phone or computer, type the code, and send the public key you have, or let the browser make a new key pair: the private key is saved on your device and never sent anywhere.  The key is added only after you press OK on the remote, and the page then shows the exact command for Mac, Linux, Windows, PuTTY or a phone app.</p>
+<h2>Learn more</h2>
+<ul>
+<li><a href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR">Source, releases and the command-line script: github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR</a></li>
+</ul>
+<p>English, Russian and Spanish.  Free and open source (MIT).  Made by OhMyBahGosh.  Not affiliated with LG Electronics.</p>

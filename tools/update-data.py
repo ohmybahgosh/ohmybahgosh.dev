@@ -14,6 +14,7 @@ REPOS = {
     "TiviBro": None,
     "LG-USB-2-ETH0": "LG-USB-2-ETH0.sh",
     "WEBOS-ENTWARE-INSTALLER": "webos-entware-installer.sh",
+    "LG-WEBOS-SSH-DOCTOR": "ssh-doctor.sh",
     "pipseek": None,
     "WEBOS-LUNA-SEND-ATLAS": None,
 }

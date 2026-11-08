@@ -14,6 +14,7 @@ BADGES = {
     'TiviBro': ('tivibro', '5b8cff', '33e1ff'),
     'LG-USB-2-ETH0': ('lg-usb-2-eth0', '3ddc97', '3ddc97'),
     'WEBOS-ENTWARE-INSTALLER': ('entware', 'ff3ea5', 'ff3ea5'),
+    'LG-WEBOS-SSH-DOCTOR': ('ssh-doctor', '3ddc97', '3ddc97'),
     'WEBOS-LUNA-SEND-ATLAS': ('luna-atlas', '3ddc97', '33e1ff'),
     'pipseek': ('pipseek', '4c9eff', '4c9eff'),
 }

@@ -41,7 +41,7 @@ jobs:
           except Exception as e:
               print("live data unreadable:", e); live = {}
           stale = []
-          for name, vfile in {"TiviBro": None, "LG-USB-2-ETH0": None, "WEBOS-ENTWARE-INSTALLER": "webos-entware-installer.sh"}.items():
+          for name, vfile in {"TiviBro": None, "LG-USB-2-ETH0": None, "WEBOS-ENTWARE-INSTALLER": "webos-entware-installer.sh", "LG-WEBOS-SSH-DOCTOR": None}.items():
               rels = [r for r in get(f"https://api.github.com/repos/ohmybahgosh/{name}/releases?per_page=20") if not r.get("draft")]
               rels.sort(key=lambda r: r.get("published_at") or r.get("created_at") or "", reverse=True)   # GitHub's order isn't newest first
               tag = rels[0]["tag_name"] if rels else None

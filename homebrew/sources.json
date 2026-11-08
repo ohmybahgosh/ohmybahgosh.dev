@@ -16,6 +16,13 @@
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/webos-entware.html"
     },
     {
+      "repo": "ohmybahgosh/LG-WEBOS-SSH-DOCTOR",
+      "manifest": "org.ohmybahgosh.sshdoctor.manifest.json",
+      "prerelease": false,
+      "shortDescription": "Check and fix SSH on a rooted TV, and add a key from your phone or computer with a pairing code",
+      "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/ssh-doctor.html"
+    },
+    {
       "repo": "ohmybahgosh/TiviBro",
       "manifest": "app.tivibro.tv.manifest.json",
       "prerelease": true,
