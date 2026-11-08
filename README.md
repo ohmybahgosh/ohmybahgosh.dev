@@ -17,7 +17,7 @@
 
 <br>
 
-<a href="https://ohmybahgosh.dev"><img src="docs/preview.png" width="100%" alt="ohmybahgosh.dev on a desktop browser and a phone: the headline Software LG forgot to ship beside a TV playing the TiviBro guide, with the TiviBro, LG-USB-2-ETH0 and Entware app icons below it"></a>
+<a href="https://ohmybahgosh.dev"><img src="docs/preview.png" width="100%" alt="ohmybahgosh.dev on a desktop browser and a phone: the ~/ohmybahgosh header with the project list, beside a TV playing the TiviBro guide with the TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor icons below it"></a>
 
 </div>
 
@@ -91,7 +91,7 @@ Fixes SSH on a rooted TV from the TV itself, with the remote: a broken `authoriz
 
 Also on the site, and not TV apps so not in the Homebrew Channel repository:
 
-- **[Luna Atlas](https://ohmybahgosh.dev/luna-atlas/)**, a searchable catalog of every LG webOS `luna-send` command (8,125 across 501 services)
+- **[Luna Atlas](https://ohmybahgosh.dev/luna-atlas/)**, a searchable catalog of every LG webOS `luna-send` command (8,125 methods across 501 services)
 - **[pipseek](https://ohmybahgosh.dev/pipseek/)**, a fast PyPI package search CLI
 
 </td>
@@ -123,6 +123,7 @@ Each entry uses the manifest attached to that project's GitHub release, so the d
 
 | | |
 |---|---|
+| 🗂️ **Projects menu** | A **projects** menu in the header lists every project with its icon, on every page, on phones too. |
 | 📺 **The apps on a TV** | The home page opens on a TV that plays each app in turn, with a dock of their icons.  Tap the TV to open that app's page.  Each project page opens with the project's banner and a recording of its TV app, made on a real LG C2 where there is one. |
 | 🧭 **One layout for every project** | Each page follows the same order: banner and video, what it does, its standout feature, the TV app, installing (Homebrew Channel first, then SSH), the details, FAQ, help, and release notes last. |
 | ⌨️ **Typed terminal demos** | The SSH sections, and the home page's **over SSH** tab, type out a real session from each project.  They render at once for visitors who prefer reduced motion. |
@@ -139,18 +140,21 @@ Each entry uses the manifest attached to that project's GitHub release, so the d
 
 ## How it's built
 
-Plain HTML, CSS and JavaScript, with no framework.  Dark grid background, neon glows and glass cards, set in [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/), with an accent color per project.  GitHub Actions publishes it to GitHub Pages at [ohmybahgosh.dev](https://ohmybahgosh.dev).  The only build steps are two small Python scripts, standard library only, that fetch data from GitHub.
+Plain HTML, CSS and JavaScript, with no framework.  A dark terminal look with a faint grid, soft glows and glass cards, set in [Geist](https://vercel.com/font) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/) (both self-hosted, OFL), with an accent color per project.  GitHub Actions publishes it to GitHub Pages at [ohmybahgosh.dev](https://ohmybahgosh.dev).  The only build steps are two small Python scripts, standard library only, that fetch data from GitHub.
 
 ```
 .
 ├── index.html                          home page
 ├── tivibro/  lg-usb-2-eth0/  webos-entware-installer/  ssh-doctor/
-│                                       one folder per project page
+│   luna-atlas/  pipseek/               one folder per project page
 ├── about/  contact/  404.html
 ├── assets/
 │   ├── css/site.css                    every style, design tokens at the top
+│   ├── css/luna-atlas.css              the Luna Atlas catalog browser
 │   ├── js/site.js                      live data, terminals, palette, tabs, copy, theme
 │   ├── js/contact.js                   the contact page's templates
+│   ├── js/luna-atlas.js                the Luna Atlas catalog browser
+│   ├── fonts/                          Geist and JetBrains Mono (WOFF2, self-hosted)
 │   ├── img/                            app icons, banners, screenshots and posters (WebP)
 │   ├── media/                          TV app recordings (MP4)
 │   └── og/                             1200×630 social cards
@@ -160,7 +164,8 @@ Plain HTML, CSS and JavaScript, with no framework.  Dark grid background, neon g
 ├── repo  repo.json                     the Homebrew Channel repository (built, then committed)
 ├── tools/
 │   ├── update-data.py                  writes data/repos.json at deploy time (not committed)
-│   └── build-hb-repo.py                writes repo and repo.json from the latest releases
+│   ├── build-hb-repo.py                writes repo and repo.json from the latest releases
+│   └── make-badges.py                  draws the release and star badges in badges/
 ├── docs/                               this README's banner and screenshots
 └── CNAME · robots.txt · sitemap.xml · site.webmanifest
 ```

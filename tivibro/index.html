@@ -10,13 +10,12 @@
 <link rel="canonical" href="https://ohmybahgosh.dev/tivibro/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
 <link rel="preload" href="/assets/img/tivibro-wordmark.webp" as="image" fetchpriority="high">
-<link rel="stylesheet" href="/assets/css/site.css?v=96df3b1a">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="TiviBro · the IPTV player LG TVs never got">
@@ -100,16 +99,27 @@
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
-    <span class="status"><span class="dot"></span>webOS homebrew · alpha</span>
     <nav class="nav" aria-label="Main">
-      <a href="/tivibro/" class="hide-xs" aria-current="page">tivibro</a>
-      <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
-      <a href="/webos-entware-installer/" class="hide-s">entware</a>
-      <a href="/luna-atlas/" class="hide-s">atlas</a>
-      <a href="/#tools" class="hide-s">tools</a>
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/" aria-current="page"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/#homebrew">$ add the four TV apps: ohmybahgosh.dev/repo</a>
+        </div>
+      </div>
+      <a href="/#homebrew" class="hide-s">install</a>
       <a href="/about/" class="hide-s">about</a>
       <a href="/contact/" class="hide-s">contact</a>
-      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
       <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
       <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
     </nav>
@@ -130,9 +140,9 @@
       </div>
       <div class="badges">
         <span class="badge">platform <b>webOS 4+</b></span>
-        <span class="badge">version <b data-gh="TiviBro:version">0.6.0-alpha.75</b></span>
+        <span class="badge">version <b data-gh="TiviBro:version">0.6.0-alpha.105</b></span>
         <span class="badge">price <b class="c-gr">free</b></span>
-        <span class="badge">★ <b data-gh="TiviBro:stars">5</b></span>
+        <span class="badge">★ <b data-gh="TiviBro:stars">8</b></span>
         <span class="badge">license <b>MIT</b></span>
         <span class="badge">listed in <a href="https://github.com/tolgakurtuluss/awesome-webos" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><b>awesome-webos</b></a></span>
       </div>
@@ -149,14 +159,14 @@
     <div><b>$0</b><span>every feature</span></div>
   </div>
 
-  <section id="new" data-pal="new in TiviBro: alphas 69 to 75">
-    <div class="sec-head rv"><div><div class="eyebrow">git log v0.6.0-alpha.68..v0.6.0-alpha.75</div><h2 class="h2" style="margin-top:12px">Fresh off the build.</h2><p>What landed in alphas 69 to 75, tried on real LG TVs before it shipped.</p></div><a class="btn" href="#releases">release notes ↓</a></div>
+  <section id="new" data-pal="new in TiviBro: alphas 99 to 105">
+    <div class="sec-head rv"><div><div class="eyebrow">git log v0.6.0-alpha.98..v0.6.0-alpha.105</div><h2 class="h2" style="margin-top:12px">Fresh off the build.</h2><p>What landed in alphas 99 to 105, tried on real LG TVs before it shipped.</p></div><a class="btn" href="#releases">release notes ↓</a></div>
     <div class="bento">
-      <div class="card s3 rv" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></svg></div><h3>Turn on from your phone</h3><p><b class="c-wh">Turn on</b> sends Wake-on-LAN to every network card the TV has, Wi-Fi and wired, plus LG's own Bluetooth wake, reverse engineered from LG's ThinQ app.  A TV that ignores one still hears the other.  Tap it in the app or from a Quick Settings tile.</p></div>
-      <div class="card s3 rv" style="--ca:#ffb547"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></div><h3>Sound the TV can't play</h3><p>DTS, Dolby TrueHD and FLAC surround used to mean silence on LG TVs.  TiviBro picks another track in your language, or converts the sound to Dolby Digital live on the TV with its own bundled ffmpeg build.  The picture is untouched.</p></div>
-      <div class="card s2 rv" style="--ca:#5b8cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h3>My media, three ways in</h3><p>Your own movies and shows from a DLNA / UPnP server, a WebDAV cloud, or Dropbox.  Sign in to Dropbox with the phone app (PKCE), pick a folder, and movies stream straight from it.</p></div>
-      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div><h3>The phone app updates itself</h3><p><b class="c-wh">Update now</b> downloads the new APK, checks it against the GitHub release, and installs it over the old one.</p></div>
-      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div><h3>A ✓ on what you watched</h3><p>Movies and episodes you finished keep a ✓, and a show opens on the episode you're on.</p></div>
+      <div class="card s3 rv" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/></svg></div><h3>Spanish and Russian</h3><p>TiviBro reads your TV's menu language and shows in Spanish or Russian when that's what the TV uses, about 95% of the text so far.  Settings &gt; Language picks another.  Channel, group and show names are never translated.</p></div>
+      <div class="card s3 rv" style="--ca:#ffb547"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></div><h3>Sound on more channels</h3><p>A game sent as AAC at 96 kHz used to play with no sound.  TiviBro now spots it and converts it to Dolby Digital on the TV.  And one stubborn channel can have its own stream format: Automatic, HLS or MPEG-TS.</p></div>
+      <div class="card s2 rv" style="--ca:#5b8cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h3>Merge groups</h3><p>Four NHL groups as one NHL group.  New channels the provider adds to them come along, and Split undoes it.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div><h3>TV, editor and phone in step</h3><p>A change on the TV reaches an open web editor in a second or two, and a save from the editor no longer undoes it.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-45 12 12)"/><path d="M9 15l6-6M10.5 10.5l1.5 1.5M12 9l1.5 1.5M9 12l1.5 1.5"/></svg></div><h3>College football</h3><p>Follow FBS schools in My teams, and new sports guides fill in Big Ten, SEC, ESPN and regional sports channels that have no guide.</p></div>
     </div>
     <p class="dim mono rv" style="font-size:13px;margin-top:16px">status: alpha testing on real LG TVs, webOS 4 to webOS 25 · beta next · free, MIT licensed, no accounts, no ads</p>
   </section>
@@ -168,7 +178,7 @@
       <div class="card s3 rv" style="--ca:#5b8cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div><h3>A tour built from your playlist</h3><p>Right after you connect, TiviBro counts what your list has and asks only about that: countries, East or West, local cities, event channels, duplicates.</p></div>
       <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">PPV</div><h3>Reads sports and PPV</h3><p>"NCAAB 001 | NORTH FLORIDA @ CHARLESTON SOUTHERN" becomes <b class="c-wh">NCAAB 001</b>, with the game in the guide at its real time, in your time zone.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3l4 4-4 4"/><path d="M21 7H3"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h18"/></svg></div><h3>Fails over by itself</h3><p>Same channel in FHD, HD and SD?  When one dies, TiviBro moves to the next copy on its own and tells you.</p></div>
-      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-45 12 12)"/><path d="M9 15l6-6M10.5 10.5l1.5 1.5M12 9l1.5 1.5M9 12l1.5 1.5"/></svg></div><h3>My teams</h3><p>Follow your NFL, NBA, NHL, MLB, WNBA and MLS teams.  Their games from every channel gather near the top of the guide.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-45 12 12)"/><path d="M9 15l6-6M10.5 10.5l1.5 1.5M12 9l1.5 1.5M9 12l1.5 1.5"/></svg></div><h3>My teams</h3><p>Follow your NFL, NBA, NHL, MLB, WNBA, MLS and college football teams.  Their games from every channel gather near the top of the guide.</p></div>
       <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div><h3>Logos for every channel</h3><p>Missing logos filled in from iptv-org and tv-logos, matched by guide id, name, country and call sign.</p></div>
       <div class="card s2 rv"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 9h1M11 9h1M15 9h1M8 13h8"/></svg></div><h3>A real editor</h3><p>Clean up 10,000 channels with a keyboard and mouse, then Send to TV.  Drafts, undo and version history.</p></div>
       <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Locked backups</h3><p>Everything in one AES-256-GCM file.  Restore onto a brand-new TV from the very first screen.</p></div>
@@ -213,7 +223,7 @@
   </section>
 
   <section id="install" data-pal="install TiviBro" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">install</div><h2 class="h2" style="margin-top:12px">Get it on your TV.</h2><p>Three ways in.  The Homebrew Channel route updates itself.</p></div></div>
+    <div class="sec-head rv"><div><div class="eyebrow">install</div><h2 class="h2" style="margin-top:12px">Get it on your TV.</h2><p>Three ways onto the TV, plus the phone app.  The Homebrew Channel route updates itself.</p></div></div>
     <div class="rv" data-tabs>
       <div class="tabs" role="tablist">
         <button role="tab" aria-selected="true" data-for="t-hbc">homebrew channel</button>
@@ -223,7 +233,7 @@
       </div>
       <div class="tabpanel" id="t-hbc">
         <div class="steps" style="margin-top:18px">
-          <div class="step"><div><h3>Add the repository</h3><p>Homebrew Channel, Settings, Add repository:</p><div class="code"><pre>https://tivibro.app/repo</pre></div><p class="dim" style="font-size:14px">Want every test build first?  Use <code class="c-cy">https://tivibro.app/testing</code> instead.  Already added <code class="c-cy">https://ohmybahgosh.dev/repo</code> for LG-USB-2-ETH0 or Entware?  It carries TiviBro's test builds too, so you only need one.</p></div></div>
+          <div class="step"><div><h3>Add the repository</h3><p>Homebrew Channel, Settings, Add repository:</p><div class="code"><pre>https://tivibro.app/repo</pre></div><p class="dim" style="font-size:14px">Want every test build first?  Use <code class="c-cy">https://tivibro.app/testing</code> instead.  Already added <code class="c-cy">https://ohmybahgosh.dev/repo</code> for LG-USB-2-ETH0, Entware or SSH Doctor?  It carries TiviBro's test builds too, so you only need one.</p></div></div>
           <div class="step"><div><h3>Install</h3><p>TiviBro appears in the app list.  Open it and choose Install.  New versions show up as Update.</p></div></div>
           <div class="step"><div><h3>Scan the QR code</h3><p>Open TiviBro and scan the first screen with your phone to add your playlist there.</p></div></div>
         </div>
@@ -235,7 +245,7 @@
         <div class="code"><pre><span class="cm"># newest test build</span>
 <span class="pr">$ </span>curl -fsSL https://tivibro.app/install | sh -s -- --pre
 <span class="cm"># a specific release</span>
-<span class="pr">$ </span>curl -fsSL https://tivibro.app/install | sh -s -- --tag <span data-gh="TiviBro:tag">v0.6.0</span></pre></div>
+<span class="pr">$ </span>curl -fsSL https://tivibro.app/install | sh -s -- --tag <span data-gh="TiviBro:tag">v0.6.0-alpha.105</span></pre></div>
       </div>
       <div class="tabpanel" id="t-dev" hidden>
         <p class="muted" style="margin-top:18px">Put your TV in <a class="c-cy" href="https://webostv.developer.lge.com/develop/getting-started/developer-mode-app" target="_blank" rel="noopener">Developer Mode</a>, then build and install from source:</p>
@@ -316,7 +326,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=96df3b1a" defer></script>
+<script src="/assets/js/site.js?v=r2611a" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -129,12 +129,13 @@
   const SHORT = { 'TiviBro': 'TiviBro', 'LG-USB-2-ETH0': 'USB-2-ETH0', 'WEBOS-ENTWARE-INSTALLER': 'Entware', 'pipseek': 'pipseek', 'WEBOS-LUNA-SEND-ATLAS': 'Luna Atlas', 'LG-WEBOS-SSH-DOCTOR': 'SSH Doctor' };
 
   gh().then((d) => {
-    let total = 0;
+    let total = 0, all = 0;
     const webos = REPOS.filter((r) => !r.tool).map((r) => r.name);
-    Object.entries(d).forEach(([k, r]) => { if (webos.includes(k)) total += r.stars || 0; });
+    Object.entries(d).forEach(([k, r]) => { all += r.stars || 0; if (webos.includes(k)) total += r.stars || 0; });
     $$('[data-gh]').forEach((el) => {
       const [repo, f] = el.dataset.gh.split(':');
       if (repo === 'total') { if (total) el.textContent = total.toLocaleString(); return; }
+      if (repo === 'all') { if (all) el.textContent = all.toLocaleString(); return; }
       const r = d[repo];
       if (!r || r[f] == null) return;
       el.textContent = (f === 'pushed' || f === 'released') ? ago(r[f]) : typeof r[f] === 'number' ? r[f].toLocaleString() : r[f];
@@ -227,6 +228,16 @@
     document.addEventListener('keydown', function k(e) { if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', k); } });
     document.body.appendChild(lb);
   }));
+
+  /* ---------- projects menu: hover on desktop, tap on touch ---------- */
+  $$('[data-menu]').forEach((m) => {
+    const b = $('.mbtn', m);
+    const set = (on) => { m.classList.toggle('open', on); b.setAttribute('aria-expanded', on); };
+    b.addEventListener('click', (e) => { e.stopPropagation(); set(!m.classList.contains('open')); });
+    document.addEventListener('click', (e) => { if (!m.contains(e.target)) set(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && m.classList.contains('open')) { set(false); b.focus(); } });
+    $$('a', m).forEach((a) => a.addEventListener('click', () => set(false)));
+  });
 
   /* ---------- command palette ---------- */
   const items = [

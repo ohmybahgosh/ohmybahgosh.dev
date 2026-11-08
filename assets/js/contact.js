@@ -10,7 +10,7 @@
   const f = {
     title: (ph) => ({ id: 'title', label: 'Short summary', type: 'input', req: true, ph }),
     tv: { id: 'tv', label: 'TV model and webOS version', type: 'input', req: true, ph: 'OLED65C2PUA, webOS 25 (10.3.1)' },
-    tbver: { id: 'version', label: 'TiviBro version', type: 'input', req: true, ph: '{{TiviBro:version|0.6.0-alpha}}  (Settings > Updates and about)' },
+    tbver: { id: 'version', label: 'TiviBro version', type: 'input', req: true, ph: '{{TiviBro:version|0.6.0-alpha.105}}  (Settings > Updates and about)' },
   };
 
   // kind: issue (GitHub issue form), discussion, blank (plain GitHub issue), mail
@@ -28,7 +28,7 @@
       fields: [f.title('Recording to a USB drive'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help you', type: 'textarea' }] },
 
     { key: 'eth-bug', group: 'LG-USB-2-ETH0', icon: '🐞', name: 'Bug', desc: 'The script errors or the swap misbehaves.', kind: 'issue', repo: 'LG-USB-2-ETH0', template: 'bug-report.yml', prefix: '[Bug] ',
-      fields: [f.title('Adapter goes back to eth1 after a reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'version', label: 'Script version', type: 'input', req: true, ph: 'v{{LG-USB-2-ETH0:version|2.2.0}}' }, { id: 'report', label: 'Output of  sh LG-USB-2-ETH0.sh report', type: 'textarea', req: true, mono: true }] },
+      fields: [f.title('Adapter goes back to eth1 after a reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'version', label: 'Script version', type: 'input', req: true, ph: 'v{{LG-USB-2-ETH0:version|2.9.3}}' }, { id: 'report', label: 'Output of  sh LG-USB-2-ETH0.sh report', type: 'textarea', req: true, mono: true }] },
     { key: 'eth-compat', group: 'LG-USB-2-ETH0', icon: '🔌', name: 'Compatibility report', desc: 'Tell everyone whether your TV + adapter worked.', kind: 'issue', repo: 'LG-USB-2-ETH0', template: 'compatibility-report.yml',
       title: (v) => `[Compat] ${v.model || '<TV model>'} + ${v.adapter || '<adapter>'}`,
       fields: [{ id: 'model', label: 'TV model', type: 'input', req: true, ph: 'OLED65C2PUA' }, { id: 'webos', label: 'webOS version and firmware', type: 'input', req: true, ph: 'webOS 25 (10.3.1), 33.31.68' }, { id: 'adapter', label: 'Adapter (brand, model, chip)', type: 'input', req: true, ph: 'UGREEN 2.5G, RTL8156' }, { id: 'speed', label: 'Measured speed (optional)', type: 'input', ph: '290 Mbit/s' }, { id: 'report', label: 'Output of  sh LG-USB-2-ETH0.sh report', type: 'textarea', req: true, mono: true }, { id: 'notes', label: 'Anything else', type: 'textarea' }],
@@ -37,10 +37,10 @@
       fields: [f.title('Option to prefer Wi-Fi when no cable is in'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help', type: 'textarea' }] },
 
     { key: 'ent-bug', group: 'Entware Installer', icon: '🐞', name: 'Bug', desc: 'Install, repair, the TV app or a command went wrong.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'bug-report.yml', prefix: '[Bug] ',
-      fields: [f.title('opkg not found after reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'steps', label: 'What you ran', type: 'textarea', mono: true, ph: 'sh /tmp/webos-entware-installer.sh install' }, f.tv, { id: 'version', label: 'Installer version', type: 'input', req: true, ph: '{{WEBOS-ENTWARE-INSTALLER:version|2.13.2}}  (top of the TV app, or webos-entware --help)' }, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', mono: true }] },
+      fields: [f.title('opkg not found after reboot'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, { id: 'steps', label: 'What you ran', type: 'textarea', mono: true, ph: 'sh /tmp/webos-entware-installer.sh install' }, f.tv, { id: 'version', label: 'Installer version', type: 'input', req: true, ph: '{{WEBOS-ENTWARE-INSTALLER:version|2.15.1}}  (top of the TV app, or webos-entware --help)' }, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', mono: true }] },
     { key: 'ent-compat', group: 'Entware Installer', icon: '📺', name: 'Compatibility report', desc: 'Tell everyone how Entware works on your TV, good or bad.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'compatibility-report.yml',
       title: (v) => `[Compat] ${v.tv || '<TV model and webOS version>'}`,
-      fields: [f.tv, { id: 'version', label: 'Installer version', type: 'input', req: true, ph: '{{WEBOS-ENTWARE-INSTALLER:version|2.13.2}}  (top of the TV app, or webos-entware --help)' }, { id: 'uses', label: 'What you use it for (optional)', type: 'input', ph: 'git, Python, htop' }, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', req: true, mono: true }, { id: 'notes', label: 'Anything else', type: 'textarea' }],
+      fields: [f.tv, { id: 'version', label: 'Installer version', type: 'input', req: true, ph: '{{WEBOS-ENTWARE-INSTALLER:version|2.15.1}}  (top of the TV app, or webos-entware --help)' }, { id: 'uses', label: 'What you use it for (optional)', type: 'input', ph: 'git, Python, htop' }, { id: 'doctor', label: 'Output of  webos-entware doctor', type: 'textarea', req: true, mono: true }, { id: 'notes', label: 'Anything else', type: 'textarea' }],
       note: 'You’ll pick the result, the build, how you installed it and where Entware lives on GitHub.  Report for GitHub in the TV app fills all of this in for you.' },
     { key: 'ent-idea', group: 'Entware Installer', icon: '💡', name: 'Idea', desc: 'A helper, package or option to add.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'feature-request.yml', prefix: '[Idea] ',
       fields: [f.title('Add a helper to mount a USB drive at /opt'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help', type: 'textarea' }] },

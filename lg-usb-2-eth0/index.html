@@ -10,12 +10,11 @@
 <link rel="canonical" href="https://ohmybahgosh.dev/lg-usb-2-eth0/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=96df3b1a">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="LG-USB-2-ETH0 · USB Ethernet as eth0 on LG webOS">
@@ -79,16 +78,27 @@
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
-    <span class="status"><span class="dot"></span>dev showcase · now webOS</span>
     <nav class="nav" aria-label="Main">
-      <a href="/tivibro/" class="hide-xs">tivibro</a>
-      <a href="/lg-usb-2-eth0/" class="hide-s" aria-current="page">usb-2-eth0</a>
-      <a href="/webos-entware-installer/" class="hide-s">entware</a>
-      <a href="/luna-atlas/" class="hide-s">atlas</a>
-      <a href="/#tools" class="hide-s">tools</a>
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/" aria-current="page"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/#homebrew">$ add the four TV apps: ohmybahgosh.dev/repo</a>
+        </div>
+      </div>
+      <a href="/#homebrew" class="hide-s">install</a>
       <a href="/about/" class="hide-s">about</a>
       <a href="/contact/" class="hide-s">contact</a>
-      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
       <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
       <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
     </nav>
@@ -113,7 +123,7 @@
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">347 builds</b></span>
-        <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">15</b></span>
+        <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">27</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
         <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
         <span class="badge">listed in <a href="https://github.com/tolgakurtuluss/awesome-webos" target="_blank" rel="noopener" style="color:inherit;text-decoration:none"><b>awesome-webos</b></a></span>
@@ -125,7 +135,7 @@
   </section>
 
   <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.9.3" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.9.3</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, tested in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.9.3</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
@@ -202,7 +212,7 @@
   </section>
 
   <section id="testing" data-pal="drivers in testing, built from LG's kernel source" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  334 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
+    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  347 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>kernel (<code>uname -r</code>)</th><th>TVs</th></tr></thead>
       <tbody>
@@ -288,7 +298,7 @@
   <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
     <div class="card rv" style="padding:28px">
       <div class="hb-head"><img src="/assets/img/eth0-icon.webp" alt="" width="72" height="72"><div><div class="eyebrow">homebrew channel repo</div><h2 class="h2" style="margin:10px 0 0;font-size:clamp(26px,3vw,34px)">Install it from the Homebrew Channel.</h2></div></div>
-      <p class="muted" style="margin:16px 0 6px;max-width:720px">Add this repository once and the LG-USB-2-ETH0 app shows up in the Homebrew Channel's app list, next to <a class="c-cy" href="/tivibro/">TiviBro</a> and <a class="c-pk" href="/webos-entware-installer/">Entware</a>.  New releases appear there as updates, and the app knows to leave updating to the Homebrew Channel.</p>
+      <p class="muted" style="margin:16px 0 6px;max-width:720px">Add this repository once and the LG-USB-2-ETH0 app shows up in the Homebrew Channel's app list, next to <a class="c-cy" href="/tivibro/">TiviBro</a>, <a class="c-pk" href="/webos-entware-installer/">Entware</a> and <a class="c-gr" href="/ssh-doctor/">SSH Doctor</a>.  New releases appear there as updates, and the app knows to leave updating to the Homebrew Channel.</p>
       <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
       <div class="steps" style="margin-top:18px">
         <div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div>
@@ -425,7 +435,7 @@
   <section id="faq" data-pal="LG-USB-2-ETH0 FAQ" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
     <div class="rv">
-      <details class="faq"><summary>Was this written by AI?</summary><div>Partly, and openly.  I wrote v1 by hand.  From v2.0 on it's written with AI coding agents (Claude), directed, reviewed and tested by me.  Nothing ships until it's run on a real TV (an LG C2 on webOS 25), and the fixes that mattered most came from that testing: standby putting the adapter back on the slow driver, and webOS quietly using Wi-Fi instead of the adapter.  80+ tests run on every push, downloads are checked by SHA-256, and no system files are touched.  The driver modules come from DonZoomik, mbenitez343, OCT0PUSCRIME, dd3git and throwaway96, not from AI.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
+      <details class="faq"><summary>Was this written by AI?</summary><div>Partly, and openly.  I wrote v1 by hand.  From v2.0 on it's written with AI coding agents (Claude), directed, reviewed and tested by me.  Nothing ships until it's run on a real TV (an LG C2 on webOS 25), and the fixes that mattered most came from that testing: standby putting the adapter back on the slow driver, and webOS quietly using Wi-Fi instead of the adapter.  90 tests run on every push, downloads are checked by SHA-256, and no system files are touched.  The driver modules come from DonZoomik, mbenitez343, OCT0PUSCRIME, dd3git and throwaway96, not from AI.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
       <details class="faq"><summary>Does it survive a firmware update?</summary><div>The hook lives in the Homebrew Channel's folder, so it stays as long as root does.  If an update removes root, the hook stops running and the TV just goes back to the built-in port.  Current firmware, webOS 26 included, can't be rooted again, so keep updates off: see <a class="c-gr" href="#updates">Block updates harder</a>.</div></details>
       <details class="faq"><summary>Does it change my network settings?</summary><div>No.  webOS still sets up the wired connection itself.  The script only changes which device is called <code>eth0</code>.  The one exception is the Wi-Fi backup, if you turn it on: it flips the Wi-Fi switch on when the cable stops working, and back off when it works again.  <code>--block-updates</code> doesn't change your network either, but it does add LG's update servers to <code>/etc/hosts</code> and one firewall rule.</div></details>
       <details class="faq"><summary>Lost SSH while switching?</summary><div>The switch still finishes on the TV.  Reconnect over Wi-Fi.  The adapter has its own MAC, so your router may hand out a new IP; a DHCP reservation keeps it steady.</div></details>
@@ -465,7 +475,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=96df3b1a" defer></script>
+<script src="/assets/js/site.js?v=r2611a" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

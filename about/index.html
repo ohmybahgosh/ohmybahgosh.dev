@@ -10,12 +10,11 @@
 <link rel="canonical" href="https://ohmybahgosh.dev/about/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=96df3b1a">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="About · ohmybahgosh.dev">
@@ -45,16 +44,27 @@
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
-    <span class="status"><span class="dot"></span>dev showcase · now webOS</span>
     <nav class="nav" aria-label="Main">
-      <a href="/tivibro/" class="hide-xs">tivibro</a>
-      <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
-      <a href="/webos-entware-installer/" class="hide-s">entware</a>
-      <a href="/luna-atlas/" class="hide-s">atlas</a>
-      <a href="/#tools" class="hide-s">tools</a>
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/#homebrew">$ add the four TV apps: ohmybahgosh.dev/repo</a>
+        </div>
+      </div>
+      <a href="/#homebrew" class="hide-s">install</a>
       <a href="/about/" class="hide-s" aria-current="page">about</a>
       <a href="/contact/" class="hide-s">contact</a>
-      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
       <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
       <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
     </nav>
@@ -75,7 +85,7 @@
       <p>Off the clock I'm into penetration testing and network security: finding the weak spot before someone else does.  I also automate anything that holds still long enough.</p>
       <h2 class="h2" id="ai" data-pal="AI-assisted, human-audited">Yes, I vibe code.  Not blindly.</h2>
       <p>And yes, I've been vibe coding lately.  Not the blind kind, where you paste whatever a model hands you and hope.  AI lets one person build in a weekend what used to take a team a month, and that's a real shift worth using.  But speed without scrutiny is how you ship bugs and security holes at scale.  So everything here gets the same treatment as hand-written code: I design it first, read every line, test it on real hardware, and audit it the way someone who breaks things for fun would.  The AI writes faster.  The judgment is still mine.  <a class="c-cy" href="/#built">Here's what that looks like for each project</a>.</p>
-      <p>That's how my TV ended up running a homebrew IPTV player I wrote because the one I wanted didn't exist on webOS.  Its Ethernet port is a USB adapter pretending to be the built-in one.  It has a full Linux toolbox installed, and a remote dedicated server keeps the media flowing.</p>
+      <p>That's how my TV ended up running a homebrew IPTV player I wrote because the one I wanted didn't exist on webOS.  Its Ethernet port is a USB adapter pretending to be the built-in one.  It has a full Linux toolbox installed, an app that fixes SSH when I break it, and a remote dedicated server keeps the media flowing.  Mapping every <code>luna-send</code> command came out of poking at it, and pipseek came out of missing <code>pip search</code>.</p>
       <p>I've also put out a few things people found useful along the way, like <a class="c-cy" href="https://github.com/ohmybahgosh/RockYou2021.txt" target="_blank" rel="noopener">RockYou2021.txt</a>, a large password-auditing wordlist used for security testing.  There's also a pile of <a class="c-cy" href="https://github.com/ohmybahgosh/YT-DLP-SCRIPTS" target="_blank" rel="noopener">yt-dlp scripts</a> that were cutting-edge back when they worked.  They're now historical artifacts, preserved for science.  Run them at your own nostalgia.</p>
       <p>Everything I publish is free and open source, written in plain language, and built to check before it touches anything and to clean up after itself.  If something breaks, <a class="c-cy" href="/contact/">tell me</a>.  That's how it gets better.  Unless it's the yt-dlp scripts.  Those are already broken.</p>
     </article>
@@ -135,7 +145,7 @@ YT-DLP-SCRIPTS <span class="c-pk"># deprecated, lovingly</span></pre>
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=96df3b1a" defer></script>
+<script src="/assets/js/site.js?v=r2611a" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

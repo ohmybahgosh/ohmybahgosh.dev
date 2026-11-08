@@ -10,12 +10,11 @@
 <link rel="canonical" href="https://ohmybahgosh.dev/webos-entware-installer/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=96df3b1a">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="Entware for rooted LG webOS · TV app and installer">
@@ -49,7 +48,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "2.15.2"
+   "softwareVersion": "2.15.1"
   },
   {
    "@type": "BreadcrumbList",
@@ -80,16 +79,27 @@
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
-    <span class="status"><span class="dot"></span>dev showcase · now webOS</span>
     <nav class="nav" aria-label="Main">
-      <a href="/tivibro/" class="hide-xs">tivibro</a>
-      <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
-      <a href="/webos-entware-installer/" class="hide-s" aria-current="page">entware</a>
-      <a href="/luna-atlas/" class="hide-s">atlas</a>
-      <a href="/#tools" class="hide-s">tools</a>
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/" aria-current="page"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/#homebrew">$ add the four TV apps: ohmybahgosh.dev/repo</a>
+        </div>
+      </div>
+      <a href="/#homebrew" class="hide-s">install</a>
       <a href="/about/" class="hide-s">about</a>
       <a href="/contact/" class="hide-s">contact</a>
-      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
       <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
       <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
     </nav>
@@ -109,7 +119,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b>v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.15.2</span></b></span>
+        <span class="badge">version <b>v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.15.1</span></b></span>
         <span class="badge">TV app <b class="c-pk">Homebrew Channel</b></span>
         <span class="badge">webOS <b>23 · 24 · 25</b></span>
         <span class="badge">arch <b>aarch64 · armv7</b></span>
@@ -248,7 +258,7 @@
   <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
     <div class="card rv" style="padding:28px">
       <div class="hb-head"><img src="/assets/img/entware-icon.webp" alt="" width="72" height="72"><div><div class="eyebrow">homebrew channel repo</div><h2 class="h2" style="margin:10px 0 0;font-size:clamp(26px,3vw,34px)">Install it from the Homebrew Channel.</h2></div></div>
-      <p class="muted" style="margin:16px 0 6px;max-width:720px">Add this repository once and the Entware app shows up in the Homebrew Channel's app list, next to <a class="c-cy" href="/tivibro/">TiviBro</a> and <a class="c-gr" href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>.  New releases appear there as updates.</p>
+      <p class="muted" style="margin:16px 0 6px;max-width:720px">Add this repository once and the Entware app shows up in the Homebrew Channel's app list, next to <a class="c-cy" href="/tivibro/">TiviBro</a>, <a class="c-gr" href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> and <a class="c-gr" href="/ssh-doctor/">SSH Doctor</a>.  New releases appear there as updates.</p>
       <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
       <div class="steps" style="margin-top:18px">
         <div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div>
@@ -466,7 +476,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=96df3b1a" defer></script>
+<script src="/assets/js/site.js?v=r2611a" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -1,15 +1,15 @@
 /* ohmybahgosh.dev :: shared styles */
-@font-face{font-family:"JetBrains Mono";src:url(https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
-@font-face{font-family:"Space Grotesk";src:url(https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Geist";src:url(/assets/fonts/geist.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(/assets/fonts/jetbrains-mono.woff2) format("woff2");font-weight:100 900;font-display:swap}
 
 :root{
-  --bg:#05070d;--bg2:#0a0e1a;--panel:rgba(12,16,30,.72);--line:#1b2440;--line2:#27325a;
+  --bg:#04060b;--bg2:#0a0d17;--panel:rgba(13,17,30,.66);--line:#182037;--line2:#26304f;
   --fg:#e8eeff;--fg2:#9aa6c8;--fg3:#7783a8;--hi:#ffffff;
   --cyan:#33e1ff;--violet:#8b5cff;--green:#3ddc97;--pink:#ff3ea5;--amber:#ffb547;--blue:#5b8cff;
   --accent:var(--cyan);--accent2:var(--violet);
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --sans:"Space Grotesk",system-ui,-apple-system,Segoe UI,sans-serif;
-  --r:16px;--max:1200px;
+  --sans:"Geist",system-ui,-apple-system,Segoe UI,sans-serif;
+  --r:20px;--max:1200px;
 }
 body.p-tivibro{--accent:#33e1ff;--accent2:#5b8cff}
 body.p-eth0{--accent:#3ddc97;--accent2:#33e1ff}
@@ -20,7 +20,7 @@ body.p-lunaatlas{--accent:#3ddc97;--accent2:#33e1ff}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans);overflow-x:hidden;min-height:100vh}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans);overflow-x:hidden;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 ::selection{background:var(--accent);color:#03121a}
 a{color:inherit;text-decoration:none}
 img,video{max-width:100%;height:auto;display:block}
@@ -84,13 +84,13 @@ code,kbd,pre,.mono{font-family:var(--mono)}
 .eyebrow{font:500 12px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
 .eyebrow:before{content:"// "}
 h1,h2,h3{font-family:var(--sans);letter-spacing:-.025em;margin:0;color:var(--hi)}
-.h1{font-size:clamp(42px,7vw,84px);line-height:.98;font-weight:700}
-.h2{font-size:clamp(30px,4.2vw,46px);line-height:1.05;font-weight:700}
+.h1{font-size:clamp(42px,7vw,84px);line-height:.98;font-weight:680;letter-spacing:-.045em}
+.h2{font-size:clamp(30px,4.2vw,48px);line-height:1.04;font-weight:660;letter-spacing:-.04em}
 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:clamp(17px,1.6vw,19px);color:var(--fg2);max-width:620px}
 .muted{color:var(--fg2)}.dim{color:var(--fg3)}
 
-section{padding:88px 0}
+section{padding:96px 0}
 @media (max-width:640px){section{padding:60px 0}}
 .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
 .sec-head p{margin:10px 0 0;color:var(--fg2);max-width:560px}
@@ -425,3 +425,118 @@ a.tv{display:block;cursor:pointer}a.tv:hover{border-color:var(--line2)}
 .hcli .ls{display:flex;flex-wrap:wrap;gap:4px 18px}
 .hcli .ls a{color:var(--c);text-decoration:none;font-weight:600}
 .hcli .ls a:hover{text-decoration:underline}
+
+/* ================================================================
+   2026-11 refresh: calmer background, glass header with a projects
+   menu, softer cards, and the home page project gallery
+   ================================================================ */
+
+/* background: a faint grid that fades out fast, two soft glows, no scanlines */
+.bgfx{background:
+    radial-gradient(1000px 560px at 78% -12%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 64%),
+    radial-gradient(820px 600px at -8% 108%,color-mix(in srgb,var(--accent2) 15%,transparent),transparent 64%),
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px) 0 0/56px 56px,
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px) 0 0/56px 56px;
+  -webkit-mask:linear-gradient(#000 0,rgba(0,0,0,.5) 40%,rgba(0,0,0,.18));mask:linear-gradient(#000 0,rgba(0,0,0,.5) 40%,rgba(0,0,0,.18))}
+.bgfx:after{display:none}
+
+/* header */
+.top{background:rgba(4,6,11,.7);border-bottom:1px solid rgba(255,255,255,.06)}
+.top .wrap{height:66px}
+.logo{font-size:15.5px}
+.logo .px{width:26px;height:26px;border-radius:8px;font-size:12.5px}
+.nav a,.mbtn{font:500 13.5px var(--sans);letter-spacing:-.005em}
+.nav a{padding:8px 12px}
+
+/* projects menu */
+.menu{position:relative}
+.mbtn{display:flex;align-items:center;gap:6px;color:var(--fg2);background:none;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.mbtn:hover,.menu.open .mbtn,.menu:focus-within .mbtn{color:var(--fg);background:rgba(255,255,255,.05)}
+.mbtn .chev{font-size:10px;opacity:.7;transition:transform .2s}
+.menu.open .mbtn .chev{transform:rotate(180deg)}
+.mpanel{position:absolute;top:calc(100% + 10px);left:50%;width:min(560px,92vw);transform:translate(-50%,6px);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;
+  background:rgba(10,13,23,.97);border:1px solid var(--line2);border-radius:18px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:60}
+.mpanel:before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+@media (hover:hover){.menu:hover .mpanel{opacity:1;visibility:visible;transform:translate(-50%,0)}}
+.menu.open .mpanel{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.mgrp{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mgrp+.mgrp{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.mgrp>span{grid-column:1/-1;font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3);padding:6px 10px 4px}
+.nav .mgrp a{display:grid;grid-template-columns:40px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:10px;border-radius:12px;color:var(--fg)}
+.nav .mgrp a:hover,.nav .mgrp a[aria-current]{background:rgba(255,255,255,.05)}
+.mgrp img{grid-row:1/3;width:40px;height:40px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.mgrp b{font:600 14.5px var(--sans);letter-spacing:-.01em;color:var(--hi);align-self:end}
+.mgrp small{font-size:12.5px;line-height:1.35;color:var(--fg3);align-self:start}
+.nav .mall{display:block;margin-top:8px;padding:10px;border-radius:10px;font:500 12.5px var(--mono);color:var(--accent);text-align:center;background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.nav .mall:hover{background:color-mix(in srgb,var(--accent) 13%,transparent)}
+@media (max-width:720px){
+  .nav .menu .mpanel a{display:grid}
+  .nav .mall{display:block}
+  .menu{position:static}
+  .mpanel{left:12px;right:12px;width:auto;transform:translateY(6px);top:62px}
+  .menu.open .mpanel{transform:none}
+  .mgrp{grid-template-columns:1fr}
+}
+html[data-theme=light] .mpanel{background:rgba(255,255,255,.98);box-shadow:0 30px 80px rgba(10,20,50,.18)}
+html[data-theme=light] .mbtn:hover,html[data-theme=light] .menu.open .mbtn,html[data-theme=light] .nav .mgrp a:hover{background:rgba(10,20,50,.06)}
+
+/* softer cards */
+.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.008));border-color:var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.card h3{letter-spacing:-.03em}
+.repo h3{letter-spacing:-.035em}
+.btn{font:600 14px var(--sans);letter-spacing:-.005em;border-radius:12px}
+.btn.pri{font-family:var(--mono)}
+.eyebrow{letter-spacing:.2em}
+
+/* home: stats strip under the hero */
+.hstats{margin:8px 0 0}
+.hstats b{font-weight:650;letter-spacing:-.04em;font-size:clamp(26px,3vw,34px)}
+.hstats div{padding:20px 24px}
+
+/* home: the project gallery */
+.projgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media (max-width:860px){.projgrid{grid-template-columns:1fr}}
+.proj{display:flex;flex-direction:column;padding:0}
+.proj .pmedia{position:relative;aspect-ratio:16/9;overflow:hidden;background:#05070d;border-bottom:1px solid var(--line)}
+.proj .pmedia video,.proj .pmedia img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+a.proj:hover .pmedia video,a.proj:hover .pmedia img{transform:scale(1.025)}
+.proj .pmedia:after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(4,6,11,.55));pointer-events:none}
+.proj .pbody{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.proj .phead{display:flex;align-items:center;gap:14px}
+.proj .phead h3{font-size:26px;margin:0}
+.proj .phead .pill{margin-left:auto}
+.proj .ptag{margin:12px 0 0;color:var(--fg);font-size:16.5px;line-height:1.5}
+.proj ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:7px}
+.proj li{position:relative;padding-left:20px;color:var(--fg2);font-size:14.5px;line-height:1.5}
+.proj li:before{content:"▸";position:absolute;left:0;top:0;color:var(--ca,var(--accent));font-size:12px;line-height:22px}
+.proj .meta{padding-top:18px}
+.proj .go{z-index:2;top:16px;right:16px;width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:rgba(4,6,11,.6);backdrop-filter:blur(6px);color:#fff}
+.proj .helptest{margin-top:16px}
+/* Luna Atlas has no video: a small live terminal stands in */
+.pterm{display:flex;flex-direction:column;justify-content:center;gap:14px;height:100%;padding:24px 26px;font:13px/1.75 var(--mono);color:#c9d4f2;background:radial-gradient(500px 260px at 80% 0,color-mix(in srgb,#3ddc97 14%,transparent),transparent 70%),#06090f}
+.pterm pre{margin:0;white-space:pre-wrap;word-break:break-word}
+.pterm .nums{display:flex;gap:22px;flex-wrap:wrap}
+.pterm .nums b{display:block;font:650 26px var(--sans);letter-spacing:-.04em;color:#fff}
+.pterm .nums span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7783a8}
+
+/* home: flagship card */
+.flag .flagtext{font-size:17px;color:var(--fg2);margin:12px 0 0}
+.flag .chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.flag .chips span{font:500 12.5px var(--sans);color:var(--fg);padding:6px 11px;border-radius:99px;border:1px solid var(--line2);background:rgba(255,255,255,.03)}
+.flag .btns{margin-top:22px}
+
+/* home: how it's built, AI note */
+.ainote{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;padding:32px}
+@media (max-width:900px){.ainote{grid-template-columns:1fr;gap:20px;padding:24px}}
+.ainote h3{font-size:clamp(26px,3vw,34px);letter-spacing:-.04em;margin:12px 0 10px}
+.ainote ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ainote li{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--fg2);font-size:14.5px}
+.ainote li b{display:block;color:var(--hi);font-size:15.5px;margin-bottom:2px}
+
+html[data-theme=light] .card{box-shadow:0 1px 2px rgba(10,20,50,.04),0 10px 34px rgba(10,20,50,.06)}
+html[data-theme=light] .proj .pmedia:after{background:none}
+html[data-theme=light] .flag .chips span,html[data-theme=light] .ainote li{background:#fff}
+@media (max-width:440px){.proj .phead h3{font-size:21px;letter-spacing:-.03em}.proj .pbody{padding:20px}.proj .phead{gap:12px}}
+.mpanel{background:#0a0d17}
+html[data-theme=light] .mpanel{background:#fff}
+@media (max-width:480px){.kbtn:not(.theme) span:not(.ic-s){display:none}.mbtn{padding:8px 10px}.nav .mall{font-size:11.5px;white-space:normal}}
