@@ -9,7 +9,8 @@
 <p>SSH on a rooted LG TV is easy to break and hard to fix: a key pasted from Windows, a private key pasted instead of the public one, a keys file that turned the <code>alpine</code> password off, or SSH turned on in the Homebrew Channel but never started.  This app finds out what's wrong and fixes it with the remote.</p>
 <h2>The check</h2>
 <ul>
-<li>Whether SSH is on in the Homebrew Channel, and whether its server is running on port 22.</li>
+<li>Whether SSH is on in the Homebrew Channel, and whether its server is running on its port.</li>
+<li>Every SSH server on the TV: the Homebrew Channel's, Entware's, Developer Mode's, or something else on the SSH port.</li>
 <li>How you can log in: the <code>alpine</code> password, your keys, or nobody.</li>
 <li>Whether <code>authorized_keys</code> is usable: Windows line endings, hidden characters, keys split over several lines, PuTTY's key format, private keys, and permissions.</li>
 <li>Telnet as a way back in, failsafe mode, the TV's address, and its SSH key fingerprints.</li>
@@ -20,6 +21,18 @@
 <li><strong>Fix my keys file</strong>: repairs it and moves anything that isn't a public key to a side file.</li>
 <li><strong>Go back to password login</strong>, for anyone locked out: user root, password alpine.</li>
 <li><strong>Undo a change</strong>: every fix keeps a backup first.</li>
+</ul>
+<h2>SSH settings, kept after a restart</h2>
+<ul>
+<li><strong>Your own password</strong>, typed on the TV or on your phone.  Only a scrambled hash is ever sent or kept.</li>
+<li><strong>Keys only</strong>, which won't turn on until a key is on the TV.</li>
+<li><strong>SSH port</strong>: the old port stays open until you've logged in on the new one and keep it.</li>
+<li><strong>Keep idle sessions connected</strong>, and <strong>Reset to Homebrew Channel defaults</strong>.</li>
+</ul>
+<h2>More tools</h2>
+<ul>
+<li>Rename or remove keys, and see when each last logged in.</li>
+<li>Login history with failed tries, telnet off or on, SFTP details, the TV's own SSH keys, and a report for getting help with no private details in it.</li>
 </ul>
 <h2>Set up a key with a pairing code</h2>
 <p>The TV shows a QR code, its address and a short code.  Open the page on your phone or computer, type the code, and send the public key you have, or let the browser make a new key pair: the private key is saved on your device and never sent anywhere.  The key is added only after you press OK on the remote, and the page then shows the exact command for Mac, Linux, Windows, PuTTY or a phone app.</p>
