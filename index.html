@@ -123,7 +123,7 @@ html[data-theme=light] .helptest b{color:#000}
     <div style="min-width:0">
       <div class="eyebrow">open source · dev showcase</div>
       <h1 class="h1 hname" style="margin-top:16px"><span class="tilde">~/</span>ohmybahgosh</h1>
-      <div class="hcli" aria-label="Current focus: LG webOS homebrew.  Projects: TiviBro, LG-USB-2-ETH0, Entware, Luna Atlas and pipseek.">
+      <div class="hcli" aria-label="Current focus: LG webOS homebrew.  Projects: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor, Luna Atlas and pipseek.">
         <div><span class="p">$</span> cat focus</div>
         <div class="out"><span class="fdot"></span>LG webOS homebrew</div>
         <div style="margin-top:10px"><span class="p">$</span> ls projects/</div>
@@ -131,6 +131,7 @@ html[data-theme=light] .helptest b{color:#000}
           <a href="/tivibro/" style="--c:#33e1ff">tivibro/</a>
           <a href="/lg-usb-2-eth0/" style="--c:#3ddc97">usb-2-eth0/</a>
           <a href="/webos-entware-installer/" style="--c:#ff3ea5">entware/</a>
+          <a href="/ssh-doctor/" style="--c:#3ddc97">ssh-doctor/</a>
           <a href="/luna-atlas/" style="--c:#3ddc97">luna-atlas/</a>
           <a href="/pipseek/" style="--c:#4c9eff">pipseek/</a>
         </div>
@@ -191,7 +192,7 @@ html[data-theme=light] .helptest b{color:#000}
       <div>
         <div class="eyebrow">~/repos/webos</div>
         <h2 class="h2" style="margin-top:12px">Built for one rooted TV.</h2>
-        <p>An IPTV player that feels like cable, a faster wired connection, a real Linux toolbox, and a map of every luna-send command.  Each app checks your TV first and undoes itself cleanly.</p>
+        <p>An IPTV player that feels like cable, a faster wired connection, a real Linux toolbox, a doctor for SSH, and a map of every luna-send command.  Each app checks your TV first and undoes itself cleanly.</p>
       </div>
       <div class="dim mono" style="font-size:13px">★ <b class="c-wh" data-gh="total:stars">23</b> stars across the webOS repos</div>
     </div>
@@ -232,6 +233,20 @@ html[data-theme=light] .helptest b{color:#000}
         <div class="tv" style="margin:22px 0 26px"><video src="/assets/media/entware-app-demo.mp4" poster="/assets/img/entware-app-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The Entware TV app with the remote: Packages opens on Start here, rclone's page, the Files and backup category, then SSH commands switching from tv to ent, and Add-ons with the network services running"></video></div>
       </a>
 
+      <a class="card repo s6 rv" href="/ssh-doctor/" style="--ca:#3ddc97;--cb:#33e1ff">
+        <span class="go">↗</span>
+        <div class="two" style="gap:32px;align-items:center">
+          <div style="min-width:0">
+            <div class="path">~/ssh-doctor <span class="pill" style="--ca:#3ddc97" data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.2.0</span> <span class="pill" style="--ca:#33e1ff">new</span></div>
+            <h3 style="display:flex;gap:14px;align-items:center"><img class="appicon sm" src="/assets/img/ssh-doctor-icon.webp" alt="" width="48" height="48" loading="lazy">SSH Doctor</h3>
+            <p>SSH on a rooted TV stopped working?  This finds out why, in plain words, and fixes it with the remote: a broken <code class="c-gr">authorized_keys</code>, a lost <code>alpine</code> password, SSH that's off or won't start.  It pairs a key from your phone with a short code, and sets your own password, keys only or another port, kept after a restart.  It runs through the Homebrew Channel, so it works even when SSH doesn't.</p>
+            <div class="tags"><span>dropbear</span><span>ssh-keys</span><span>posix-sh</span><span>pairing-code</span><span>webos-app</span></div>
+            <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="LG-WEBOS-SSH-DOCTOR:stars">0</b></span><span>en · ru · es</span></div>
+          </div>
+          <div class="tv" style="margin-bottom:26px"><img src="/assets/img/ssh-doctor-main.webp" alt="SSH Doctor on a TV: SSH works on port 2222, with your password and 2 keys" width="1280" height="720" loading="lazy"></div>
+        </div>
+      </a>
+
       <a class="card repo s6 rv" href="/luna-atlas/" style="--ca:#3ddc97;--cb:#33e1ff">
         <span class="go">↗</span>
         <div class="two" style="gap:32px;align-items:center">
@@ -259,7 +274,7 @@ html[data-theme=light] .helptest b{color:#000}
       <div class="hbapps">
         <a class="hbapp" href="/tivibro/#install"><img class="appicon sm" src="/assets/img/tivibro-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>TiviBro <span class="pill" style="--ca:#33e1ff" data-gh="TiviBro:version">0.6.0-alpha</span></b><span>The IPTV player LG TVs never got.  Newest alpha builds.</span></div></a>
         <a class="hbapp" href="/lg-usb-2-eth0/#homebrew"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>LG-USB-2-ETH0 <span class="pill" style="--ca:#3ddc97" data-gh="LG-USB-2-ETH0:release">v2.4.7</span></b><span>Make a USB Ethernet adapter the TV's eth0.</span></div></a>
-        <a class="hbapp" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR"><img class="appicon sm" src="/assets/img/ssh-doctor-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>SSH Doctor <span class="pill" style="--ca:#3ddc97" data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.2.0</span></b><span>Check and fix SSH on a rooted TV, pair a key, and set your own password or port.</span></div></a>
+        <a class="hbapp" href="/ssh-doctor/"><img class="appicon sm" src="/assets/img/ssh-doctor-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>SSH Doctor <span class="pill" style="--ca:#3ddc97" data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.2.0</span></b><span>Check and fix SSH on a rooted TV, pair a key, and set your own password or port.</span></div></a>
         <a class="hbapp" href="/webos-entware-installer/#homebrew"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>Entware <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.15.2</span></span></b><span>Linux packages, a bash shell, updates and add-ons.</span></div></a>
       </div>
       <p class="dim" style="font-size:14px;margin:14px 0 0">The address is for the Homebrew Channel; a browser just downloads it.  To read it in a browser, open <a class="c-cy" href="/repo.json">repo.json</a>.  TiviBro here follows its newest test builds, the same as <code>tivibro.app/testing</code>.  Its own repositories on tivibro.app work as before; see the <a class="c-cy" href="/tivibro/#install">TiviBro page</a>.</p>
@@ -379,6 +394,7 @@ html[data-theme=light] .helptest b{color:#000}
       <a href="/tivibro/">tivibro</a>
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/about/">about</a>

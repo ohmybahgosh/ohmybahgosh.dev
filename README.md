@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://ohmybahgosh.dev"><img src="docs/banner.svg" width="100%" alt="ohmybahgosh.dev: open-source things I build and share, now focused on LG webOS homebrew: TiviBro, LG-USB-2-ETH0, Entware, Luna Atlas and pipseek"></a>
+<a href="https://ohmybahgosh.dev"><img src="docs/banner.svg" width="100%" alt="ohmybahgosh.dev: open-source things I build and share, now focused on LG webOS homebrew: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor, Luna Atlas and pipseek"></a>
 
 <br>
 
@@ -25,7 +25,7 @@
 
 ## Projects
 
-Three apps for LG webOS TVs.  Each one installs from the Homebrew Channel and runs with the remote, works over SSH too, is tried on a real TV before release, and removes cleanly.  Each has its own page with its banner, a recording of the TV app, install steps, an FAQ and live release notes.
+Four apps for LG webOS TVs.  Each one installs from the Homebrew Channel and runs with the remote, works over SSH too, is tried on a real TV before release, and removes cleanly.  Each has its own page with its banner, a recording of the TV app, install steps, an FAQ and live release notes.
 
 <table>
 <tr>
@@ -72,9 +72,31 @@ A real Linux toolbox for rooted webOS: browse 1,100+ packages by category from t
 
 </td>
 </tr>
-</table>
+<tr>
+<td width="33%" valign="top">
 
-Also on the site, and not TV apps so not in the Homebrew Channel repository: **[Luna Atlas](https://ohmybahgosh.dev/luna-atlas/)**, a searchable catalog of every LG webOS `luna-send` command (8,125 across 501 services), and **[pipseek](https://ohmybahgosh.dev/pipseek/)**, a fast PyPI package search CLI.
+### <img src="assets/img/ssh-doctor-icon.webp" width="28" align="top" alt=""> [SSH Doctor](https://ohmybahgosh.dev/ssh-doctor/)
+
+<a href="https://ohmybahgosh.dev/ssh-doctor/"><img src="docs/page-ssh-doctor.webp" width="100%" alt="The SSH Doctor page: its icon and the headline SSH broke?  Fix it from the couch, beside the TV app's main screen"></a>
+
+Fixes SSH on a rooted TV from the TV itself, with the remote: a broken `authorized_keys`, a lost `alpine` password, SSH that's off or won't start.  Pairs a key from your phone or computer with a short code, and sets your own password, keys only or another port, kept after a restart.  It runs through the Homebrew Channel, so it works even when SSH doesn't.
+
+[![Stars](https://img.shields.io/github/stars/ohmybahgosh/LG-WEBOS-SSH-DOCTOR?style=flat-square&color=3ddc97&labelColor=0a0e1a)](https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR)
+[![Release](https://img.shields.io/github/v/release/ohmybahgosh/LG-WEBOS-SSH-DOCTOR?style=flat-square&color=3ddc97&labelColor=0a0e1a&label=release)](https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases)
+
+[Page](https://ohmybahgosh.dev/ssh-doctor/) · [Repo](https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR)
+
+</td>
+<td width="67%" colspan="2" valign="top">
+
+Also on the site, and not TV apps so not in the Homebrew Channel repository:
+
+- **[Luna Atlas](https://ohmybahgosh.dev/luna-atlas/)**, a searchable catalog of every LG webOS `luna-send` command (8,125 across 501 services)
+- **[pipseek](https://ohmybahgosh.dev/pipseek/)**, a fast PyPI package search CLI
+
+</td>
+</tr>
+</table>
 
 ## Install from the Homebrew Channel
 
@@ -84,15 +106,16 @@ On a rooted LG TV, open the Homebrew Channel, select the gear icon, go to **Repo
 https://ohmybahgosh.dev/repo
 ```
 
-All three apps then show up in the Homebrew Channel's app list, and new releases appear there as updates.
+All four apps then show up in the Homebrew Channel's app list, and new releases appear there as updates.
 
 | App | What the repository offers |
 |:--|:--|
 | **TiviBro** | The newest build, including alpha test builds (the same build as `tivibro.app/testing`).  TiviBro's own repositories on tivibro.app keep working too.  Needs webOS 4 or newer. |
 | **LG-USB-2-ETH0** | The latest release. |
 | **Entware** | The latest release. |
+| **SSH Doctor** | The latest release. |
 
-Each entry uses the manifest attached to that project's GitHub release, so the download and its SHA-256 match the release exactly.  On the TV, each app's info page shows a full description with screenshots: [LG-USB-2-ETH0](homebrew/lg-usb-2-eth0.html), [Entware](homebrew/webos-entware.html), and TiviBro's own from tivibro.app.
+Each entry uses the manifest attached to that project's GitHub release, so the download and its SHA-256 match the release exactly.  On the TV, each app's info page shows a full description with screenshots: [LG-USB-2-ETH0](homebrew/lg-usb-2-eth0.html), [Entware](homebrew/webos-entware.html), [SSH Doctor](homebrew/ssh-doctor.html), and TiviBro's own from tivibro.app.
 
 `/repo` has no file extension, which is what the Homebrew Channel expects, so a browser downloads it instead of showing it.  To read it in a browser, open [ohmybahgosh.dev/repo.json](https://ohmybahgosh.dev/repo.json), an identical copy.
 
@@ -104,7 +127,7 @@ Each entry uses the manifest attached to that project's GitHub release, so the d
 | 🧭 **One layout for every project** | Each page follows the same order: banner and video, what it does, its standout feature, the TV app, installing (Homebrew Channel first, then SSH), the details, FAQ, help, and release notes last. |
 | ⌨️ **Typed terminal demos** | The SSH sections, and the home page's **over SSH** tab, type out a real session from each project.  They render at once for visitors who prefer reduced motion. |
 | 📈 **Always current** | Versions, release notes, recent commits and stars come from GitHub on every deploy.  A new release in any project updates the site and the Homebrew Channel repository within about a minute: the project pings the site, and a check every 15 minutes catches anything missed. |
-| 📝 **Release notes** | Every project page ends with a timeline of its newest releases, and the home page lists the latest releases and commits across all three. |
+| 📝 **Release notes** | Every project page ends with a timeline of its newest releases, and the home page lists the latest releases and commits across all of them. |
 | 🤖 **How it's built** | The home page says plainly which code is written with AI coding agents, and how it's reviewed, tested and tried on real TVs. |
 | 🔎 **Command palette** | Press <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (<kbd>⌘</kbd>+<kbd>K</kbd> on a Mac) to jump to any project, section or repo. |
 | ◐ **Light and dark** | A theme toggle in the header, remembered per visitor. |
@@ -121,7 +144,7 @@ Plain HTML, CSS and JavaScript, with no framework.  Dark grid background, neon g
 ```
 .
 ├── index.html                          home page
-├── tivibro/  lg-usb-2-eth0/  webos-entware-installer/
+├── tivibro/  lg-usb-2-eth0/  webos-entware-installer/  ssh-doctor/
 │                                       one folder per project page
 ├── about/  contact/  404.html
 ├── assets/

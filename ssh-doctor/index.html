@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SSH Doctor for rooted LG webOS · fix SSH from the TV</title>
+<meta name="description" content="Fix SSH on rooted LG webOS TVs from the TV itself, with just the remote.  SSH Doctor checks and repairs the Homebrew Channel's dropbear SSH, gets you back in after a broken authorized_keys or a lost alpine password, pairs a key from your phone or computer with a short code, and lets you set your own password, keys only or another port.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/ssh-doctor/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk@5.3.0/files/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5.3.0/files/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="dns-prefetch" href="https://api.github.com">
+<link rel="stylesheet" href="/assets/css/site.css?v=96df3b1a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="SSH Doctor for rooted LG webOS · fix SSH from the TV">
+<meta property="og:description" content="Fix SSH on rooted LG webOS TVs from the TV itself, with just the remote.  SSH Doctor checks and repairs the Homebrew Channel's dropbear SSH, gets you back in after a broken authorized_keys or a lost alpine password, pairs a key from your phone or computer with a short code, and lets you set your own password, keys only or another port.">
+<meta property="og:url" content="https://ohmybahgosh.dev/ssh-doctor/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/ssh-doctor.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LG webOS SSH Doctor: fix SSH on rooted LG TVs from the TV itself, with the app's main screen">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SSH Doctor for rooted LG webOS · fix SSH from the TV">
+<meta name="twitter:description" content="Fix SSH on rooted LG webOS TVs from the TV itself, with just the remote.  SSH Doctor checks and repairs the Homebrew Channel's dropbear SSH, gets you back in after a broken authorized_keys or a lost alpine password, pairs a key from your phone or computer with a short code, and lets you set your own password, keys only or another port.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/ssh-doctor.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "LG-WEBOS-SSH-DOCTOR",
+   "description": "Fix SSH on rooted LG webOS TVs from the TV itself, with just the remote.  SSH Doctor checks and repairs the Homebrew Channel's dropbear SSH, gets you back in after a broken authorized_keys or a lost alpine password, pairs a key from your phone or computer with a short code, and lets you set your own password, keys only or another port.",
+   "codeRepository": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR",
+   "programmingLanguage": "Shell",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://ohmybahgosh.dev/ssh-doctor/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "runtimePlatform": "LG webOS",
+   "softwareVersion": "0.2.0"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "SSH Doctor",
+     "item": "https://ohmybahgosh.dev/ssh-doctor/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-sshdoctor">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <span class="status"><span class="dot"></span>dev showcase · now webOS</span>
+    <nav class="nav" aria-label="Main">
+      <a href="/tivibro/" class="hide-xs">tivibro</a>
+      <a href="/lg-usb-2-eth0/" class="hide-s">usb-2-eth0</a>
+      <a href="/webos-entware-installer/" class="hide-s">entware</a>
+      <a href="/luna-atlas/" class="hide-s">atlas</a>
+      <a href="/#tools" class="hide-s">tools</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-xs" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">ssh-doctor</span></div>
+      <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/ssh-doctor-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">SSH Doctor</div><div class="muted" style="margin-top:6px;font-size:17px">for rooted LG webOS TVs</div></div></div>
+      <h1 class="h2" style="margin-top:10px">SSH broke?<br><span class="grad">Fix it from the couch.</span></h1>
+      <p class="lead">SSH on a rooted LG TV breaks in a handful of ways: a keys file with Windows line endings, a private key pasted by mistake, the <code class="c-gr">alpine</code> password gone after the first key, a host key warning after a reset.  SSH Doctor finds out which one, in plain words, and fixes it with the remote.  It runs through the Homebrew Channel, not over SSH, so it still works when SSH is completely broken.  It also pairs a key from your phone or computer with a short code, and lets you set your own password, switch to keys only or move SSH to another port, all kept after a restart.</p>
+      <div class="btns">
+        <a class="btn pri" href="#homebrew">$ get the TV app</a>
+        <a class="btn" href="#settings">ssh settings</a>
+        <a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR" target="_blank" rel="noopener">source ↗</a>
+      </div>
+      <div class="badges">
+        <span class="badge">version <b data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.2.0</b></span>
+        <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
+        <span class="badge">ssh <b>dropbear</b></span>
+        <span class="badge">languages <b>en · ru · es</b></span>
+        <span class="badge">★ <b data-gh="LG-WEBOS-SSH-DOCTOR:stars">0</b></span>
+        <span class="badge">license <b>MIT</b></span>
+      </div>
+    </div>
+    <div class="tv">
+      <img src="/assets/img/ssh-doctor-main.webp" alt="SSH Doctor on a TV: SSH works, running on port 2222 and 22 for now, logging in with your password and 2 keys, with tips about the port change, failed logins and another SSH server, and the menu on the right" width="1280" height="720" fetchpriority="high">
+    </div>
+  </section>
+
+  <section id="sound-familiar" data-pal="SSH errors it fixes" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">$ ssh root@tv</div><h2 class="h2" style="margin-top:12px">Sound familiar?</h2><p>The common ways SSH breaks on a rooted LG TV.  None of them needs a factory reset.</p></div></div>
+    <div class="term rv" style="padding:20px 22px;font:14px/1.9 var(--mono);white-space:pre-wrap"><span class="c-pk">ssh: connect to host 192.168.1.50 port 22: Connection refused</span>
+<span class="c-pk">root@192.168.1.50: Permission denied (publickey).</span>
+<span class="c-pk">PuTTY: No supported authentication methods available</span>
+<span class="c-pk">WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</span>
+<span class="c-pk">Unable to negotiate: no matching host key type found</span></div>
+  </section>
+
+  <section id="features" data-pal="SSH Doctor features" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">features</div><h2 class="h2" style="margin-top:12px">Check, fix, pair.</h2><p>Every repair says what it will change and keeps a dated backup first.</p></div></div>
+    <div class="bento">
+      <div class="card s3 rv"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div><h3>The check</h3><p>Whether SSH is on in the Homebrew Channel and really running on its port, how you can log in (password, keys, or nobody), whether <code>authorized_keys</code> is usable, telnet as a way back in, failsafe mode, and the TV's own key fingerprints.</p></div>
+      <div class="card s3 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z"/></svg></div><h3>One button per fix</h3><p><b class="c-wh">Turn SSH on now</b> without a restart, <b class="c-wh">Fix my keys file</b> (line endings, hidden characters, wrapped and PuTTY keys, private keys, permissions), <b class="c-wh">Go back to password login</b> for anyone locked out, and <b class="c-wh">Undo a change</b>.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">QR</div><h3>Pair a key by code</h3><p>Scan the QR on the TV, type the short code, and send a key you have or let the browser make one.  The private key never leaves your phone or computer.</p></div>
+      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Finds other setups</h3><p>Entware's OpenSSH or dropbear, Developer Mode's SSH on 9922, another program on the SSH port, empty host key files.  It only ever changes the Homebrew Channel's server.</p></div>
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">$_</div><h3>Works over telnet too</h3><p><code>ssh-doctor.sh</code> runs on its own, for when telnet is the only way in: <code>status</code>, <code>fix-keys</code>, <code>password-on</code> and the rest.</p></div>
+    </div>
+  </section>
+
+  <section id="settings" data-pal="SSH settings" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">dropbear -p 2222 -s -K 30</div><h2 class="h2" style="margin-top:12px">SSH settings that stick.</h2><p>dropbear has no settings file: its options are set when it starts, and the Homebrew Channel starts it with none.  SSH Doctor keeps yours and puts them back after every restart, with a small startup script in <code>/var/lib/webosbrew/init.d</code>.</p></div></div>
+    <div class="two rv" style="align-items:start">
+      <div class="tv stick" style="margin-bottom:26px"><img src="/assets/img/ssh-doctor-settings.webp" alt="The SSH settings menu: your own password, keys only, SSH port and keep idle sessions connected" width="1280" height="720" loading="lazy"></div>
+      <div class="appgrid">
+        <div class="card"><div class="ic">***</div><h3>Your own password</h3><p>Typed on the TV, or on your phone through the pairing page.  It's turned into a SHA-512 crypt hash first, so the password itself is never sent over your network or saved on the TV, and applied the way the Homebrew Channel applies <code>alpine</code>.</p></div>
+        <div class="card" style="--ca:#33e1ff"><div class="ic">#</div><h3>Keys only</h3><p>Passwords stop logging in.  It won't turn on until a key is on the TV, and <b class="c-wh">Go back to password login</b> undoes it if you lose the key.</p></div>
+        <div class="card" style="--ca:#ffb547"><div class="ic">:22</div><h3>Another port</h3><p>2222, 22022 or any free port.  The old port stays open until you've logged in on the new one and keep it, and if dropbear won't start there, SSH goes straight back.</p></div>
+        <div class="card" style="--ca:#3ddc97"><div class="ic">♥</div><h3>Keepalive and reset</h3><p>A keepalive every 30 seconds so routers don't drop quiet sessions, and <b class="c-wh">Reset to Homebrew Channel defaults</b> removes all of it, the startup script too.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" data-pal="SSH Doctor more tools" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">more tools</div><h2 class="h2" style="margin-top:12px">Who's been logging in?</h2><p>Recent logins and failed tries from the TV's own log, with a warning when the tries come from outside your home network.</p></div></div>
+    <div class="two rv" style="align-items:start">
+      <div class="tv" style="margin-bottom:26px"><img src="/assets/img/ssh-doctor-logins.webp" alt="Login history: logins by key and password, and failed tries, with where they came from" width="1280" height="720" loading="lazy"></div>
+      <div class="appgrid">
+        <div class="card"><h3>Keys on this TV</h3><p>Each key with its name, fingerprint and when it last logged in.  Rename or remove one, with a backup.</p></div>
+        <div class="card" style="--ca:#33e1ff"><h3>The TV's own keys</h3><p>Fingerprints to check a first login against, or make new ones if they're broken.</p></div>
+        <div class="card" style="--ca:#ff3ea5"><h3>Telnet off</h3><p>The Homebrew Channel's telnet lets anyone on your network in as root with no password.  Turn it off once SSH works, or back on.</p></div>
+        <div class="card" style="--ca:#8b5cff"><h3>Report for help</h3><p>A QR code with a short report, no addresses, keys or names in it, ready to paste into a GitHub issue or a forum post.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pairing" data-pal="pair a key with a code" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">set up a key</div><h2 class="h2" style="margin-top:12px">No copying keys around.</h2><p>The pairing page only runs while its screen is open on the TV, and nothing changes until you press OK on the remote.</p></div></div>
+    <div class="two rv" style="align-items:center">
+      <div class="steps">
+        <div class="step"><div><h3>Choose Set up a key</h3><p>The TV shows a QR code, an address on port 28622 and a short code like <code class="c-gr">K7F-3QX</code>.</p></div></div>
+        <div class="step"><div><h3>Scan it and type the code</h3><p>On the phone or computer you'll log in from.  Five wrong tries get a new code, and three rounds close the page.</p></div></div>
+        <div class="step"><div><h3>Send a key, or make one</h3><p>Upload the <code>.pub</code> file you have, or let the browser make an ed25519 key pair.  Only the public half goes to the TV.</p></div></div>
+        <div class="step"><div><h3>Check the fingerprint, press OK</h3><p>The page then shows the exact command for Mac, Linux, Windows, PuTTY, SFTP or a phone app, plus a ready-made <code>~/.ssh/config</code> entry and the TV's <code>known_hosts</code> lines.</p></div></div>
+      </div>
+      <div style="display:flex;gap:18px;justify-content:center"><img src="/assets/img/ssh-doctor-phone-key.webp" alt="The pairing page on a phone: make a key, or send one you have" width="400" height="876" loading="lazy" style="width:44%;border-radius:18px;border:1px solid var(--line)"><img src="/assets/img/ssh-doctor-phone-password.webp" alt="The pairing page on a phone, setting the TV's password" width="390" height="844" loading="lazy" style="width:44%;border-radius:18px;border:1px solid var(--line)"></div>
+    </div>
+  </section>
+
+  <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
+    <div class="card rv" style="padding:28px">
+      <div class="hb-head"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="72" height="72"><div><div class="eyebrow">homebrew channel repo</div><h2 class="h2" style="margin:10px 0 0;font-size:clamp(26px,3vw,34px)">Install it from the Homebrew Channel.</h2></div></div>
+      <p class="muted" style="margin:16px 0 6px;max-width:720px">Add this repository once and SSH Doctor shows up in the Homebrew Channel's app list, next to <a class="c-cy" href="/tivibro/">TiviBro</a>, <a class="c-gr" href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> and <a class="c-pk" href="/webos-entware-installer/">Entware</a>.  New releases appear there as updates.</p>
+      <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
+      <div class="steps" style="margin-top:18px">
+        <div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div>
+        <div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b>, choose <b class="c-wh">Add repository</b>, enter <code class="c-gr">https://ohmybahgosh.dev/repo</code> and select <b class="c-wh">Add repository</b>.</p></div></div>
+        <div class="step"><div><h3>Install, then open it</h3><p>Go back to the app list, install <b class="c-wh">SSH Doctor</b> and open it.  It needs root, which the Homebrew Channel already has.</p></div></div>
+      </div>
+      <p class="dim" style="font-size:14px;margin:16px 0 0">Or install the IPK yourself: <code>org.ohmybahgosh.sshdoctor_*.ipk</code> is attached to every <a class="c-gr" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/latest" target="_blank" rel="noopener">release</a>.</p>
+    </div>
+  </section>
+
+  <section id="cli" data-pal="ssh-doctor.sh over telnet" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">telnet 192.168.1.50</div><h2 class="h2" style="margin-top:12px">Over telnet.</h2><p>The script inside the app works on its own, which helps when telnet is the only way in.</p></div></div>
+    <div class="code rv"><pre>S=/media/developer/apps/usr/palm/applications/org.ohmybahgosh.sshdoctor/assets/ssh-doctor.sh
+sh $S status            # what's wrong, in plain words
+sh $S ssh-on            # turn SSH on and start it now
+sh $S fix-keys          # repair authorized_keys and its permissions
+sh $S password-on       # back to user root, password alpine
+sh $S set-port 2222     # then: port-keep, or port-revert
+sh $S reset-settings    # back to the Homebrew Channel's defaults
+sh $S report            # a report for asking for help
+sh $S help              # everything else</pre></div>
+  </section>
+
+  <section id="changes" data-pal="what SSH Doctor changes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">diff /</div><h2 class="h2" style="margin-top:12px">Exactly what it changes.</h2><p>Only when you press a button, with a backup first.  System partitions are never written.</p></div></div>
+    <div class="tblw rv"><table class="tbl">
+      <thead><tr><th>path</th><th>what</th></tr></thead>
+      <tbody>
+        <tr><td><code>/home/root/.ssh/authorized_keys</code></td><td>Repaired, added to, or set aside, always with a dated <code>.ssh-doctor-*</code> backup next to it</td></tr>
+        <tr><td><code>/etc/shadow</code></td><td>Never written: root's password goes through a bind-mounted copy in <code>/tmp</code>, the way the Homebrew Channel sets <code>alpine</code></td></tr>
+        <tr><td><code>/var/lib/webosbrew/ssh-doctor</code></td><td>Your SSH settings, and your password's hash (readable by root only)</td></tr>
+        <tr><td><code>/var/lib/webosbrew/init.d/60-ssh-doctor</code></td><td>Startup script that restarts the Homebrew Channel's dropbear with your settings.  Only there while a setting is on</td></tr>
+        <tr><td><code>/var/luna/preferences/webosbrew_*</code></td><td>The Homebrew Channel's own SSH and telnet switches, only when you turn them on or off</td></tr>
+        <tr><td><code>/var/lib/webosbrew/sshd</code></td><td>The TV's host keys, only if you make new ones (backed up first)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="faq" data-pal="SSH Doctor FAQ" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
+    <div class="rv">
+      <details class="faq"><summary>I added a key and now alpine doesn't work.  Is something broken?</summary><div>No, that's the Homebrew Channel on purpose: at startup it only turns <code>alpine</code> on when there's no keys file.  If the key doesn't work either, open SSH Doctor and choose <b>Fix my keys file</b>, or <b>Go back to password login</b>.</div></details>
+      <details class="faq"><summary>Can I lock myself out with the settings?</summary><div>It's hard to.  Keys only won't turn on without a key, a port change keeps the old port open until you keep the new one, and the app itself runs through the Homebrew Channel, so <b>Go back to password login</b> always works from the remote.</div></details>
+      <details class="faq"><summary>Does my password go over the network?</summary><div>No.  The TV app or the pairing page turns it into a SHA-512 crypt hash first, and only the hash is sent and kept.</div></details>
+      <details class="faq"><summary>I use Entware's OpenSSH.  Will it touch that?</summary><div>No.  It lists every SSH server on the TV and warns if one has taken the SSH port, but it only ever changes the Homebrew Channel's dropbear.</div></details>
+      <details class="faq"><summary>Was this written by AI?</summary><div>It's written with AI coding agents (Claude), directed, reviewed and tested by me.  The script has a test suite that runs every check and repair against a fake TV under busybox sh, dash and bash, CI drives the TV app and the pairing page in a browser, and each release is tried on a real TV.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
+    </div>
+  </section>
+
+  <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
+    <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px">Pick a template and it fills in the right GitHub form for you.  <b>More tools, Report for getting help</b> in the TV app gives you a report to paste in.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="/contact/?t=sd-bug">report a bug</a><a class="btn" href="/contact/?t=sd-tv">how it went on my TV</a><a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/discussions/new?category=ideas" target="_blank" rel="noopener">suggest an idea ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+  </section>
+
+  <section id="releases" data-pal="SSH Doctor release notes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git tag --sort=-creatordate</div><h2 class="h2" style="margin-top:12px">Release notes.</h2><p>Every release and what changed, pulled from GitHub automatically.</p></div><a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+    <div class="timeline rv" id="timeline" data-repo="LG-WEBOS-SSH-DOCTOR" aria-live="polite"><p class="muted">loading releases…</p></div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=96df3b1a" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

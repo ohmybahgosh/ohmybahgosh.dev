@@ -45,14 +45,22 @@
     { key: 'ent-idea', group: 'Entware Installer', icon: '💡', name: 'Idea', desc: 'A helper, package or option to add.', kind: 'issue', repo: 'WEBOS-ENTWARE-INSTALLER', template: 'feature-request.yml', prefix: '[Idea] ',
       fields: [f.title('Add a helper to mount a USB drive at /opt'), { id: 'idea', label: 'The idea', type: 'textarea', req: true }, { id: 'why', label: 'Why it would help', type: 'textarea' }] },
 
+    { key: 'sd-bug', group: 'SSH Doctor', icon: '🐞', name: 'Bug', desc: 'A check, repair, setting or the pairing page went wrong.', kind: 'issue', repo: 'LG-WEBOS-SSH-DOCTOR', template: 'bug-report.yml', prefix: '[Bug] ',
+      fields: [f.title('Settings don\u2019t come back after a restart'), { id: 'what', label: 'What happened', type: 'textarea', req: true }, f.tv, { id: 'report', label: 'The report (More tools, Report for getting help)', type: 'textarea', req: true, mono: true }],
+      note: 'You\u2019ll pick where it happened (TV app, pairing page, telnet, after a restart) on GitHub.' },
+    { key: 'sd-tv', group: 'SSH Doctor', icon: '📺', name: 'How it went on my TV', desc: 'Tell everyone whether SSH Doctor sorted out your TV.', kind: 'issue', repo: 'LG-WEBOS-SSH-DOCTOR', template: 'tv-report.yml',
+      title: (v) => `[TV] ${v.tv || '<TV model>, webOS <version>'}`,
+      fields: [{ id: 'tv', label: 'TV model', type: 'input', req: true, ph: 'OLED65C2PUA' }, { id: 'webos', label: 'webOS version and firmware', type: 'input', req: true, ph: 'webOS 25 (10.3.1), 33.31.68' }, { id: 'rooted', label: 'How the TV was rooted', type: 'input', ph: 'RootMyTV, faultmanager-autoroot' }, { id: 'report', label: 'The report (More tools, Report for getting help)', type: 'textarea', mono: true }, { id: 'notes', label: 'Anything else', type: 'textarea' }],
+      note: 'You\u2019ll tick what you used and pick the result on GitHub.' },
+
     { key: 'mail-hello', group: 'Email me', icon: '✉️', name: 'Say hello', desc: 'Questions, thanks, or anything else.', kind: 'mail', subject: (v) => v.title || 'Hello from ohmybahgosh.dev',
       fields: [{ id: 'name', label: 'Your name', type: 'input' }, f.title('Loving TiviBro'), { id: 'message', label: 'Message', type: 'textarea', req: true }] },
     { key: 'mail-collab', group: 'Email me', icon: '🤝', name: 'Collaborate', desc: 'Contribute, partner or build something together.', kind: 'mail', subject: (v) => 'Collaboration: ' + (v.title || 'idea'),
       fields: [{ id: 'name', label: 'Your name', type: 'input', req: true }, { id: 'link', label: 'GitHub or website', type: 'input', ph: 'https://github.com/you' }, f.title('Porting TiviBro to Tizen'), { id: 'message', label: 'What you have in mind', type: 'textarea', req: true }] },
     { key: 'mail-press', group: 'Email me', icon: '📰', name: 'Press or review', desc: 'Writing about or reviewing a project.', kind: 'mail', subject: (v) => 'Press: ' + (v.title || 'story'),
-      fields: [{ id: 'name', label: 'Your name', type: 'input', req: true }, { id: 'outlet', label: 'Publication or channel', type: 'input', req: true }, { id: 'project', label: 'Which project', type: 'select', options: ['TiviBro', 'LG-USB-2-ETH0', 'Entware Installer', 'All of them'] }, f.title('Review of TiviBro 0.6'), { id: 'deadline', label: 'Deadline, if any', type: 'input' }, { id: 'message', label: 'Questions or details', type: 'textarea', req: true }] },
+      fields: [{ id: 'name', label: 'Your name', type: 'input', req: true }, { id: 'outlet', label: 'Publication or channel', type: 'input', req: true }, { id: 'project', label: 'Which project', type: 'select', options: ['TiviBro', 'LG-USB-2-ETH0', 'Entware Installer', 'SSH Doctor', 'All of them'] }, f.title('Review of TiviBro 0.6'), { id: 'deadline', label: 'Deadline, if any', type: 'input' }, { id: 'message', label: 'Questions or details', type: 'textarea', req: true }] },
     { key: 'mail-private', group: 'Email me', icon: '🔒', name: 'Private or security', desc: 'Anything that shouldn’t be public.', kind: 'mail', subject: (v) => 'Private: ' + (v.title || 'report'),
-      fields: [{ id: 'project', label: 'Which project', type: 'select', options: ['TiviBro', 'LG-USB-2-ETH0', 'Entware Installer', 'The website', 'Something else'] }, f.title('Security issue in the web editor'), { id: 'message', label: 'Details', type: 'textarea', req: true }],
+      fields: [{ id: 'project', label: 'Which project', type: 'select', options: ['TiviBro', 'LG-USB-2-ETH0', 'Entware Installer', 'SSH Doctor', 'The website', 'Something else'] }, f.title('Security issue in the web editor'), { id: 'message', label: 'Details', type: 'textarea', req: true }],
       note: 'Email stays private.  Use this for security issues instead of a public GitHub issue.' },
   ];
 
