@@ -189,6 +189,7 @@
         <p class="muted">The Luna Service Bus is the internal message bus every webOS system service listens on.  On a rooted TV or in Developer Mode, <code>luna-send</code> is how you drive any of it from a shell: show a toast, switch inputs, read the model, change a picture setting, or ask a service what it can do.</p>
         <p class="muted">Methods marked <span class="ab sm sub">sub</span> also stream updates: add <code>"subscribe": true</code> and drop <code>-n 1</code> to keep listening.</p>
         <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast '{"message":"Hello from luna-send"}'</pre></div>
+        <p class="dim" style="font-size:14px;margin-top:12px"><a class="c-cy" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/recipes.md" target="_blank" rel="noopener">More ready-to-run commands: screen off, screenshot, volume, settings ↗</a></p>
       </div>
       <div class="bento" style="grid-template-columns:minmax(0,1fr)">
         <div class="card rv" style="--ca:#e5484d"><div class="ic">⚠</div><h3>This drives a real TV</h3><p>Many calls change settings, inputs, power or the panel, and a few can factory reset, wipe data or brick the set.  Those are flagged and listed in <a class="c-pk" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.  Running one is exactly as safe as typing the same <code>luna-send</code> yourself.</p></div>
@@ -230,7 +231,7 @@
   </section>
 
   <section id="help" data-pal="add to the catalog" style="padding-top:20px">
-    <div class="card rv" style="padding:28px"><div class="eyebrow">know something we don't?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Fill in a method, fix a description.</h2><p class="muted" style="margin:0 0 18px">Parameters for an inferred method, a better description, or a dump from a different TV all make the map better.  Open an issue or a pull request on GitHub.</p><div class="btns"><a class="btn pri" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/issues/new" target="_blank" rel="noopener">open an issue ↗</a><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS" target="_blank" rel="noopener">the repo ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+    <div class="card rv" style="padding:28px"><div class="eyebrow">know something we don't?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Fill in a method, fix a description.</h2><p class="muted" style="margin:0 0 18px">Parameters for an inferred method, a better description, or a dump from a different TV all make the map better.  Open an issue or a pull request on GitHub.</p><div class="btns"><a class="btn pri" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/issues/new" target="_blank" rel="noopener">open an issue ↗</a><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS" target="_blank" rel="noopener">the repo ↗</a><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/discovery.md" target="_blank" rel="noopener">how to find calls ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
   </section>
 </div>
 </main>
