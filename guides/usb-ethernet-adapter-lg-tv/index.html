@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Best USB Ethernet adapters for LG webOS TVs, by chip</title>
+<meta name="description" content="Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Best USB Ethernet adapters for LG webOS TVs, by chip">
+<meta property="og:description" content="Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best USB Ethernet adapters for LG webOS TVs, by chip">
+<meta name="twitter:description" content="Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Best USB Ethernet adapters for LG TVs",
+     "item": "https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Which USB Ethernet adapter for an LG TV?",
+   "description": "Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.",
+   "url": "https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Does the brand matter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Less than the chip. The TV needs a driver for the adapter's chip, and that depends on its kernel. Realtek RTL8153 or RTL8156 and ASIX AX88179 are the safe picks."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Should I buy a 2.5G adapter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only if your TV has a USB 3.0 port. On a USB 2.0 port, which many LG TVs have, a gigabit adapter does about as well for less. Both land around 300 Mbit/s."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I know which chip an adapter has?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Check the maker's datasheet or reviews, since many listings don't say. On the TV, lsusb shows the ID: 0bda:8153 is Realtek RTL8153, 0bda:8156 is RTL8156, and 0b95:1790 is ASIX AX88179."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "My adapter isn't detected. Now what?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The kernel probably has no driver for its chip. LG-USB-2-ETH0's status lists adapters the kernel sees without a driver, get-driver offers a driver built for your kernel when one is known, and test-driver one waiting for testers."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">usb-ethernet-adapter-lg-tv</span></div>
+<section class="doc-hero" style="--accent:#3ddc97">
+  <div class="eyebrow">$ cat guides/usb-ethernet-adapter-lg-tv.md</div>
+  <h1 class="h2" style="margin-top:12px">Which USB Ethernet adapter for an LG TV?</h1>
+  <p class="lead">Buy by chip, not by brand.  An adapter only works if the TV's kernel has a driver for its chip, and LG's kernels vary by model and firmware.</p>
+</section><article class="doc" style="--accent:#3ddc97">
+
+<div class="callout" style="--accent:#3ddc97"><b>Safe picks.</b>  A gigabit adapter with a <b>Realtek RTL8153</b> or <b>ASIX AX88179</b> chip.  A <b>Realtek RTL8156</b> 2.5G adapter is fine too, but on a USB 2.0 port it's no faster.</div>
+
+<h2>The chips</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>chip</th><th>on LG TVs</th></tr></thead><tbody><tr><td><b>Realtek RTL8153</b> (gigabit), <code>0bda:8153</code></td><td>The most common.  Many kernels have Realtek's <code>r8152</code> built in.  Newer ones may only have the slower generic <code>cdc_ncm</code> driver, and a few none at all, where a driver built for that kernel can be loaded.</td></tr><tr><td><b>Realtek RTL8156</b> (2.5G), <code>0bda:8156</code></td><td>Works on <code>cdc_ncm</code> out of the box, and faster with Realtek's newer <code>r8152_oot</code> driver where one is built for your kernel.</td></tr><tr><td><b>ASIX AX88179</b> (gigabit), <code>0b95:1790</code></td><td>Works out of the box on many TVs with the kernel's own <code>ax88179_178a</code> driver.  Where it's missing, there's often one to get or test.</td></tr><tr><td>ASIX AX88179A, AX88772D</td><td>Skip for now: newer chips older TV kernels may not handle, and untested on a TV.</td></tr><tr><td>Aquantia AQC111/112, Davicom DM9601, Microchip LAN78xx</td><td>No LG kernel includes these drivers.  Builds are waiting for testers, but a Realtek or ASIX adapter is the safer buy.</td></tr></tbody></table></div>
+
+<h2>Tested on real TVs</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>adapter</th><th>chip</th><th>TV</th><th>result</th></tr></thead><tbody><tr><td>UGREEN USB-C to 2.5G</td><td>RTL8156BG</td><td>2022 C2, webOS 25</td><td>272 down, 287 up with <code>r8152_oot</code></td></tr><tr><td>TP-Link UE306</td><td>AX88179</td><td>2020 UN7300, webOS 5</td><td>228 down, 325 up with a driver from <code>get-driver</code></td></tr><tr><td>TP-Link UE306</td><td>AX88179</td><td>2024 C4</td><td>about 300, out of the box</td></tr><tr><td>RTL8153 adapter</td><td>RTL8153</td><td>2024 G4, webOS 24</td><td>293 down, 285 up</td></tr><tr><td>Cable Matters USB Ethernet</td><td>RTL8153</td><td>2020 UN7300, webOS 5</td><td>184 down, 229 up with a driver from <code>get-driver</code></td></tr><tr><td>ASIX AX88179 adapter</td><td>AX88179</td><td>2024 G4, webOS 25</td><td>292 down, 51 up</td></tr><tr><td>RTL8153 adapter</td><td>RTL8153</td><td>2026 G6, webOS 26</td><td>247 down, 312 up</td></tr></tbody></table></div>
+<p>More models that use the same chips, with plain links and no affiliate codes, are in the <a href="https://github.com/ohmybahgosh/LG-USB-2-ETH0#choosing-an-adapter" target="_blank" rel="noopener">LG-USB-2-ETH0 README</a>.  Sellers sometimes change parts without changing the listing, so check the chip before you buy.</p>
+
+<h2>USB 2.0 vs USB 3.0</h2>
+<p>Many LG TVs, the C2 included, only have USB 2.0 ports.  There every adapter tops out around 300 Mbit/s, about three times the built-in port.  If your TV has a USB 3.0 port (usually the blue one), plug into that.  A USB-C adapter needs a USB-C to USB-A converter on most LG TVs, and those are usually USB 2.0.</p>
+
+<h2>Check before you buy</h2>
+<p>On a rooted TV, LG-USB-2-ETH0's <code>status</code> lists which USB network drivers your kernel has.  Its <a href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/blob/main/docs/firmware-audit.md" target="_blank" rel="noopener">firmware audit</a> lists them model by model, read straight from LG's firmware.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>LG TV Ethernet stuck at 100 Mbps</b><span>Why, and how to go faster</span></a><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>Make the adapter the TV's eth0</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Does the brand matter?</summary><div>Less than the chip.  The TV needs a driver for the adapter's chip, and that depends on its kernel.  Realtek RTL8153 or RTL8156 and ASIX AX88179 are the safe picks.</div></details>
+<details class="faq"><summary>Should I buy a 2.5G adapter?</summary><div>Only if your TV has a USB 3.0 port.  On a USB 2.0 port, which many LG TVs have, a gigabit adapter does about as well for less.  Both land around 300 Mbit/s.</div></details>
+<details class="faq"><summary>How do I know which chip an adapter has?</summary><div>Check the maker's datasheet or reviews, since many listings don't say.  On the TV, <code>lsusb</code> shows the ID: <code>0bda:8153</code> is Realtek RTL8153, <code>0bda:8156</code> is RTL8156, and <code>0b95:1790</code> is ASIX AX88179.</div></details>
+<details class="faq"><summary>My adapter isn't detected.  Now what?</summary><div>The kernel probably has no driver for its chip.  LG-USB-2-ETH0's <code>status</code> lists adapters the kernel sees without a driver, <code>get-driver</code> offers a driver built for your kernel when one is known, and <code>test-driver</code> one waiting for testers.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

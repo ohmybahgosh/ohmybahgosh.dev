@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Entware on LG webOS FAQ: install, packages and add-ons</title>
+<meta name="description" content="Answers about Entware on rooted LG webOS TVs: requirements, 32-bit or 64-bit, add-ons, the phone dashboard, reboots and uninstalling.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/webos-entware-installer/faq/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Entware on LG webOS FAQ: install, packages and add-ons">
+<meta property="og:description" content="Answers about Entware on rooted LG webOS TVs: requirements, 32-bit or 64-bit, add-ons, the phone dashboard, reboots and uninstalling.">
+<meta property="og:url" content="https://ohmybahgosh.dev/webos-entware-installer/faq/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Entware on LG webOS FAQ: install, packages and add-ons">
+<meta name="twitter:description" content="Answers about Entware on rooted LG webOS TVs: requirements, 32-bit or 64-bit, add-ons, the phone dashboard, reboots and uninstalling.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Entware",
+     "item": "https://ohmybahgosh.dev/webos-entware-installer/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "FAQ",
+     "item": "https://ohmybahgosh.dev/webos-entware-installer/faq/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is Entware?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A package manager for embedded Linux devices, with over a thousand packages. On a rooted LG TV it gives you opkg, a bash shell and tools like htop, tmux, git and Python."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What do I need?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A rooted LG TV with the Homebrew Channel, an internet connection on the TV and about 50 MB free. SSH is only needed for the shell: the TV app doesn't need it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which TVs does it support?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "webOS 23, 24 and 25 are the main targets, and webOS 4 and up should work. Both 64-bit and 32-bit kernels are supported."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why 32-bit or 64-bit?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Every LG TV runs a 32-bit system, but Entware brings its own libraries, so only the kernel matters. A 64-bit kernel gets the faster aarch64 build, a 32-bit one armv7."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What are add-ons?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "25 one-press setups, each with what it needs on webOS: tools like git and Python, and network services like Tailscale, Samba, File Browser, a DLNA media server, Transmission and Syncthing."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I manage it from my phone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Add-ons > Manage from your phone shows a QR code that opens a dashboard on your phone, signed in, for add-ons and passwords."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it survive a reboot?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. A boot script from the Homebrew Channel mounts it at every start."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does the app phone home?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It only talks to GitHub, to check for and download its own updates."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/webos-entware-installer/">webos-entware-installer</a><span>/</span><span class="c-gr">faq</span></div>
+<section class="doc-hero" style="--accent:#ff3ea5">
+  <div class="eyebrow">$ man webos</div>
+  <h1 class="h2" style="margin-top:12px">Entware FAQ.</h1>
+  <p class="lead">Linux packages and a real shell on a rooted LG TV, answered.</p>
+</section><article class="doc" style="--accent:#ff3ea5">
+<details class="faq"><summary>What is Entware?</summary><div>A package manager for embedded Linux devices, with over a thousand packages.  On a rooted LG TV it gives you <code>opkg</code>, a bash shell and tools like htop, tmux, git and Python.</div></details>
+<details class="faq"><summary>What do I need?</summary><div>A rooted LG TV with the Homebrew Channel, an internet connection on the TV and about 50 MB free.  SSH is only needed for the shell: the TV app doesn't need it.</div></details>
+<details class="faq"><summary>Which TVs does it support?</summary><div>webOS 23, 24 and 25 are the main targets, and webOS 4 and up should work.  Both 64-bit and 32-bit kernels are supported.</div></details>
+<details class="faq"><summary>Why 32-bit or 64-bit?</summary><div>Every LG TV runs a 32-bit system, but Entware brings its own libraries, so only the kernel matters.  A 64-bit kernel gets the faster <code>aarch64</code> build, a 32-bit one <code>armv7</code>.</div></details>
+<details class="faq"><summary>What are add-ons?</summary><div>25 one-press setups, each with what it needs on webOS: tools like git and Python, and network services like Tailscale, Samba, File Browser, a DLNA media server, Transmission and Syncthing.</div></details>
+<details class="faq"><summary>Can I manage it from my phone?</summary><div>Yes.  <b>Add-ons > Manage from your phone</b> shows a QR code that opens a dashboard on your phone, signed in, for add-ons and passwords.</div></details>
+<details class="faq"><summary>Does it survive a reboot?</summary><div>Yes.  A boot script from the Homebrew Channel mounts it at every start.</div></details>
+<details class="faq"><summary>Does the app phone home?</summary><div>No.  It only talks to GitHub, to check for and download its own updates.</div></details><h2>Related</h2><div class="gcards"><a class="card gcard" href="/webos-entware-installer/"><b>Entware</b><span>The project page</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a><a class="card gcard" href="/guides/"><b>Guides</b><span>How-tos for rooted LG TVs</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

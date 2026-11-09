@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Settings luna-send commands for LG webOS</title>
+<meta name="description" content="295 LG webOS luna-send methods for settings, across 58 services like com.webos.service.settings, com.webos.settingsservice, with access levels and commands to…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/settings/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Settings luna-send commands for LG webOS">
+<meta property="og:description" content="295 LG webOS luna-send methods for settings, across 58 services like com.webos.service.settings, com.webos.settingsservice, with access levels and commands to…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/settings/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Settings luna-send commands for LG webOS">
+<meta name="twitter:description" content="295 LG webOS luna-send methods for settings, across 58 services like com.webos.service.settings, com.webos.settingsservice, with access levels and commands to…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Settings",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/settings/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Settings luna-send commands for LG webOS",
+   "description": "295 LG webOS luna-send methods for settings, across 58 services like com.webos.service.settings, com.webos.settingsservice, with access levels and commands to…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/settings/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Settings luna-send services",
+   "numberOfItems": 58,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.settings"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.settingsservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.commercial.scapadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.lge.settingsservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.palm.preferences"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.broadcastconfigd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.preferences"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.config"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.service.apiadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.printing"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.test.interc.service.fake"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.legacybroadcast.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.service.sdx"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.webos.service.utp.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.webos.service.acr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.palm.configurator"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.configurator"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.gibbips.bcConfigAdapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.service.gibbs.bcConfigAdapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.iotclient"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.legacybroadcast.bcConfigAdapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.palm.uploadd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.appInstallService"
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "name": "com.webos.rdxd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "name": "com.webos.service.cloudupload"
+    },
+    {
+     "@type": "ListItem",
+     "position": 26,
+     "name": "com.webos.service.discovery"
+    },
+    {
+     "@type": "ListItem",
+     "position": 27,
+     "name": "com.webos.service.firstuse"
+    },
+    {
+     "@type": "ListItem",
+     "position": 28,
+     "name": "com.webos.service.gibbips.config"
+    },
+    {
+     "@type": "ListItem",
+     "position": 29,
+     "name": "com.webos.service.iepg"
+    },
+    {
+     "@type": "ListItem",
+     "position": 30,
+     "name": "com.webos.service.pbsw"
+    },
+    {
+     "@type": "ListItem",
+     "position": 31,
+     "name": "com.webos.service.settingsui"
+    },
+    {
+     "@type": "ListItem",
+     "position": 32,
+     "name": "com.webos.service.wirelessavcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 33,
+     "name": "com.example.helloworld"
+    },
+    {
+     "@type": "ListItem",
+     "position": 34,
+     "name": "com.palm.service.bugreport"
+    },
+    {
+     "@type": "ListItem",
+     "position": 35,
+     "name": "com.palm.systemservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 36,
+     "name": "com.webos.flutter.embedder"
+    },
+    {
+     "@type": "ListItem",
+     "position": 37,
+     "name": "com.webos.memorymanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 38,
+     "name": "com.webos.service.admanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 39,
+     "name": "com.webos.service.browser"
+    },
+    {
+     "@type": "ListItem",
+     "position": 40,
+     "name": "com.webos.service.buddyconnector"
+    },
+    {
+     "@type": "ListItem",
+     "position": 41,
+     "name": "com.webos.service.chromecast.provisioning"
+    },
+    {
+     "@type": "ListItem",
+     "position": 42,
+     "name": "com.webos.service.eim"
+    },
+    {
+     "@type": "ListItem",
+     "position": 43,
+     "name": "com.webos.service.emmcd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 44,
+     "name": "com.webos.service.familycare"
+    },
+    {
+     "@type": "ListItem",
+     "position": 45,
+     "name": "com.webos.service.gibbips.frontend"
+    },
+    {
+     "@type": "ListItem",
+     "position": 46,
+     "name": "com.webos.service.gibbs.frontend"
+    },
+    {
+     "@type": "ListItem",
+     "position": 47,
+     "name": "com.webos.service.livepickplus"
+    },
+    {
+     "@type": "ListItem",
+     "position": 48,
+     "name": "com.webos.service.miracast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 49,
+     "name": "com.webos.service.multiviewcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 50,
+     "name": "com.webos.service.prs"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">settings</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat settings</div><h1 class="h2" style="margin-top:12px">Settings luna-send commands.</h1><p class="lead">The settings service: reading and changing the TV&#x27;s system, picture, sound and other settings.  295 methods in 58 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>295</b><span>methods</span></div><div><b>58</b><span>services</span></div><div><b>102</b><span>documented</span></div><div><b>112</b><span>public</span></div><div><b>28</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=settings">open Settings in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.settings"><code>com.webos.service.settings</code></a></td><td>32</td><td>System settings service: reads, writes, resets, and describes system settings, supporting batch operations and per-dimension (e.g. input,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.settingsservice"><code>com.webos.settingsservice</code></a></td><td>29</td><td>Settings service: reads, writes, resets, and describes system settings (current, factory, and private values), supporting batch operations…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>27</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr><tr><td><a href="/luna-atlas/#/com.lge.settingsservice"><code>com.lge.settingsservice</code></a></td><td>25</td><td>LG system settings service: reads, writes, resets and describes system settings along with their current, factory and value-range data,…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.preferences"><code>com.palm.preferences</code></a></td><td>18</td><td>Key-value preferences store: gets and sets per-application properties and system properties, individually or in bulk.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.broadcastconfigd"><code>com.webos.service.broadcastconfigd</code></a></td><td>17</td><td>Broadcast configuration daemon serving TV-tuning reference data (satellites, operators, transponders) and feature-support flags for…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.preferences"><code>com.webos.service.preferences</code></a></td><td>17</td><td>Preferences store: reads and writes per-app and system property key/value settings and supports their backup and restore.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.config"><code>com.webos.service.config</code></a></td><td>12</td><td>Runtime configuration service: gets and sets named config values, and dumps, reloads and regenerates configuration.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.apiadapter"><code>com.webos.service.apiadapter</code></a></td><td>10</td><td>API adapter that bridges remote/second-screen clients to on-device functions: audio (sound output, mute), system settings, external…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.printing"><code>com.webos.service.printing</code></a></td><td>8</td><td>Printing service: adds, removes and configures printers, sets the default printer and options, and manages print jobs (list, cancel,…</td></tr><tr><td><a href="/luna-atlas/#/com.test.interc.service.fake"><code>com.test.interc.service.fake</code></a></td><td>7</td><td>Fake/test interceptor service that mocks caption, data-broadcast and settings reads (captions, locale, sound, emergency info) for testing.…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.channel"><code>com.webos.service.legacybroadcast.channel</code></a></td><td>7</td><td>Legacy broadcast channel service: large API for channel tuning, scanning, and management, conditional access (ACAS/BCAS), CI/CAM module…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sdx"><code>com.webos.service.sdx</code></a></td><td>7</td><td>SDX device-provisioning/server service: reports device UUID, encrypted MAC, device-authentication and EULA-download status, country code,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.channel"><code>com.webos.service.utp.channel</code></a></td><td>6</td><td>Broadcast channel service (utp stack): large API for channel tuning, scanning, and management, conditional access (ACAS/BCAS), CI/CAM…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.acr"><code>com.webos.service.acr</code></a></td><td>5</td><td>Automatic Content Recognition (ACR) service: starts/stops ACR, reports its status and recognized content properties, and manages video…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.configurator"><code>com.palm.configurator</code></a></td><td>4</td><td>Legacy configurator that scans on-disk configuration (such as database kinds and permissions) and applies it; supports rescan, run and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.configurator"><code>com.webos.service.configurator</code></a></td><td>4</td><td>Configurator service that creates the DB8 database schema and registers service configuration, filecache config and app activities…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.bcConfigAdapter"><code>com.webos.service.gibbips.bcConfigAdapter</code></a></td><td>3</td><td>GIBBIPS broadcast config-cache adapter: dumps cached configuration and settings values.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.bcConfigAdapter"><code>com.webos.service.gibbs.bcConfigAdapter</code></a></td><td>3</td><td>GIBBS broadcast config-cache adapter: dumps cached configuration and settings values.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.iotclient"><code>com.webos.service.iotclient</code></a></td><td>3</td><td>IoT client: discovers, lists and controls connected IoT devices, manages linked accounts, macros and registration tokens, and handles IoT…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.bcConfigAdapter"><code>com.webos.service.legacybroadcast.bcConfigAdapter</code></a></td><td>3</td><td>Legacy-broadcast config-cache adapter that dumps all cached broadcast configuration and settings values.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.uploadd"><code>com.palm.uploadd</code></a></td><td>2</td><td>Diagnostics upload daemon: uploads crash reports, logs, and analytics to a server, manages log settings, and reports EULA and USB-path…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.appInstallService"><code>com.webos.appInstallService</code></a></td><td>2</td><td>Application install service: installs, removes, and cancels app and service packages (including local, dev, and group installs), queries…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.rdxd"><code>com.webos.rdxd</code></a></td><td>2</td><td>Remote Diagnostics daemon (RDX): configures logging levels and generates diagnostic log reports.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.cloudupload"><code>com.webos.service.cloudupload</code></a></td><td>2</td><td>Cloud-upload service that uploads analytics, crash and overview reports to the cloud and manages related log settings.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.discovery"><code>com.webos.service.discovery</code></a></td><td>2</td><td>Content discovery/recommendation service: performs search and prefix-search, returns categories, recommendations, sponsored data, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.firstuse"><code>com.webos.service.firstuse</code></a></td><td>2</td><td>First-use/initial-setup service: reads and writes the settings captured during the TV&#x27;s out-of-box setup flow.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.config"><code>com.webos.service.gibbips.config</code></a></td><td>2</td><td>Broadcast configuration query service (gibbips stack): reports supported broadcast standards and country standards.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.iepg"><code>com.webos.service.iepg</code></a></td><td>2</td><td>iEPG channel/program-guide service: manages the channel map and lists, channel numbers, favorites and shortcut keys, and EPG data for live…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pbsw"><code>com.webos.service.pbsw</code></a></td><td>2</td><td>Broadcast channel-map service: builds and edits the channel list and favorite groups, queries channel info and EPG events, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.settingsui"><code>com.webos.service.settingsui</code></a></td><td>2</td><td>Settings-UI helper: reports target-panel-enable state and starts a debug mode.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wirelessavcontroller"><code>com.webos.service.wirelessavcontroller</code></a></td><td>2</td><td>Wireless A/V controller (wireless transmitter box/antenna): antenna/beam search and monitoring, modem control, event logs, diagnostics and…</td></tr><tr><td><a href="/luna-atlas/#/com.example.helloworld"><code>com.example.helloworld</code></a></td><td>1</td><td>Sample/demonstration service bundled as a webOS development example; exposes trivial methods (hello, ping/pong, counters, heartbeat) for…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.service.bugreport"><code>com.palm.service.bugreport</code></a></td><td>1</td><td>Bug- and crash-reporting service: files bug and crash reports, enables/disables crash reporting and popups, and configures JIRA submission…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.systemservice"><code>com.palm.systemservice</code></a></td><td>1</td><td>Core system service: reports device and OS info, stores system preferences, and gets/sets system and broadcast time and wallpaper.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.flutter.embedder"><code>com.webos.flutter.embedder</code></a></td><td>1</td><td>Support service for the webOS Flutter embedder: returns runtime configuration and provides a timer callback method.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.memorymanager"><code>com.webos.memorymanager</code></a></td><td>1</td><td>Memory manager: reports current memory state, enforces low-memory policy and thresholds, selects apps to close, and notifies clients of…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.admanager"><code>com.webos.service.admanager</code></a></td><td>1</td><td>Advertising manager: issues banner/asset ad requests, manages the advertising ID, tracking contexts and cookies, EULA/consent (CMP) checks…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.browser"><code>com.webos.service.browser</code></a></td><td>1</td><td>Appears to provide browser-side device and file access: mounts and lists storage devices, reads content and size properties, and processes…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.buddyconnector"><code>com.webos.service.buddyconnector</code></a></td><td>1</td><td>Connects the TV to a paired companion (&#x27;buddy&#x27;) mobile app: exchanges credentials, member and content lists, QR and EULA info, push…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.chromecast.provisioning"><code>com.webos.service.chromecast.provisioning</code></a></td><td>1</td><td>Chromecast built-in (DIAL) provisioning: reports status and DIAL UUID, toggles the activation popup and launches Chromecast settings.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.eim"><code>com.webos.service.eim</code></a></td><td>1</td><td>External Input Manager: manages HDMI and other external inputs, including device add/remove, input status, EDID backup, ARC volume, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.emmcd"><code>com.webos.service.emmcd</code></a></td><td>1</td><td>eMMC storage daemon: reports flash lifetime, memory usage and profile info, and configures the eMMC profile and power-on settings.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.familycare"><code>com.webos.service.familycare</code></a></td><td>1</td><td>Family-care/parental-controls service: checks parental settings, monitors usage, and launches usage-care flows.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.frontend"><code>com.webos.service.gibbips.frontend</code></a></td><td>1</td><td>Broadcast tuner frontend service (gibbips stack): opens/closes and connects the demodulator frontend, requests tuning, checks signal lock,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.frontend"><code>com.webos.service.gibbs.frontend</code></a></td><td>1</td><td>Broadcast tuner front-end control: opens/closes the demodulator, tunes, reports lock and signal state, and configures PLP (physical-layer…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.livepickplus"><code>com.webos.service.livepickplus</code></a></td><td>1</td><td>Appears to drive a &#x27;Live Pick+&#x27; on-screen overlay (e.g. food/ACR overlays): launches and closes overlays and sets bounds and notice-bar…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.miracast"><code>com.webos.service.miracast</code></a></td><td>1</td><td>Miracast (Wi-Fi Display) service: manages device discovery, pairing and connection, reports connection/media/P2P state and statistics, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.multiviewcontroller"><code>com.webos.service.multiviewcontroller</code></a></td><td>1</td><td>Multiview controller: creates and arranges app views for split/multi-view, changes mode, position and size of sub-apps, and mixes per-view…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.prs"><code>com.webos.service.prs</code></a></td><td>1</td><td>Program recommendation service (PRS): manages recommended-channel lists and reports playback, scheduled recordings/watches and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.secondscreen.gateway"><code>com.webos.service.secondscreen.gateway</code></a></td><td>1</td><td>Second-screen gateway: pairs and lists companion devices, sets up app-to-app channels and host messaging, and reports power state and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sm"><code>com.webos.service.sm</code></a></td><td>1</td><td>Security manager: handles app security permissions, USB-access authentication, device IDs, licensing, and cryptographic operations (file…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sportsalert"><code>com.webos.service.sportsalert</code></a></td><td>1</td><td>Sports-alert service driven by Activity Manager: fetches account, authentication, event, locale and settings data to deliver sports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.systemprofile"><code>com.webos.service.systemprofile</code></a></td><td>1</td><td>System-profile service: enables, disables and lists device profiles and reports status.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tv.systemproperty"><code>com.webos.service.tv.systemproperty</code></a></td><td>1</td><td>TV system-property service: resets to factory/user defaults, reads/writes EDID and white balance, maps inputs, and controls the motorized…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.config"><code>com.webos.service.utp.config</code></a></td><td>1</td><td>UTP config helper exposing a query for supported broadcast standards.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.videooutput"><code>com.webos.service.videooutput</code></a></td><td>1</td><td>Video output service: connects video sources to the display, sets display window, resolution, scaling, and compositing, and reports output…</td></tr><tr><td><a href="/luna-atlas/#/ssap:settings"><code>ssap:settings</code></a></td><td>1</td><td>SSAP (second-screen protocol) endpoint that sets system settings.</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.config/dump"><b>dump</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.config</span></div><p>It is useful for debugging. It returns the list of all configs and current values.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/dump &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.config/dump &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.config/fullDump"><b>fullDump</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.config</span></div><p>It is useful for debugging. It returns the list of all configs including overridden values from all layers.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/fullDump &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.config/fullDump &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.config/getConfigs"><b>getConfigs</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.config</span></div><p>It returns the requested configs which is the pairs of key-value as a JSON object and also supports a subscription. configd provides asterisk but configNames should starts feature</p><p class="dim" style="font-size:13px">params: <code>configNames</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/getConfigs &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.config/getConfigs &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.config/reconfigure"><b>reconfigure</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.config</span></div><p>Configd parses all configuration files again and regenerates the values of configs .</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/reconfigure &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.config/reconfigure &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.config/reloadConfigs"><b>reloadConfigs</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.config</span></div><p>Configd load configd db files. This load previous config values including user defined configs(by calling setConfigs)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/reloadConfigs &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.config/reloadConfigs &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.configurator/rescan"><b>rescan</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.configurator</span></div><p>Force rescan of resource file for application. Useful when application&#x27;s resource file has been modified and it wants to update the resources. For example, updated Kind or Kind per</p><p class="dim" style="font-size:13px">params: <code>id</code>, <code>type</code>, <code>location</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.configurator/rescan &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.configurator/rescan &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.configurator/run"><b>run</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.configurator</span></div><p>This method will scan all folders and process all configuration files.</p><p class="dim" style="font-size:13px">params: <code>types</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.configurator/run &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.configurator/run &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.configurator/scan"><b>scan</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.configurator</span></div><p>Within the API call, application can notify Configurator about new resource files and ask Configurator to process those resource files. Example of use case: application installed a</p><p class="dim" style="font-size:13px">params: <code>id</code>, <code>type</code>, <code>location</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.configurator/scan &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.configurator/scan &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.configurator/unconfigure"><b>unconfigure</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.configurator</span></div><p>Rollback all actions that were made by the scan / rescan API calls. In other words, release used resources.</p><p class="dim" style="font-size:13px">params: <code>id</code>, <code>type</code>, <code>location</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.configurator/unconfigure &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.configurator/unconfigure &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/appProperties/getAllAppProperties"><b>appProperties/getAllAppProperties</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAllAppProperties gets all properties set to an application as an object array. Note: If the getAllAppProperties method succeeds, there will be no returnValue and the returne</p><p class="dim" style="font-size:13px">params: <code>appId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAllAppProperties &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAllAppProperties &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/appProperties/getAllAppPropertiesObj"><b>appProperties/getAllAppPropertiesObj</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAllAppPropertiesObj method gets all properties set to an application as an object.</p><p class="dim" style="font-size:13px">params: <code>appId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAllAppPropertiesObj &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAllAppPropertiesObj &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/appProperties/getAppKeys"><b>appProperties/getAppKeys</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAppKeys method returns all property keys for an application as a string array. Note: If the getAppKeys method succeeds, there will be no returnValue and the returned object</p><p class="dim" style="font-size:13px">params: <code>appId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppKeys &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppKeys &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/appProperties/getAppKeysObj"><b>appProperties/getAppKeysObj</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAppKeys method returns all property keys for an application as a JSON object.</p><p class="dim" style="font-size:13px">params: <code>appId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppKeysObj &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppKeysObj &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/appProperties/getAppProperty"><b>appProperties/getAppProperty</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAppProperty method returns an application property for a specific key.</p><p class="dim" style="font-size:13px">params: <code>appId</code>, <code>key</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppProperty &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppProperty &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/appProperties/removeAppProperty"><b>appProperties/removeAppProperty</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAppProperty method removes an application property.</p><p class="dim" style="font-size:13px">params: <code>appId</code>, <code>key</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/removeAppProperty &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/removeAppProperty &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/appProperties/setAppProperty"><b>appProperties/setAppProperty</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>Add or change an application property.</p><p class="dim" style="font-size:13px">params: <code>appId</code>, <code>key</code>, <code>value</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/setAppProperty &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/setAppProperty &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/backup/postRestore"><b>backup/postRestore</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>postRestore method restores the application/services preferences from lunaprefs_backup.db provided in the parameter.</p><p class="dim" style="font-size:13px">params: <code>tempDir</code>, <code>files</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/backup/postRestore &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/backup/postRestore &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/backup/preBackup"><b>backup/preBackup</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>preBackup method takes backup of application/services preferences stored in &quot;/var/preferences&quot; path.</p><p class="dim" style="font-size:13px">params: <code>tempDir</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/backup/preBackup &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/backup/preBackup &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/Get"><b>systemProperties/Get</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The systemProperties/Get method has been deprecated. Use systemProperties/getSysProperty instead.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/Get &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/Get &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/getAllSysProperties"><b>systemProperties/getAllSysProperties</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAllSysProperties method returns all system properties as an object array. Note: The call is always sucessful, except when an internal webOS error occurs (more details can be</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getAllSysProperties &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getAllSysProperties &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/getAllSysPropertiesObj"><b>systemProperties/getAllSysPropertiesObj</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getAllSysPropertiesObj method returns all system properties as an object. Note: On a successful return, there will be no returnValue and the returned object will only be an arr</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getAllSysPropertiesObj &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getAllSysPropertiesObj &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/getSomeSysProperties"><b>systemProperties/getSomeSysProperties</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getSomeSysProperties method takes an object array of property keys and returns an array of objects with key-value pairs for each of the keys. The getSomeSysProperties method re</p><p class="dim" style="font-size:13px">params: <code>key</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSomeSysProperties &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSomeSysProperties &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/getSomeSysPropertiesObj"><b>systemProperties/getSomeSysPropertiesObj</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getSomeSysPropertiesObj method takes an object array of property keys and returns an object containing an array of objects with key-value pairs for each of the keys. The getSom</p><p class="dim" style="font-size:13px">params: <code>key</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSomeSysPropertiesObj &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSomeSysPropertiesObj &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/getSysKeys"><b>systemProperties/getSysKeys</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getSysKeys method returns a the list of system property keys as a string array. Note: This function does not return a JSON object. This method is always successful, it never re</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSysKeys &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSysKeys &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/getSysKeysObj"><b>systemProperties/getSysKeysObj</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getSysKeysObj method returns a the list of system property keys as a JSON object. This method is always successful, it never reports any errors.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSysKeysObj &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSysKeysObj &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.preferences/systemProperties/getSysProperty"><b>systemProperties/getSysProperty</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.preferences</span></div><p>The getSysProperty method returns a system property.</p><p class="dim" style="font-size:13px">params: <code>key</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSysProperty &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSysProperty &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.settings/batch"><b>batch</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.settings</span></div><p>Runs more than one Settings Service method at once. Remarks Subscription is supported only when all the methods in operations input parameter support subscription. Exception Atomic</p><p class="dim" style="font-size:13px">params: <code>operations</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.settings/batch &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.settings/batch &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.settings/deleteSystemSettings"><b>deleteSystemSettings</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.settings</span></div><p>Deletes settings item(s). Factory default value is also deleted. Remarks In case there is a subscriber for the deleted item, error text will be sent. Exception Errors occur when us</p><p class="dim" style="font-size:13px">params: <code>category</code>, <code>dimension</code>, <code>keys</code>, <code>app_id</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.settings/deleteSystemSettings &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.settings/deleteSystemSettings &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.settings/getCurrentSettings"><b>getCurrentSettings</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.settings</span></div><p>Looks up the settings item, and returns the settings for the current foreground app only unlike the setSystemSettings method. Remarks Even though the foreground app is converted, t</p><p class="dim" style="font-size:13px">params: <code>category</code>, <code>dimension</code>, <code>keys</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.settings/getCurrentSettings &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.settings/getCurrentSettings &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.settings/getSystemSettingDesc"><b>getSystemSettingDesc</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.settings</span></div><p>Retrieves detailed information on the settings. Exception: The request for nonexistent keys is processed as an error.</p><p class="dim" style="font-size:13px">params: <code>category</code>, <code>keys</code>, <code>key</code>, <code>app_id</code>, <code>current_app</code>, <code>subscribe</code>, <code>dimension</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.settings/getSystemSettingDesc &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.settings/getSystemSettingDesc &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

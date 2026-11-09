@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How to SSH into a rooted LG webOS TV (and fix common errors)</title>
+<meta name="description" content="Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/ssh-into-lg-tv/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="How to SSH into a rooted LG webOS TV (and fix common errors)">
+<meta property="og:description" content="Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/ssh-into-lg-tv/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/ssh-doctor.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to SSH into a rooted LG webOS TV (and fix common errors)">
+<meta name="twitter:description" content="Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/ssh-doctor.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "SSH into a rooted LG TV",
+     "item": "https://ohmybahgosh.dev/guides/ssh-into-lg-tv/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "SSH into a rooted LG TV.",
+   "description": "Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.",
+   "url": "https://ohmybahgosh.dev/guides/ssh-into-lg-tv/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What's the default SSH login for a rooted LG TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "User root, port 22, password alpine, once SSH is turned on in the Homebrew Channel. Adding your first key turns the alpine password off at the next boot."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does SSH say Connection refused?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The SSH server isn't running or listening on that port. Turn on SSH in the Homebrew Channel's settings and restart the TV, or use SSH Doctor's Turn SSH on now, which starts it without a restart."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "I added a key and now the password doesn't work.",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "That's by design: the first key in authorized_keys turns alpine off at the next boot. If the key itself doesn't work, often because of Windows line endings or a key pasted on several lines, SSH Doctor's Fix my keys file or Go back to password login gets you back in."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Developer Mode SSH the same thing?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Developer Mode runs its own SSH on port 9922, for LG's developer tools, with a key and passphrase from the Developer Mode app. The Homebrew Channel's SSH is root on port 22."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I copy files to the TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Over SFTP. WinSCP, FileZilla and Cyberduck work with the Homebrew Channel's sftp-server, using the same login as SSH."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">ssh-into-lg-tv</span></div>
+<section class="doc-hero" style="--accent:#3ddc97">
+  <div class="eyebrow">$ cat guides/ssh-into-lg-tv.md</div>
+  <h1 class="h2" style="margin-top:12px">SSH into a rooted LG TV.</h1>
+  <p class="lead">How to turn SSH on, log in as root, switch to a key, copy files, and get back in when it breaks.</p>
+</section><article class="doc" style="--accent:#3ddc97">
+
+<h2>1. Turn SSH on</h2>
+<p>You need a rooted TV with the <a href="/install/">Homebrew Channel</a>.  Open it, select the gear icon, turn on <b class="c-wh">SSH Server</b>, and restart the TV.  While you're there, keeping <b class="c-wh">Telnet</b> on too gives you a way back in if SSH ever breaks.</p>
+
+<h2>2. Log in</h2>
+<p>Find the TV's IP address in its network settings, then from a computer on the same network:</p>
+<div class="code"><pre><span class="pr">$ </span>ssh root@192.168.1.50</pre></div>
+<p>The user is <code>root</code>, the port is 22 and the password is <code>alpine</code>.  On Windows, the built-in <code>ssh</code> in PowerShell or Windows Terminal works the same, or use PuTTY.</p>
+
+<h2>3. Switch to a key</h2>
+<p>Keys go in <code>/home/root/.ssh/authorized_keys</code>, one per line.  The first key you add turns password login off at the next boot, so check the key works before you restart.  The common ways this goes wrong: Windows line endings in the file, a key wrapped across lines, a private key pasted instead of the <code>.pub</code> half, or the wrong owner or permissions.</p>
+<p><a href="/ssh-doctor/">SSH Doctor</a> skips all of that: on the TV, choose <b class="c-wh">Set up a key</b>, scan the QR code or open the address on your computer or phone, enter the short pairing code, and upload a key or let the browser make one.  It also gives you a ready-made <code>~/.ssh/config</code> entry, so <code>ssh lgtv</code> just works.</p>
+
+<h2>4. Copy files</h2>
+<p>SFTP uses the same login.  WinSCP, FileZilla and Cyberduck work with the Homebrew Channel's <code>sftp-server</code>, or from a terminal:</p>
+<div class="code"><pre><span class="pr">$ </span>scp movie.mkv root@192.168.1.50:/media/internal/</pre></div>
+
+<h2>When it breaks</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>error</th><th>what it usually means</th></tr></thead><tbody><tr><td><code>Connection refused</code></td><td>SSH is off, didn't start, or something else took port 22.</td></tr><tr><td><code>Permission denied (publickey)</code></td><td>A key was added, so <code>alpine</code> is off, and the key doesn't match or the keys file is broken.</td></tr><tr><td><code>No supported authentication methods available</code> (PuTTY)</td><td>The same, seen from PuTTY.</td></tr><tr><td><code>REMOTE HOST IDENTIFICATION HAS CHANGED</code></td><td>The TV's host key changed, usually after a reset.  Check its fingerprint, then remove the old line from <code>known_hosts</code>.</td></tr><tr><td><code>no matching host key type found</code></td><td>A newer SSH client refusing the TV's older key type.</td></tr></tbody></table></div>
+<p>None of these needs a factory reset.  <a href="/ssh-doctor/">SSH Doctor</a> runs through the Homebrew Channel rather than over SSH, so it works even when SSH is completely broken: it shows which of these it is, in plain words, and fixes it with one button, with a backup and an undo.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/ssh-doctor/"><b>SSH Doctor</b><span>Check and fix SSH from the TV</span></a><a class="card gcard" href="/ssh-doctor/faq/"><b>SSH Doctor FAQ</b><span>Passwords, ports, keys only</span></a><a class="card gcard" href="/webos-entware-installer/"><b>Entware</b><span>A bash shell and Linux packages</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>What's the default SSH login for a rooted LG TV?</summary><div>User <code>root</code>, port 22, password <code>alpine</code>, once SSH is turned on in the Homebrew Channel.  Adding your first key turns the <code>alpine</code> password off at the next boot.</div></details>
+<details class="faq"><summary>Why does SSH say Connection refused?</summary><div>The SSH server isn't running or listening on that port.  Turn on SSH in the Homebrew Channel's settings and restart the TV, or use SSH Doctor's <b>Turn SSH on now</b>, which starts it without a restart.</div></details>
+<details class="faq"><summary>I added a key and now the password doesn't work.</summary><div>That's by design: the first key in <code>authorized_keys</code> turns <code>alpine</code> off at the next boot.  If the key itself doesn't work, often because of Windows line endings or a key pasted on several lines, SSH Doctor's <b>Fix my keys file</b> or <b>Go back to password login</b> gets you back in.</div></details>
+<details class="faq"><summary>Is Developer Mode SSH the same thing?</summary><div>No.  Developer Mode runs its own SSH on port 9922, for LG's developer tools, with a key and passphrase from the Developer Mode app.  The Homebrew Channel's SSH is root on port 22.</div></details>
+<details class="faq"><summary>How do I copy files to the TV?</summary><div>Over SFTP.  WinSCP, FileZilla and Cyberduck work with the Homebrew Channel's <code>sftp-server</code>, using the same login as SSH.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

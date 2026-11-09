@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How to add a repository to the webOS Homebrew Channel</title>
+<meta name="description" content="Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/homebrew-channel-repository/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="How to add a repository to the webOS Homebrew Channel">
+<meta property="og:description" content="Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/homebrew-channel-repository/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to add a repository to the webOS Homebrew Channel">
+<meta name="twitter:description" content="Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Add a Homebrew Channel repository",
+     "item": "https://ohmybahgosh.dev/guides/homebrew-channel-repository/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Add a repository to the Homebrew Channel.",
+   "description": "Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.",
+   "url": "https://ohmybahgosh.dev/guides/homebrew-channel-repository/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is a Homebrew Channel repository?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A web address that serves a list of apps with their versions and download links. The Homebrew Channel reads it, shows those apps in its list, and offers updates when the list changes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it safe to add a repository?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Apps from it run as root, so only add ones you trust. Every app in ohmybahgosh.dev/repo is open source, built from its GitHub releases, and checked by SHA-256 when it downloads."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which apps does ohmybahgosh.dev/repo add?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I remove a repository?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In the Homebrew Channel's settings, under Repositories, select it and remove it. Apps you already installed stay installed."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">homebrew-channel-repository</span></div>
+<section class="doc-hero" style="--accent:#33e1ff">
+  <div class="eyebrow">$ cat guides/homebrew-channel-repository.md</div>
+  <h1 class="h2" style="margin-top:12px">Add a repository to the Homebrew Channel.</h1>
+  <p class="lead">Repositories are how apps that aren't in the default list get onto a rooted LG TV, and how they update from the TV.</p>
+</section><article class="doc" style="--accent:#33e1ff">
+
+<h2>Steps</h2>
+<div class="steps"><div class="step"><div><h3>Open the settings</h3><p>Open the Homebrew Channel on the TV and select the gear icon at the top right.</p></div></div><div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b> and choose <b class="c-wh">Add repository</b>.  Type the address, for example <code>https://ohmybahgosh.dev/repo</code>, and confirm.</p></div></div><div class="step"><div><h3>Find the apps</h3><p>Go back to the app list.  The repository's apps are listed with the rest: open one and choose <b class="c-wh">Install</b>.</p></div></div><div class="step"><div><h3>Updates</h3><p>New versions show up as an update on the app's page in the Homebrew Channel.</p></div></div></div>
+
+<h2>Repositories worth adding</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>address</th><th>what's in it</th></tr></thead><tbody><tr><td><code>https://ohmybahgosh.dev/repo</code></td><td>TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor</td></tr><tr><td><code>https://tivibro.app/repo</code></td><td>TiviBro on its own</td></tr><tr><td><code>https://tivibro.app/testing</code></td><td>Every TiviBro test build as soon as it's out</td></tr></tbody></table></div>
+
+<h2>Typing it with the remote</h2>
+<p>The on-screen keyboard is slow, so type carefully: <code>https://</code> included, no trailing spaces.  If the app list doesn't change, check the TV is online and the address has no typos, then reopen the Homebrew Channel.</p>
+
+<h2>Prefer the command line?</h2>
+<p>Every app here can also be installed over SSH: see each app's page.  TiviBro, for example, installs with one line on a rooted TV:</p>
+<div class="code"><pre><span class="pr">$ </span>curl -fsSL https://tivibro.app/install | sh</pre></div>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel and compatibility</span></a><a class="card gcard" href="/guides/ssh-into-lg-tv/"><b>SSH into a rooted LG TV</b><span>For installs from the command line</span></a><a class="card gcard" href="/#homebrew"><b>The repository</b><span>What's in ohmybahgosh.dev/repo</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>What is a Homebrew Channel repository?</summary><div>A web address that serves a list of apps with their versions and download links.  The Homebrew Channel reads it, shows those apps in its list, and offers updates when the list changes.</div></details>
+<details class="faq"><summary>Is it safe to add a repository?</summary><div>Apps from it run as root, so only add ones you trust.  Every app in <code>ohmybahgosh.dev/repo</code> is open source, built from its GitHub releases, and checked by SHA-256 when it downloads.</div></details>
+<details class="faq"><summary>Which apps does ohmybahgosh.dev/repo add?</summary><div>TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor.</div></details>
+<details class="faq"><summary>How do I remove a repository?</summary><div>In the Homebrew Channel's settings, under Repositories, select it and remove it.  Apps you already installed stay installed.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>OhMyBahGosh · open-source apps for rooted LG TVs, and dev tools</title>
-<meta name="description" content="Open-source apps for rooted LG webOS TVs, all from one Homebrew Channel repo: the TiviBro IPTV player, LG-USB-2-ETH0, Entware and SSH Doctor.  Plus Luna Atlas, a map of every luna-send command, and pipseek, pip search brought back.">
+<meta name="description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor, plus Luna Atlas and pipseek.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://ohmybahgosh.dev/">
@@ -14,7 +14,7 @@
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=r2611a">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
 <style>
 .helptest{display:flex;gap:10px;align-items:center;margin:18px 0 0;padding:10px 14px;border:1px solid color-mix(in srgb,#3ddc97 45%,transparent);border-radius:12px;background:color-mix(in srgb,#3ddc97 9%,transparent);font:500 13px/1.45 var(--mono);color:#3ddc97;cursor:pointer}
 .helptest:hover,.helptest:focus-visible{background:color-mix(in srgb,#3ddc97 16%,transparent);outline:none}
@@ -27,7 +27,7 @@ html[data-theme=light] .helptest b{color:#000}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="OhMyBahGosh · open-source apps for rooted LG TVs, and dev tools">
-<meta property="og:description" content="Open-source apps for rooted LG webOS TVs, all from one Homebrew Channel repo: the TiviBro IPTV player, LG-USB-2-ETH0, Entware and SSH Doctor.  Plus Luna Atlas, a map of every luna-send command, and pipseek, pip search brought back.">
+<meta property="og:description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor, plus Luna Atlas and pipseek.">
 <meta property="og:url" content="https://ohmybahgosh.dev/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@ html[data-theme=light] .helptest b{color:#000}
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OhMyBahGosh · open-source apps for rooted LG TVs, and dev tools">
-<meta name="twitter:description" content="Open-source apps for rooted LG webOS TVs, all from one Homebrew Channel repo: the TiviBro IPTV player, LG-USB-2-ETH0, Entware and SSH Doctor.  Plus Luna Atlas, a map of every luna-send command, and pipseek, pip search brought back.">
+<meta name="twitter:description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor, plus Luna Atlas and pipseek.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -136,7 +136,8 @@ html[data-theme=light] .helptest b{color:#000}
         <a class="mall" href="/#homebrew">$ add the four TV apps: ohmybahgosh.dev/repo</a>
         </div>
       </div>
-      <a href="/#homebrew" class="hide-s">install</a>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
       <a href="/about/" class="hide-s">about</a>
       <a href="/contact/" class="hide-s">contact</a>
       <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
@@ -167,6 +168,7 @@ html[data-theme=light] .helptest b{color:#000}
       <p class="lead">Open-source apps and tools I build for my own setup, test on real hardware and share.  Right now that's mostly apps for rooted LG TVs, with more landing as I build it.</p>
       <div class="btns">
         <a class="btn pri" href="#homebrew">$ add the repo</a>
+        <a class="btn" href="#tour" data-play-tour>▶ watch the 2-min tour</a>
         <a class="btn" href="#repos">ls ~/repos</a>
         <a class="btn" href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
       </div>
@@ -260,6 +262,7 @@ html[data-theme=light] .helptest b{color:#000}
       if(v.readyState>=1){v.currentTime=t;}else{v.addEventListener("loadedmetadata",function h(){v.removeEventListener("loadedmetadata",h);v.currentTime=t;});}
       play();}
     bs.forEach(function(b){b.addEventListener("click",function(){go(+b.dataset.t);});});
+    var hb=document.querySelector("[data-play-tour]");if(hb)hb.addEventListener("click",function(){if(v.paused)go(v.currentTime||0);});
     v.addEventListener("timeupdate",function(){var c=-1;bs.forEach(function(b,i){if(v.currentTime>=+b.dataset.t-.2)c=i;});bs.forEach(function(b,i){b.setAttribute("aria-current",i===c?"true":"false");});});})();
     </script>
   </section>
@@ -374,6 +377,11 @@ html[data-theme=light] .helptest b{color:#000}
       </div>
       <p class="dim" style="font-size:14px;margin:14px 0 0">The address is for the Homebrew Channel; a browser just downloads it.  To read it in a browser, open <a class="c-cy" href="/repo.json">repo.json</a>.  TiviBro here follows its newest test builds, the same as <code>tivibro.app/testing</code>.  Its own repositories on tivibro.app work as before; see the <a class="c-cy" href="/tivibro/#install">TiviBro page</a>.</p>
     </div>
+  </section>
+
+  <section id="guides" data-pal="guides" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">ls ~/guides</div><h2 class="h2" style="margin-top:12px">Guides.</h2><p>How-tos for rooted LG TVs, from the questions that come up most.</p></div><a class="btn" href="/guides/">all guides</a></div>
+    <div class="gcards rv"><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, the Homebrew Channel, the repo and compatibility</span></a><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>LG TV Ethernet stuck at 100 Mbps</b><span>Why the wired port is slow, and how to get about three times faster</span></a><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Which USB Ethernet adapter?</b><span>The chips with drivers, the ones to skip</span></a><a class="card gcard" href="/guides/ssh-into-lg-tv/"><b>SSH into a rooted LG TV</b><span>Log in, add a key, fix the common errors</span></a><a class="card gcard" href="/guides/homebrew-channel-repository/"><b>Add a Homebrew Channel repo</b><span>Step by step, with updates</span></a><a class="card gcard" href="/guides/iptv-player-lg-tv/"><b>TiviMate on an LG TV?</b><span>An IPTV player with a real guide for webOS</span></a></div>
   </section>
 
   <section id="tools" data-pal="other apps and tools" style="padding-top:20px">
@@ -491,6 +499,8 @@ html[data-theme=light] .helptest b{color:#000}
       <a href="/ssh-doctor/">ssh-doctor</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
       <a href="/about/">about</a>
       <a href="/contact/">contact</a>
       <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
@@ -504,7 +514,7 @@ document.querySelectorAll('.helptest[data-href]').forEach(el => {
   el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') go(e); });
 });
 </script>
-<script src="/assets/js/site.js?v=r2611a" defer></script>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

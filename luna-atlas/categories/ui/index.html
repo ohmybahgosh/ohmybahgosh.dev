@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UI / Compositor luna-send commands for LG webOS</title>
+<meta name="description" content="44 LG webOS luna-send methods for ui / compositor, across 9 services like com.webos.surfacemanager, com.webos.surfacemanager.input, with access levels and…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/ui/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="UI / Compositor luna-send commands for LG webOS">
+<meta property="og:description" content="44 LG webOS luna-send methods for ui / compositor, across 9 services like com.webos.surfacemanager, com.webos.surfacemanager.input, with access levels and…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/ui/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="UI / Compositor luna-send commands for LG webOS">
+<meta name="twitter:description" content="44 LG webOS luna-send methods for ui / compositor, across 9 services like com.webos.surfacemanager, com.webos.surfacemanager.input, with access levels and…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "UI / Compositor",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/ui/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "UI / Compositor luna-send commands for LG webOS",
+   "description": "44 LG webOS luna-send methods for ui / compositor, across 9 services like com.webos.surfacemanager, com.webos.surfacemanager.input, with access levels and…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/ui/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "UI / Compositor luna-send services",
+   "numberOfItems": 9,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.surfacemanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.surfacemanager.input"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.surfacemanager.extended"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.surfacemanager.hcap"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.palm.systemmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.palm.systemservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.surfacemanager.home"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.surfacemanager.screenSaver"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.surfacemanager.systemui"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">ui</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat ui</div><h1 class="h2" style="margin-top:12px">UI / Compositor luna-send commands.</h1><p class="lead">The compositor and system UI: surfaces, overlays and the launcher layer.  44 methods in 9 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>44</b><span>methods</span></div><div><b>9</b><span>services</span></div><div><b>4</b><span>documented</span></div><div><b>1</b><span>public</span></div><div><b>0</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=ui">open UI / Compositor in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager"><code>com.webos.surfacemanager</code></a></td><td>30</td><td>Surface manager (window compositor): reports foreground app and window/surface info, manages surface lifecycle and multiview layout,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager.input"><code>com.webos.surfacemanager.input</code></a></td><td>5</td><td>Surface-manager input service: blocks and unblocks key input, reports key-input block state, and registers allowed keys and per-app…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager.extended"><code>com.webos.surfacemanager.extended</code></a></td><td>2</td><td>Surface-manager extension: gets and sets texture-rendering status for the UI compositor.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager.hcap"><code>com.webos.surfacemanager.hcap</code></a></td><td>2</td><td>Surface-manager HCAP helper: gets and sets the opacity of the HCAP (broadcast app) surface layer. Narrow UI-compositing role.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.systemmanager"><code>com.palm.systemmanager</code></a></td><td>1</td><td>Legacy Palm system manager service; the sole exposed method runs a progress animation, suggesting a UI/system-shell helper role. Largely…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.systemservice"><code>com.palm.systemservice</code></a></td><td>1</td><td>Core system service: reports device and OS info, stores system preferences, and gets/sets system and broadcast time and wallpaper.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager.home"><code>com.webos.surfacemanager.home</code></a></td><td>1</td><td>Surface-manager helper that reports the current Home UI state.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager.screenSaver"><code>com.webos.surfacemanager.screenSaver</code></a></td><td>1</td><td>Screensaver helper in the surface manager; restarts the user-activity timer to defer the screensaver.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager.systemui"><code>com.webos.surfacemanager.systemui</code></a></td><td>1</td><td>Surface-manager system-UI helper exposing a single method to close all system UI surfaces. Narrow UI role.</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<p>No documented public methods in this category yet: see the full list in the catalog.</p>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

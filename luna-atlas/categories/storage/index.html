@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Storage &amp; USB luna-send commands for LG webOS</title>
+<meta name="description" content="140 LG webOS luna-send methods for storage &amp; usb, across 12 services like com.webos.service.pdm, com.webos.service.attachedstoragemanager, with access levels…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/storage/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Storage &amp; USB luna-send commands for LG webOS">
+<meta property="og:description" content="140 LG webOS luna-send methods for storage &amp; usb, across 12 services like com.webos.service.pdm, com.webos.service.attachedstoragemanager, with access levels…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/storage/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Storage &amp; USB luna-send commands for LG webOS">
+<meta name="twitter:description" content="140 LG webOS luna-send methods for storage &amp; usb, across 12 services like com.webos.service.pdm, com.webos.service.attachedstoragemanager, with access levels…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Storage & USB",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/storage/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Storage & USB luna-send commands for LG webOS",
+   "description": "140 LG webOS luna-send methods for storage & usb, across 12 services like com.webos.service.pdm, com.webos.service.attachedstoragemanager, with access levels…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/storage/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Storage & USB luna-send services",
+   "numberOfItems": 12,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.pdm"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.attachedstoragemanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.palm.filecache"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.service.filecache"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.service.printing"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.storageaccess"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.storagestatistics"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.palm.storage"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.service.lowlevelstorage"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.palm.backup"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.palm.downloadmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.commercial.scapadapter"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">storage</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat storage</div><h1 class="h2" style="margin-top:12px">Storage &amp; USB luna-send commands.</h1><p class="lead">USB drives, internal storage, mounting and file system services.  140 methods in 12 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>140</b><span>methods</span></div><div><b>12</b><span>services</span></div><div><b>62</b><span>documented</span></div><div><b>66</b><span>public</span></div><div><b>7</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=storage">open Storage &amp; USB in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.pdm"><code>com.webos.service.pdm</code></a></td><td>40</td><td>Physical Device Manager: detects and manages attached USB and storage devices, listing attached devices, ejecting, formatting, and running…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.attachedstoragemanager"><code>com.webos.service.attachedstoragemanager</code></a></td><td>23</td><td>Manages attached USB storage: lists devices and folder contents, copies, deletes, decompresses and formats, ejects devices, and extracts…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.filecache"><code>com.palm.filecache</code></a></td><td>16</td><td>File-cache manager: defines cache object types and inserts, copies, resizes, expires and queries cached files, reporting cache status,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.filecache"><code>com.webos.service.filecache</code></a></td><td>16</td><td>File-cache service managing a global shared file cache: defines cache types and inserts, copies, resizes, expires and touches typed cache…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.printing"><code>com.webos.service.printing</code></a></td><td>15</td><td>Printing service: adds, removes and configures printers, sets the default printer and options, and manages print jobs (list, cancel,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.storageaccess"><code>com.webos.service.storageaccess</code></a></td><td>13</td><td>Storage-access service: lists storage providers and attached devices, reports device properties, and performs file operations (copy, move,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.storagestatistics"><code>com.webos.service.storagestatistics</code></a></td><td>8</td><td>Storage statistics: reports per-app storage usage, lists large apps and files, clears app data and removes files.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.storage"><code>com.palm.storage</code></a></td><td>3</td><td>Mass-storage service: enters USB mass-storage (MSM) disk mode, queries its status, and erases all storage.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.lowlevelstorage"><code>com.webos.service.lowlevelstorage</code></a></td><td>3</td><td>Low-level key/value storage service exposing get/set data and shutdown.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.backup"><code>com.palm.backup</code></a></td><td>1</td><td>Legacy Palm/HP webOS backup service: starts a backup of device data.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.downloadmanager"><code>com.palm.downloadmanager</code></a></td><td>1</td><td>Legacy download/upload manager: queues and controls file downloads and uploads, tracks history and status, and exposes debug helpers.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>1</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.attachedstoragemanager/listDevices"><b>listDevices</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.attachedstoragemanager</span></div><p>List attached storage devices</p><p class="dim" style="font-size:13px">params: <code>deviceType</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.attachedstoragemanager/listDevices &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.attachedstoragemanager/listDevices &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/ChangeType"><b>ChangeType</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Allows apps to modify the parameters of a cache type other than its name. You must specify the name of the cache type, and those cache type parameters that have to be modified. The</p><p class="dim" style="font-size:13px">params: <code>typeName</code>, <code>loWatermark</code>, <code>hiWatermark</code>, <code>size</code>, <code>cost</code>, <code>lifetime</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/ChangeType &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/ChangeType &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/CopyCacheObject"><b>CopyCacheObject</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Enables copying of an object from the file cache to a non-cached location. On successful completion, newPathName will be returned as it may be different than expected due to filena</p><p class="dim" style="font-size:13px">params: <code>pathName</code>, <code>destination</code>, <code>fileName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/CopyCacheObject &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/CopyCacheObject &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/DefineType"><b>DefineType</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Defines a new cache type. This is intended for use by the backup service. Optionally you may specify the default values for the size, cost, and lifetime. These defaults will be app</p><p class="dim" style="font-size:13px">params: <code>typeName</code>, <code>loWatermark</code>, <code>hiWatermark</code>, <code>size</code>, <code>cost</code>, <code>lifetime</code>, <code>dirType</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/DefineType &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/DefineType &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/DeleteType"><b>DeleteType</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Allows you to delete a previously defined cache type and frees up its space. All objects in the cache must be expired in order to delete a cache type. The app can call the ExpireCa</p><p class="dim" style="font-size:13px">params: <code>typeName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/DeleteType &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/DeleteType &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/DescribeType"><b>DescribeType</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Returns cache type details. The DescribeType will return the currently assigned values for all cache type parameters. Note: Filesize as it resides on disk after accounting for the</p><p class="dim" style="font-size:13px">params: <code>typeName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/DescribeType &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/DescribeType &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/ExpireCacheObject"><b>ExpireCacheObject</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Objects will normally be automatically expired form the cache as space is needed. If you want to force an item to be removed or if you want to remove items prior to calling DeleteT</p><p class="dim" style="font-size:13px">params: <code>pathName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/ExpireCacheObject &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/ExpireCacheObject &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/GetCacheObjectFilename"><b>GetCacheObjectFilename</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Allows you to query the original filename of a particular object in a cache type. In order to get the cache object file name the app must specify the path name of the object.</p><p class="dim" style="font-size:13px">params: <code>pathName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheObjectFilename &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheObjectFilename &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/GetCacheObjectSize"><b>GetCacheObjectSize</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Allows you to query a particular object size in a cache type. In order to get the cache object size, the app must specify the pathname of the object.</p><p class="dim" style="font-size:13px">params: <code>pathName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheObjectSize &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheObjectSize &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/GetCacheStatus"><b>GetCacheStatus</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Give status of the cache as a whole. The GetCacheStatus will return: the number of cache types defined the total space used by the objects in all cache types the number of objects</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheStatus &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheStatus &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/GetCacheTypes"><b>GetCacheTypes</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Returns an array of all defined cache types.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheTypes &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheTypes &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/GetCacheTypeStatus"><b>GetCacheTypeStatus</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Allows you to query the status of a particular cache type to obtain: the total space used by the objects in the specified cache type the number of objects in the specified cache ty</p><p class="dim" style="font-size:13px">params: <code>typeName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheTypeStatus &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheTypeStatus &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/GetVersion"><b>GetVersion</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Returns the version of the File Cache API.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetVersion &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/GetVersion &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/InsertCacheObject"><b>InsertCacheObject</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Inserts a new object of the specified type into the cache. The fileName parameter is required. It is stored with the object to ensure that the correct extension is provided, so tha</p><p class="dim" style="font-size:13px">params: <code>typeName</code>, <code>fileName</code>, <code>size</code>, <code>cost</code>, <code>lifetime</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/InsertCacheObject &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/InsertCacheObject &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/ResizeCacheObject"><b>ResizeCacheObject</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>By calling the ResizeCacheObject you can specify the size of the cached object after it is inserted into the cache. Call this method if the final size of the object, which is being</p><p class="dim" style="font-size:13px">params: <code>pathName</code>, <code>newSize</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/ResizeCacheObject &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/ResizeCacheObject &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/SubscribeCacheObject"><b>SubscribeCacheObject</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Enables you to subscribe an object in the cache and hold a subscription to the object for the duration of your usage. An object cannot be expired from the cache while at least one</p><p class="dim" style="font-size:13px">params: <code>pathName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/SubscribeCacheObject &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/SubscribeCacheObject &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.filecache/TouchCacheObject"><b>TouchCacheObject</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.filecache</span></div><p>Allows you to mark an object as recently used. This decreases the chances of the object from getting expired from the cache when the space is being reclaimed.</p><p class="dim" style="font-size:13px">params: <code>pathName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/TouchCacheObject &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.filecache/TouchCacheObject &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/eject"><b>eject</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Unmounts all drives of the storage device for safe removal. Prerequisite: The storage device must be connected.</p><p class="dim" style="font-size:13px">params: <code>deviceNum</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/eject &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/eject &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/format"><b>format</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Formats the connected drive.</p><p class="dim" style="font-size:13px">params: <code>driveName</code>, <code>fsType</code>, <code>volumeLabel</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/format &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/format &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/fsck"><b>fsck</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Checks the file system by performing fsck (File System Check) of the corresponding connected drive. Note : On connecting a USB device with a large number of files, the PDM service</p><p class="dim" style="font-size:13px">params: <code>driveName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/fsck &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/fsck &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/getAttachedDeviceStatus"><b>getAttachedDeviceStatus</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Gets the status information of connected device(s).</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedDeviceStatus &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedDeviceStatus &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/getAttachedNonStorageDeviceList"><b>getAttachedNonStorageDeviceList</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Gets the status information of connected non-storage device(s).</p><p class="dim" style="font-size:13px">params: <code>subscribe</code>, <code>category</code>, <code>groupSubDevices</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedNonStorageDeviceList &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedNonStorageDeviceList &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/getAttachedStorageDeviceList"><b>getAttachedStorageDeviceList</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Gets status information of connected storage device(s).</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedStorageDeviceList &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedStorageDeviceList &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/getExample"><b>getExample</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Provides debug logs with detailed information of all connected storage and non-storage device list.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getExample &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/getExample &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/getSpaceInfo"><b>getSpaceInfo</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Gets the space information of the connected drive. Note : The drive must be mounted.</p><p class="dim" style="font-size:13px">params: <code>driveName</code>, <code>directCheck</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getSpaceInfo &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/getSpaceInfo &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/isWritableDrive"><b>isWritableDrive</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Checks the file system attribute of the drive and returns whether it is writable.</p><p class="dim" style="font-size:13px">params: <code>driveName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/isWritableDrive &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/isWritableDrive &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/mountandFullFsck"><b>mountandFullFsck</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Mounts the device without performing Fsck. Alternatively, it can be configured to perform Fsck and then mount the device.</p><p class="dim" style="font-size:13px">params: <code>mountName</code>, <code>needFsck</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/mountandFullFsck &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/mountandFullFsck &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/setVolumeLabel"><b>setVolumeLabel</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Sets the volume label of the drive. It is supported only when file system type is FAT.</p><p class="dim" style="font-size:13px">params: <code>driveName</code>, <code>volumeLabel</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/setVolumeLabel &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/setVolumeLabel &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.pdm/umountAllDrive"><b>umountAllDrive</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.pdm</span></div><p>Unmounts all drives.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/umountAllDrive &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.pdm/umountAllDrive &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.storageaccess/device/copy"><b>device/copy</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.storageaccess</span></div><p>Copies a file or directory from the source location to the destination.</p><p class="dim" style="font-size:13px">params: <code>srcStorageType</code>, <code>srcDriveId</code>, <code>srcPath</code>, <code>destStorageType</code>, <code>destDriveId</code>, <code>destPath</code>, <code>overwrite</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.storageaccess/device/copy &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.storageaccess/device/copy &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

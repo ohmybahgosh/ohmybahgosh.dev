@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TiviBro FAQ: install, providers, backups and privacy</title>
+<meta name="description" content="Answers about TiviBro, the free IPTV player for LG webOS TVs: root or not, providers, the phone app, backups, updates and privacy.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/tivibro/faq/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="TiviBro FAQ: install, providers, backups and privacy">
+<meta property="og:description" content="Answers about TiviBro, the free IPTV player for LG webOS TVs: root or not, providers, the phone app, backups, updates and privacy.">
+<meta property="og:url" content="https://ohmybahgosh.dev/tivibro/faq/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/tivibro.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TiviBro FAQ: install, providers, backups and privacy">
+<meta name="twitter:description" content="Answers about TiviBro, the free IPTV player for LG webOS TVs: root or not, providers, the phone app, backups, updates and privacy.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/tivibro.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "TiviBro",
+     "item": "https://ohmybahgosh.dev/tivibro/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "FAQ",
+     "item": "https://ohmybahgosh.dev/tivibro/faq/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is TiviBro?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A free, open-source IPTV player for LG webOS TVs, built in the style of TiviMate: the guide is the home screen. It plays your own Xtream Codes or M3U subscription. It doesn't come with channels."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a rooted TV for TiviBro?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It installs in LG's Developer Mode too. On a rooted TV, the Homebrew Channel installs and updates it from the TV."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is TiviBro free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, every feature, MIT licensed, with no account, ads or tracking. It counts installs by version once a day, anonymously, and that can be switched off."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which LG TVs does TiviBro run on?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "webOS 4 and newer. It's tested every day on real TVs from a 2019 webOS 4 OLED to webOS 25. It's in alpha testing, so expect some rough edges."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does TiviBro come with channels?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It plays the Xtream Codes or M3U subscription you already have, with its XMLTV guide."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I install it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On a rooted TV, add https://tivibro.app/repo or https://ohmybahgosh.dev/repo to the Homebrew Channel, or run curl -fsSL https://tivibro.app/install | sh over SSH. Without root, use LG's Developer Mode."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a phone app?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, for Android. It's a remote, plays your channels and media on the TV, opens the web editor, and turns the TV on over the network and Bluetooth. Download the APK from tivibro.app/apk."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I edit my channels from a computer?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Open Edit on phone on the TV for a QR code, an address and a password. The web editor hides, sorts, renames and copies channels, and changes are drafts until you press Send to TV."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do backups work?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Everything goes into one file locked with a passphrase you choose (AES-256-GCM), from the TV, the phone app or the web editor. A brand-new TV can restore it from its first screen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do my provider logins leave the TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The web editor only sees server names, logs mask usernames and passwords, and problem reports replace server names before anything is sent."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "My TV can't play DTS or Dolby TrueHD.",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "LG TVs from 2020 to 2022 can't play DTS, and none plays TrueHD. TiviBro picks another track in your language, or converts the sound to Dolby Digital while you watch."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/tivibro/">tivibro</a><span>/</span><span class="c-gr">faq</span></div>
+<section class="doc-hero" style="--accent:#5b8cff">
+  <div class="eyebrow">$ man tivibro</div>
+  <h1 class="h2" style="margin-top:12px">TiviBro FAQ.</h1>
+  <p class="lead">Quick answers.  The full user guide lives on <a href="https://tivibro.app" target="_blank" rel="noopener">tivibro.app</a>.</p>
+</section><article class="doc" style="--accent:#5b8cff">
+<details class="faq"><summary>What is TiviBro?</summary><div>A free, open-source IPTV player for LG webOS TVs, built in the style of TiviMate: the guide is the home screen.  It plays your own Xtream Codes or M3U subscription.  It doesn't come with channels.</div></details>
+<details class="faq"><summary>Do I need a rooted TV for TiviBro?</summary><div>No.  It installs in LG's Developer Mode too.  On a rooted TV, the Homebrew Channel installs and updates it from the TV.</div></details>
+<details class="faq"><summary>Is TiviBro free?</summary><div>Yes, every feature, MIT licensed, with no account, ads or tracking.  It counts installs by version once a day, anonymously, and that can be switched off.</div></details>
+<details class="faq"><summary>Which LG TVs does TiviBro run on?</summary><div>webOS 4 and newer.  It's tested every day on real TVs from a 2019 webOS 4 OLED to webOS 25.  It's in alpha testing, so expect some rough edges.</div></details>
+<details class="faq"><summary>Does TiviBro come with channels?</summary><div>No.  It plays the Xtream Codes or M3U subscription you already have, with its XMLTV guide.</div></details>
+<details class="faq"><summary>How do I install it?</summary><div>On a rooted TV, add <code>https://tivibro.app/repo</code> or <code>https://ohmybahgosh.dev/repo</code> to the Homebrew Channel, or run <code>curl -fsSL https://tivibro.app/install | sh</code> over SSH.  Without root, use LG's Developer Mode.</div></details>
+<details class="faq"><summary>Is there a phone app?</summary><div>Yes, for Android.  It's a remote, plays your channels and media on the TV, opens the web editor, and turns the TV on over the network and Bluetooth.  Download the APK from <a href="https://tivibro.app/apk/" target="_blank" rel="noopener">tivibro.app/apk</a>.</div></details>
+<details class="faq"><summary>Can I edit my channels from a computer?</summary><div>Yes.  Open <b>Edit on phone</b> on the TV for a QR code, an address and a password.  The web editor hides, sorts, renames and copies channels, and changes are drafts until you press <b>Send to TV</b>.</div></details>
+<details class="faq"><summary>How do backups work?</summary><div>Everything goes into one file locked with a passphrase you choose (AES-256-GCM), from the TV, the phone app or the web editor.  A brand-new TV can restore it from its first screen.</div></details>
+<details class="faq"><summary>Do my provider logins leave the TV?</summary><div>No.  The web editor only sees server names, logs mask usernames and passwords, and problem reports replace server names before anything is sent.</div></details>
+<details class="faq"><summary>My TV can't play DTS or Dolby TrueHD.</summary><div>LG TVs from 2020 to 2022 can't play DTS, and none plays TrueHD.  TiviBro picks another track in your language, or converts the sound to Dolby Digital while you watch.</div></details><h2>Related</h2><div class="gcards"><a class="card gcard" href="/tivibro/"><b>TiviBro</b><span>The project page</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a><a class="card gcard" href="/guides/"><b>Guides</b><span>How-tos for rooted LG TVs</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

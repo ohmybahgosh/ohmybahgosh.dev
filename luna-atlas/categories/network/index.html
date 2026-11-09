@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Network / Wi-Fi luna-send commands for LG webOS</title>
+<meta name="description" content="304 LG webOS luna-send methods for network / wi-fi, across 19 services like com.webos.service.wifi, com.webos.service.apiadapter, with access levels and…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/network/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Network / Wi-Fi luna-send commands for LG webOS">
+<meta property="og:description" content="304 LG webOS luna-send methods for network / wi-fi, across 19 services like com.webos.service.wifi, com.webos.service.apiadapter, with access levels and…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/network/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Network / Wi-Fi luna-send commands for LG webOS">
+<meta name="twitter:description" content="304 LG webOS luna-send methods for network / wi-fi, across 19 services like com.webos.service.wifi, com.webos.service.apiadapter, with access levels and…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Network / Wi-Fi",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/network/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Network / Wi-Fi luna-send commands for LG webOS",
+   "description": "304 LG webOS luna-send methods for network / wi-fi, across 19 services like com.webos.service.wifi, com.webos.service.apiadapter, with access levels and…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/network/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Network / Wi-Fi luna-send services",
+   "numberOfItems": 19,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.wifi"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.apiadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.wirelessavcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.service.secondscreen.gateway"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.service.iotclient"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.discovery"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.push"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.upnp"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.service.downloadmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.nettools"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.pushclient"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.connectionmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.service.wan"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.palm.nettools"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.palm.wifi"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.webos.service.commercial.scapadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.miracast.upnp"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.micomservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "netflix.service"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">network</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat network</div><h1 class="h2" style="margin-top:12px">Network / Wi-Fi luna-send commands.</h1><p class="lead">Wi-Fi, wired Ethernet, IP settings and network status.  304 methods in 19 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>304</b><span>methods</span></div><div><b>19</b><span>services</span></div><div><b>91</b><span>documented</span></div><div><b>117</b><span>public</span></div><div><b>10</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=network">open Network / Wi-Fi in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.wifi"><code>com.webos.service.wifi</code></a></td><td>86</td><td>Wi-Fi service: finds available networks, connects and disconnects, manages saved profiles, WPS and enterprise security, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.apiadapter"><code>com.webos.service.apiadapter</code></a></td><td>29</td><td>API adapter that bridges remote/second-screen clients to on-device functions: audio (sound output, mute), system settings, external…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wirelessavcontroller"><code>com.webos.service.wirelessavcontroller</code></a></td><td>26</td><td>Wireless A/V controller (wireless transmitter box/antenna): antenna/beam search and monitoring, modem control, event logs, diagnostics and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.secondscreen.gateway"><code>com.webos.service.secondscreen.gateway</code></a></td><td>24</td><td>Second-screen gateway: pairs and lists companion devices, sets up app-to-app channels and host messaging, and reports power state and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.iotclient"><code>com.webos.service.iotclient</code></a></td><td>22</td><td>IoT client: discovers, lists and controls connected IoT devices, manages linked accounts, macros and registration tokens, and handles IoT…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.discovery"><code>com.webos.service.discovery</code></a></td><td>21</td><td>Content discovery/recommendation service: performs search and prefix-search, returns categories, recommendations, sponsored data, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.push"><code>com.webos.service.push</code></a></td><td>18</td><td>Push-notification service: registers apps and manages push tokens and receivers, relays messages to APNS/GCM providers, and controls…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.upnp"><code>com.webos.service.upnp</code></a></td><td>18</td><td>UPnP service providing control-point and device roles: discovers and lists devices, services, actions and state variables, registers…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.downloadmanager"><code>com.webos.service.downloadmanager</code></a></td><td>17</td><td>Download manager: manages file download and upload on the device, including queueing, pause/resume/cancel, history and status queries.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nettools"><code>com.webos.service.nettools</code></a></td><td>12</td><td>Network tools service: provides standard diagnostics such as ping/ping6, arping, HTTP checks, hostname resolution, VLAN creation, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pushclient"><code>com.webos.service.pushclient</code></a></td><td>8</td><td>Push/MQTT client: creates and destroys connections, registers services, publishes to and subscribes/unsubscribes from topics, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.connectionmanager"><code>com.webos.service.connectionmanager</code></a></td><td>7</td><td>Manages wired and Wi-Fi network connections: reports status and info, sets the default interface, configures IPv4/IPv6, DNS, proxy and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wan"><code>com.webos.service.wan</code></a></td><td>6</td><td>WAN/cellular data service: connects and disconnects data contexts, sets host routes, and reports connection status.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.nettools"><code>com.palm.nettools</code></a></td><td>2</td><td>Network diagnostics tool providing detailed ping over IPv4 (detailping) and IPv6 (detailping6).</td></tr><tr><td><a href="/luna-atlas/#/com.palm.wifi"><code>com.palm.wifi</code></a></td><td>2</td><td>Legacy Palm/HP webOS Wi-Fi service: finds available networks and sets the Wi-Fi radio state.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>2</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.miracast.upnp"><code>com.webos.service.miracast.upnp</code></a></td><td>2</td><td>UPnP helper for Miracast, exposing only open and close. Narrow role supporting Miracast screen mirroring.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.micomservice"><code>com.webos.service.micomservice</code></a></td><td>1</td><td>MICOM microcontroller service: reports power on/off history, OLED self-diagnosis, IR custom codes and hardware diagnostics, and controls…</td></tr><tr><td><a href="/luna-atlas/#/netflix.service"><code>netflix.service</code></a></td><td>1</td><td>Netflix integration helper: saves and clears auth tokens and handles discovery, search and impression reporting.</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/allow1x"><b>allow1x</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Enable or disable 1x mode for downloads/uploads.</p><p class="dim" style="font-size:13px">params: <code>value</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/allow1x &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/allow1x &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/cancelAllDownloads"><b>cancelAllDownloads</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Cancel all downloads that are in progress.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelAllDownloads &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelAllDownloads &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/cancelDownload"><b>cancelDownload</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Cancel a download that is in progress.</p><p class="dim" style="font-size:13px">params: <code>ticket</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelDownload &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelDownload &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/cancelUpload"><b>cancelUpload</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Cancel an upload that is in progress. See the cancelDownload method for detailed documentation.</p><p class="dim" style="font-size:13px">params: <code>ticket</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelUpload &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelUpload &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/clearHistory"><b>clearHistory</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Clear the download history for a specific application or for all downloads or uploads.</p><p class="dim" style="font-size:13px">params: <code>owner</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/clearHistory &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/clearHistory &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/deleteDownloadedFile"><b>deleteDownloadedFile</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Delete a downloaded file based on the ticket number. The ticket number is a unique ID returned from the download method.</p><p class="dim" style="font-size:13px">params: <code>ticket</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/deleteDownloadedFile &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/deleteDownloadedFile &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/download"><b>download</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Start a download.</p><p class="dim" style="font-size:13px">params: <code>appendTargetFile</code>, <code>authToken</code>, <code>autoResume</code>, <code>canHandlePause</code>, <code>cookieHeader</code>, <code>cookieToken</code>, <code>deviceId</code>, <code>e_rangeHigh</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/download &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/download &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/downloadStatusQuery"><b>downloadStatusQuery</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Get the status of a download for a specific ticket number. The method will return the status of current downloads, or any downloads in the history.</p><p class="dim" style="font-size:13px">params: <code>ticket</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/downloadStatusQuery &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/downloadStatusQuery &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/getAllHistory"><b>getAllHistory</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Get the download or upload history for a specific application.</p><p class="dim" style="font-size:13px">params: <code>owner</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/getAllHistory &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/getAllHistory &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/is1xMode"><b>is1xMode</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Determine if the network connection is in 1x mode.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/is1xMode &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/is1xMode &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/listPending"><b>listPending</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Return the list of all downloads that are currently in progress.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/listPending &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/listPending &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/pauseDownload"><b>pauseDownload</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Pause a download. Note that only downloads started with canHandlePause:true can be paused; otherwise, calling pauseDownload on a downloading file will act like a &quot;cancel&quot;.</p><p class="dim" style="font-size:13px">params: <code>ticket</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/pauseDownload &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/pauseDownload &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/resumeDownload"><b>resumeDownload</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Resume a download.</p><p class="dim" style="font-size:13px">params: <code>ticket</code>, <code>authToken</code>, <code>deviceId</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/resumeDownload &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/resumeDownload &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.downloadmanager/upload"><b>upload</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.downloadmanager</span></div><p>Upload a file to the target URI. If subscribe is set to false , the onSuccess handler is called only once after the initial request. To be notified when the upload is complete, set</p><p class="dim" style="font-size:13px">params: <code>url</code>, <code>fileName</code>, <code>fileLabel</code>, <code>contentType</code>, <code>postParameters</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/upload &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.downloadmanager/upload &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/arping"><b>arping</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Performs an ARP request to resolve IP address to mac address which can then be used to detect IP address conflicts. The implementation uses a call to the system arping utility: &quot;ar</p><p class="dim" style="font-size:13px">params: <code>ifName</code>, <code>ipAddress</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/arping &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/arping &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/checkhttp"><b>checkhttp</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Creates a TCP socket and checks if it can successfully connect to the hostURL using the standard http port (port 80).</p><p class="dim" style="font-size:13px">params: <code>hostUrl</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/checkhttp &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/checkhttp &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/createVlan"><b>createVlan</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Creates a VLAN for the provided index and interface.</p><p class="dim" style="font-size:13px">params: <code>index</code>, <code>interface</code>, <code>method</code>, <code>address</code>, <code>netmask</code>, <code>gateway</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/createVlan &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/createVlan &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/deleteVlan"><b>deleteVlan</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Provided VLAN index will be deleted for the provided interface, if present.</p><p class="dim" style="font-size:13px">params: <code>index</code>, <code>interface</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/deleteVlan &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/deleteVlan &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/gethostname"><b>gethostname</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Gets the hostname for the system. The implementation uses a call to gethostname() in glibc.</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/gethostname &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/gethostname &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/ping"><b>ping</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>&quot;Ping&quot; an IPv4 network address or hostname to determine if it is reachable. The maximum wait time is 5 seconds. The implementation uses a call to the system ping command: &quot;ping -c</p><p class="dim" style="font-size:13px">params: <code>hostname</code>, <code>ifName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/ping &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/ping &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/ping6"><b>ping6</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Pings an IPv6 network address or host name to determine if it is reachable. The maximum amount of time the ping waits for a reply is 5 seconds. Internally, the implementation uses</p><p class="dim" style="font-size:13px">params: <code>hostname</code>, <code>ifName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/ping6 &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/ping6 &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/resolvehostname"><b>resolvehostname</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Performs a DNS request to resolve hostname to list all IP addresses that it maps to. This will return IPv4 or IPv6 addresses depending upon what the network interface supports. The</p><p class="dim" style="font-size:13px">params: <code>hostname</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/resolvehostname &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/resolvehostname &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.nettools/sethostname"><b>sethostname</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.nettools</span></div><p>Sets a new hostname for the system. The implementation uses a call to sethostname() in glibc.</p><p class="dim" style="font-size:13px">params: <code>hostname</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/sethostname &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.nettools/sethostname &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.wifi/cancel"><b>cancel</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.wifi</span></div><p>Cancels an ongoing connection attempt. Once the connection is canceled, the state is switched back to idle and the credentials are not saved. If no connection attempt is in progres</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/cancel &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.wifi/cancel &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.wifi/cancelwps"><b>cancelwps</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.wifi</span></div><p>Cancels an ongoing WPS connection attempt.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/cancelwps &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.wifi/cancelwps &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.wifi/changeNetwork"><b>changeNetwork</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.wifi</span></div><p>Allows users to change the properties of already stored Wi-Fi profiles . For non-enterprise networks, only the passphrase can be changed for now. In the future when the support to</p><p class="dim" style="font-size:13px">params: <code>profileId</code>, <code>passKey</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/changeNetwork &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.wifi/changeNetwork &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.wifi/connect"><b>connect</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.wifi</span></div><p>Connects to a given SSID, which can be an open network requiring no passphrase (i.e no security field in its argument), hidden network(requiring wasCreatedWithJoinOther field set t</p><p class="dim" style="font-size:13px">params: <code>ssid</code>, <code>wasCreatedWithJoinOther</code>, <code>storeProfile</code>, <code>security</code>, <code>profileId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/connect &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.wifi/connect &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.wifi/createwpspin"><b>createwpspin</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.wifi</span></div><p>Generates an 8 digit random PIN required for the WPS PIN connection method.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/createwpspin &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.wifi/createwpspin &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.wifi/deleteprofile"><b>deleteprofile</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.wifi</span></div><p>Deletes the profile with the given profile ID.</p><p class="dim" style="font-size:13px">params: <code>profileId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/deleteprofile &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.wifi/deleteprofile &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.wifi/findnetworks"><b>findnetworks</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.wifi</span></div><p>Lists all the available Wi-Fi access points found in the area (from a previous Wi-Fi scan) and lists their details like SSID Name, available Security Types, Signal Strength and Con</p><p class="dim" style="font-size:13px">params: <code>subscribe</code>, <code>interval</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/findnetworks &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.wifi/findnetworks &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Power Management luna-send commands for LG webOS</title>
+<meta name="description" content="44 LG webOS luna-send methods for power management, across 6 services like com.webos.service.sleep, com.webos.service.power2, with access levels and commands…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/power-mgmt/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Power Management luna-send commands for LG webOS">
+<meta property="og:description" content="44 LG webOS luna-send methods for power management, across 6 services like com.webos.service.sleep, com.webos.service.power2, with access levels and commands…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/power-mgmt/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Power Management luna-send commands for LG webOS">
+<meta name="twitter:description" content="44 LG webOS luna-send methods for power management, across 6 services like com.webos.service.sleep, com.webos.service.power2, with access levels and commands…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Power Management",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/power-mgmt/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Power Management luna-send commands for LG webOS",
+   "description": "44 LG webOS luna-send methods for power management, across 6 services like com.webos.service.sleep, com.webos.service.power2, with access levels and commands…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/power-mgmt/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Power Management luna-send services",
+   "numberOfItems": 6,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.sleep"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.power2"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.palm.sleep"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.service.wifi"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.service.devicereset"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.tv.power"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">power-mgmt</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat power-mgmt</div><h1 class="h2" style="margin-top:12px">Power Management luna-send commands.</h1><p class="lead">Sleep, wake and power-management timers.  44 methods in 6 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>44</b><span>methods</span></div><div><b>6</b><span>services</span></div><div><b>40</b><span>documented</span></div><div><b>36</b><span>public</span></div><div><b>0</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=power-mgmt">open Power Management in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.sleep"><code>com.webos.service.sleep</code></a></td><td>27</td><td>Power/sleep management (legacy com.palm.power interface): handles suspend and resume activity tracking and coordinates shutdown and reboot…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.power2"><code>com.webos.service.power2</code></a></td><td>11</td><td>Power-management service (webOS OSE): powers the device on/off and reboots it, manages state transitions and wake locks, and reports/sets…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.sleep"><code>com.palm.sleep</code></a></td><td>2</td><td>Power-management service handling suspend/wake: wake-lock registration, suspend request handshakes, activity start/end, and system…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wifi"><code>com.webos.service.wifi</code></a></td><td>2</td><td>Wi-Fi service: finds available networks, connects and disconnects, manages saved profiles, WPS and enterprise security, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.devicereset"><code>com.webos.service.devicereset</code></a></td><td>1</td><td>Device factory-reset service: triggers reset, reports reset status and progress, requests reboot, and tracks in-store (&#x27;instop&#x27;) demo state.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tv.power"><code>com.webos.service.tv.power</code></a></td><td>1</td><td>TV power service: reboots, turns the screen on and off, cancels a scheduled power-off, and enables Wake-on-LAN.</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.devicereset/requestReboot"><b>requestReboot</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.devicereset</span></div><p>Full TV reboot</p><p class="dim" style="font-size:13px">params: <code>reason</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.devicereset/requestReboot &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.devicereset/requestReboot &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/acquireWakeLock"><b>acquireWakeLock</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Allows the device to remain powered on for a specific time period, after which the lock is released. Note: No other state change operation can be executed during this time period.</p><p class="dim" style="font-size:13px">params: <code>clientId</code>, <code>timeout</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/acquireWakeLock &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/acquireWakeLock &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/getPowerOnReason"><b>getPowerOnReason</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Gets the last reason set for powering-on the device.</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/getPowerOnReason &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/getPowerOnReason &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/getState"><b>getState</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Obtains the currently set state.</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/getState &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/getState &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/notifyAlarmExpiry"><b>notifyAlarmExpiry</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Notifies about the alarm expiry.</p><p class="dim" style="font-size:13px">params: <code>clientId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/notifyAlarmExpiry &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/notifyAlarmExpiry &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/reboot"><b>reboot</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Reboots the device with in timeout after acknowledged from registered client. LunaInterfacePMSRoot:TimeOut is configured in /var/PMS/pms.conf file as 15mins by default. Timeout is</p><p class="dim" style="font-size:13px">params: <code>reason</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/reboot &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/reboot &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/registerStateTransition"><b>registerStateTransition</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Clients can register to get notified when the state changes from a specified state. For example, if registered to get notifications on state “ACTIVE”, you will get notified when st</p><p class="dim" style="font-size:13px">params: <code>state</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/registerStateTransition &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/registerStateTransition &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/releaseWakeLock"><b>releaseWakeLock</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Instantly releases the wake lock for the client.</p><p class="dim" style="font-size:13px">params: <code>clientId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/releaseWakeLock &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/releaseWakeLock &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/respondStateTransitionAck"><b>respondStateTransitionAck</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>For clients that have registered for state change notifications, some state transitions require acceptance (acknowledgement) of all clients who register for this state : If all sub</p><p class="dim" style="font-size:13px">params: <code>state</code>, <code>ack</code>, <code>token</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/respondStateTransitionAck &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/respondStateTransitionAck &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/setPowerOnReason"><b>setPowerOnReason</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Specify the reason that caused the device to be powered on.</p><p class="dim" style="font-size:13px">params: <code>reason</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/setPowerOnReason &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/setPowerOnReason &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/setState"><b>setState</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Sets the state of the device. This method forcefully sets the state and ignores the sequential flow of power states. This means that the client is not prompted for acknowledgement,</p><p class="dim" style="font-size:13px">params: <code>state</code>, <code>reason</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/setState &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/setState &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.power2/shutdown"><b>shutdown</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.power2</span></div><p>Shuts down the device. Note : Client will be prompted for acknowledgement if registered for state change notifications. This shutdown API will work differently for ose. If it is in</p><p class="dim" style="font-size:13px">params: <code>reason</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/shutdown &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.power2/shutdown &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/activityEnd"><b>com/palm/power/activityEnd</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Cancel a previous request (identified by &quot;id&quot;) which was registered using activityStart.</p><p class="dim" style="font-size:13px">params: <code>id</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/activityEnd &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/activityEnd &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/activityStart"><b>com/palm/power/activityStart</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>An activity is a specified time duration for which you do not want the system to suspend. This method requests that the system create an activity for &quot;duration&quot; (in milliseconds) w</p><p class="dim" style="font-size:13px">params: <code>id</code>, <code>duration_ms</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/activityStart &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/activityStart &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/clientCancelByName"><b>com/palm/power/clientCancelByName</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Unregister the client by its name.</p><p class="dim" style="font-size:13px">params: <code>clientName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/clientCancelByName &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/clientCancelByName &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/forceSuspend"><b>com/palm/power/forceSuspend</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Force the device to go into suspend even with charger connected or any activity is still active. Note: Used for developer testing purposes.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/forceSuspend &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/forceSuspend &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/identify"><b>com/palm/power/identify</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Register a new client with the given name</p><p class="dim" style="font-size:13px">params: <code>clientName</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/identify &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/identify &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/prepareSuspendAck"><b>com/palm/power/prepareSuspendAck</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Used by a client to respond (ack or nack) to the &quot;prepareSuspend&quot; signal. Once the client sends ack to the &quot;prepareSuspend&quot; signal, the client does not do any more operations and p</p><p class="dim" style="font-size:13px">params: <code>clientId</code>, <code>ack</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/prepareSuspendAck &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/prepareSuspendAck &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/prepareSuspendRegister"><b>com/palm/power/prepareSuspendRegister</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Register a client (already registered with &quot;identify&quot; call) for &quot;prepare suspend&quot; signal. This will add to the counter &quot;sNumPrepareSuspend&quot; before every polling to make a decision</p><p class="dim" style="font-size:13px">params: <code>clientId</code>, <code>register</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/prepareSuspendRegister &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/prepareSuspendRegister &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/suspendRequestAck"><b>com/palm/power/suspendRequestAck</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Add the client&#x27;s count in the total number of ACKs received for the &quot;suspend request&quot; signal.</p><p class="dim" style="font-size:13px">params: <code>clientId</code>, <code>ack</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/suspendRequestAck &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/suspendRequestAck &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/suspendRequestRegister"><b>com/palm/power/suspendRequestRegister</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Register a client (already registered with &quot;identify&quot; call) for &quot;suspend request&quot; signal. This will add to the counter &quot;sNumSuspendRequest&quot; before every polling to make a decision</p><p class="dim" style="font-size:13px">params: <code>clientId</code>, <code>register</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/suspendRequestRegister &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/suspendRequestRegister &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/com/palm/power/TESTSuspend"><b>com/palm/power/TESTSuspend</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Schedule the IdleCheck thread to check if the device can suspend. Note: Used for developer testing purposes.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/TESTSuspend &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/TESTSuspend &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/initiate"><b>shutdown/initiate</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Starts the shutdown process. It sends the shutdownApplications and shutdownServices signals to all the registered apps/services. Returns &quot;true&quot; once the shutdown process is complet</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/initiate &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/initiate &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/machineOff"><b>shutdown/machineOff</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Shuts down the machine forcefully.</p><p class="dim" style="font-size:13px">params: <code>reason</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/machineOff &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/machineOff &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/machineReboot"><b>shutdown/machineReboot</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Reboots the machine forcefully by calling &quot;reboot&quot;.</p><p class="dim" style="font-size:13px">params: <code>reason</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/machineReboot &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/machineReboot &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/shutdownApplicationsAck"><b>shutdown/shutdownApplicationsAck</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Sets the client&#x27;s response as ACK for the &quot;shutdownApplications&quot; signal and trigger the dispatcher for the shutdown state machine, so that if the total client ACK count exceeds tot</p><p class="dim" style="font-size:13px">params: <code>clientId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownApplicationsAck &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownApplicationsAck &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/shutdownApplicationsRegister"><b>shutdown/shutdownApplicationsRegister</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Registers an application for the &quot;shutdownApplications&quot; signal. Returns the client ID of the client.</p><p class="dim" style="font-size:13px">params: <code>clientName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownApplicationsRegister &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownApplicationsRegister &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/shutdownServicesAck"><b>shutdown/shutdownServicesAck</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Sets the client&#x27;s response as ACK for the &quot;shutdownServices&quot; signal and trigger the dispatcher for the shutdown state machine, so that if the total client ACK count exceeds total n</p><p class="dim" style="font-size:13px">params: <code>clientId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownServicesAck &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownServicesAck &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/shutdownServicesRegister"><b>shutdown/shutdownServicesRegister</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Registers an application for the &quot;shutdownApplications&quot; signal. Returns the client ID of the client added.</p><p class="dim" style="font-size:13px">params: <code>clientName</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownServicesRegister &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownServicesRegister &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.sleep/shutdown/TESTresetShutdownState"><b>shutdown/TESTresetShutdownState</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.sleep</span></div><p>Called by test code to reset state machine to square 1. Note: Used for developer testing purposes.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/TESTresetShutdownState &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/TESTresetShutdownState &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

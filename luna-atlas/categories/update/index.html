@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Software Update luna-send commands for LG webOS</title>
+<meta name="description" content="90 LG webOS luna-send methods for software update, across 24 services like com.webos.service.update, com.webos.service.micomservice, with access levels and…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/update/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Software Update luna-send commands for LG webOS">
+<meta property="og:description" content="90 LG webOS luna-send methods for software update, across 24 services like com.webos.service.update, com.webos.service.micomservice, with access levels and…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/update/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Software Update luna-send commands for LG webOS">
+<meta name="twitter:description" content="90 LG webOS luna-send methods for software update, across 24 services like com.webos.service.update, com.webos.service.micomservice, with access levels and…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Software Update",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/update/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Software Update luna-send commands for LG webOS",
+   "description": "90 LG webOS luna-send methods for software update, across 24 services like com.webos.service.update, com.webos.service.micomservice, with access levels and…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/update/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Software Update luna-send services",
+   "numberOfItems": 24,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.update"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.micomservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.updatefw.utilmgr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.appUpdateService"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.service.sdx"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.palm.service.backup"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.externaldecodercontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.pkgUpdate"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.iotframework"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.accountmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.admanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.airplayadaptor"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.service.avmutemanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.webos.service.camera"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.webos.service.commercial.contentmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.webos.service.commercial.webgateway"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.eim"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.googlehomecontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.service.ics"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.pbsw"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.ppm"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.webos.service.tsrecord"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.service.tv.swupdate"
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "name": "com.webos.service.videosinkmanager"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">update</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat update</div><h1 class="h2" style="margin-top:12px">Software Update luna-send commands.</h1><p class="lead">Firmware and software update checks, downloads and installs.  Block updates on a rooted TV before experimenting here.  90 methods in 24 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>90</b><span>methods</span></div><div><b>24</b><span>services</span></div><div><b>12</b><span>documented</span></div><div><b>24</b><span>public</span></div><div><b>9</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=update">open Software Update in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.update"><code>com.webos.service.update</code></a></td><td>44</td><td>Software/firmware update service: checks for, downloads and applies system updates, reports progress and current software/hardware…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.micomservice"><code>com.webos.service.micomservice</code></a></td><td>9</td><td>MICOM microcontroller service: reports power on/off history, OLED self-diagnosis, IR custom codes and hardware diagnostics, and controls…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.updatefw.utilmgr"><code>com.webos.service.updatefw.utilmgr</code></a></td><td>9</td><td>Firmware-update utility manager: triggers auto-install and master download, manages recurring update times and ticket/build info.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.appUpdateService"><code>com.webos.appUpdateService</code></a></td><td>3</td><td>App update service: checks for and reports the update status of installed apps.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sdx"><code>com.webos.service.sdx</code></a></td><td>3</td><td>SDX device-provisioning/server service: reports device UUID, encrypted MAC, device-authentication and EULA-download status, country code,…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.service.backup"><code>com.palm.service.backup</code></a></td><td>2</td><td>Legacy backup/restore service that restores apps and schedules app restore operations.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.externaldecodercontroller"><code>com.webos.service.externaldecodercontroller</code></a></td><td>2</td><td>Appears to manage an external decoder dongle: reports dongle device ID and version, downloads keys, and runs firmware updates (including…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pkgUpdate"><code>com.webos.service.pkgUpdate</code></a></td><td>2</td><td>Package update service: checks for package updates and reports their status.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.iotframework"><code>com.webos.iotframework</code></a></td><td>1</td><td>IoT framework managing connected IoT devices: lists and updates devices, sends commands, and gets/sets per-device customization.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.accountmanager"><code>com.webos.service.accountmanager</code></a></td><td>1</td><td>Account manager: logs user accounts in and out, stores and updates account data, tracks login history, and manages onboarding (OOBE) data…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.admanager"><code>com.webos.service.admanager</code></a></td><td>1</td><td>Advertising manager: issues banner/asset ad requests, manages the advertising ID, tracking contexts and cookies, EULA/consent (CMP) checks…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.airplayadaptor"><code>com.webos.service.airplayadaptor</code></a></td><td>1</td><td>AirPlay adaptor: starts, stops, restarts and reports the status of AirPlay, and handles MFi authentication keys.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.avmutemanager"><code>com.webos.service.avmutemanager</code></a></td><td>1</td><td>Audio/video mute manager: coordinates AV mute across clients, tracking mute status, owners, timing, and registered services, and setting…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.camera"><code>com.webos.service.camera</code></a></td><td>1</td><td>Camera service: acquires, opens and closes the camera, lists devices and properties, reports firmware and cover state, applies photo…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.contentmanager"><code>com.webos.service.commercial.contentmanager</code></a></td><td>1</td><td>Content manager for commercial/signage TVs: creates, copies, moves, renames, deletes, and loads content files and reports file-operation…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.webgateway"><code>com.webos.service.commercial.webgateway</code></a></td><td>1</td><td>Commercial/signage web gateway: discovers nearby devices, distributes content and clones configuration from a master display to slaves.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.eim"><code>com.webos.service.eim</code></a></td><td>1</td><td>External Input Manager: manages HDMI and other external inputs, including device add/remove, input status, EDID backup, ARC volume, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.googlehomecontroller"><code>com.webos.service.googlehomecontroller</code></a></td><td>1</td><td>Google Home integration controller: enables, disables, starts, and stops the Google Home service, reports its status, and updates its…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ics"><code>com.webos.service.ics</code></a></td><td>1</td><td>IR-blaster / universal-control service: manages a database of IR and IP-controlled devices, with brand/model/key lists, device add/delete…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pbsw"><code>com.webos.service.pbsw</code></a></td><td>1</td><td>Broadcast channel-map service: builds and edits the channel list and favorite groups, queries channel info and EPG events, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ppm"><code>com.webos.service.ppm</code></a></td><td>1</td><td>Permission manager (PPM): requests, checks, sets, updates, removes and queries app permissions.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tsrecord"><code>com.webos.service.tsrecord</code></a></td><td>1</td><td>Transport-stream recording service: initializes, loads, starts and stops TS recording and reports recording status/time and an MPD manifest.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tv.swupdate"><code>com.webos.service.tv.swupdate</code></a></td><td>1</td><td>TV software-update helper exposing a single method to query update status. Narrow role.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.videosinkmanager"><code>com.webos.service.videosinkmanager</code></a></td><td>1</td><td>Video sink manager: connects and disconnects video sinks, reports connection state, and registers and resolves sink conflicts.</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.update/getProgress"><b>getProgress</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.update</span></div><p>Get firmware update progress</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.update/getProgress &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.update/getProgress &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

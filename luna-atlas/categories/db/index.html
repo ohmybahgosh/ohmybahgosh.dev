@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Database (db8) luna-send commands for LG webOS</title>
+<meta name="description" content="274 LG webOS luna-send methods for database (db8), across 25 services like com.webos.service.db, com.palm.db, with access levels and commands to run.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/db/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Database (db8) luna-send commands for LG webOS">
+<meta property="og:description" content="274 LG webOS luna-send methods for database (db8), across 25 services like com.webos.service.db, com.palm.db, with access levels and commands to run.">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/db/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Database (db8) luna-send commands for LG webOS">
+<meta name="twitter:description" content="274 LG webOS luna-send methods for database (db8), across 25 services like com.webos.service.db, com.palm.db, with access levels and commands to run.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Database (db8)",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/db/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Database (db8) luna-send commands for LG webOS",
+   "description": "274 LG webOS luna-send methods for database (db8), across 25 services like com.webos.service.db, com.palm.db, with access levels and commands to run.",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/db/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Database (db8) luna-send services",
+   "numberOfItems": 25,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.db"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.palm.db"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.palm.tempdb"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.epgdb"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.mediadb"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.accountdb"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.irdbmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.utp.ssu"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.service.micomservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.personalsoundwizard"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.utp.externaldevice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.wowplay"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.app.igallery.preview"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.webos.service.admanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.webos.service.asc"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.webos.service.avmutemanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.commercial.scapadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.factorymanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.service.ftms"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.ics"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.ledbarcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.webos.service.pbsw"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.service.sm"
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "name": "com.webos.service.tts"
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "name": "com.webos.service.update"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">db</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat db</div><h1 class="h2" style="margin-top:12px">Database (db8) luna-send commands.</h1><p class="lead">db8, webOS&#x27;s built-in JSON database that apps and services store data in.  274 methods in 25 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>274</b><span>methods</span></div><div><b>25</b><span>services</span></div><div><b>190</b><span>documented</span></div><div><b>70</b><span>public</span></div><div><b>17</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=db">open Database (db8) in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.db"><code>com.webos.service.db</code></a></td><td>52</td><td>DB8 database service: lets apps store persistent JSON data as typed &#x27;kinds&#x27; with indexed queries (find/get/put/del/batch), compaction and…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.db"><code>com.palm.db</code></a></td><td>38</td><td>Legacy alias for the db8 JSON database (com.webos.service.db): stores and queries objects with find/get/del/batch, manages kinds, and…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.tempdb"><code>com.palm.tempdb</code></a></td><td>38</td><td>Temporary (volatile) db8 database instance: same JSON object-store API as the main database (find/get/del/batch, kinds, compaction,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.epgdb"><code>com.webos.epgdb</code></a></td><td>35</td><td>DB8 database instance for EPG (electronic program guide) data: stores typed records with find/get/del/batch queries, plus EPG backup,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.mediadb"><code>com.webos.mediadb</code></a></td><td>35</td><td>Media metadata database (a db8-style store, including EPG data): find, get, put, delete and batch records, compact and dump the store, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.accountdb"><code>com.webos.accountdb</code></a></td><td>28</td><td>DB8 database instance for user-account data: stores typed records (kinds) with find/get/put/del/batch queries, plus compaction,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.irdbmanager"><code>com.webos.service.irdbmanager</code></a></td><td>24</td><td>IR database manager: manages the infrared code database for controlling external devices, listing brands/manufacturers and key lists,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.ssu"><code>com.webos.service.utp.ssu</code></a></td><td>3</td><td>System software update over-the-air helper (utp stack): starts/cancels OTA updates, reports progress, version, and status, and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.micomservice"><code>com.webos.service.micomservice</code></a></td><td>2</td><td>MICOM microcontroller service: reports power on/off history, OLED self-diagnosis, IR custom codes and hardware diagnostics, and controls…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.personalsoundwizard"><code>com.webos.service.personalsoundwizard</code></a></td><td>2</td><td>Personal sound wizard service that gets and sets sound-bar status and personalization settings.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.externaldevice"><code>com.webos.service.utp.externaldevice</code></a></td><td>2</td><td>UTP external-input/device service: reports current and last input, external-input and signal state, switches inputs, and handles CEC IDs…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wowplay"><code>com.webos.service.wowplay</code></a></td><td>2</td><td>WOWCAST wireless-audio/soundbar service: pairs and connects soundbars over BLE and Wi-Fi P2P, reports soundbar status, calibration and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.app.igallery.preview"><code>com.webos.app.igallery.preview</code></a></td><td>1</td><td>Appears to back the image-gallery preview app: creates gallery database and account folders, lists view themes, and reports status via the…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.admanager"><code>com.webos.service.admanager</code></a></td><td>1</td><td>Advertising manager: issues banner/asset ad requests, manages the advertising ID, tracking contexts and cookies, EULA/consent (CMP) checks…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.asc"><code>com.webos.service.asc</code></a></td><td>1</td><td>ASC service handling BLE advertising and device registration (including Wake-on-BLE): start/stop advertising, read/register BLE devices,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.avmutemanager"><code>com.webos.service.avmutemanager</code></a></td><td>1</td><td>Audio/video mute manager: coordinates AV mute across clients, tracking mute status, owners, timing, and registered services, and setting…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>1</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.factorymanager"><code>com.webos.service.factorymanager</code></a></td><td>1</td><td>Factory/production manager: runs factory test commands, performs calibration (ADC, Vcom, white balance), controls LED bar and test…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ftms"><code>com.webos.service.ftms</code></a></td><td>1</td><td>Fitness-machine (BLE FTMS) service: connects to fitness equipment, reads and saves workout data, and manages a blocked-device scan filter.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ics"><code>com.webos.service.ics</code></a></td><td>1</td><td>IR-blaster / universal-control service: manages a database of IR and IP-controlled devices, with brand/model/key lists, device add/delete…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ledbarcontroller"><code>com.webos.service.ledbarcontroller</code></a></td><td>1</td><td>Controls the LED backlight bar (single method to set the A+ LED-bar control).</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pbsw"><code>com.webos.service.pbsw</code></a></td><td>1</td><td>Broadcast channel-map service: builds and edits the channel list and favorite groups, queries channel info and EPG events, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sm"><code>com.webos.service.sm</code></a></td><td>1</td><td>Security manager: handles app security permissions, USB-access authentication, device IDs, licensing, and cryptographic operations (file…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tts"><code>com.webos.service.tts</code></a></td><td>1</td><td>Text-to-speech and audio-guidance service: speaks text, manages voice/language packs, toggles audio guidance, and controls playback…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.update"><code>com.webos.service.update</code></a></td><td>1</td><td>Software/firmware update service: checks for, downloads and applies system updates, reports progress and current software/hardware…</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/batch"><b>batch</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Executes multiple database operations in one request.</p><p class="dim" style="font-size:13px">params: <code>operations</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/batch &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/batch &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/del"><b>del</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Deletes JSON data objects.</p><p class="dim" style="font-size:13px">params: <code>ids</code>, <code>query</code>, <code>purge</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/del &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/del &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/delKind"><b>delKind</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Deletes a kind and ALL objects of that kind.</p><p class="dim" style="font-size:13px">params: <code>id</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/delKind &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/delKind &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/find"><b>find</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Returns objects matching the query.</p><p class="dim" style="font-size:13px">params: <code>query</code>, <code>count</code>, <code>watch</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/find &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/find &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/get"><b>get</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Retrieves objects by IDs (fastest retrieval).</p><p class="dim" style="font-size:13px">params: <code>ids</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/get &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/get &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/merge"><b>merge</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Updates properties of existing objects.</p><p class="dim" style="font-size:13px">params: <code>objects</code>, <code>query</code>, <code>props</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/merge &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/merge &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/put"><b>put</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Stores JSON objects of a kind.</p><p class="dim" style="font-size:13px">params: <code>objects</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/put &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/put &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/putKind"><b>putKind</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Registers a kind with the database.</p><p class="dim" style="font-size:13px">params: <code>id</code>, <code>owner</code>, <code>schema</code>, <code>sync</code>, <code>extends</code>, <code>indexes</code>, <code>revsets</code>, <code>private</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/putKind &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/putKind &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/putPermissions"><b>putPermissions</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Grants other apps/services access to the app DB8 data.</p><p class="dim" style="font-size:13px">params: <code>permissions</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/putPermissions &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/putPermissions &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/reserveIds"><b>reserveIds</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Reserves a block of object IDs.</p><p class="dim" style="font-size:13px">params: <code>count</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/reserveIds &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/reserveIds &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/search"><b>search</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Like find but supports the ? full-text operator.</p><p class="dim" style="font-size:13px">params: <code>query</code>, <code>watch</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/search &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/search &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.palm.db/watch"><b>watch</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.palm.db</span></div><p>Watches for updates that would change a query result.</p><p class="dim" style="font-size:13px">params: <code>query</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/watch &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.palm.db/watch &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/batch"><b>batch</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Executes multiple database operations in one request.</p><p class="dim" style="font-size:13px">params: <code>operations</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/batch &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/batch &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/del"><b>del</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Deletes JSON data objects.</p><p class="dim" style="font-size:13px">params: <code>ids</code>, <code>query</code>, <code>purge</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/del &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/del &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/delKind"><b>delKind</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Deletes a kind and ALL objects of that kind.</p><p class="dim" style="font-size:13px">params: <code>id</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/delKind &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/delKind &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/find"><b>find</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Returns objects matching the query.</p><p class="dim" style="font-size:13px">params: <code>query</code>, <code>count</code>, <code>watch</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/find &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/find &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/get"><b>get</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Retrieves objects by IDs (fastest retrieval).</p><p class="dim" style="font-size:13px">params: <code>ids</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/get &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/get &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/merge"><b>merge</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Updates properties of existing objects.</p><p class="dim" style="font-size:13px">params: <code>objects</code>, <code>query</code>, <code>props</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/merge &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/merge &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/put"><b>put</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Stores JSON objects of a kind.</p><p class="dim" style="font-size:13px">params: <code>objects</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/put &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/put &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/putKind"><b>putKind</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Registers a kind with the database.</p><p class="dim" style="font-size:13px">params: <code>id</code>, <code>owner</code>, <code>schema</code>, <code>sync</code>, <code>extends</code>, <code>indexes</code>, <code>revsets</code>, <code>private</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/putKind &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/putKind &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/putPermissions"><b>putPermissions</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Grants other apps/services access to the app DB8 data.</p><p class="dim" style="font-size:13px">params: <code>permissions</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/putPermissions &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/putPermissions &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/reserveIds"><b>reserveIds</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Reserves a block of object IDs.</p><p class="dim" style="font-size:13px">params: <code>count</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/reserveIds &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/reserveIds &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/search"><b>search</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Like find but supports the ? full-text operator.</p><p class="dim" style="font-size:13px">params: <code>query</code>, <code>watch</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/search &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/search &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.mediadb/watch"><b>watch</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.mediadb</span></div><p>Watches for updates that would change a query result.</p><p class="dim" style="font-size:13px">params: <code>query</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.mediadb/watch &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.mediadb/watch &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.db/batch"><b>batch</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.db</span></div><p>The batch method enables apps to execute multiple database operations in one service request. It allows only the following database operations: put get del find (without a watch) m</p><p class="dim" style="font-size:13px">params: <code>operations</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.db/batch &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.db/batch &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.db/cancelSearch"><b>cancelSearch</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.db</span></div><p>Stops the search operation mid-way. This method can be used when the search operation takes a long time to return results or required to search with another keyword without waiting</p><p class="dim" style="font-size:13px">params: <code>taskId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.db/cancelSearch &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.db/cancelSearch &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.db/compact"><b>compact</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.db</span></div><p>The compact method invokes the low level garbage collector. When DB8 executes a del operation without Purge:True param, it only marks the object as to be deleted. The object will b</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.db/compact &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.db/compact &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.db/del"><b>del</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.db</span></div><p>The del method deletes JSON data objects from the database. Apps can specify the objects to be deleted by providing: a set of IDs to be deleted a DB8 query</p><p class="dim" style="font-size:13px">params: <code>ids</code>, <code>query</code>, <code>purge</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.db/del &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.db/del &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.db/delKind"><b>delKind</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.db</span></div><p>The delKind method deletes a Kind from the database. Deleting a Kind deletes ALL data objects of that Kind.</p><p class="dim" style="font-size:13px">params: <code>id</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.db/delKind &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.db/delKind &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.db/dump"><b>dump</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.db</span></div><p>Backs up a database. The file created by the dump method typically contains JSON statements to recreate all of the Kinds and data of the database from which they have been dumped.</p><p class="dim" style="font-size:13px">params: <code>path</code>, <code>incDel</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.db/dump &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.db/dump &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Media Playback luna-send commands for LG webOS</title>
+<meta name="description" content="433 LG webOS luna-send methods for media playback, across 36 services like com.webos.media, com.webos.service.dmost, with access levels and commands to run.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/media/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Media Playback luna-send commands for LG webOS">
+<meta property="og:description" content="433 LG webOS luna-send methods for media playback, across 36 services like com.webos.media, com.webos.service.dmost, with access levels and commands to run.">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/media/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Media Playback luna-send commands for LG webOS">
+<meta name="twitter:description" content="433 LG webOS luna-send methods for media playback, across 36 services like com.webos.media, com.webos.service.dmost, with access levels and commands to run.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Media Playback",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/media/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Media Playback luna-send commands for LG webOS",
+   "description": "433 LG webOS luna-send methods for media playback, across 36 services like com.webos.media, com.webos.service.dmost, with access levels and commands to run.",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/media/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Media Playback luna-send services",
+   "numberOfItems": 36,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.media"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.dmost"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.mediacontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.service.mediaindexer"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.service.utp.subtitle"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.photorenderer"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.tv.dvr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.wowplay"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "airplay.service"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.capture"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.tv.capture"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.mediarecorder"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.pipeline.record"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.webos.service.airplayadaptor"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.webos.service.miracast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "ssap:media.controls"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.appcasting"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "airplay.homekit"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.mediadb"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.camera2"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.capturetv"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.webos.service.nais"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.service.remotediag"
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "name": "com.palm.mediadb"
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "name": "com.webos.service.apiadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 26,
+     "name": "com.webos.service.capturepermission"
+    },
+    {
+     "@type": "ListItem",
+     "position": 27,
+     "name": "com.webos.service.gingaccwebservices"
+    },
+    {
+     "@type": "ListItem",
+     "position": 28,
+     "name": "com.webos.service.gingaccwebservices.test"
+    },
+    {
+     "@type": "ListItem",
+     "position": 29,
+     "name": "com.webos.service.multiviewcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 30,
+     "name": "ssap:media.viewer"
+    },
+    {
+     "@type": "ListItem",
+     "position": 31,
+     "name": "com.test.interc.service.fake"
+    },
+    {
+     "@type": "ListItem",
+     "position": 32,
+     "name": "com.webos.service.commercial.scapadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 33,
+     "name": "com.webos.service.dmrsvc"
+    },
+    {
+     "@type": "ListItem",
+     "position": 34,
+     "name": "com.webos.service.mediasync"
+    },
+    {
+     "@type": "ListItem",
+     "position": 35,
+     "name": "com.webos.service.mvpd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 36,
+     "name": "com.webos.service.systemservice"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">media</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat media</div><h1 class="h2" style="margin-top:12px">Media Playback luna-send commands.</h1><p class="lead">The media pipeline: playback sessions, the TV&#x27;s players, DLNA and casting, AirPlay and media metadata.  433 methods in 36 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>433</b><span>methods</span></div><div><b>36</b><span>services</span></div><div><b>196</b><span>documented</span></div><div><b>182</b><span>public</span></div><div><b>9</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=media">open Media Playback in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.media"><code>com.webos.media</code></a></td><td>161</td><td>Core media pipeline service: acquires and manages media resources and pipelines, attaches audio/video, reports buffering and playback…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.dmost"><code>com.webos.service.dmost</code></a></td><td>27</td><td>Appears to manage LG Channels / Channel Plus free streaming: reports broadcast and channel state, enables/disables Channel Plus, handles…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.mediacontroller"><code>com.webos.service.mediacontroller</code></a></td><td>23</td><td>Media controller: registers and activates media sessions and handles AVRCP remote playback control (metadata, cover art, play/mute status,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.mediaindexer"><code>com.webos.service.mediaindexer</code></a></td><td>23</td><td>Media indexer: scans internal and USB storage for audio, video and image files and extracts metadata, exposing media lists and per-device…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.subtitle"><code>com.webos.service.utp.subtitle</code></a></td><td>20</td><td>UTP subtitle/caption service: enables and disables subtitles and DVB subtitle PES, reports current subtitle and rating info, and controls…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.photorenderer"><code>com.webos.service.photorenderer</code></a></td><td>18</td><td>Photo renderer: opens, draws and plays photos with scaling, rotation, translation, color filters, thumbnails and transitions, and captures…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tv.dvr"><code>com.webos.service.tv.dvr</code></a></td><td>18</td><td>TV DVR service: schedules and runs program, manual, scheduled, and external-input recordings, manages timeshift buffering, and plays back…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wowplay"><code>com.webos.service.wowplay</code></a></td><td>18</td><td>WOWCAST wireless-audio/soundbar service: pairs and connects soundbars over BLE and Wi-Fi P2P, reports soundbar status, calibration and…</td></tr><tr><td><a href="/luna-atlas/#/airplay.service"><code>airplay.service</code></a></td><td>17</td><td>Apple AirPlay and HomeKit integration: manages the AirPlay mirroring window, position and audio state, handles MFi authentication keys,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.capture"><code>com.webos.service.capture</code></a></td><td>14</td><td>Screen/video capture service: creates capture handles, configures output, clip regions, and properties, and executes one-shot or…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tv.capture"><code>com.webos.service.tv.capture</code></a></td><td>13</td><td>TV screen-capture service: creates capture handles, executes captures (including one-shot), and configures clip regions, options, output…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.mediarecorder"><code>com.webos.service.mediarecorder</code></a></td><td>11</td><td>Media recorder service (webOS OSE): opens a recorder, sets audio/video and output formats and file, starts/stops/pauses recording, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.pipeline.record"><code>com.webos.pipeline.record</code></a></td><td>8</td><td>Audio/video recording pipeline: starts, stops, pauses and resumes capture of audio, video and still images, with status subscription.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.airplayadaptor"><code>com.webos.service.airplayadaptor</code></a></td><td>8</td><td>AirPlay adaptor: starts, stops, restarts and reports the status of AirPlay, and handles MFi authentication keys.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.miracast"><code>com.webos.service.miracast</code></a></td><td>7</td><td>Miracast (Wi-Fi Display) service: manages device discovery, pairing and connection, reports connection/media/P2P state and statistics, and…</td></tr><tr><td><a href="/luna-atlas/#/ssap:media.controls"><code>ssap:media.controls</code></a></td><td>5</td><td>SSAP media controls (TV remote-control protocol): play, pause, stop, fast-forward and rewind for media playback.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.appcasting"><code>com.webos.service.appcasting</code></a></td><td>4</td><td>Appears to handle app casting/second-screen control: exchanges commands and app messages, relays UIBC (user input back channel) events,…</td></tr><tr><td><a href="/luna-atlas/#/airplay.homekit"><code>airplay.homekit</code></a></td><td>3</td><td>AirPlay/HomeKit integration helper: manages pairing and reports setup-code and pairing events for Apple AirPlay and HomeKit on the TV.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.mediadb"><code>com.webos.mediadb</code></a></td><td>3</td><td>Media metadata database (a db8-style store, including EPG data): find, get, put, delete and batch records, compact and dump the store, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.camera2"><code>com.webos.service.camera2</code></a></td><td>3</td><td>Camera service: enumerates cameras, opens/closes devices, queries and sets formats and properties, captures images and streams, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.capturetv"><code>com.webos.service.capturetv</code></a></td><td>3</td><td>Opaque TV capture pipeline node exposing info/nodeStart/quit; appears to start a capture pipeline node for live TV.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nais"><code>com.webos.service.nais</code></a></td><td>3</td><td>Appears to provide a QR-code-based service plus subtitle controls, reporting service status and supported-platform info.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.remotediag"><code>com.webos.service.remotediag</code></a></td><td>3</td><td>Remote diagnostics service: downloads terms, reports status, and subscribes to and reports media info for remote support/diagnostics.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.mediadb"><code>com.palm.mediadb</code></a></td><td>2</td><td>Legacy Palm media database service exposing image catalog queries such as listing photo albums and images. Limited to media indexing based…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.apiadapter"><code>com.webos.service.apiadapter</code></a></td><td>2</td><td>API adapter that bridges remote/second-screen clients to on-device functions: audio (sound output, mute), system settings, external…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.capturepermission"><code>com.webos.service.capturepermission</code></a></td><td>2</td><td>Screen-capture permission service: checks and sets whether screen capture is permitted.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gingaccwebservices"><code>com.webos.service.gingaccwebservices</code></a></td><td>2</td><td>Ginga interactive-DTV middleware web services (ISDB-T, e.g. Brazil): media controller and key-session handling, key sets and server URL,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gingaccwebservices.test"><code>com.webos.service.gingaccwebservices.test</code></a></td><td>2</td><td>Test interface for Ginga interactive-TV middleware (ISDB) web services: dev mode, consent history, key sets, media controller/key sessions…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.multiviewcontroller"><code>com.webos.service.multiviewcontroller</code></a></td><td>2</td><td>Multiview controller: creates and arranges app views for split/multi-view, changes mode, position and size of sub-apps, and mixes per-view…</td></tr><tr><td><a href="/luna-atlas/#/ssap:media.viewer"><code>ssap:media.viewer</code></a></td><td>2</td><td>SSAP external-control endpoint for the media viewer: opens and closes it.</td></tr><tr><td><a href="/luna-atlas/#/com.test.interc.service.fake"><code>com.test.interc.service.fake</code></a></td><td>1</td><td>Fake/test interceptor service that mocks caption, data-broadcast and settings reads (captions, locale, sound, emergency info) for testing.…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>1</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.dmrsvc"><code>com.webos.service.dmrsvc</code></a></td><td>1</td><td>DLNA Digital Media Renderer service: plays media pushed from DLNA controllers, reporting play status and managing volume, mute, subtitles,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.mediasync"><code>com.webos.service.mediasync</code></a></td><td>1</td><td>Media synchronization service exposing a single setup call; its full role is not inferable from the method name.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.mvpd"><code>com.webos.service.mvpd</code></a></td><td>1</td><td>MVPD (pay-TV operator) service: manages the operator channel list, initial/last channel, parental-control ratings, operator settings and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.systemservice"><code>com.webos.service.systemservice</code></a></td><td>1</td><td>Core system service: reads/sets the clock and time zone, queries device and OS info, manages preferences and ringtones, handles…</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/acquire"><b>acquire</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Requests resources from the mediaserver. Typical usage is to request the number of audio and video decoders or other hardware components used by the pipeline. Acquire calls can be</p><p class="dim" style="font-size:13px">params: <code>resources</code>, <code>connectionId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/acquire &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/acquire &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/attach"><b>attach</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Allows to transfer the control of a pipeline to be handed over to a different client. When this occurs, the original client gets notified that it got detached from the pipeline and</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/attach &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/attach &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/getActivePipelines"><b>getActivePipelines</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Gets JSON formatted output of currently active media pipelines. Note: Typically, a luna methods returns a JSON object as response. However, in this case, an array of object will be</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/getActivePipelines &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/getActivePipelines &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/getDisplayId"><b>getDisplayId</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Gets information about the display on which the specified application instance is launched. Note: This method supports multi-screen playback.</p><p class="dim" style="font-size:13px">params: <code>instanceId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/getDisplayId &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/getDisplayId &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/getForegroundAppInfo"><b>getForegroundAppInfo</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Provides the application&#x27;s foreground information.</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/getForegroundAppInfo &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/getForegroundAppInfo &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/getPipelineState"><b>getPipelineState</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Requests the media server to retrieve pipeline state information.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/getPipelineState &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/getPipelineState &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/load"><b>load</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Loads a new pipeline for the specified URI. The media server returns a unique id to the client which is used for subsequent operations on the pipeline.</p><p class="dim" style="font-size:13px">params: <code>uri</code>, <code>type</code>, <code>payload</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/load &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/load &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/notifyActivity"><b>notifyActivity</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Notifies the media server that the specific pipeline is currently in use. This command raises the timestamp record of the corresponding pipeline to lessen the chance to be picked a</p><p class="dim" style="font-size:13px">params: <code>connectionId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyActivity &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/notifyActivity &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/notifyBackground"><b>notifyBackground</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Marks a pipeline as background. This API is called when the media object in question is carded, deleted, or otherwise removed from view. Note: Background video content is not curre</p><p class="dim" style="font-size:13px">params: <code>connectionId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyBackground &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/notifyBackground &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/notifyForeground"><b>notifyForeground</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Marks a pipeline as foreground. This API is called when the media object in question is un-carded and made visible. Note: Foreground pipeline video content is currently visible on</p><p class="dim" style="font-size:13px">params: <code>connectionId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyForeground &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/notifyForeground &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/notifyPipelineStatus"><b>notifyPipelineStatus</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Notifies the playback status of media pipelines.</p><p class="dim" style="font-size:13px">params: <code>connectionId</code>, <code>pipelineStatus</code>, <code>pid</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyPipelineStatus &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/notifyPipelineStatus &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/pause"><b>pause</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Requests the media server to pause the media object.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/pause &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/pause &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/play"><b>play</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Requests the media server to play the media object.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/play &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/play &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/reacquire"><b>reacquire</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Dynamically adds more resources to the pipeline.</p><p class="dim" style="font-size:13px">params: <code>connectionId</code>, <code>resources</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/reacquire &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/reacquire &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/registerMedia"><b>registerMedia</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Media Content Provider (unmanaged) must register with Media Display Controller to allow proper management of video content and displays or audio outputs. NOTE: In managed case, thi</p><p class="dim" style="font-size:13px">params: <code>mediaId</code>, <code>appId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/registerMedia &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/registerMedia &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/registerPipeline"><b>registerPipeline</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Registers with the Resource Manager. Session is persistent across all start/end transaction and acquire/release cycles. Registered clients and their current resource requirements w</p><p class="dim" style="font-size:13px">params: <code>type</code>, <code>appId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/registerPipeline &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/registerPipeline &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/release"><b>release</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Informs media server the resources are released correctly and are not being used anymore. Note: This method is applicable for unmanaged pipelines only.</p><p class="dim" style="font-size:13px">params: <code>resources</code>, <code>connectionId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/release &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/release &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/seek"><b>seek</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Seeks the media object to a specified time position.</p><p class="dim" style="font-size:13px">params: <code>position</code>, <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/seek &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/seek &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/setPlayRate"><b>setPlayRate</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Sets the pipeline media play rate.</p><p class="dim" style="font-size:13px">params: <code>playRate</code>, <code>mediaId</code>, <code>audioOutput</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setPlayRate &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/setPlayRate &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/setVolume"><b>setVolume</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Sets the volume for the specified media object. Additionally, it specifies the ease (fade-in and fade-out) properties for the media object.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code>, <code>volume</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setVolume &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/setVolume &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/startCameraRecord"><b>startCameraRecord</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Starts camera recording. Camera pipeline stores streamed data from the camera and microphone (if required) at the specified location.</p><p class="dim" style="font-size:13px">params: <code>location</code>, <code>format</code>, <code>mediaId</code>, <code>audio</code>, <code>audioSrc</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/startCameraRecord &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/startCameraRecord &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/stopCameraRecord"><b>stopCameraRecord</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Requests media server to stop camera recording and change to the preview state.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/stopCameraRecord &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/stopCameraRecord &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/subscribe"><b>subscribe</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Subscribes the media client to receive events from a media pipeline. These events, described in the tables above, allow the media client (generally an app or test tool) to monitor</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/subscribe &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/subscribe &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/takeCameraSnapshot"><b>takeCameraSnapshot</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Captures a frame from the camera preview.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code>, <code>location</code>, <code>format</code>, <code>width</code>, <code>height</code>, <code>pictureQuality</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/takeCameraSnapshot &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/takeCameraSnapshot &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/trackAppProcesses"><b>trackAppProcesses</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Subscribes to messages containing the mapping of application ID (appID) and pipeline process ID (PID), i.e. it returns information about which application each managed pipeline bel</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/trackAppProcesses &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/trackAppProcesses &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/tryAcquire"><b>tryAcquire</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Tries to acquire resources from mediaserver. Note: This API will not issue policyAction to other pipelines in order to force them to release resources. If there are insufficient re</p><p class="dim" style="font-size:13px">params: <code>resources</code>, <code>connectionId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/tryAcquire &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/tryAcquire &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/unload"><b>unload</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Unloads the pipeline and releases all AV resources.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/unload &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/unload &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/unregisterPipeline"><b>unregisterPipeline</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Unregisters pipeline with Resource Manager. Note: This method is applicable to unmanaged pipelines only.</p><p class="dim" style="font-size:13px">params: <code>connectionId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/unregisterPipeline &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/unregisterPipeline &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.media/unsubscribe"><b>unsubscribe</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.media</span></div><p>Unsubscribes from media pipeline related events.</p><p class="dim" style="font-size:13px">params: <code>mediaId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/unsubscribe &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.media/unsubscribe &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.pipeline.record/pause"><b>pause</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.pipeline.record</span></div><p>Pauses the recording.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.pipeline.record/pause &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.pipeline.record/pause &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

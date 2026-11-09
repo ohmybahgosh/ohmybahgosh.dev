@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Power luna-send commands for LG webOS</title>
+<meta name="description" content="369 LG webOS luna-send methods for power, across 36 services like com.webos.service.tvpower, com.webos.service.pbsw, with access levels and commands to run.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/power/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Power luna-send commands for LG webOS">
+<meta property="og:description" content="369 LG webOS luna-send methods for power, across 36 services like com.webos.service.tvpower, com.webos.service.pbsw, with access levels and commands to run.">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/power/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Power luna-send commands for LG webOS">
+<meta name="twitter:description" content="369 LG webOS luna-send methods for power, across 36 services like com.webos.service.tvpower, com.webos.service.pbsw, with access levels and commands to run.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Power",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/power/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Power luna-send commands for LG webOS",
+   "description": "369 LG webOS luna-send methods for power, across 36 services like com.webos.service.tvpower, com.webos.service.pbsw, with access levels and commands to run.",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/power/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Power luna-send services",
+   "numberOfItems": 36,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.tvpower"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.pbsw"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.micomservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.palm.power"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.palm.sleep"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.power"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.devicereset"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.gibbips.tvpowerd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.service.gibbs.tvpowerd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.legacybroadcast.tvpowerd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.commercial.scapadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.sensord"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.service.lightingcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.webos.service.tvReservationAgent"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.webos.service.legacybroadcast.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.webos.service.legacybroadcast.power"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.panelcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.pdm"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.service.rollingscreen"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.tv.power"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.utp.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.webos.service.utp.power"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.service.wirelessavcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "name": "ssap:system"
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "name": "com.webos.service.bam"
+    },
+    {
+     "@type": "ListItem",
+     "position": 26,
+     "name": "com.webos.service.eim"
+    },
+    {
+     "@type": "ListItem",
+     "position": 27,
+     "name": "com.webos.service.familycare"
+    },
+    {
+     "@type": "ListItem",
+     "position": 28,
+     "name": "com.webos.service.gibbips.acas"
+    },
+    {
+     "@type": "ListItem",
+     "position": 29,
+     "name": "com.webos.service.gibbips.power"
+    },
+    {
+     "@type": "ListItem",
+     "position": 30,
+     "name": "com.webos.service.gibbs.acas"
+    },
+    {
+     "@type": "ListItem",
+     "position": 31,
+     "name": "com.webos.service.legacybroadcast.acas"
+    },
+    {
+     "@type": "ListItem",
+     "position": 32,
+     "name": "com.webos.service.legacybroadcast.frontend"
+    },
+    {
+     "@type": "ListItem",
+     "position": 33,
+     "name": "com.webos.service.networkinput"
+    },
+    {
+     "@type": "ListItem",
+     "position": 34,
+     "name": "com.webos.service.secondscreen.gateway"
+    },
+    {
+     "@type": "ListItem",
+     "position": 35,
+     "name": "com.webos.service.tvdataexchanger"
+    },
+    {
+     "@type": "ListItem",
+     "position": 36,
+     "name": "com.webos.service.utp.acas"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">power</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat power</div><h1 class="h2" style="margin-top:12px">Power luna-send commands.</h1><p class="lead">Power state, screen off and on, standby and reboot.  Many of these are flagged dangerous for good reason.  369 methods in 36 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>369</b><span>methods</span></div><div><b>36</b><span>services</span></div><div><b>42</b><span>documented</span></div><div><b>108</b><span>public</span></div><div><b>39</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=power">open Power in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.tvpower"><code>com.webos.service.tvpower</code></a></td><td>77</td><td>TV power daemon: powers the TV on/off, reboots (including MICOM), reports power state and power-on reason/time, and registers…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pbsw"><code>com.webos.service.pbsw</code></a></td><td>50</td><td>Broadcast channel-map service: builds and edits the channel list and favorite groups, queries channel info and EPG events, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.micomservice"><code>com.webos.service.micomservice</code></a></td><td>41</td><td>MICOM microcontroller service: reports power on/off history, OLED self-diagnosis, IR custom codes and hardware diagnostics, and controls…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.power"><code>com.palm.power</code></a></td><td>31</td><td>Legacy Palm power-management service: handles suspend/resume and shutdown, battery and charger status queries, battery-saver and…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.sleep"><code>com.palm.sleep</code></a></td><td>29</td><td>Power-management service handling suspend/wake: wake-lock registration, suspend request handshakes, activity start/end, and system…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.power"><code>com.webos.service.power</code></a></td><td>18</td><td>System power service: coordinates shutdown and reboot and manages suspend/resume, letting apps and services register for and acknowledge…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.devicereset"><code>com.webos.service.devicereset</code></a></td><td>17</td><td>Device factory-reset service: triggers reset, reports reset status and progress, requests reboot, and tracks in-store (&#x27;instop&#x27;) demo state.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.tvpowerd"><code>com.webos.service.gibbips.tvpowerd</code></a></td><td>16</td><td>GIBBIPS TV power daemon coordinating power transitions: registers and acknowledges prepare/suspend/resume, active-standby and power-off/on…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.tvpowerd"><code>com.webos.service.gibbs.tvpowerd</code></a></td><td>16</td><td>TV power daemon (gibbs stack): coordinates power-off, suspend, resume, and active-standby transitions by registering requests and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.tvpowerd"><code>com.webos.service.legacybroadcast.tvpowerd</code></a></td><td>16</td><td>TV power daemon (legacy broadcast stack): coordinates power-off, suspend, resume, and active-standby transitions via registered requests…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>12</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.sensord"><code>com.webos.sensord</code></a></td><td>6</td><td>Sensor daemon: enumerates sensors (e.g. accelerometer, ambient-light), configures their power, sensitivity and sample rate, and reads…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.lightingcontroller"><code>com.webos.service.lightingcontroller</code></a></td><td>4</td><td>Ambient/gaming LED lighting controller: reads the ambient and gaming LED MICOM microcontroller firmware versions and updates that firmware.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvReservationAgent"><code>com.webos.service.tvReservationAgent</code></a></td><td>4</td><td>TV reservation/scheduling agent: adds, edits, cancels and lists scheduled recordings and power on/off timers, and reports power state and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.channel"><code>com.webos.service.legacybroadcast.channel</code></a></td><td>2</td><td>Legacy broadcast channel service: large API for channel tuning, scanning, and management, conditional access (ACAS/BCAS), CI/CAM module…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.power"><code>com.webos.service.legacybroadcast.power</code></a></td><td>2</td><td>Legacy broadcast power helper: checks whether background-activity-manager work is required and registers warm-standby completion. Narrow…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.panelcontroller"><code>com.webos.service.panelcontroller</code></a></td><td>2</td><td>Controls and monitors the display panel (OLED/LED): panel/TCON firmware and chip versions, OLED cell info and error logs, usage-time…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pdm"><code>com.webos.service.pdm</code></a></td><td>2</td><td>Physical Device Manager: detects and manages attached USB and storage devices, listing attached devices, ejecting, formatting, and running…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.rollingscreen"><code>com.webos.service.rollingscreen</code></a></td><td>2</td><td>Rollable-screen controller (rollable OLED): drives motor roll position and curve/shade/view states, reports motor/MICOM status, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tv.power"><code>com.webos.service.tv.power</code></a></td><td>2</td><td>TV power service: reboots, turns the screen on and off, cancels a scheduled power-off, and enables Wake-on-LAN.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.channel"><code>com.webos.service.utp.channel</code></a></td><td>2</td><td>Broadcast channel service (utp stack): large API for channel tuning, scanning, and management, conditional access (ACAS/BCAS), CI/CAM…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.power"><code>com.webos.service.utp.power</code></a></td><td>2</td><td>UTP power helper: registers warm-standby completion and checks whether BAM activity is required.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wirelessavcontroller"><code>com.webos.service.wirelessavcontroller</code></a></td><td>2</td><td>Wireless A/V controller (wireless transmitter box/antenna): antenna/beam search and monitoring, modem control, event logs, diagnostics and…</td></tr><tr><td><a href="/luna-atlas/#/ssap:system"><code>ssap:system</code></a></td><td>2</td><td>SSAP system service (TV remote-control protocol): returns system info and host messages and powers the TV on and off.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.bam"><code>com.webos.service.bam</code></a></td><td>1</td><td>Opaque service; appears to register a power-off checker and expose stop/test methods. Little else is inferable from its method names.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.eim"><code>com.webos.service.eim</code></a></td><td>1</td><td>External Input Manager: manages HDMI and other external inputs, including device add/remove, input status, EDID backup, ARC volume, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.familycare"><code>com.webos.service.familycare</code></a></td><td>1</td><td>Family-care/parental-controls service: checks parental settings, monitors usage, and launches usage-care flows.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.acas"><code>com.webos.service.gibbips.acas</code></a></td><td>1</td><td>ACAS conditional-access service (gibbips broadcast stack): reports CAS module, contract, ECM, and power-on control information and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.power"><code>com.webos.service.gibbips.power</code></a></td><td>1</td><td>GIBBIPS power-coordination helper exposing warm-standby completion registration for the broadcast stack.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.acas"><code>com.webos.service.gibbs.acas</code></a></td><td>1</td><td>ACAS conditional-access service (gibbs broadcast stack): reports CAS module, contract, ECM, and power-on control information and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.acas"><code>com.webos.service.legacybroadcast.acas</code></a></td><td>1</td><td>ACAS conditional-access service (legacy broadcast stack): reports CAS module, contract, ECM, and power-on control info and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.frontend"><code>com.webos.service.legacybroadcast.frontend</code></a></td><td>1</td><td>Legacy-broadcast tuner frontend: reports RF lock and signal status, modulation, MPLP, LNB (satellite) shortage status and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.networkinput"><code>com.webos.service.networkinput</code></a></td><td>1</td><td>Network/virtual input service: sends key codes and special/long/repeat key events and exposes pointer, gamepad and touch input sockets,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.secondscreen.gateway"><code>com.webos.service.secondscreen.gateway</code></a></td><td>1</td><td>Second-screen gateway: pairs and lists companion devices, sets up app-to-app channels and host messaging, and reports power state and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvdataexchanger"><code>com.webos.service.tvdataexchanger</code></a></td><td>1</td><td>Opaque service exposing a single startPowerOnDefault method, apparently exchanging TV data at power-on. Role not inferable beyond that.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.acas"><code>com.webos.service.utp.acas</code></a></td><td>1</td><td>ACAS conditional-access service (utp broadcast stack): reports CAS module, contract, ECM, and power-on control info and manages…</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.tvpower/power/getPowerState"><b>power/getPowerState</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.tvpower</span></div><p>Get (or subscribe to) TV power state</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/getPowerState &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.tvpower/power/getPowerState &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:system/turnOff"><b>turnOff</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:system</span></div><p>Power off TV (standby)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://system/turnOff &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://system/turnOff &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:system/turnOn"><b>turnOn</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:system</span></div><p>Power on TV (removed)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://system/turnOn &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://system/turnOn &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

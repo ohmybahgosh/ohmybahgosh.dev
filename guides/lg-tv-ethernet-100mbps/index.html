@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LG TV Ethernet stuck at 100 Mbps? Why, and how to go faster</title>
+<meta name="description" content="LG TVs&#x27; built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="LG TV Ethernet stuck at 100 Mbps? Why, and how to go faster">
+<meta property="og:description" content="LG TVs&#x27; built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LG TV Ethernet stuck at 100 Mbps? Why, and how to go faster">
+<meta name="twitter:description" content="LG TVs&#x27; built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "LG TV Ethernet stuck at 100 Mbps",
+     "item": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "LG TV Ethernet stuck at 100 Mbps?",
+   "description": "LG TVs' built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.",
+   "url": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "LG webOS TV Ethernet speed"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is the LG TV Ethernet port really only 100 Mbit/s?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On LG's TVs, yes: the built-in port is Fast Ethernet, 100 Mbit/s, which works out to about 95 Mbit/s of real traffic. A faster router, switch or cable won't change that. The TV's settings may still say the link is connected at 100."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will a gigabit or 2.5G USB adapter give me gigabit?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Most LG TVs only have USB 2.0 ports, which top out around 300 Mbit/s in practice. That's still about three times the built-in port. On a TV with a USB 3.0 port (usually the blue one), use that for more."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I just plug in a USB Ethernet adapter without root?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The TV may see it, but webOS calls it eth1. The settings then show no wired connection, and some streaming apps, like Paramount+, refuse to play over it. Making the adapter the TV's eth0 needs root, which is what LG-USB-2-ETH0 does."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Wi-Fi faster than the wired port?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Often, on a good Wi-Fi 5 or Wi-Fi 6 connection close to the router. It's less steady than a cable, though, and that's what causes buffering on high-bitrate streams. Test both with the same file or speed test."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What needs more than 100 Mbit/s?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "4K Blu-ray remuxes from Plex, Jellyfin or a local server, which can peak well above 100 Mbit/s, and game streaming like Moonlight at high bitrates. Regular streaming apps use far less."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">lg-tv-ethernet-100mbps</span></div>
+<section class="doc-hero" style="--accent:#3ddc97">
+  <div class="eyebrow">$ cat guides/lg-tv-ethernet-100mbps.md</div>
+  <h1 class="h2" style="margin-top:12px">LG TV Ethernet stuck at 100 Mbps?</h1>
+  <p class="lead">It isn't your cable or your router.  LG builds its TVs' wired port as 100 Mbit/s Ethernet.  Here's what that means, and the ways around it.</p>
+</section><article class="doc" style="--accent:#3ddc97">
+
+<div class="callout" style="--accent:#3ddc97"><b>Short answer.</b>  The built-in port is 100 Mbit/s, about 95 in practice.  On a rooted TV, a USB Ethernet adapter made into the TV's <code>eth0</code> with <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> gets about 250 to 330 Mbit/s over USB 2.0, and settings and streaming apps treat it as the real wired connection.</div>
+
+<h2>Why it's 100 Mbit/s</h2>
+<p>LG's TVs use a Fast Ethernet controller for the wired port: 100 Mbit/s, with real throughput around 95.  It's a hardware limit, so a gigabit switch, a new Cat6 cable or a faster internet plan won't move it.  For most streaming apps that's plenty.  It isn't for high-bitrate local files: 4K Blu-ray remuxes over Plex or Jellyfin, and game streaming with Moonlight, can stutter or buffer.</p>
+
+<h2>Your options</h2>
+<h3>1. Wi-Fi</h3>
+<p>On a strong Wi-Fi 5 or Wi-Fi 6 signal, the TV's Wi-Fi can beat the wired port on paper.  It's also less steady, and steadiness is what high-bitrate playback needs.  Worth a test, especially with the router in the same room.</p>
+<h3>2. A USB Ethernet adapter, on a stock TV</h3>
+<p>Plug one in and the TV may detect it, but webOS names it <code>eth1</code>.  The TV's settings then show "Not Connected", and some apps, like Paramount+, refuse to play over it.  Without root there's no way to change that.</p>
+<h3>3. A USB Ethernet adapter as eth0, on a rooted TV</h3>
+<p><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> makes the adapter the TV's <code>eth0</code>, the name webOS and its apps expect, and parks the built-in port as <code>eth2</code>.  Settings show the wired connection and apps play over the faster link.  It runs at every boot, follows the adapter being plugged and unplugged, can keep Wi-Fi as a backup, and undoes cleanly.  Where your kernel's driver for the adapter is missing or slow, it can find, check and load one built for your exact kernel.</p>
+
+<h2>Real speeds</h2>
+<p>Measured on real TVs, mostly over USB 2.0 ports:</p>
+<div class="tblw"><table class="tbl"><thead><tr><th>setup</th><th>speed</th></tr></thead><tbody><tr><td>Built-in port, any model</td><td>about 95 Mbit/s</td></tr><tr><td>RTL8153 adapter, generic <code>cdc_ncm</code> driver (2024 C4)</td><td>200 to 255 Mbit/s, with drops</td></tr><tr><td>Same adapter with a Realtek <code>r8152</code> driver</td><td>290 to 330 Mbit/s</td></tr><tr><td>RTL8156 on a 2022 C2, webOS 25</td><td>272 down, 287 up</td></tr><tr><td>RTL8153 on a 2024 G4, webOS 24</td><td>293 down, 285 up</td></tr><tr><td>ASIX AX88179 on a 2020 UN7300, webOS 5</td><td>228 down, 325 up</td></tr><tr><td>RTL8153 on a 2026 G6, webOS 26</td><td>247 down, 312 up</td></tr></tbody></table></div>
+<p>USB 2.0 is the ceiling, at around 300 Mbit/s.  Still about three times the built-in port, and plenty for 4K remuxes.  Sources and more results are on the <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0 page</a>.</p>
+
+<h2>What you need</h2>
+<ul>
+<li>A rooted LG TV with the Homebrew Channel: see the <a href="/install/">install guide</a>.</li>
+<li>A USB Ethernet adapter with a chip your TV has a driver for: see <a href="/guides/usb-ethernet-adapter-lg-tv/">which adapter to buy</a>.</li>
+<li>Wi-Fi connected while you set it up, as a way back in while the ports switch over.</li>
+</ul>
+<p>Then add <code>https://ohmybahgosh.dev/repo</code> to the Homebrew Channel, install LG-USB-2-ETH0 and choose <b class="c-wh">Run at every boot</b>.</p>
+
+<h2>Check the link isn't 100 Mbit/s too</h2>
+<p>If the adapter also shows 100 Mbit/s, it's usually the cable: flat and older cables often carry only two of their four wire pairs.  Try a Cat5e or better cable, or another port on the router or switch.  LG-USB-2-ETH0's status screen flags a 100 Mbit/s link.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Best USB Ethernet adapters for LG TVs</b><span>Chips that work, and ones to skip</span></a><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>The app and script</span></a><a class="card gcard" href="/lg-usb-2-eth0/faq/"><b>LG-USB-2-ETH0 FAQ</b><span>Updates, Wi-Fi, wake-on-LAN and more</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Is the LG TV Ethernet port really only 100 Mbit/s?</summary><div>On LG's TVs, yes: the built-in port is Fast Ethernet, 100 Mbit/s, which works out to about 95 Mbit/s of real traffic.  A faster router, switch or cable won't change that.  The TV's settings may still say the link is connected at 100.</div></details>
+<details class="faq"><summary>Will a gigabit or 2.5G USB adapter give me gigabit?</summary><div>No.  Most LG TVs only have USB 2.0 ports, which top out around 300 Mbit/s in practice.  That's still about three times the built-in port.  On a TV with a USB 3.0 port (usually the blue one), use that for more.</div></details>
+<details class="faq"><summary>Can I just plug in a USB Ethernet adapter without root?</summary><div>The TV may see it, but webOS calls it <code>eth1</code>.  The settings then show no wired connection, and some streaming apps, like Paramount+, refuse to play over it.  Making the adapter the TV's <code>eth0</code> needs root, which is what LG-USB-2-ETH0 does.</div></details>
+<details class="faq"><summary>Is Wi-Fi faster than the wired port?</summary><div>Often, on a good Wi-Fi 5 or Wi-Fi 6 connection close to the router.  It's less steady than a cable, though, and that's what causes buffering on high-bitrate streams.  Test both with the same file or speed test.</div></details>
+<details class="faq"><summary>What needs more than 100 Mbit/s?</summary><div>4K Blu-ray remuxes from Plex, Jellyfin or a local server, which can peak well above 100 Mbit/s, and game streaming like Moonlight at high bitrates.  Regular streaming apps use far less.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

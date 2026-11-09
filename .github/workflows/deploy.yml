@@ -39,6 +39,9 @@ jobs:
           curl -fsSL --retry 3 -o /tmp/catalog.json https://raw.githubusercontent.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/main/web/catalog.json
           python3 -c "import json,sys; d=json.load(open('/tmp/catalog.json')); assert len(d['services']) > 100 and d['counts']['methods'] > 1000"
           mv /tmp/catalog.json luna-atlas/catalog.json
+      - name: Rebuild the Luna Atlas category pages and the sitemap
+        continue-on-error: true   # keeps the committed pages if this fails
+        run: python3 tools/build-luna-pages.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

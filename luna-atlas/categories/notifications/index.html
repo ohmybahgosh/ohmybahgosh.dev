@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Notifications &amp; Alerts luna-send commands for LG webOS</title>
+<meta name="description" content="82 LG webOS luna-send methods for notifications &amp; alerts, across 23 services like com.webos.notification, com.webos.service.independanotification, with access…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/notifications/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Notifications &amp; Alerts luna-send commands for LG webOS">
+<meta property="og:description" content="82 LG webOS luna-send methods for notifications &amp; alerts, across 23 services like com.webos.notification, com.webos.service.independanotification, with access…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/notifications/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notifications &amp; Alerts luna-send commands for LG webOS">
+<meta name="twitter:description" content="82 LG webOS luna-send methods for notifications &amp; alerts, across 23 services like com.webos.notification, com.webos.service.independanotification, with access…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Notifications & Alerts",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/notifications/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Notifications & Alerts luna-send commands for LG webOS",
+   "description": "82 LG webOS luna-send methods for notifications & alerts, across 23 services like com.webos.notification, com.webos.service.independanotification, with access…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/notifications/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Notifications & Alerts luna-send services",
+   "numberOfItems": 23,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.notification"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.independanotification"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.bluetooth2"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.service.apiadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.service.eventmonitor"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.pqcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "ssap:system.notifications"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "amazon.alexa.adapter.plugin"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.palm.webappmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.aiinferencemanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.blegatt"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.bthidmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.service.chromecast.provisioning"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.webos.service.commercial.scapadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.webos.service.ics"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.webos.service.iotclient"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.irdbmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.miracast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.service.nms"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.tvReservationAgent"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.voiceconductor"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.webos.service.wampluggable.hbbtv"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.surfacemanager"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">notifications</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat notifications</div><h1 class="h2" style="margin-top:12px">Notifications &amp; Alerts luna-send commands.</h1><p class="lead">Toasts, alerts and pop-ups on screen.  The friendliest place to start with luna-send.  82 methods in 23 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>82</b><span>methods</span></div><div><b>23</b><span>services</span></div><div><b>28</b><span>documented</span></div><div><b>34</b><span>public</span></div><div><b>3</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=notifications">open Notifications &amp; Alerts in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.notification"><code>com.webos.notification</code></a></td><td>42</td><td>System notification service: creates and closes toasts, alerts, input alerts, PIN-code prompts and app/remote notifications.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.independanotification"><code>com.webos.service.independanotification</code></a></td><td>9</td><td>Integration with the Independa elder-care/video-call platform: launches the service, handles incoming video-call decline, photo icons and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.bluetooth2"><code>com.webos.service.bluetooth2</code></a></td><td>5</td><td>Bluetooth stack service: manages the adapter, device discovery and pairing, and profiles such as A2DP, HFP and GATT for audio and input…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.apiadapter"><code>com.webos.service.apiadapter</code></a></td><td>4</td><td>API adapter that bridges remote/second-screen clients to on-device functions: audio (sound output, mute), system settings, external…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.eventmonitor"><code>com.webos.service.eventmonitor</code></a></td><td>2</td><td>Event monitor with pluggable handlers: delivers events to plugins and surfaces network/Wi-Fi-Direct notifications.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pqcontroller"><code>com.webos.service.pqcontroller</code></a></td><td>2</td><td>Picture-quality (PQ) controller: adjusts white balance and N-point white balance, luminance, AI picture and external PQ data, and resets…</td></tr><tr><td><a href="/luna-atlas/#/ssap:system.notifications"><code>ssap:system.notifications</code></a></td><td>2</td><td>SSAP (remote control protocol) notifications endpoint: closes on-screen alerts and toasts over the TV&#x27;s external control socket.</td></tr><tr><td><a href="/luna-atlas/#/amazon.alexa.adapter.plugin"><code>amazon.alexa.adapter.plugin</code></a></td><td>1</td><td>Alexa Voice Service (AVS) adapter plugin: handles far-field voice recognition, AVS music and status, access tokens and CBL login data,…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.webappmanager"><code>com.palm.webappmanager</code></a></td><td>1</td><td>Web app manager: launches apps and URLs, kills/pauses apps, lists running apps, clears browsing data, and manages web-process memory.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.aiinferencemanager"><code>com.webos.service.aiinferencemanager</code></a></td><td>1</td><td>AI inference manager: installs machine-learning models, requests and releases inference resources, and reports device inference capability…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.blegatt"><code>com.webos.service.blegatt</code></a></td><td>1</td><td>Bluetooth Low Energy GATT service: connects to BLE devices, discovers services, reads/writes characteristics and descriptors, and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.bthidmanager"><code>com.webos.service.bthidmanager</code></a></td><td>1</td><td>Bluetooth HID manager: discovers, pairs, connects and removes input devices (remotes, keyboards, gamepads) and reports paired-device and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.chromecast.provisioning"><code>com.webos.service.chromecast.provisioning</code></a></td><td>1</td><td>Chromecast built-in (DIAL) provisioning: reports status and DIAL UUID, toggles the activation popup and launches Chromecast settings.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>1</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ics"><code>com.webos.service.ics</code></a></td><td>1</td><td>IR-blaster / universal-control service: manages a database of IR and IP-controlled devices, with brand/model/key lists, device add/delete…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.iotclient"><code>com.webos.service.iotclient</code></a></td><td>1</td><td>IoT client: discovers, lists and controls connected IoT devices, manages linked accounts, macros and registration tokens, and handles IoT…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.irdbmanager"><code>com.webos.service.irdbmanager</code></a></td><td>1</td><td>IR database manager: manages the infrared code database for controlling external devices, listing brands/manufacturers and key lists,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.miracast"><code>com.webos.service.miracast</code></a></td><td>1</td><td>Miracast (Wi-Fi Display) service: manages device discovery, pairing and connection, reports connection/media/P2P state and statistics, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nms"><code>com.webos.service.nms</code></a></td><td>1</td><td>Appears to be a network management/connection service handling connect, resume, suspend-prepare and notification events. Opaque;.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvReservationAgent"><code>com.webos.service.tvReservationAgent</code></a></td><td>1</td><td>TV reservation/scheduling agent: adds, edits, cancels and lists scheduled recordings and power on/off timers, and reports power state and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceconductor"><code>com.webos.service.voiceconductor</code></a></td><td>1</td><td>Voice-assistant orchestration service: recognizes intents by voice or text, reports recognition status and supported languages, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wampluggable.hbbtv"><code>com.webos.service.wampluggable.hbbtv</code></a></td><td>1</td><td>HbbTV (Hybrid Broadcast Broadband TV) service: manages HbbTV app lifecycle, reserves and releases broadcast resources, makes HTTP…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.surfacemanager"><code>com.webos.surfacemanager</code></a></td><td>1</td><td>Surface manager (window compositor): reports foreground app and window/surface info, manages surface lifecycle and multiview layout,…</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/closeAlert"><b>closeAlert</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Closes the currently displayed alert notification.</p><p class="dim" style="font-size:13px">params: <code>alertId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeAlert &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/closeAlert &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/closeAllAlerts"><b>closeAllAlerts</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Closes all the open alerts. Note: This method is for internal use. It must only be used by com.webos.service.battest during BAT test . If the caller is not com.webos.service.battes</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeAllAlerts &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/closeAllAlerts &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/closeToast"><b>closeToast</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Removes a toast notification from the database.</p><p class="dim" style="font-size:13px">params: <code>toastId</code>, <code>sourceId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeToast &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/closeToast &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/createAlert"><b>createAlert</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Creates a system alert notification.</p><p class="dim" style="font-size:13px">params: <code>iconUrl</code>, <code>title</code>, <code>message</code>, <code>modal</code>, <code>buttons</code>, <code>onclose</code>, <code>type</code>, <code>isSysReq</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createAlert &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/createAlert &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/createToast"><b>createToast</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Creates a toast notification.</p><p class="dim" style="font-size:13px">params: <code>sourceId</code>, <code>iconUrl</code>, <code>message</code>, <code>onclick</code>, <code>noaction</code>, <code>stale</code>, <code>persistent</code>, <code>isSysReq</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/createToast &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/disable"><b>disable</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Disables all notification features (Toast, Alert, Input Alert, Pin Prompt). Note: Only a privileged application or service can call this method.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/disable &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/disable &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/enable"><b>enable</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Enables all notification features (Toast, Alert, Input Alert, Pin Prompt). Note: Only a privileged app/service can call this method.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/enable &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/enable &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/getAlertNotification"><b>getAlertNotification</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Subscribe to create alert notifications. Note: This method should only be used by the Surface Manager .</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/getAlertNotification &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/getAlertNotification &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/getToastCount"><b>getToastCount</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Queries the toast notification details of the stored messages and provides the read/unread count of the toast notifications. Note: Only &quot;com.webos.surfacemanager&quot; and &quot;com.webos.ap</p><p class="dim" style="font-size:13px">params: <code>subscribe</code>, <code>displayId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/getToastCount &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/getToastCount &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/getToastList"><b>getToastList</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Lists the toasts created for the app/client based on the user logged into the particular session.</p><p class="dim" style="font-size:13px">params: <code>displayId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/getToastList &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/getToastList &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/getToastNotification"><b>getToastNotification</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Subscribe to created toast notification. Note: This method should only be used by Surface Manager only.</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/getToastNotification &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/getToastNotification &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/removeAllNotification"><b>removeAllNotification</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Removes all notifications that are currently being displayed.</p><p class="dim" style="font-size:13px">params: <code>displayId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/removeAllNotification &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/removeAllNotification &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/removeNotification"><b>removeNotification</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Deletes the given notification(s) from DB. We can remove given set of notifications or remove all notifications from a given sourceId.</p><p class="dim" style="font-size:13px">params: <code>removeNotiId</code>, <code>sourceId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/removeNotification &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/removeNotification &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.notification/setToastStatus"><b>setToastStatus</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.notification</span></div><p>Specifies whether the toast is to be marked as read or unread.</p><p class="dim" style="font-size:13px">params: <code>toastId</code>, <code>readStatus</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/setToastStatus &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.notification/setToastStatus &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:system.notifications/closeAlert"><b>closeAlert</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:system.notifications</span></div><p>Close an alert (required after the createAlert luna trick so the alert does not stay on screen)</p><p class="dim" style="font-size:13px">params: <code>alertId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://system.notifications/closeAlert &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://system.notifications/closeAlert &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:system.notifications/closeToast"><b>closeToast</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:system.notifications</span></div><p>Close a toast</p><p class="dim" style="font-size:13px">params: <code>toastId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://system.notifications/closeToast &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://system.notifications/closeToast &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -246,6 +246,13 @@
     ...REPOS.map((r) => ({ i: '↗', t: `open github/${r.name}`, s: 'GitHub', u: `https://github.com/ohmybahgosh/${r.name}` })),
     { i: '↗', t: 'open tivibro.app', s: 'TiviBro website', u: 'https://tivibro.app/?utm_source=ohmybahgosh.dev&utm_medium=referral&utm_campaign=ohmybahgosh&utm_content=command_palette' },
     { i: '↗', t: 'open github/ohmybahgosh', s: 'all repos', u: 'https://github.com/ohmybahgosh' },
+    { i: '▸', t: 'cd install', s: 'install guide: root, Homebrew Channel, repo', u: ROOT + 'install/' },
+    { i: '▸', t: 'cd guides', s: 'how-tos for rooted LG TVs', u: ROOT + 'guides/' },
+    ...[['lg-tv-ethernet-100mbps', 'LG TV Ethernet stuck at 100 Mbps'], ['usb-ethernet-adapter-lg-tv', 'which USB Ethernet adapter'], ['ssh-into-lg-tv', 'SSH into a rooted LG TV'], ['homebrew-channel-repository', 'add a Homebrew Channel repo'], ['iptv-player-lg-tv', 'an IPTV player for LG TVs']]
+      .map(([g, d]) => ({ i: '▸', t: `cat guides/${g}`, s: d, u: ROOT + 'guides/' + g + '/' })),
+    ...REPOS.filter((r) => !r.tool).map((r) => ({ i: '?', t: `man ${r.slug}`, s: r.name + ' FAQ', u: ROOT + r.slug + '/faq/' })),
+    { i: '▸', t: 'cd luna-atlas/examples', s: 'common luna-send commands', u: ROOT + 'luna-atlas/examples/' },
+    { i: '▸', t: 'cd luna-atlas/categories', s: 'luna-send commands by category', u: ROOT + 'luna-atlas/categories/' },
     { i: '?', t: 'whoami', s: 'about OhMyBahGosh', u: ROOT + 'about/' },
     { i: '@', t: 'mail hello', s: 'contact and templates', u: ROOT + 'contact/' },
     { i: '◐', t: 'theme toggle', s: 'light / dark', u: '#theme' },

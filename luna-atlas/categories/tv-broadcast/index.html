@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TV Broadcast / DVR luna-send commands for LG webOS</title>
+<meta name="description" content="1,901 LG webOS luna-send methods for tv broadcast / dvr, across 83 services like com.webos.service.legacybroadcast.channel, com.webos.service.utp.channel,…">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/tv-broadcast/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="TV Broadcast / DVR luna-send commands for LG webOS">
+<meta property="og:description" content="1,901 LG webOS luna-send methods for tv broadcast / dvr, across 83 services like com.webos.service.legacybroadcast.channel, com.webos.service.utp.channel,…">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/tv-broadcast/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TV Broadcast / DVR luna-send commands for LG webOS">
+<meta name="twitter:description" content="1,901 LG webOS luna-send methods for tv broadcast / dvr, across 83 services like com.webos.service.legacybroadcast.channel, com.webos.service.utp.channel,…">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "TV Broadcast / DVR",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/tv-broadcast/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "TV Broadcast / DVR luna-send commands for LG webOS",
+   "description": "1,901 LG webOS luna-send methods for tv broadcast / dvr, across 83 services like com.webos.service.legacybroadcast.channel, com.webos.service.utp.channel,…",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/tv-broadcast/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "TV Broadcast / DVR luna-send services",
+   "numberOfItems": 83,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.legacybroadcast.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.utp.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.legacybroadcast.dvr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.service.iepg"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.service.utp.dvr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.utp.broadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.gibbips.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.utp.databroadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.service.legacybroadcast.databroadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.avf"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.legacybroadcast.broadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.gibbs.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.service.tvReservationAgent"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.webos.service.gibbips.broadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "com.webos.service.gibbs.broadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.webos.service.nabs.dvr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.legacybroadcast.subtitle"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.gibbips.databroadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.service.legacybroadcast.frontend"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.gibbs.databroadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.tv.broadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.webos.service.favorites"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.service.nabs.broadcast"
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "name": "com.webos.service.mvpd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "name": "com.webos.service.nabs.channel"
+    },
+    {
+     "@type": "ListItem",
+     "position": 26,
+     "name": "com.webos.service.gibbips.program"
+    },
+    {
+     "@type": "ListItem",
+     "position": 27,
+     "name": "com.webos.service.wampluggable.hbbtv"
+    },
+    {
+     "@type": "ListItem",
+     "position": 28,
+     "name": "com.webos.service.gibbips.dvr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 29,
+     "name": "com.webos.service.gibbs.dvr"
+    },
+    {
+     "@type": "ListItem",
+     "position": 30,
+     "name": "com.webos.service.prs"
+    },
+    {
+     "@type": "ListItem",
+     "position": 31,
+     "name": "com.webos.service.tvrm"
+    },
+    {
+     "@type": "ListItem",
+     "position": 32,
+     "name": "com.webos.service.gibbs.subtitle"
+    },
+    {
+     "@type": "ListItem",
+     "position": 33,
+     "name": "com.webos.service.gibbips.debug"
+    },
+    {
+     "@type": "ListItem",
+     "position": 34,
+     "name": "com.webos.service.gibbips.frontend"
+    },
+    {
+     "@type": "ListItem",
+     "position": 35,
+     "name": "com.webos.service.gibbs.frontend"
+    },
+    {
+     "@type": "ListItem",
+     "position": 36,
+     "name": "com.webos.service.gibbips.acas"
+    },
+    {
+     "@type": "ListItem",
+     "position": 37,
+     "name": "com.webos.service.gibbips.subtitle"
+    },
+    {
+     "@type": "ListItem",
+     "position": 38,
+     "name": "com.webos.service.gibbs.acas"
+    },
+    {
+     "@type": "ListItem",
+     "position": 39,
+     "name": "com.webos.service.legacybroadcast.acas"
+    },
+    {
+     "@type": "ListItem",
+     "position": 40,
+     "name": "com.webos.service.legacybroadcast.teletext"
+    },
+    {
+     "@type": "ListItem",
+     "position": 41,
+     "name": "com.webos.service.gibbs.debug"
+    },
+    {
+     "@type": "ListItem",
+     "position": 42,
+     "name": "com.webos.service.legacybroadcast.program"
+    },
+    {
+     "@type": "ListItem",
+     "position": 43,
+     "name": "com.webos.service.legacybroadcast.swupdate"
+    },
+    {
+     "@type": "ListItem",
+     "position": 44,
+     "name": "com.webos.service.gibbs.program"
+    },
+    {
+     "@type": "ListItem",
+     "position": 45,
+     "name": "com.webos.service.legacybroadcast.lbdsmcc"
+    },
+    {
+     "@type": "ListItem",
+     "position": 46,
+     "name": "ssap:tv"
+    },
+    {
+     "@type": "ListItem",
+     "position": 47,
+     "name": "com.webos.service.broadcastchannelmixer"
+    },
+    {
+     "@type": "ListItem",
+     "position": 48,
+     "name": "com.webos.service.nabs.subtitle"
+    },
+    {
+     "@type": "ListItem",
+     "position": 49,
+     "name": "com.webos.epgdb"
+    },
+    {
+     "@type": "ListItem",
+     "position": 50,
+     "name": "com.webos.service.gibb.channel"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">tv-broadcast</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat tv-broadcast</div><h1 class="h2" style="margin-top:12px">TV Broadcast / DVR luna-send commands.</h1><p class="lead">Tuning, channels, the programme guide, recording and everything else the TV&#x27;s broadcast side does: antenna and cable, CI modules and the DVR.  1,901 methods in 83 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>1,901</b><span>methods</span></div><div><b>83</b><span>services</span></div><div><b>31</b><span>documented</span></div><div><b>123</b><span>public</span></div><div><b>64</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=tv-broadcast">open TV Broadcast / DVR in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.channel"><code>com.webos.service.legacybroadcast.channel</code></a></td><td>351</td><td>Legacy broadcast channel service: large API for channel tuning, scanning, and management, conditional access (ACAS/BCAS), CI/CAM module…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.channel"><code>com.webos.service.utp.channel</code></a></td><td>310</td><td>Broadcast channel service (utp stack): large API for channel tuning, scanning, and management, conditional access (ACAS/BCAS), CI/CAM…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.dvr"><code>com.webos.service.legacybroadcast.dvr</code></a></td><td>91</td><td>Legacy broadcast DVR service: controls recording playback (seek, frame-step, subtitles), queries recording storage performance, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.iepg"><code>com.webos.service.iepg</code></a></td><td>88</td><td>iEPG channel/program-guide service: manages the channel map and lists, channel numbers, favorites and shortcut keys, and EPG data for live…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.dvr"><code>com.webos.service.utp.dvr</code></a></td><td>65</td><td>DVR service (utp broadcast stack): plays back recordings with seek and frame-step, manages subtitles, and reports playing content, mode,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.broadcast"><code>com.webos.service.utp.broadcast</code></a></td><td>60</td><td>Unified broadcast (Live TV) control: changes channels and volatile channels, reports broadcast state and channel-change status, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.channel"><code>com.webos.service.gibbips.channel</code></a></td><td>52</td><td>IP-broadcast channel management: builds and edits the channel map, queries channel and service lists and info, and handles ACAS…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.databroadcast"><code>com.webos.service.utp.databroadcast</code></a></td><td>47</td><td>UTP data-broadcast service: section filtering, EPG/service/event info, DVB descriptors and DRM handling for interactive/data broadcast…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.databroadcast"><code>com.webos.service.legacybroadcast.databroadcast</code></a></td><td>42</td><td>Legacy DVB/ATSC data-broadcast service: adds section filters, attaches stream events, builds DSM-CC/carousel filters, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.avf"><code>com.webos.service.avf</code></a></td><td>41</td><td>Appears to drive the &#x27;My Zoom&#x27;/AVF video feature and picture-in-picture: zoom capture and playback, PIP show/hide, freeze, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.broadcast"><code>com.webos.service.legacybroadcast.broadcast</code></a></td><td>41</td><td>Legacy broadcast (Live TV) control: changes channels and services, reports current channel and broadcast state, and queries…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.channel"><code>com.webos.service.gibbs.channel</code></a></td><td>40</td><td>Broadcast channel management: builds, edits, imports and exports the channel map, queries channels, signal level and audio language, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvReservationAgent"><code>com.webos.service.tvReservationAgent</code></a></td><td>37</td><td>TV reservation/scheduling agent: adds, edits, cancels and lists scheduled recordings and power on/off timers, and reports power state and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.broadcast"><code>com.webos.service.gibbips.broadcast</code></a></td><td>33</td><td>GIBBIPS live-broadcast service: changes channels and reports broadcast/channel/play state, audio and component info, emergency info and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.broadcast"><code>com.webos.service.gibbs.broadcast</code></a></td><td>32</td><td>GIBBS live-broadcast service: changes channels and reports broadcast/channel/play state, audio info, dialog-enhancement and emergency info…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nabs.dvr"><code>com.webos.service.nabs.dvr</code></a></td><td>30</td><td>DVR service (nabs broadcast stack): manages recording and timeshift buffering, reporting recording duration, quality, type, source, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.subtitle"><code>com.webos.service.legacybroadcast.subtitle</code></a></td><td>29</td><td>Legacy broadcast subtitle/caption service: enables and disables subtitles and closed captions, manages caption position, size, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.databroadcast"><code>com.webos.service.gibbips.databroadcast</code></a></td><td>27</td><td>GIBBIPS interactive/ATSC data-broadcast service: caches broadcast requests (including DASH), reports EPG and service info, DRM operations,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.frontend"><code>com.webos.service.legacybroadcast.frontend</code></a></td><td>27</td><td>Legacy-broadcast tuner frontend: reports RF lock and signal status, modulation, MPLP, LNB (satellite) shortage status and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.databroadcast"><code>com.webos.service.gibbs.databroadcast</code></a></td><td>26</td><td>Data-broadcast service (gibbs stack): caches and fetches interactive/data-broadcast content (including DASH), reports EPG and service…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tv.broadcast"><code>com.webos.service.tv.broadcast</code></a></td><td>24</td><td>TV broadcast/tuner control: changes channel, play speed and volatile channel, reports broadcast and channel state and the current channel,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.favorites"><code>com.webos.service.favorites</code></a></td><td>23</td><td>Favorites service: manages favorite TV channels (add, edit, remove, pair) and favorite/recommended shows, including interactive and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nabs.broadcast"><code>com.webos.service.nabs.broadcast</code></a></td><td>21</td><td>NABS live-broadcast service: changes channels and reports broadcast/channel state, audio/video and signal info, and hybrid-TV events for…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.mvpd"><code>com.webos.service.mvpd</code></a></td><td>20</td><td>MVPD (pay-TV operator) service: manages the operator channel list, initial/last channel, parental-control ratings, operator settings and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nabs.channel"><code>com.webos.service.nabs.channel</code></a></td><td>20</td><td>ATSC broadcast channel and scan service: tunes channels, reports signal level and audio language, and runs ATSC automatic and manual…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.program"><code>com.webos.service.gibbips.program</code></a></td><td>18</td><td>IP-broadcast program-guide (EPG) service: scans and queries event/program listings, ratings, images and recommendations, and toggles the…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wampluggable.hbbtv"><code>com.webos.service.wampluggable.hbbtv</code></a></td><td>18</td><td>HbbTV (Hybrid Broadcast Broadband TV) service: manages HbbTV app lifecycle, reserves and releases broadcast resources, makes HTTP…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.dvr"><code>com.webos.service.gibbips.dvr</code></a></td><td>16</td><td>IP-broadcast DVR recording: starts and stops manual, scheduled and program recordings and reports recording duration, source, type and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.dvr"><code>com.webos.service.gibbs.dvr</code></a></td><td>16</td><td>GIBBS DVR service: starts and stops manual, program and scheduled TV recordings and reports recording duration, type, source and remaining…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.prs"><code>com.webos.service.prs</code></a></td><td>16</td><td>Program recommendation service (PRS): manages recommended-channel lists and reports playback, scheduled recordings/watches and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvrm"><code>com.webos.service.tvrm</code></a></td><td>15</td><td>TV resource manager: requests, releases and arbitrates tuner/pipeline resources through transactions, policy actions and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.subtitle"><code>com.webos.service.gibbs.subtitle</code></a></td><td>12</td><td>Broadcast subtitle/caption service: enables and selects subtitles, reports the subtitle list and state, sets caption position, and handles…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.debug"><code>com.webos.service.gibbips.debug</code></a></td><td>11</td><td>Debug interface for the GIBBIPS broadcast stack: dumps state, imports/exports channel lists, and controls media/memory/DVB-I debugging.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.frontend"><code>com.webos.service.gibbips.frontend</code></a></td><td>11</td><td>Broadcast tuner frontend service (gibbips stack): opens/closes and connects the demodulator frontend, requests tuning, checks signal lock,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.frontend"><code>com.webos.service.gibbs.frontend</code></a></td><td>11</td><td>Broadcast tuner front-end control: opens/closes the demodulator, tunes, reports lock and signal state, and configures PLP (physical-layer…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.acas"><code>com.webos.service.gibbips.acas</code></a></td><td>10</td><td>ACAS conditional-access service (gibbips broadcast stack): reports CAS module, contract, ECM, and power-on control information and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.subtitle"><code>com.webos.service.gibbips.subtitle</code></a></td><td>10</td><td>GIBBIPS subtitle/caption service: enables/disables subtitles, lists them, reports rating and state, and serves hybrid-TV caption data.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.acas"><code>com.webos.service.gibbs.acas</code></a></td><td>10</td><td>ACAS conditional-access service (gibbs broadcast stack): reports CAS module, contract, ECM, and power-on control information and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.acas"><code>com.webos.service.legacybroadcast.acas</code></a></td><td>10</td><td>ACAS conditional-access service (legacy broadcast stack): reports CAS module, contract, ECM, and power-on control info and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.teletext"><code>com.webos.service.legacybroadcast.teletext</code></a></td><td>10</td><td>Legacy-broadcast teletext service: enables/disables teletext (and teletext PES), and reports teletext data, lists and state.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.debug"><code>com.webos.service.gibbs.debug</code></a></td><td>9</td><td>GIBBS broadcast-stack debug interface: dumps channel, media, memory and NRT state, imports/exports the channel list and reports pipeline…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.program"><code>com.webos.service.legacybroadcast.program</code></a></td><td>9</td><td>Legacy-broadcast program-guide service: scans the EPG and program details, reports the current program rating and toggles the guide on/off.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.swupdate"><code>com.webos.service.legacybroadcast.swupdate</code></a></td><td>9</td><td>Legacy-broadcast OTA software update: starts and cancels updates, reports progress and version, and manages warm-standby (standby-time) OTA.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.program"><code>com.webos.service.gibbs.program</code></a></td><td>8</td><td>GIBBS program-guide service: scans the EPG and detailed program info, toggles EPG on/off, and runs SQLite queries against the guide…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.lbdsmcc"><code>com.webos.service.legacybroadcast.lbdsmcc</code></a></td><td>8</td><td>Legacy broadcast DSM-CC service: mounts and attaches DSM-CC object carousels, retrieves carousel files, and registers stream events for…</td></tr><tr><td><a href="/luna-atlas/#/ssap:tv"><code>ssap:tv</code></a></td><td>7</td><td>SSAP TV service (TV remote-control protocol): changes channels, lists channels and programs, reports the current channel, and switches…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.broadcastchannelmixer"><code>com.webos.service.broadcastchannelmixer</code></a></td><td>5</td><td>Broadcast channel-list editor: changes and moves channel numbers, merges channel lists and reports network IDs.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nabs.subtitle"><code>com.webos.service.nabs.subtitle</code></a></td><td>5</td><td>NABS subtitle/caption service: enables and disables subtitles and gets/sets caption position.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.epgdb"><code>com.webos.epgdb</code></a></td><td>4</td><td>DB8 database instance for EPG (electronic program guide) data: stores typed records with find/get/del/batch queries, plus EPG backup,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibb.channel"><code>com.webos.service.gibb.channel</code></a></td><td>4</td><td>GIBB channel-map service: imports, exports, clears and saves the TV channel list/map.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.pcap"><code>com.webos.service.gibbips.pcap</code></a></td><td>4</td><td>GIBBIPS packet-capture helper for the broadcast stack: open, close, play and stop a pcap capture.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.pcap"><code>com.webos.service.gibbs.pcap</code></a></td><td>4</td><td>Broadcast packet-capture helper (gibbs stack): opens, plays, stops, and closes a capture, likely for diagnostics.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.hybridtvapiserver"><code>com.webos.service.hybridtvapiserver</code></a></td><td>4</td><td>Hybrid-TV (HbbTV/broadband) API server: selects and plays channels, selects stream components, positions the video window, and provides a…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.time"><code>com.webos.service.legacybroadcast.time</code></a></td><td>4</td><td>Legacy broadcast time service: reports UTC, local-time offset and DST rules decoded from the broadcast stream.</td></tr><tr><td><a href="/luna-atlas/#/com.test.interc.service.fake"><code>com.test.interc.service.fake</code></a></td><td>3</td><td>Fake/test interceptor service that mocks caption, data-broadcast and settings reads (captions, locale, sound, emergency info) for testing.…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips"><code>com.webos.service.gibbips</code></a></td><td>3</td><td>Appears to be an IP-broadcast (IPTV) core service; plays channel files and registers broadcast data.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs"><code>com.webos.service.gibbs</code></a></td><td>3</td><td>Appears to be a broadcast core service; plays channel files and registers broadcast data.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast"><code>com.webos.service.legacybroadcast</code></a></td><td>3</td><td>Legacy broadcast core service; plays channel files and registers broadcast data.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.display"><code>com.webos.service.legacybroadcast.display</code></a></td><td>3</td><td>Legacy broadcast display helper: freezes the DTV picture and runs decoder tests.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nabs.program"><code>com.webos.service.nabs.program</code></a></td><td>3</td><td>NABS program-guide service: scans the EPG and runs SQLite queries against the guide database.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pbsw"><code>com.webos.service.pbsw</code></a></td><td>3</td><td>Broadcast channel-map service: builds and edits the channel list and favorite groups, queries channel info and EPG events, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.favchannels"><code>com.webos.favchannels</code></a></td><td>2</td><td>Manages the favorite-channels list: edits entries and deletes all favorites.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.sound"><code>com.webos.service.legacybroadcast.sound</code></a></td><td>2</td><td>Legacy broadcast audio control: reports DTV audio info and running state and gets/sets the speaker output type.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.scd"><code>com.webos.service.scd</code></a></td><td>2</td><td>SCD channel-number service: reports and force-finds the current channel number and wakes the component.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.db"><code>com.palm.db</code></a></td><td>1</td><td>Legacy alias for the db8 JSON database (com.webos.service.db): stores and queries objects with find/get/del/batch, manages kinds, and…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.systemservice"><code>com.palm.systemservice</code></a></td><td>1</td><td>Core system service: reports device and OS info, stores system preferences, and gets/sets system and broadcast time and wallpaper.</td></tr><tr><td><a href="/luna-atlas/#/com.palm.tempdb"><code>com.palm.tempdb</code></a></td><td>1</td><td>Temporary (volatile) db8 database instance: same JSON object-store API as the main database (find/get/del/batch, kinds, compaction,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.mediadb"><code>com.webos.mediadb</code></a></td><td>1</td><td>Media metadata database (a db8-style store, including EPG data): find, get, put, delete and batch records, compact and dump the store, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.broadcast-conf-downloader"><code>com.webos.service.broadcast-conf-downloader</code></a></td><td>1</td><td>Appears to download broadcast configuration data; only a test method is exposed, so its full behavior is not inferable. Marked.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.cbox"><code>com.webos.service.cbox</code></a></td><td>1</td><td>Appears to be a content box/recording media store: reports device and scan status, recently played items, and audio/VR metadata.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbips.recsig"><code>com.webos.service.gibbips.recsig</code></a></td><td>1</td><td>Opaque gibbips broadcast helper exposing only a debug method for recorded-signal handling. Role not inferable beyond its name.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.gibbs.recsig"><code>com.webos.service.gibbs.recsig</code></a></td><td>1</td><td>GIBBS recording-signal debug helper (single debug method). Opaque/.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.hybridtvmanager"><code>com.webos.service.hybridtvmanager</code></a></td><td>1</td><td>Hybrid-TV manager: handles hybrid broadcast-broadband state, user agreements, ACR first-run settings, and teletext display and messaging.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.iotclient"><code>com.webos.service.iotclient</code></a></td><td>1</td><td>IoT client: discovers, lists and controls connected IoT devices, manages linked accounts, macros and registration tokens, and handles IoT…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.debug"><code>com.webos.service.legacybroadcast.debug</code></a></td><td>1</td><td>Legacy-broadcast debug interface exposing a debug menu. Opaque/.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.expcall"><code>com.webos.service.legacybroadcast.expcall</code></a></td><td>1</td><td>Legacy-broadcast helper exposing a single &#x27;set&#x27; call; its purpose is opaque beyond the legacy broadcast stack.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.legacybroadcast.recsig"><code>com.webos.service.legacybroadcast.recsig</code></a></td><td>1</td><td>Legacy-broadcast recording-signal debug helper (single debug method). Opaque/.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.signageplayer"><code>com.webos.service.signageplayer</code></a></td><td>1</td><td>Commercial-signage player (SuperSign): plays scheduled and local signage content, manages the scheduler and shared folder, handles…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvrm.policy.receiver"><code>com.webos.service.tvrm.policy.receiver</code></a></td><td>1</td><td>TV resource-manager policy receiver exposing a single method to acknowledge completed policy actions. Narrow arbitration role.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvrm.policy.sender"><code>com.webos.service.tvrm.policy.sender</code></a></td><td>1</td><td>TV resource-manager policy sender: subscribes to resource-policy actions.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvrmclient.gibbs_3189"><code>com.webos.service.tvrmclient.gibbs_3189</code></a></td><td>1</td><td>TV resource-manager client for the GIBBS stack exposing a single getData method. Opaque/.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tvrmclient.tv_2140"><code>com.webos.service.tvrmclient.tv_2140</code></a></td><td>1</td><td>TV resource-manager client instance; exposes a single getData method. Opaque beyond that.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wirelessavcontroller"><code>com.webos.service.wirelessavcontroller</code></a></td><td>1</td><td>Wireless A/V controller (wireless transmitter box/antenna): antenna/beam search and monitoring, modem control, event logs, diagnostics and…</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:tv/channelDown"><b>channelDown</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:tv</span></div><p>Channel down</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://tv/channelDown &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://tv/channelDown &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:tv/channelUp"><b>channelUp</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:tv</span></div><p>Channel up</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://tv/channelUp &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://tv/channelUp &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:tv/getChannelCurrentProgramInfo"><b>getChannelCurrentProgramInfo</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:tv</span></div><p>Get currently airing program info</p><p class="dim" style="font-size:13px">params: <code>channelId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://tv/getChannelCurrentProgramInfo &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://tv/getChannelCurrentProgramInfo &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:tv/getChannelList"><b>getChannelList</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:tv</span></div><p>List tuned channels</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://tv/getChannelList &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://tv/getChannelList &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:tv/getChannelProgramInfo"><b>getChannelProgramInfo</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:tv</span></div><p>Get program (EPG) info for a channel</p><p class="dim" style="font-size:13px">params: <code>channelId</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://tv/getChannelProgramInfo &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://tv/getChannelProgramInfo &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:tv/getCurrentChannel"><b>getCurrentChannel</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:tv</span></div><p>Get/subscribe current channel</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://tv/getCurrentChannel &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://tv/getCurrentChannel &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/ssap:tv/openChannel"><b>openChannel</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">ssap:tv</span></div><p>Tune a channel</p><p class="dim" style="font-size:13px">params: <code>channelId</code>, <code>channelNumber</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f ssap://tv/openChannel &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f ssap://tv/openChannel &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

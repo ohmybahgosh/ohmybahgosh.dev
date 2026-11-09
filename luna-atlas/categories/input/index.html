@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Input &amp; Keys luna-send commands for LG webOS</title>
+<meta name="description" content="795 LG webOS luna-send methods for input &amp; keys, across 80 services like com.webos.service.mrcu, com.webos.service.ics, with access levels and commands to run.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/luna-atlas/categories/input/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Input &amp; Keys luna-send commands for LG webOS">
+<meta property="og:description" content="795 LG webOS luna-send methods for input &amp; keys, across 80 services like com.webos.service.mrcu, com.webos.service.ics, with access levels and commands to run.">
+<meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/categories/input/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Input &amp; Keys luna-send commands for LG webOS">
+<meta name="twitter:description" content="795 LG webOS luna-send methods for input &amp; keys, across 80 services like com.webos.service.mrcu, com.webos.service.ics, with access levels and commands to run.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Categories",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Input & Keys",
+     "item": "https://ohmybahgosh.dev/luna-atlas/categories/input/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "headline": "Input & Keys luna-send commands for LG webOS",
+   "description": "795 LG webOS luna-send methods for input & keys, across 80 services like com.webos.service.mrcu, com.webos.service.ics, with access levels and commands to run.",
+   "url": "https://ohmybahgosh.dev/luna-atlas/categories/input/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "inLanguage": "en",
+   "dateModified": "2026-11-09",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   }
+  },
+  {
+   "@type": "ItemList",
+   "name": "Input & Keys luna-send services",
+   "numberOfItems": 80,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "com.webos.service.mrcu"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "com.webos.service.ics"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "com.webos.service.peripheralmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "com.webos.service.eim"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "com.webos.sensord"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "com.webos.service.utp.extinputs"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "com.webos.service.voiceconductor"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "com.webos.service.voiceinput"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "com.webos.service.extinputs.hdmi"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "com.webos.service.extinputs.displayport"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "com.webos.service.extinputs.av"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "com.webos.service.nlpmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "com.webos.service.terminalmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "com.palm.keymanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "amazon.alexa.adapter.plugin"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "com.webos.service.utp.externaldevice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 17,
+     "name": "com.webos.service.externaldevice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 18,
+     "name": "com.webos.service.nlp"
+    },
+    {
+     "@type": "ListItem",
+     "position": 19,
+     "name": "com.webos.service.networkinput"
+    },
+    {
+     "@type": "ListItem",
+     "position": 20,
+     "name": "com.webos.service.voiceclick"
+    },
+    {
+     "@type": "ListItem",
+     "position": 21,
+     "name": "com.webos.service.voiceinput.preprocessor"
+    },
+    {
+     "@type": "ListItem",
+     "position": 22,
+     "name": "com.webos.ghp.runtime"
+    },
+    {
+     "@type": "ListItem",
+     "position": 23,
+     "name": "com.webos.service.extinputs.component"
+    },
+    {
+     "@type": "ListItem",
+     "position": 24,
+     "name": "com.webos.service.voiceinput.sound"
+    },
+    {
+     "@type": "ListItem",
+     "position": 25,
+     "name": "com.webos.service.keymanager2"
+    },
+    {
+     "@type": "ListItem",
+     "position": 26,
+     "name": "com.webos.service.cec"
+    },
+    {
+     "@type": "ListItem",
+     "position": 27,
+     "name": "com.webos.service.irdbmanager"
+    },
+    {
+     "@type": "ListItem",
+     "position": 28,
+     "name": "com.webos.service.commercial.scapadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 29,
+     "name": "com.webos.service.keymanager3"
+    },
+    {
+     "@type": "ListItem",
+     "position": 30,
+     "name": "com.webos.service.multiviewcontroller"
+    },
+    {
+     "@type": "ListItem",
+     "position": 31,
+     "name": "com.webos.service.extinputs.spdif"
+    },
+    {
+     "@type": "ListItem",
+     "position": 32,
+     "name": "com.webos.service.nomotion"
+    },
+    {
+     "@type": "ListItem",
+     "position": 33,
+     "name": "com.webos.service.sensor"
+    },
+    {
+     "@type": "ListItem",
+     "position": 34,
+     "name": "com.webos.service.voice.performer.plugin"
+    },
+    {
+     "@type": "ListItem",
+     "position": 35,
+     "name": "com.webos.service.voiceinput.network"
+    },
+    {
+     "@type": "ListItem",
+     "position": 36,
+     "name": "lg.thinqai.adapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 37,
+     "name": "com.webos.service.voiceinput.hidraw"
+    },
+    {
+     "@type": "ListItem",
+     "position": 38,
+     "name": "com.webos.service.ai.voice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 39,
+     "name": "com.webos.service.hdmitx"
+    },
+    {
+     "@type": "ListItem",
+     "position": 40,
+     "name": "com.webos.service.ime"
+    },
+    {
+     "@type": "ListItem",
+     "position": 41,
+     "name": "com.webos.service.nop"
+    },
+    {
+     "@type": "ListItem",
+     "position": 42,
+     "name": "com.webos.service.pushclient"
+    },
+    {
+     "@type": "ListItem",
+     "position": 43,
+     "name": "com.webos.service.qbd"
+    },
+    {
+     "@type": "ListItem",
+     "position": 44,
+     "name": "com.webos.service.systemservice"
+    },
+    {
+     "@type": "ListItem",
+     "position": 45,
+     "name": "com.webos.service.trigger.alexa"
+    },
+    {
+     "@type": "ListItem",
+     "position": 46,
+     "name": "com.webos.service.voiceinputadapter"
+    },
+    {
+     "@type": "ListItem",
+     "position": 47,
+     "name": "com.webos.service.widevine"
+    },
+    {
+     "@type": "ListItem",
+     "position": 48,
+     "name": "com.webos.service.alwaysready"
+    },
+    {
+     "@type": "ListItem",
+     "position": 49,
+     "name": "com.webos.service.update"
+    },
+    {
+     "@type": "ListItem",
+     "position": 50,
+     "name": "com.webos.service.wampluggable.hbbtv"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/" aria-current="page"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">input</span></div>
+<section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat input</div><h1 class="h2" style="margin-top:12px">Input &amp; Keys luna-send commands.</h1><p class="lead">The remote, keyboards, mice, gamepads and the TV&#x27;s HDMI and other external inputs: sending keys, reading input status and switching sources.  795 methods in 80 services.</p></section>
+<article class="doc" style="--accent:#33e1ff">
+<div class="stats lstats"><div><b>795</b><span>methods</span></div><div><b>80</b><span>services</span></div><div><b>104</b><span>documented</span></div><div><b>224</b><span>public</span></div><div><b>23</b><span>flagged dangerous</span></div></div>
+<p><a class="btn" href="/luna-atlas/#/?cat=input">open Input &amp; Keys in the catalog ↗</a></p>
+<h2>Services</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>service</th><th>methods</th><th>what it does</th></tr></thead><tbody><tr><td><a href="/luna-atlas/#/com.webos.service.mrcu"><code>com.webos.service.mrcu</code></a></td><td>121</td><td>Magic Remote Control Unit service: pairs the remote, manages the pointer cursor and motion sensor, IR codes and firmware, and shows…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ics"><code>com.webos.service.ics</code></a></td><td>47</td><td>IR-blaster / universal-control service: manages a database of IR and IP-controlled devices, with brand/model/key lists, device add/delete…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.peripheralmanager"><code>com.webos.service.peripheralmanager</code></a></td><td>43</td><td>Peripheral manager: monitors sensors and controls actuators on I/O peripherals over industry-standard buses, exposing GPIO and I2C (and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.eim"><code>com.webos.service.eim</code></a></td><td>36</td><td>External Input Manager: manages HDMI and other external inputs, including device add/remove, input status, EDID backup, ARC volume, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.sensord"><code>com.webos.sensord</code></a></td><td>34</td><td>Sensor daemon: enumerates sensors (e.g. accelerometer, ambient-light), configures their power, sensitivity and sample rate, and reads…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.extinputs"><code>com.webos.service.utp.extinputs</code></a></td><td>34</td><td>UTP external-inputs service: binds external inputs, reports HDMI info, signal and diagnostics, and controls subtitle/teletext for external…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceconductor"><code>com.webos.service.voiceconductor</code></a></td><td>30</td><td>Voice-assistant orchestration service: recognizes intents by voice or text, reports recognition status and supported languages, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceinput"><code>com.webos.service.voiceinput</code></a></td><td>28</td><td>Voice-input service: enrolls voice triggers, streams audio for recognition (with trigger), and manages activation and sensitivity settings…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.extinputs.hdmi"><code>com.webos.service.extinputs.hdmi</code></a></td><td>22</td><td>HDMI external-input service: opens/connects HDMI inputs and reports signal state, video/audio codec info, VRR, Dolby conflict status, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.extinputs.displayport"><code>com.webos.service.extinputs.displayport</code></a></td><td>21</td><td>DisplayPort/HDMI external-input service: opens/connects an input and reports signal, video and VRR info, audio codec, Dolby conflict…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.extinputs.av"><code>com.webos.service.extinputs.av</code></a></td><td>20</td><td>External AV-input service: opens, closes and connects AV inputs, reports signal and video info, and manages subtitles and teletext for the…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nlpmanager"><code>com.webos.service.nlpmanager</code></a></td><td>19</td><td>Natural-language processing manager: handles voice/search requests and user-intent resolution, runs and refines searches, manages dynamic…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.terminalmanager"><code>com.webos.service.terminalmanager</code></a></td><td>19</td><td>Terminal manager: controls RS-232 serial ports (baud rate, attributes, RS232 control), attaches a debug console, and registers/routes…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.keymanager"><code>com.palm.keymanager</code></a></td><td>17</td><td>Cryptographic key management service: generates, imports, exports, stores, and removes keys, encrypts and decrypts files, changes…</td></tr><tr><td><a href="/luna-atlas/#/amazon.alexa.adapter.plugin"><code>amazon.alexa.adapter.plugin</code></a></td><td>16</td><td>Alexa Voice Service (AVS) adapter plugin: handles far-field voice recognition, AVS music and status, access tokens and CBL login data,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.externaldevice"><code>com.webos.service.utp.externaldevice</code></a></td><td>16</td><td>UTP external-input/device service: reports current and last input, external-input and signal state, switches inputs, and handles CEC IDs…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.externaldevice"><code>com.webos.service.externaldevice</code></a></td><td>15</td><td>External-device I/O service: reads and writes GPIO and ADC pins and reads attached humidity, light, temperature and RFID peripherals.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nlp"><code>com.webos.service.nlp</code></a></td><td>14</td><td>Natural-language and speech service: runs speech-to-text (STT) and NLP queries for voice search and tips, and reports STT/NLP status.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.networkinput"><code>com.webos.service.networkinput</code></a></td><td>11</td><td>Network/virtual input service: sends key codes and special/long/repeat key events and exposes pointer, gamepad and touch input sockets,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceclick"><code>com.webos.service.voiceclick</code></a></td><td>11</td><td>Voice-click/point-and-click voice service: detects clickable screen areas and apps, creates click events, captures the screen, and manages…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceinput.preprocessor"><code>com.webos.service.voiceinput.preprocessor</code></a></td><td>11</td><td>Voice-input preprocessor: starts and stops microphone streaming, sets the trigger point, and runs beamforming/web-BSI utilities over the…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.ghp.runtime"><code>com.webos.ghp.runtime</code></a></td><td>10</td><td>Appears to be a smart-home runtime exposing homes, rooms, structures, controllers and devices and sending commands to them, with a…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.extinputs.component"><code>com.webos.service.extinputs.component</code></a></td><td>10</td><td>External component-input service: opens/closes and connects component (and similar) inputs, reports signal state and video info, controls…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceinput.sound"><code>com.webos.service.voiceinput.sound</code></a></td><td>10</td><td>Voice-input sound/mic subservice: enumerates mic devices, streams mic audio, reports mic-switch status, and runs mic test/localization.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.keymanager2"><code>com.webos.service.keymanager2</code></a></td><td>9</td><td>Second-generation key manager: generates keys, encrypts/decrypts and signs/verifies data, manages key attributes, and removes keys…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.cec"><code>com.webos.service.cec</code></a></td><td>8</td><td>HDMI-CEC (Consumer Electronics Control) service: lists CEC adapters, scans for connected HDMI-CEC devices, sends CEC commands, and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.irdbmanager"><code>com.webos.service.irdbmanager</code></a></td><td>8</td><td>IR database manager: manages the infrared code database for controlling external devices, listing brands/manufacturers and key lists,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.commercial.scapadapter"><code>com.webos.service.commercial.scapadapter</code></a></td><td>7</td><td>Commercial/pro-TV SCAP adapter (set-top/conditional-access integration) with a large configuration surface: OSD language and lock, picture…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.keymanager3"><code>com.webos.service.keymanager3</code></a></td><td>7</td><td>Security key manager (keystore): generates, imports, exports and derives cryptographic keys, runs begin/update/finish crypto operations,…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.multiviewcontroller"><code>com.webos.service.multiviewcontroller</code></a></td><td>7</td><td>Multiview controller: creates and arranges app views for split/multi-view, changes mode, position and size of sub-apps, and mixes per-view…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.extinputs.spdif"><code>com.webos.service.extinputs.spdif</code></a></td><td>6</td><td>External S/PDIF digital-audio input service: opens, connects and switches the S/PDIF input and reports its current audio codec.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nomotion"><code>com.webos.service.nomotion</code></a></td><td>6</td><td>No-motion/no-operation power-saving timers: adds, queries and removes timers that fire when no remote motion or operation is detected.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sensor"><code>com.webos.service.sensor</code></a></td><td>6</td><td>Sensor service: enumerates available sensors, reads sensor values, controls sensors, and handles sensor device attach/detach events.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voice.performer.plugin"><code>com.webos.service.voice.performer.plugin</code></a></td><td>6</td><td>Voice-command performer plugin: loads/unloads, reads context, and performs voice-triggered actions including short-press handling.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceinput.network"><code>com.webos.service.voiceinput.network</code></a></td><td>6</td><td>Networked voice-input service: lists devices, starts and streams voice input over the network, and manages a session timer.</td></tr><tr><td><a href="/luna-atlas/#/lg.thinqai.adapter"><code>lg.thinqai.adapter</code></a></td><td>6</td><td>LG ThinQ AI adapter: runs voice/intent recognition by voice or text, returns TTS and keyword results, and manages Voice ID enrollment and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceinput.hidraw"><code>com.webos.service.voiceinput.hidraw</code></a></td><td>5</td><td>Raw-HID voice-input service: lists voice-capable input devices and starts/stops microphone streaming from the remote.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ai.voice"><code>com.webos.service.ai.voice</code></a></td><td>4</td><td>Voice-input recognition service (webOS OSE): starts and stops voice recognition, reports state, and returns results, using configuration…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.hdmitx"><code>com.webos.service.hdmitx</code></a></td><td>4</td><td>HDMI transmitter (output) service: reports HDMI connection state, parsed EDID and video-output info, and sets low-latency signaling data.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.ime"><code>com.webos.service.ime</code></a></td><td>4</td><td>Input Method Editor and virtual-keyboard service: inserts and deletes text, sends the enter key, and registers a remote keyboard for…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.nop"><code>com.webos.service.nop</code></a></td><td>4</td><td>Appears to manage &#x27;NOP&#x27; timers: adds and removes timers, reports timer info, and notifies on expiry. Specific purpose not inferable; marked.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.pushclient"><code>com.webos.service.pushclient</code></a></td><td>4</td><td>Push/MQTT client: creates and destroys connections, registers services, publishes to and subscribes/unsubscribes from topics, and reports…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.qbd"><code>com.webos.service.qbd</code></a></td><td>4</td><td>Opaque input-related service; appears to manage device resume timeout and reset timing based on its get/set methods.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.systemservice"><code>com.webos.service.systemservice</code></a></td><td>4</td><td>Core system service: reads/sets the clock and time zone, queries device and OS info, manages preferences and ringtones, handles…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.trigger.alexa"><code>com.webos.service.trigger.alexa</code></a></td><td>4</td><td>Alexa trigger service: gets and sets Alexa activation and reports data version, likely gating the far-field/voice Alexa feature.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.voiceinputadapter"><code>com.webos.service.voiceinputadapter</code></a></td><td>4</td><td>Voice-input adapter: relays voice commands and input events and runs tests.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.widevine"><code>com.webos.service.widevine</code></a></td><td>4</td><td>Widevine DRM service: manages the content decryption module (CDM) and sessions, generates license and provisioning requests, reports HDCP…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.alwaysready"><code>com.webos.service.alwaysready</code></a></td><td>3</td><td>Always-ready/standby service: manages the always-on-display (AOD) status, monitors device and GPIO state, and controls standby timers.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.update"><code>com.webos.service.update</code></a></td><td>3</td><td>Software/firmware update service: checks for, downloads and applies system updates, reports progress and current software/hardware…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.wampluggable.hbbtv"><code>com.webos.service.wampluggable.hbbtv</code></a></td><td>3</td><td>HbbTV (Hybrid Broadcast Broadband TV) service: manages HbbTV app lifecycle, reserves and releases broadcast resources, makes HTTP…</td></tr><tr><td><a href="/luna-atlas/#/yandex.alice.adapter.plugin"><code>yandex.alice.adapter.plugin</code></a></td><td>3</td><td>Yandex Alice voice-assistant adapter plugin: recognizes intents by voice and text, registers an interactor/context, and reports voice-UI…</td></tr><tr><td><a href="/luna-atlas/#/alibaba.genie.adapter.plugin"><code>alibaba.genie.adapter.plugin</code></a></td><td>2</td><td>Appears to be an adapter plugin bridging the Alibaba Genie voice assistant to webOS: starts and cancels voice recognition, recognizes…</td></tr><tr><td><a href="/luna-atlas/#/com.example.activityexample"><code>com.example.activityexample</code></a></td><td>2</td><td>SDK sample service demonstrating the ActivityManager: creating timers and alarms and handling their fired/cancel callbacks. Example code,…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.systemservice"><code>com.palm.systemservice</code></a></td><td>2</td><td>Core system service: reports device and OS info, stores system preferences, and gets/sets system and broadcast time and wallpaper.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.iotframework"><code>com.webos.iotframework</code></a></td><td>2</td><td>IoT framework managing connected IoT devices: lists and updates devices, sends commands, and gets/sets per-device customization.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.aos"><code>com.webos.service.aos</code></a></td><td>2</td><td>Appears to manage an &#x27;always-on&#x27; display or standby feature: enables and disables always-on and gets/sets its reset time.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.camera"><code>com.webos.service.camera</code></a></td><td>2</td><td>Camera service: acquires, opens and closes the camera, lists devices and properties, reports firmware and cover state, applies photo…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.hybridtvmanager"><code>com.webos.service.hybridtvmanager</code></a></td><td>2</td><td>Hybrid-TV manager: handles hybrid broadcast-broadband state, user agreements, ACR first-run settings, and teletext display and messaging.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.updatefw.utilmgr"><code>com.webos.service.updatefw.utilmgr</code></a></td><td>2</td><td>Firmware-update utility manager: triggers auto-install and master download, manages recurring update times and ticket/build info.</td></tr><tr><td><a href="/luna-atlas/#/dangbei.adapter.plugin"><code>dangbei.adapter.plugin</code></a></td><td>2</td><td>Dangbei voice-assistant adapter plugin: loads/unloads, recognizes intents by voice or text, and shows a usage guide.</td></tr><tr><td><a href="/luna-atlas/#/google.assistant.adapter.plugin"><code>google.assistant.adapter.plugin</code></a></td><td>2</td><td>Google Assistant adapter plugin: recognizes intents by voice and text, manages sign-in and conversations, and controls voice…</td></tr><tr><td><a href="/luna-atlas/#/nuance.stt.adapter.plugin"><code>nuance.stt.adapter.plugin</code></a></td><td>2</td><td>Nuance speech-to-text (STT) adapter plugin: loads/unloads the engine, recognizes voice, and stops voice recording.</td></tr><tr><td><a href="/luna-atlas/#/ssap:tv"><code>ssap:tv</code></a></td><td>2</td><td>SSAP TV service (TV remote-control protocol): changes channels, lists channels and programs, reports the current channel, and switches…</td></tr><tr><td><a href="/luna-atlas/#/com.palm.uploadd"><code>com.palm.uploadd</code></a></td><td>1</td><td>Diagnostics upload daemon: uploads crash reports, logs, and analytics to a server, manages log settings, and reports EULA and USB-path…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.app.teletext"><code>com.webos.app.teletext</code></a></td><td>1</td><td>Teletext viewer app control: enables and disables teletext, queries the current page and state, and forwards remote key events to it.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.chromecast.cell"><code>com.webos.chromecast.cell</code></a></td><td>1</td><td>Appears to manage the Chromecast-built-in (Cast) runtime: checks terms of service, reports cell/control/runtime-manager status, and starts…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.flutter.embedder"><code>com.webos.flutter.embedder</code></a></td><td>1</td><td>Support service for the webOS Flutter embedder: returns runtime configuration and provides a timer callback method.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.aiinferencemanager"><code>com.webos.service.aiinferencemanager</code></a></td><td>1</td><td>AI inference manager: installs machine-learning models, requests and releases inference resources, and reports device inference capability…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.analytics"><code>com.webos.service.analytics</code></a></td><td>1</td><td>Appears to provide vision/analytics processing via a single &#x27;vision&#x27; method; opaque beyond that.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.avmutemanager"><code>com.webos.service.avmutemanager</code></a></td><td>1</td><td>Audio/video mute manager: coordinates AV mute across clients, tracking mute status, owners, timing, and registered services, and setting…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.browser"><code>com.webos.service.browser</code></a></td><td>1</td><td>Appears to provide browser-side device and file access: mounts and lists storage devices, reads content and size properties, and processes…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.cloudupload"><code>com.webos.service.cloudupload</code></a></td><td>1</td><td>Cloud-upload service that uploads analytics, crash and overview reports to the cloud and manages related log settings.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.emmcd"><code>com.webos.service.emmcd</code></a></td><td>1</td><td>eMMC storage daemon: reports flash lifetime, memory usage and profile info, and configures the eMMC profile and power-on settings.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.mysketch"><code>com.webos.service.mysketch</code></a></td><td>1</td><td>MySketch artistic-display/gallery service: loads and saves images and sets the artistic display, home background and image path.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.secondscreen.gateway"><code>com.webos.service.secondscreen.gateway</code></a></td><td>1</td><td>Second-screen gateway: pairs and lists companion devices, sets up app-to-app channels and host messaging, and reports power state and…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sm"><code>com.webos.service.sm</code></a></td><td>1</td><td>Security manager: handles app security permissions, USB-access authentication, device IDs, licensing, and cryptographic operations (file…</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.sportsalarm"><code>com.webos.service.sportsalarm</code></a></td><td>1</td><td>Sports-alarm service that tracks sporting events and pushes game alerts/timers.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.tsrecord"><code>com.webos.service.tsrecord</code></a></td><td>1</td><td>Transport-stream recording service: initializes, loads, starts and stops TS recording and reports recording status/time and an MPD manifest.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.service.utp.teletext"><code>com.webos.service.utp.teletext</code></a></td><td>1</td><td>UTP teletext service: enables/disables teletext (and teletext PES) and reports teletext data, lists and state.</td></tr><tr><td><a href="/luna-atlas/#/com.webos.statisticsManager"><code>com.webos.statisticsManager</code></a></td><td>1</td><td>Statistics manager exposing a single call to save statistics; its broader role is not inferable.</td></tr></tbody></table></div>
+<h2>Documented methods to start with</h2>
+<p>Public and SSAP methods from LG's documentation, none flagged dangerous.  Each opens in the catalog with its full parameter table.  Run them on a rooted TV or in Developer Mode.</p>
+<div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ai.voice/getResponse"><b>getResponse</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.ai.voice</span></div><p>Returns speech recognition results. This method is asynchronous.</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ai.voice/getResponse &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ai.voice/getResponse &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ai.voice/getState"><b>getState</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.ai.voice</span></div><p>Gets the current state of the service. It can have the following states: idle : Before start. waitActivation : Wait for keyword activation. recording : Uploading audio to the serve</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ai.voice/getState &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ai.voice/getState &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ai.voice/start"><b>start</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.ai.voice</span></div><p>Starts the service based on the mode selected. Note: This method is only for allowed clients.</p><p class="dim" style="font-size:13px">params: <code>mode</code>, <code>keywordDetect</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ai.voice/start &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ai.voice/start &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ai.voice/stop"><b>stop</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.ai.voice</span></div><p>Stops the service. Make sure to call this method before starting another engine. Note: This method is only for allowed clients.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ai.voice/stop &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ai.voice/stop &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.cec/getConfig"><b>getConfig</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.cec</span></div><p>Gets the value of the specified input configuration.</p><p class="dim" style="font-size:13px">params: <code>adapter</code>, <code>key</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/getConfig &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.cec/getConfig &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.cec/listAdapters"><b>listAdapters</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.cec</span></div><p>Searches CEC adapters from system and list all the identified local CEC adapters.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/listAdapters &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.cec/listAdapters &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.cec/scan"><b>scan</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.cec</span></div><p>Scans the CEC bus and provides information of the connected HDMI CEC devices.</p><p class="dim" style="font-size:13px">params: <code>adapter</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/scan &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.cec/scan &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.cec/sendCommand"><b>sendCommand</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.cec</span></div><p>Sends the input command to destination HDMI CEC devices connected on CEC bus.</p><p class="dim" style="font-size:13px">params: <code>adapter</code>, <code>destAddress</code>, <code>timeout</code>, <code>command</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/sendCommand &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.cec/sendCommand &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.cec/setConfig"><b>setConfig</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.cec</span></div><p>Sets the input configuration.</p><p class="dim" style="font-size:13px">params: <code>adapter</code>, <code>key</code>, <code>value</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/setConfig &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.cec/setConfig &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/addDevice"><b>addDevice</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>Registers an app as a selectable input (appinfo needs &quot;supportGIP&quot;: true)</p><p class="dim" style="font-size:13px">params: <code>appId</code>, <code>pigImage</code>, <code>mvpdIcon</code>, <code>type</code>, <code>showPopup</code>, <code>label</code>, <code>description</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/addDevice &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/addDevice &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/blockInputPopup"><b>blockInputPopup</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>Registered on eim (name only; presumably suppresses the new-input popup)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/blockInputPopup &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/blockInputPopup &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/deleteDevice"><b>deleteDevice</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/deleteDevice &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/deleteDevice &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/getAllInputStatus"><b>getAllInputStatus</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>Lists all inputs (HDMI 1-4 with labels, CEC sub-devices, ARC) with connection state</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/getAllInputStatus &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/getAllInputStatus &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/getCurrentInput"><b>getCurrentInput</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/getCurrentInput &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/getCurrentInput &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/getDeviceInfo"><b>getDeviceInfo</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/getDeviceInfo &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/getDeviceInfo &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/getInputStatus"><b>getInputStatus</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/getInputStatus &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/getInputStatus &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/getLastInput"><b>getLastInput</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/getLastInput &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/getLastInput &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/getTotalDeviceList"><b>getTotalDeviceList</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/getTotalDeviceList &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/getTotalDeviceList &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/registerAppToBlockNoti"><b>registerAppToBlockNoti</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/registerAppToBlockNoti &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/registerAppToBlockNoti &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/setChosenDevice"><b>setChosenDevice</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>External Input Manager method (listed in webosbrew eim.yml; params undocumented there)</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/setChosenDevice &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/setChosenDevice &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.eim/setDeviceInfo"><b>setDeviceInfo</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.eim</span></div><p>Set HDMI input device icon/label (also used to switch an input between PC and non-PC mode)</p><p class="dim" style="font-size:13px">params: <code>id</code>, <code>icon</code>, <code>label</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/setDeviceInfo &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.eim/setDeviceInfo &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ime/deleteCharacters"><b>deleteCharacters</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.ime</span></div><p>Delete characters in the focused text field</p><p class="dim" style="font-size:13px">params: <code>count</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ime/deleteCharacters &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ime/deleteCharacters &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ime/insertText"><b>insertText</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.ime</span></div><p>Insert (or replace) text in the focused text field</p><p class="dim" style="font-size:13px">params: <code>text</code>, <code>replace</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ime/insertText &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ime/insertText &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ime/registerRemoteKeyboard"><b>registerRemoteKeyboard</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.ime</span></div><p>Subscribe to remote-keyboard (text field focus) events</p><p class="dim" style="font-size:13px">params: <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ime/registerRemoteKeyboard &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ime/registerRemoteKeyboard &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.ime/sendEnterKey"><b>sendEnterKey</b></a> <span class="pill" style="--ca:#33e1ff">ssap</span><span class="dim mono" style="font-size:12px">com.webos.service.ime</span></div><p>Send Enter to the on-screen keyboard/text field</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ime/sendEnterKey &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.ime/sendEnterKey &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.mrcu/getAPIVersion"><b>getAPIVersion</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.mrcu</span></div><p>Gets the MRCU API version.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/getAPIVersion &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.mrcu/getAPIVersion &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.mrcu/sensor/getSensorData"><b>sensor/getSensorData</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.mrcu</span></div><p>Subscribes to sensor data (older API).</p><p class="dim" style="font-size:13px">params: <code>callbackInterval</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/sensor/getSensorData &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.mrcu/sensor/getSensorData &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.mrcu/sensor/resetQuaternion"><b>sensor/resetQuaternion</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.mrcu</span></div><p>Resets quaternion data.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/sensor/resetQuaternion &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.mrcu/sensor/resetQuaternion &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.mrcu/sensor2/cancelSensorDataSubscribe"><b>sensor2/cancelSensorDataSubscribe</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.mrcu</span></div><p>Cancels the current sensor subscription.</p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/sensor2/cancelSensorDataSubscribe &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.mrcu/sensor2/cancelSensorDataSubscribe &#x27;{}&#x27;">copy</button></div></div><div class="lm"><div class="lmh"><a href="/luna-atlas/#/com.webos.service.mrcu/sensor2/getSensorEventData"><b>sensor2/getSensorEventData</b></a> <span class="pill" style="--ca:#3ddc97">public</span><span class="dim mono" style="font-size:12px">com.webos.service.mrcu</span></div><p>Subscribes to magic remote sensor data.</p><p class="dim" style="font-size:13px">params: <code>sensorType</code>, <code>subscribe</code></p><div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/sensor2/getSensorEventData &#x27;{}&#x27;</pre><button class="copy" type="button" data-copy="luna-send -n 1 -f luna://com.webos.service.mrcu/sensor2/getSensorEventData &#x27;{}&#x27;">copy</button></div></div>
+<div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
+<h2>Other categories</h2>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a><a href="/luna-atlas/categories/ui/">UI / Compositor <span>44</span></a></div>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
