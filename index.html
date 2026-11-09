@@ -225,6 +225,44 @@ html[data-theme=light] .helptest b{color:#000}
 </div></div>
 
 <div class="wrap">
+  <section id="tour" data-pal="watch the tour">
+    <style>
+      #tour .tv{margin-bottom:34px}
+      #tour .tour-ch{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+      #tour .tour-ch button{display:flex;align-items:center;gap:10px;min-width:0;padding:10px 12px;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--fg);font:600 14px var(--sans);cursor:pointer;transition:.2s;text-align:left}
+      #tour .tour-ch button:hover,#tour .tour-ch button[aria-current=true]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+      #tour .tour-ch img{width:28px;height:28px;border-radius:7px;flex:none}
+      #tour .tour-ch span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+      #tour .tour-ch i{font:500 12px var(--mono);font-style:normal;color:var(--fg3)}
+      @media (max-width:860px){#tour .tour-ch{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      @media (max-width:520px){#tour .tour-ch{grid-template-columns:1fr}}
+    </style>
+    <div class="sec-head rv">
+      <div>
+        <div class="eyebrow">./tour.mp4</div>
+        <h2 class="h2" style="margin-top:12px">The webOS apps in two minutes.</h2>
+        <p>What each app does and the features that set it apart, from TiviBro's web editor and phone app to LG-USB-2-ETH0's driver builds.  Sound on.</p>
+      </div>
+      <div class="dim mono" style="font-size:13px">2:16 · 1080p</div>
+    </div>
+    <div class="tv rv"><video id="tour-video" src="/assets/media/webos-promo.mp4" poster="/assets/img/webos-promo-poster.webp" controls playsinline preload="none" width="1920" height="1080" aria-label="A two-minute tour of the webOS apps: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and Luna Atlas, with a title card and feature callouts for each"></video></div>
+    <nav class="tour-ch rv" aria-label="Jump to an app in the tour">
+        <button type="button" data-t="4"><img src="/assets/img/tivibro-icon.webp" alt="" width="160" height="160" loading="lazy"><span>TiviBro</span><i>0:04</i></button>
+        <button type="button" data-t="44"><img src="/assets/img/eth0-icon.webp" alt="" width="160" height="160" loading="lazy"><span>LG-USB-2-ETH0</span><i>0:44</i></button>
+        <button type="button" data-t="67"><img src="/assets/img/entware-icon.webp" alt="" width="160" height="160" loading="lazy"><span>Entware</span><i>1:07</i></button>
+        <button type="button" data-t="88"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="160" height="160" loading="lazy"><span>SSH Doctor</span><i>1:28</i></button>
+        <button type="button" data-t="109"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="160" height="160" loading="lazy"><span>Luna Atlas</span><i>1:49</i></button>
+    </nav>
+    <script>
+    (function(){var v=document.getElementById("tour-video"),bs=[].slice.call(document.querySelectorAll("#tour .tour-ch button"));if(!v)return;
+    function go(t){if(v.readyState>=1){v.currentTime=t;}else{v.addEventListener("loadedmetadata",function h(){v.removeEventListener("loadedmetadata",h);v.currentTime=t;});v.preload="metadata";v.load();}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+    bs.forEach(function(b){b.addEventListener("click",function(){go(+b.dataset.t);});});
+    v.addEventListener("timeupdate",function(){var c=-1;bs.forEach(function(b,i){if(v.currentTime>=+b.dataset.t-.2)c=i;});bs.forEach(function(b,i){b.setAttribute("aria-current",i===c?"true":"false");});});})();
+    </script>
+  </section>
+</div>
+
+<div class="wrap">
   <section id="repos" data-pal="the webOS projects">
     <div class="sec-head rv">
       <div>
