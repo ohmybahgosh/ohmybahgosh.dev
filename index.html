@@ -255,7 +255,10 @@ html[data-theme=light] .helptest b{color:#000}
     </nav>
     <script>
     (function(){var v=document.getElementById("tour-video"),bs=[].slice.call(document.querySelectorAll("#tour .tour-ch button"));if(!v)return;
-    function go(t){if(v.readyState>=1){v.currentTime=t;}else{v.addEventListener("loadedmetadata",function h(){v.removeEventListener("loadedmetadata",h);v.currentTime=t;});v.preload="metadata";v.load();}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+    function play(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+    function go(t){v.addEventListener("seeked",function r(){v.removeEventListener("seeked",r);if(v.paused)play();});
+      if(v.readyState>=1){v.currentTime=t;}else{v.addEventListener("loadedmetadata",function h(){v.removeEventListener("loadedmetadata",h);v.currentTime=t;});}
+      play();}
     bs.forEach(function(b){b.addEventListener("click",function(){go(+b.dataset.t);});});
     v.addEventListener("timeupdate",function(){var c=-1;bs.forEach(function(b,i){if(v.currentTime>=+b.dataset.t-.2)c=i;});bs.forEach(function(b,i){b.setAttribute("aria-current",i===c?"true":"false");});});})();
     </script>
