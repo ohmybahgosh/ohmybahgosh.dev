@@ -29,11 +29,18 @@
 <meta name="twitter:description" content="How to get the ohmybahgosh.dev apps on an LG TV: check if it can be rooted, set up the Homebrew Channel, add the repo, and see which app works on which TV.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-09">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
@@ -53,17 +60,36 @@
   },
   {
    "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/install/#article",
    "headline": "Install guide: root, Homebrew Channel and app compatibility",
    "description": "Rooting status, the Homebrew Channel, adding the ohmybahgosh.dev repository and app compatibility for LG webOS TVs.",
    "url": "https://ohmybahgosh.dev/install/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/install/",
+   "image": "https://ohmybahgosh.dev/assets/og/home.png",
    "author": {
-    "@id": "https://ohmybahgosh.dev/#person"
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
    },
    "publisher": {
     "@id": "https://ohmybahgosh.dev/#person"
    },
-   "inLanguage": "en",
-   "dateModified": "2026-11-09"
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-09",
+   "keywords": [
+    "root LG TV",
+    "webOS Homebrew Channel",
+    "Homebrew Channel repository",
+    "LG webOS compatibility"
+   ]
   },
   {
    "@type": "FAQPage",
@@ -107,27 +133,6 @@
       "@type": "Answer",
       "text": "Once the repository is added, new versions show up in the Homebrew Channel as an update for each app. The site rebuilds the repository from each project's GitHub releases, so an update is usually listed within minutes of a release."
      }
-    }
-   ]
-  },
-  {
-   "@type": "HowTo",
-   "name": "Add the ohmybahgosh.dev repository to the webOS Homebrew Channel",
-   "step": [
-    {
-     "@type": "HowToStep",
-     "name": "Open the Homebrew Channel's settings",
-     "text": "Open the Homebrew Channel on the TV and select the gear icon at the top right."
-    },
-    {
-     "@type": "HowToStep",
-     "name": "Add the repository",
-     "text": "Under Repositories, choose Add repository, enter https://ohmybahgosh.dev/repo and confirm."
-    },
-    {
-     "@type": "HowToStep",
-     "name": "Install the apps",
-     "text": "Go back to the app list and install TiviBro, LG-USB-2-ETH0, Entware or SSH Doctor."
     }
    ]
   }
@@ -237,7 +242,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

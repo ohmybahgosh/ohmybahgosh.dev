@@ -37,6 +37,52 @@
  "@context": "https://schema.org",
  "@graph": [
   {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://ohmybahgosh.dev/lg-usb-2-eth0/#app",
+   "name": "LG-USB-2-ETH0",
+   "description": "Makes a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, so settings and streaming apps use the faster wired link instead of the 100 Mbit/s built-in port.",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
+   "url": "https://ohmybahgosh.dev/lg-usb-2-eth0/",
+   "downloadUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest",
+   "installUrl": "https://ohmybahgosh.dev/install/",
+   "screenshot": "https://ohmybahgosh.dev/assets/img/eth0-app-home.webp",
+   "image": "https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png",
+   "featureList": [
+    "USB Ethernet adapter as eth0",
+    "Driver finder for your exact kernel",
+    "Realtek mode",
+    "Wi-Fi as a backup",
+    "Block updates harder",
+    "Speed test"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "isAccessibleForFree": true,
+   "license": "https://opensource.org/licenses/MIT",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "sameAs": [
+    "https://github.com/ohmybahgosh/LG-USB-2-ETH0"
+   ]
+  },
+  {
    "@type": "SoftwareSourceCode",
    "name": "LG-USB-2-ETH0",
    "description": "Make a USB Ethernet adapter the TV's eth0 on rooted LG webOS TVs, safely and at every boot.  A TV app in the Homebrew Channel, or a POSIX sh script over SSH.",
@@ -47,7 +93,8 @@
    "author": {
     "@id": "https://ohmybahgosh.dev/#person"
    },
-   "runtimePlatform": "LG webOS"
+   "runtimePlatform": "LG webOS",
+   "@id": "https://ohmybahgosh.dev/lg-usb-2-eth0/#source"
   },
   {
    "@type": "BreadcrumbList",
@@ -490,7 +537,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

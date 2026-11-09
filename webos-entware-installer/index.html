@@ -37,6 +37,53 @@
  "@context": "https://schema.org",
  "@graph": [
   {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://ohmybahgosh.dev/webos-entware-installer/#app",
+   "name": "Entware for webOS",
+   "description": "Install and manage Entware on a rooted LG webOS TV from the remote: Linux packages, a bash shell, and one-press add-ons like Tailscale, Samba, File Browser and Syncthing.",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
+   "url": "https://ohmybahgosh.dev/webos-entware-installer/",
+   "softwareVersion": "2.15.1",
+   "downloadUrl": "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER/releases/latest",
+   "installUrl": "https://ohmybahgosh.dev/install/",
+   "screenshot": "https://ohmybahgosh.dev/assets/img/entware-app-packages.webp",
+   "image": "https://ohmybahgosh.dev/assets/og/webos-entware-installer.png",
+   "featureList": [
+    "1,100+ packages by category",
+    "bash shell",
+    "25 one-press add-ons",
+    "Phone dashboard",
+    "Package updates",
+    "Clean uninstall"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "isAccessibleForFree": true,
+   "license": "https://opensource.org/licenses/MIT",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "sameAs": [
+    "https://github.com/ohmybahgosh/WEBOS-ENTWARE-INSTALLER"
+   ]
+  },
+  {
    "@type": "SoftwareSourceCode",
    "name": "WEBOS-ENTWARE-INSTALLER",
    "description": "Entware for rooted LG webOS TVs, from a Homebrew Channel TV app or one line over SSH.  Search and install any of 2,900+ Linux packages from the remote, with a bash shell and 25 one-press add-ons, from git and Python to Tailscale, file sharing and Syncthing.  Checks your TV first, survives reboots and uninstalls cleanly.",
@@ -48,7 +95,8 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "2.15.1"
+   "softwareVersion": "2.15.1",
+   "@id": "https://ohmybahgosh.dev/webos-entware-installer/#source"
   },
   {
    "@type": "BreadcrumbList",
@@ -485,7 +533,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

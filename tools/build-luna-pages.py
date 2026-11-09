@@ -198,6 +198,14 @@ def sitemap():
     open(os.path.join(ROOT, "sitemap.xml"), "w").write(xml)
     return len(urls)
 
+def touch_dataset():
+    """Keep the Dataset's dateModified on /luna-atlas/ in step with the catalog deployed."""
+    f = os.path.join(ROOT, "luna-atlas/index.html"); s = open(f, encoding="utf-8").read()
+    s2 = re.sub(r'("@id": "https://ohmybahgosh.dev/luna-atlas/#dataset".*?"dateModified": ")[^"]*(")',
+                lambda m: m.group(1) + datetime.date.today().isoformat() + m.group(2), s, flags=re.S)
+    if s2 != s: open(f, "w", encoding="utf-8").write(s2)
+
 if __name__ == "__main__":
+    touch_dataset()
     for w in build(): print("wrote", w)
     print("sitemap urls:", sitemap())

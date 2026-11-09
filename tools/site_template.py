@@ -4,7 +4,7 @@ import html, json
 
 SITE = "https://ohmybahgosh.dev"
 CSS_V = "r2611b"
-JS_V = "r2611b"
+JS_V = "r2611c"
 
 def esc(s): return html.escape(s, quote=True)
 
@@ -92,7 +92,8 @@ def page(path, title, desc, body, trail, ld=None, body_class="p-doc", og_image="
          menu_current=""):
     assert len(desc) <= 160, (path, len(desc))
     url = SITE + path
-    graph = [breadcrumbs(trail)] + (ld or [])
+    mod = today()
+    graph = [{"@type": "WebSite", "@id": SITE + "/#website", "name": "ohmybahgosh.dev", "url": SITE + "/"}, breadcrumbs(trail)] + (ld or [])
     ldjson = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=1)
     return f"""<!doctype html>
 <html lang="en" data-root="/">
@@ -125,6 +126,7 @@ def page(path, title, desc, body, trail, ld=None, body_class="p-doc", og_image="
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{SITE}{og_image}">
 <meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="{mod}">
 <meta name="robots" content="{robots}">
 <script type="application/ld+json">
 {ldjson}
@@ -145,11 +147,21 @@ def page(path, title, desc, body, trail, ld=None, body_class="p-doc", og_image="
 
 {FOOTER}"""
 
-def article_ld(path, headline, desc, about=None):
-    d = {"@type": "TechArticle", "headline": headline, "description": desc, "url": SITE + path,
-         "author": {"@id": SITE + "/#person"}, "publisher": {"@id": SITE + "/#person"},
-         "inLanguage": "en", "dateModified": "2026-11-09"}
+PUBLISHED = "2026-11-09"
+def today():
+    import datetime; return datetime.date.today().isoformat()
+
+def author():
+    return {"@type": "Person", "@id": SITE + "/#person", "name": "OhMyBahGosh", "url": SITE + "/about/",
+            "sameAs": ["https://github.com/ohmybahgosh"]}
+
+def article_ld(path, headline, desc, about=None, image="/assets/og/home.png", published=PUBLISHED, modified=None, keywords=None):
+    d = {"@type": "TechArticle", "@id": SITE + path + "#article", "headline": headline[:110], "description": desc, "url": SITE + path,
+         "mainEntityOfPage": SITE + path, "image": SITE + image, "author": author(), "publisher": {"@id": SITE + "/#person"},
+         "isPartOf": {"@id": SITE + "/#website"}, "inLanguage": "en-US",
+         "datePublished": published, "dateModified": modified or today()}
     if about: d["about"] = about
+    if keywords: d["keywords"] = keywords
     return d
 
 def faq_ld(qas):

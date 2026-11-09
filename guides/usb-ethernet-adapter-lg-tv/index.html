@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Best USB Ethernet adapters for LG webOS TVs, by chip</title>
+<title>USB Ethernet adapter for LG TV: what works (C2, C4, G4 and more)</title>
 <meta name="description" content="Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
-<meta property="og:title" content="Best USB Ethernet adapters for LG webOS TVs, by chip">
+<meta property="og:title" content="USB Ethernet adapter for LG TV: what works (C2, C4, G4 and more)">
 <meta property="og:description" content="Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.">
 <meta property="og:url" content="https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
@@ -25,15 +25,22 @@
 <meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Best USB Ethernet adapters for LG webOS TVs, by chip">
+<meta name="twitter:title" content="USB Ethernet adapter for LG TV: what works (C2, C4, G4 and more)">
 <meta name="twitter:description" content="Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
 <meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-09">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
@@ -59,17 +66,37 @@
   },
   {
    "@type": "TechArticle",
-   "headline": "Which USB Ethernet adapter for an LG TV?",
+   "@id": "https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/#article",
+   "headline": "USB Ethernet adapter for LG TV: what works (C2, C4, G4 and more)",
    "description": "Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.",
    "url": "https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/usb-ethernet-adapter-lg-tv/",
+   "image": "https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png",
    "author": {
-    "@id": "https://ohmybahgosh.dev/#person"
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
    },
    "publisher": {
     "@id": "https://ohmybahgosh.dev/#person"
    },
-   "inLanguage": "en",
-   "dateModified": "2026-11-09"
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-09",
+   "keywords": [
+    "usb ethernet adapter lg tv",
+    "lg tv usb ethernet adapter not working",
+    "lg c2 usb ethernet adapter",
+    "lg c4 usb ethernet adapter",
+    "lg g4 usb ethernet adapter"
+   ]
   },
   {
    "@type": "FAQPage",
@@ -96,6 +123,14 @@
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Check the maker's datasheet or reviews, since many listings don't say. On the TV, lsusb shows the ID: 0bda:8153 is Realtek RTL8153, 0bda:8156 is RTL8156, and 0b95:1790 is ASIX AX88179."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which adapter for an LG C2, C4 or G4?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "All three have a Realtek or ASIX driver to use. Tested: an RTL8156 2.5G adapter on a C2, a TP-Link UE306 (AX88179) on a C4, and RTL8153 and AX88179 adapters on G4s. Their ports run at USB 2.0 speed, so a gigabit adapter does as well as a 2.5G one."
      }
     },
     {
@@ -165,6 +200,14 @@
 <div class="tblw"><table class="tbl"><thead><tr><th>adapter</th><th>chip</th><th>TV</th><th>result</th></tr></thead><tbody><tr><td>UGREEN USB-C to 2.5G</td><td>RTL8156BG</td><td>2022 C2, webOS 25</td><td>272 down, 287 up with <code>r8152_oot</code></td></tr><tr><td>TP-Link UE306</td><td>AX88179</td><td>2020 UN7300, webOS 5</td><td>228 down, 325 up with a driver from <code>get-driver</code></td></tr><tr><td>TP-Link UE306</td><td>AX88179</td><td>2024 C4</td><td>about 300, out of the box</td></tr><tr><td>RTL8153 adapter</td><td>RTL8153</td><td>2024 G4, webOS 24</td><td>293 down, 285 up</td></tr><tr><td>Cable Matters USB Ethernet</td><td>RTL8153</td><td>2020 UN7300, webOS 5</td><td>184 down, 229 up with a driver from <code>get-driver</code></td></tr><tr><td>ASIX AX88179 adapter</td><td>AX88179</td><td>2024 G4, webOS 25</td><td>292 down, 51 up</td></tr><tr><td>RTL8153 adapter</td><td>RTL8153</td><td>2026 G6, webOS 26</td><td>247 down, 312 up</td></tr></tbody></table></div>
 <p>More models that use the same chips, with plain links and no affiliate codes, are in the <a href="https://github.com/ohmybahgosh/LG-USB-2-ETH0#choosing-an-adapter" target="_blank" rel="noopener">LG-USB-2-ETH0 README</a>.  Sellers sometimes change parts without changing the listing, so check the chip before you buy.</p>
 
+<h2 id="not-working">USB Ethernet adapter not working on an LG TV?</h2>
+<p>Three causes cover almost every case:</p>
+<ul>
+<li><b class="c-wh">It's working, but as eth1.</b>  The adapter has a link and an address, yet settings say "Not Connected" and some apps won't play.  webOS only treats <code>eth0</code> as the wired connection.  On a rooted TV, <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> fixes the name.</li>
+<li><b class="c-wh">No driver for its chip.</b>  The adapter isn't detected at all, because the kernel on your model and firmware has no driver for that chip.  LG-USB-2-ETH0's <code>status</code> shows adapters the kernel sees without a driver, and <code>get-driver</code> offers one built for your kernel when one exists.</li>
+<li><b class="c-wh">The slow generic driver.</b>  A Realtek adapter on <code>cdc_ncm</code> works but drops and tops out lower.  Realtek mode moves it to the TV's own <code>r8152</code> where the kernel has one.</li>
+</ul>
+
 <h2>USB 2.0 vs USB 3.0</h2>
 <p>Many LG TVs, the C2 included, only have USB 2.0 ports.  There every adapter tops out around 300 Mbit/s, about three times the built-in port.  If your TV has a USB 3.0 port (usually the blue one), plug into that.  A USB-C adapter needs a USB-C to USB-A converter on most LG TVs, and those are usually USB 2.0.</p>
 
@@ -175,6 +218,7 @@
 <details class="faq"><summary>Does the brand matter?</summary><div>Less than the chip.  The TV needs a driver for the adapter's chip, and that depends on its kernel.  Realtek RTL8153 or RTL8156 and ASIX AX88179 are the safe picks.</div></details>
 <details class="faq"><summary>Should I buy a 2.5G adapter?</summary><div>Only if your TV has a USB 3.0 port.  On a USB 2.0 port, which many LG TVs have, a gigabit adapter does about as well for less.  Both land around 300 Mbit/s.</div></details>
 <details class="faq"><summary>How do I know which chip an adapter has?</summary><div>Check the maker's datasheet or reviews, since many listings don't say.  On the TV, <code>lsusb</code> shows the ID: <code>0bda:8153</code> is Realtek RTL8153, <code>0bda:8156</code> is RTL8156, and <code>0b95:1790</code> is ASIX AX88179.</div></details>
+<details class="faq"><summary>Which adapter for an LG C2, C4 or G4?</summary><div>All three have a Realtek or ASIX driver to use.  Tested: an RTL8156 2.5G adapter on a C2, a TP-Link UE306 (AX88179) on a C4, and RTL8153 and AX88179 adapters on G4s.  Their ports run at USB 2.0 speed, so a gigabit adapter does as well as a 2.5G one.</div></details>
 <details class="faq"><summary>My adapter isn't detected.  Now what?</summary><div>The kernel probably has no driver for its chip.  LG-USB-2-ETH0's <code>status</code> lists adapters the kernel sees without a driver, <code>get-driver</code> offers a driver built for your kernel when one is known, and <code>test-driver</code> one waiting for testers.</div></details>
 </article>
 </div>
@@ -203,7 +247,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

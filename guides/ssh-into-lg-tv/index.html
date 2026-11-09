@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>How to SSH into a rooted LG webOS TV (and fix common errors)</title>
+<title>LG TV SSH: default password, setup and common errors</title>
 <meta name="description" content="Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
-<meta property="og:title" content="How to SSH into a rooted LG webOS TV (and fix common errors)">
+<meta property="og:title" content="LG TV SSH: default password, setup and common errors">
 <meta property="og:description" content="Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.">
 <meta property="og:url" content="https://ohmybahgosh.dev/guides/ssh-into-lg-tv/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/ssh-doctor.png">
@@ -25,15 +25,22 @@
 <meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to SSH into a rooted LG webOS TV (and fix common errors)">
+<meta name="twitter:title" content="LG TV SSH: default password, setup and common errors">
 <meta name="twitter:description" content="Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/ssh-doctor.png">
 <meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-09">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
@@ -59,17 +66,37 @@
   },
   {
    "@type": "TechArticle",
-   "headline": "SSH into a rooted LG TV.",
+   "@id": "https://ohmybahgosh.dev/guides/ssh-into-lg-tv/#article",
+   "headline": "LG TV SSH: default password, setup and common errors",
    "description": "Turn on SSH on a rooted LG TV, log in as root, add a key, copy files over SFTP, and fix Connection refused, Permission denied and host key errors.",
    "url": "https://ohmybahgosh.dev/guides/ssh-into-lg-tv/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/ssh-into-lg-tv/",
+   "image": "https://ohmybahgosh.dev/assets/og/ssh-doctor.png",
    "author": {
-    "@id": "https://ohmybahgosh.dev/#person"
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
    },
    "publisher": {
     "@id": "https://ohmybahgosh.dev/#person"
    },
-   "inLanguage": "en",
-   "dateModified": "2026-11-09"
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-09",
+   "keywords": [
+    "lg tv ssh password",
+    "webos ssh default password",
+    "webos ssh connection refused",
+    "lg tv developer mode ssh",
+    "ssh into lg webos tv"
+   ]
   },
   {
    "@type": "FAQPage",
@@ -170,11 +197,14 @@
 <h2>2. Log in</h2>
 <p>Find the TV's IP address in its network settings, then from a computer on the same network:</p>
 <div class="code"><pre><span class="pr">$ </span>ssh root@192.168.1.50</pre></div>
-<p>The user is <code>root</code>, the port is 22 and the password is <code>alpine</code>.  On Windows, the built-in <code>ssh</code> in PowerShell or Windows Terminal works the same, or use PuTTY.</p>
+<p><b class="c-wh">The webOS SSH default password:</b> user <code>root</code>, port 22, password <code>alpine</code>.  On Windows, the built-in <code>ssh</code> in PowerShell or Windows Terminal works the same, or use PuTTY.</p>
 
 <h2>3. Switch to a key</h2>
 <p>Keys go in <code>/home/root/.ssh/authorized_keys</code>, one per line.  The first key you add turns password login off at the next boot, so check the key works before you restart.  The common ways this goes wrong: Windows line endings in the file, a key wrapped across lines, a private key pasted instead of the <code>.pub</code> half, or the wrong owner or permissions.</p>
 <p><a href="/ssh-doctor/">SSH Doctor</a> skips all of that: on the TV, choose <b class="c-wh">Set up a key</b>, scan the QR code or open the address on your computer or phone, enter the short pairing code, and upload a key or let the browser make one.  It also gives you a ready-made <code>~/.ssh/config</code> entry, so <code>ssh lgtv</code> just works.</p>
+
+<h2 id="devmode">Developer Mode SSH is different</h2>
+<p>LG's Developer Mode runs its own SSH server on port 9922, as user <code>prisoner</code>, with a key and passphrase the Developer Mode app gives you.  It's meant for LG's developer tools (<code>ares</code> and webOS Dev Manager), it isn't root, and it can't change the system.  Everything else on this page is the Homebrew Channel's root SSH on a rooted TV.</p>
 
 <h2>4. Copy files</h2>
 <p>SFTP uses the same login.  WinSCP, FileZilla and Cyberduck work with the Homebrew Channel's <code>sftp-server</code>, or from a terminal:</p>
@@ -217,7 +247,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

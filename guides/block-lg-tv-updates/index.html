@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How to block LG TV firmware updates (Pi-hole, DNS, rooted TVs)</title>
+<meta name="description" content="Block LG webOS firmware updates: the servers to block on Pi-hole or your router, what the Homebrew Channel misses, and a fuller block for rooted TVs.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/block-lg-tv-updates/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="How to block LG TV firmware updates (Pi-hole, DNS, rooted TVs)">
+<meta property="og:description" content="Block LG webOS firmware updates: the servers to block on Pi-hole or your router, what the Homebrew Channel misses, and a fuller block for rooted TVs.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/block-lg-tv-updates/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to block LG TV firmware updates (Pi-hole, DNS, rooted TVs)">
+<meta name="twitter:description" content="Block LG webOS firmware updates: the servers to block on Pi-hole or your router, what the Homebrew Channel misses, and a fuller block for rooted TVs.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-09">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Block LG TV firmware updates",
+     "item": "https://ohmybahgosh.dev/guides/block-lg-tv-updates/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/block-lg-tv-updates/#article",
+   "headline": "How to block LG TV firmware updates (Pi-hole, DNS, rooted TVs)",
+   "description": "Block LG webOS firmware updates: the servers to block on Pi-hole or your router, what the Homebrew Channel misses, and a fuller block for rooted TVs.",
+   "url": "https://ohmybahgosh.dev/guides/block-lg-tv-updates/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/block-lg-tv-updates/",
+   "image": "https://ohmybahgosh.dev/assets/og/home.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-09",
+   "keywords": [
+    "lg tv block updates",
+    "lg tv block updates dns",
+    "pihole block lg tv updates",
+    "lg tv disable updates",
+    "lg tv stop updates"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is turning off automatic updates in the TV's settings enough?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not on its own. It stops automatic installs, but the TV still checks and can prompt, and people have found updates getting through. On a rooted TV, block the servers as well."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which LG update servers should I block?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "snu.lge.com, su.lge.com, su-ssl.lge.com and su-dev.lge.com (what the Homebrew Channel blocks), plus nsu.lge.com, snu-dev.lge.com and ngfts.lge.com, which it misses."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I block LG TV updates with Pi-hole or my router's DNS?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, add those hostnames to your blocklist. It covers the TV before it has even started. It can't block the update server the TV reaches by IP address, 156.147.69.32: that needs a firewall rule, on the router or on the TV."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will blocking updates break apps?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It doesn't touch app updates from LG's store or the Homebrew Channel. It blocks firmware updates only."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">block-lg-tv-updates</span></div>
+<section class="doc-hero" style="--accent:#ff3ea5">
+  <div class="eyebrow">$ cat guides/block-lg-tv-updates.md</div>
+  <h1 class="h2" style="margin-top:12px">Block LG TV firmware updates.</h1>
+  <p class="lead">A firmware update can remove root, and patched firmware can't be rooted again.  Here's every layer of blocking, from your router to the TV itself.</p>
+</section><article class="doc" style="--accent:#ff3ea5">
+
+<h2>1. On any TV: turn off automatic updates</h2>
+<p>In the TV's settings, under Support and Software Update, turn off automatic updates.  It's the first layer, but not enough on its own.</p>
+
+<h2>2. On your network: block the servers</h2>
+<p>Add these to Pi-hole, AdGuard Home or your router's DNS blocklist.  This works whether or not the TV is rooted, and it's in place before the TV has even started.</p>
+<div class="code"><pre>snu.lge.com
+su.lge.com
+su-ssl.lge.com
+su-dev.lge.com
+nsu.lge.com
+snu-dev.lge.com
+ngfts.lge.com</pre></div>
+<p>DNS can't block one thing: the updater also reaches a server by IP address, <code>156.147.69.32</code>.  Block that with a firewall rule on the router if it supports one.</p>
+
+<h2>3. On a rooted TV: the Homebrew Channel's block</h2>
+<p>The Homebrew Channel's <b class="c-wh">Block system updates</b> points the first four servers above at nothing in the TV's hosts file.  People in <a href="https://github.com/webosbrew/webos-homebrew-channel/issues/96" target="_blank" rel="noopener">Homebrew Channel issue #96</a> found what it misses: <code>nsu.lge.com</code>, LG's current update server, which a TV still reached with the block on, plus the IP address above and an update check that runs early in boot.</p>
+
+<h2>4. On a rooted TV: Block updates harder</h2>
+<p><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>'s <b class="c-wh">Block updates harder</b> covers the gaps, at once and again at every boot:</p>
+<ul>
+<li>Turns off webOS's own update check (the hidden <code>softwareUpdateEnable</code> setting), including the early one at boot.</li>
+<li>Adds <code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>ngfts.lge.com</code> to the hosts file, without touching the Homebrew Channel's lines.</li>
+<li>Blocks <code>156.147.69.32</code> with one firewall rule.</li>
+<li>Deletes update details already found or downloaded, so a waiting prompt goes away.</li>
+</ul>
+<p>Turning it off undoes all of it.  It's a toggle in the LG-USB-2-ETH0 TV app, or <code>--block-updates</code> over SSH, and it works whether or not you use a USB adapter.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/guides/root-lg-tv-2026/"><b>Rooting an LG TV in 2026</b><span>Which firmware is still rootable</span></a><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>Includes Block updates harder</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, the repo</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Is turning off automatic updates in the TV's settings enough?</summary><div>Not on its own.  It stops automatic installs, but the TV still checks and can prompt, and people have found updates getting through.  On a rooted TV, block the servers as well.</div></details>
+<details class="faq"><summary>Which LG update servers should I block?</summary><div><code>snu.lge.com</code>, <code>su.lge.com</code>, <code>su-ssl.lge.com</code> and <code>su-dev.lge.com</code> (what the Homebrew Channel blocks), plus <code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>ngfts.lge.com</code>, which it misses.</div></details>
+<details class="faq"><summary>Can I block LG TV updates with Pi-hole or my router's DNS?</summary><div>Yes, add those hostnames to your blocklist.  It covers the TV before it has even started.  It can't block the update server the TV reaches by IP address, <code>156.147.69.32</code>: that needs a firewall rule, on the router or on the TV.</div></details>
+<details class="faq"><summary>Will blocking updates break apps?</summary><div>It doesn't touch app updates from LG's store or the Homebrew Channel.  It blocks firmware updates only.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

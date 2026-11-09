@@ -37,6 +37,53 @@
  "@context": "https://schema.org",
  "@graph": [
   {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://ohmybahgosh.dev/ssh-doctor/#app",
+   "name": "SSH Doctor",
+   "description": "Check and fix SSH on a rooted LG webOS TV from the TV itself: repair the Homebrew Channel's dropbear SSH, broken keys or a lost password, and pair a key with a short code.",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
+   "url": "https://ohmybahgosh.dev/ssh-doctor/",
+   "softwareVersion": "0.3.0",
+   "downloadUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/latest",
+   "installUrl": "https://ohmybahgosh.dev/install/",
+   "screenshot": "https://ohmybahgosh.dev/assets/img/ssh-doctor-main.webp",
+   "image": "https://ohmybahgosh.dev/assets/og/ssh-doctor.png",
+   "featureList": [
+    "SSH check in plain words",
+    "One-button repairs with undo",
+    "Key pairing with a short code",
+    "Your own root password",
+    "SSH port and keys only",
+    "Login history"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "isAccessibleForFree": true,
+   "license": "https://opensource.org/licenses/MIT",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "sameAs": [
+    "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR"
+   ]
+  },
+  {
    "@type": "SoftwareSourceCode",
    "name": "LG-WEBOS-SSH-DOCTOR",
    "description": "Fix SSH on rooted LG webOS TVs from the TV itself, with just the remote.  SSH Doctor checks and repairs the Homebrew Channel's dropbear SSH, gets you back in after a broken authorized_keys or a lost alpine password, pairs a key from your phone or computer with a short code, and lets you set your own password, keys only or another port.",
@@ -48,7 +95,8 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "0.3.0"
+   "softwareVersion": "0.3.0",
+   "@id": "https://ohmybahgosh.dev/ssh-doctor/#source"
   },
   {
    "@type": "BreadcrumbList",
@@ -287,7 +335,7 @@ sh $S help              # everything else</pre></div>
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

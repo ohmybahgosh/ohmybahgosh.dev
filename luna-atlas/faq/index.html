@@ -29,11 +29,18 @@
 <meta name="twitter:description" content="Answers about luna-send and Luna Atlas: what the Luna Service Bus is, running commands, access levels, dangerous methods and where the data comes from.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
 <meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-09">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
@@ -82,6 +89,14 @@
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Public methods are open to normal apps. Private ones are for LG's own apps and services, and need root or a privileged caller. Some are only reachable as root, and SSAP methods are the ones LG's remote-control API exposes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does luna-send say permission denied?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually the method is private: it's for LG's own apps and services, and a normal caller isn't allowed. Each method in the catalog shows its access level. Private methods need root, and Developer Mode's shell isn't root."
      }
     },
     {
@@ -168,6 +183,7 @@
 <details class="faq"><summary>What is luna-send?</summary><div>The command-line tool every LG webOS TV ships to talk to the Luna Service Bus, the internal message bus every system service listens on: power, apps, inputs, picture and sound, Wi-Fi, notifications and hundreds more.</div></details>
 <details class="faq"><summary>What do I need to run a command?</summary><div>A rooted TV, or LG's Developer Mode, and a shell on the TV.  Browsing the catalog needs nothing.</div></details>
 <details class="faq"><summary>What do public, private and the other access levels mean?</summary><div>Public methods are open to normal apps.  Private ones are for LG's own apps and services, and need root or a privileged caller.  Some are only reachable as root, and SSAP methods are the ones LG's remote-control API exposes.</div></details>
+<details class="faq"><summary>Why does luna-send say permission denied?</summary><div>Usually the method is private: it's for LG's own apps and services, and a normal caller isn't allowed.  Each method in the catalog shows its access level.  Private methods need root, and Developer Mode's shell isn't root.</div></details>
 <details class="faq"><summary>Is it safe to run these?</summary><div>Many calls change settings, inputs or power, and a few can reset the TV, wipe data or brick it.  Those are flagged dangerous.  Running one from the catalog is exactly as safe as typing the same <code>luna-send</code> yourself.</div></details>
 <details class="faq"><summary>Where does the data come from?</summary><div>LG's webOS TV and webOS OSE docs, the homebrew and remote-control community, and the service list introspected from a rooted TV.  Each method says whether it's documented or inferred.</div></details>
 <details class="faq"><summary>Is there a command-line version?</summary><div>Yes, <code>luna-atlas.sh</code> in the GitHub repo can search, show and run methods over SSH, with tab completion.  It's an early preview.</div></details>
@@ -199,7 +215,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Luna Atlas · every LG webOS luna-send command</title>
+<title>webOS Luna API: every luna-send command · Luna Atlas</title>
 <meta name="description" content="Searchable catalog of every LG webOS luna-send (Luna Service Bus) command: 8,000+ methods across 501 services, with access levels, params and examples.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
-<meta property="og:title" content="Luna Atlas · every LG webOS luna-send command">
+<meta property="og:title" content="webOS Luna API: every luna-send command · Luna Atlas">
 <meta property="og:description" content="Searchable catalog of every LG webOS luna-send (Luna Service Bus) command: 8,000+ methods across 501 services, with access levels, params and examples.">
 <meta property="og:url" content="https://ohmybahgosh.dev/luna-atlas/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
@@ -26,7 +26,7 @@
 <meta property="og:image:alt" content="Luna Atlas: every LG webOS luna-send command, documented.  8,125 methods across 501 services.">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Luna Atlas · every LG webOS luna-send command">
+<meta name="twitter:title" content="webOS Luna API: every luna-send command · Luna Atlas">
 <meta name="twitter:description" content="Searchable catalog of every LG webOS luna-send (Luna Service Bus) command: 8,000+ methods across 501 services, with access levels, params and examples.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
 <meta name="author" content="OhMyBahGosh">
@@ -36,6 +36,12 @@
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
   {
    "@type": "SoftwareApplication",
    "name": "Luna Atlas",
@@ -47,15 +53,73 @@
    "codeRepository": "https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS",
    "license": "https://opensource.org/licenses/MIT",
    "isAccessibleForFree": true,
-   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-   "author": { "@id": "https://ohmybahgosh.dev/#person" }
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   }
   },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ohmybahgosh.dev/" },
-    { "@type": "ListItem", "position": 2, "name": "Luna Atlas", "item": "https://ohmybahgosh.dev/luna-atlas/" }
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Luna Atlas",
+     "item": "https://ohmybahgosh.dev/luna-atlas/"
+    }
    ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://ohmybahgosh.dev/luna-atlas/#dataset",
+   "name": "LG webOS luna-send command catalog (WEBOS-LUNA-SEND-ATLAS)",
+   "description": "A catalog of LG webOS Luna Service Bus (luna-send) methods across hundreds of services, each with its URI, category, access level (public, private, root, SSAP), whether it supports subscriptions, a dangerous flag, whether it's documented or inferred, a description and its parameters.",
+   "url": "https://ohmybahgosh.dev/luna-atlas/",
+   "sameAs": "https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS",
+   "license": "https://opensource.org/licenses/MIT",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/"
+   },
+   "keywords": [
+    "luna-send",
+    "webOS Luna API",
+    "Luna Service Bus",
+    "LG webOS",
+    "webOS TV"
+   ],
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "encodingFormat": "application/json",
+     "contentUrl": "https://ohmybahgosh.dev/luna-atlas/catalog.json"
+    }
+   ],
+   "variableMeasured": [
+    "service",
+    "method",
+    "URI",
+    "category",
+    "access level",
+    "subscribable",
+    "dangerous",
+    "documentation confidence",
+    "parameters"
+   ],
+   "dateModified": "2026-11-09"
   }
  ]
 }
@@ -277,7 +341,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <script src="/assets/js/luna-atlas.js?v=07f3e038" defer></script>
 </body>

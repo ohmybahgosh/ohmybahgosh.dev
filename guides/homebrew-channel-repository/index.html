@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>How to add a repository to the webOS Homebrew Channel</title>
+<title>Homebrew Channel on LG TV: install it and add a repository</title>
 <meta name="description" content="Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
-<meta property="og:title" content="How to add a repository to the webOS Homebrew Channel">
+<meta property="og:title" content="Homebrew Channel on LG TV: install it and add a repository">
 <meta property="og:description" content="Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.">
 <meta property="og:url" content="https://ohmybahgosh.dev/guides/homebrew-channel-repository/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/home.png">
@@ -25,15 +25,22 @@
 <meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to add a repository to the webOS Homebrew Channel">
+<meta name="twitter:title" content="Homebrew Channel on LG TV: install it and add a repository">
 <meta name="twitter:description" content="Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-09">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
@@ -59,17 +66,36 @@
   },
   {
    "@type": "TechArticle",
-   "headline": "Add a repository to the Homebrew Channel.",
+   "@id": "https://ohmybahgosh.dev/guides/homebrew-channel-repository/#article",
+   "headline": "Homebrew Channel on LG TV: install it and add a repository",
    "description": "Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.",
    "url": "https://ohmybahgosh.dev/guides/homebrew-channel-repository/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/homebrew-channel-repository/",
+   "image": "https://ohmybahgosh.dev/assets/og/home.png",
    "author": {
-    "@id": "https://ohmybahgosh.dev/#person"
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
    },
    "publisher": {
     "@id": "https://ohmybahgosh.dev/#person"
    },
-   "inLanguage": "en",
-   "dateModified": "2026-11-09"
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-09",
+   "keywords": [
+    "homebrew channel lg tv",
+    "install homebrew channel lg tv",
+    "homebrew channel lg repository",
+    "webos homebrew ipk"
+   ]
   },
   {
    "@type": "FAQPage",
@@ -156,7 +182,10 @@
   <p class="lead">Repositories are how apps that aren't in the default list get onto a rooted LG TV, and how they update from the TV.</p>
 </section><article class="doc" style="--accent:#33e1ff">
 
-<h2>Steps</h2>
+<h2 id="install-hbc">Installing the Homebrew Channel</h2>
+<p>The Homebrew Channel isn't in LG's store.  The rooting tool installs it: <a href="https://rootmy.tv" target="_blank" rel="noopener">RootMyTV</a>, faultmanager-autoroot, crashd or DejaVuln, depending on your firmware.  Check yours at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a>, and see <a href="/guides/root-lg-tv-2026/">rooting an LG TV in 2026</a>.</p>
+
+<h2>Add a repository: steps</h2>
 <div class="steps"><div class="step"><div><h3>Open the settings</h3><p>Open the Homebrew Channel on the TV and select the gear icon at the top right.</p></div></div><div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b> and choose <b class="c-wh">Add repository</b>.  Type the address, for example <code>https://ohmybahgosh.dev/repo</code>, and confirm.</p></div></div><div class="step"><div><h3>Find the apps</h3><p>Go back to the app list.  The repository's apps are listed with the rest: open one and choose <b class="c-wh">Install</b>.</p></div></div><div class="step"><div><h3>Updates</h3><p>New versions show up as an update on the app's page in the Homebrew Channel.</p></div></div></div>
 
 <h2>Repositories worth adding</h2>
@@ -201,7 +230,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

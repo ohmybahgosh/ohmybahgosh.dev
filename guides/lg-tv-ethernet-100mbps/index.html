@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>LG TV Ethernet stuck at 100 Mbps? Why, and how to go faster</title>
+<title>LG TV Ethernet port speed: why it&#x27;s 100 Mbps, how to go faster</title>
 <meta name="description" content="LG TVs&#x27; built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
-<meta property="og:title" content="LG TV Ethernet stuck at 100 Mbps? Why, and how to go faster">
+<meta property="og:title" content="LG TV Ethernet port speed: why it&#x27;s 100 Mbps, how to go faster">
 <meta property="og:description" content="LG TVs&#x27; built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.">
 <meta property="og:url" content="https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
@@ -25,15 +25,22 @@
 <meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LG TV Ethernet stuck at 100 Mbps? Why, and how to go faster">
+<meta name="twitter:title" content="LG TV Ethernet port speed: why it&#x27;s 100 Mbps, how to go faster">
 <meta name="twitter:description" content="LG TVs&#x27; built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
 <meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-09">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
@@ -59,21 +66,41 @@
   },
   {
    "@type": "TechArticle",
-   "headline": "LG TV Ethernet stuck at 100 Mbps?",
+   "@id": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/#article",
+   "headline": "LG TV Ethernet port speed: why it's 100 Mbps, how to go faster",
    "description": "LG TVs' built-in Ethernet port tops out at 100 Mbit/s.  Why it happens, what Wi-Fi and USB adapters can do, and how rooted TVs get about 300 Mbit/s wired.",
    "url": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-100mbps/",
+   "image": "https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png",
    "author": {
-    "@id": "https://ohmybahgosh.dev/#person"
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
    },
    "publisher": {
     "@id": "https://ohmybahgosh.dev/#person"
    },
-   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
    "dateModified": "2026-11-09",
    "about": {
     "@type": "Thing",
     "name": "LG webOS TV Ethernet speed"
-   }
+   },
+   "keywords": [
+    "lg tv ethernet port speed",
+    "lg tv only 100mbps",
+    "lg tv ethernet speed slow",
+    "lg tv ethernet vs wifi",
+    "lg tv gigabit ethernet usb"
+   ]
   },
   {
    "@type": "FAQPage",
@@ -108,6 +135,14 @@
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "Often, on a good Wi-Fi 5 or Wi-Fi 6 connection close to the router. It's less steady than a cable, though, and that's what causes buffering on high-bitrate streams. Test both with the same file or speed test."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does Plex or Jellyfin buffer on my LG TV over Ethernet?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Often it's the 100 Mbit/s port: a 4K remux can peak above what it carries, even when the file plays fine elsewhere. Check the file's bitrate against 95 Mbit/s. Wi-Fi with a strong signal, or a USB adapter as eth0 on a rooted TV, gives it room."
      }
     },
     {
@@ -173,9 +208,12 @@
 <h2>Why it's 100 Mbit/s</h2>
 <p>LG's TVs use a Fast Ethernet controller for the wired port: 100 Mbit/s, with real throughput around 95.  It's a hardware limit, so a gigabit switch, a new Cat6 cable or a faster internet plan won't move it.  For most streaming apps that's plenty.  It isn't for high-bitrate local files: 4K Blu-ray remuxes over Plex or Jellyfin, and game streaming with Moonlight, can stutter or buffer.</p>
 
+<h2>Every model, the C2, C4 and G4 included</h2>
+<p>This isn't one model's quirk.  Measured on TVs from a 2020 UN7300 to a 2024 G4 and a 2026 G6, the built-in port lands at about 95 Mbit/s.  Look up your model's Ethernet port speed and you'll find the same answer: 100 Mbit/s.</p>
+
 <h2>Your options</h2>
 <h3>1. Wi-Fi</h3>
-<p>On a strong Wi-Fi 5 or Wi-Fi 6 signal, the TV's Wi-Fi can beat the wired port on paper.  It's also less steady, and steadiness is what high-bitrate playback needs.  Worth a test, especially with the router in the same room.</p>
+<p><b class="c-wh">Ethernet vs Wi-Fi on an LG TV:</b> on a strong Wi-Fi 5 or Wi-Fi 6 signal, the TV's Wi-Fi can beat the wired port on paper.  It's also less steady, and steadiness is what high-bitrate playback needs.  Worth a test, especially with the router in the same room.</p>
 <h3>2. A USB Ethernet adapter, on a stock TV</h3>
 <p>Plug one in and the TV may detect it, but webOS names it <code>eth1</code>.  The TV's settings then show "Not Connected", and some apps, like Paramount+, refuse to play over it.  Without root there's no way to change that.</p>
 <h3>3. A USB Ethernet adapter as eth0, on a rooted TV</h3>
@@ -202,6 +240,7 @@
 <details class="faq"><summary>Will a gigabit or 2.5G USB adapter give me gigabit?</summary><div>No.  Most LG TVs only have USB 2.0 ports, which top out around 300 Mbit/s in practice.  That's still about three times the built-in port.  On a TV with a USB 3.0 port (usually the blue one), use that for more.</div></details>
 <details class="faq"><summary>Can I just plug in a USB Ethernet adapter without root?</summary><div>The TV may see it, but webOS calls it <code>eth1</code>.  The settings then show no wired connection, and some streaming apps, like Paramount+, refuse to play over it.  Making the adapter the TV's <code>eth0</code> needs root, which is what LG-USB-2-ETH0 does.</div></details>
 <details class="faq"><summary>Is Wi-Fi faster than the wired port?</summary><div>Often, on a good Wi-Fi 5 or Wi-Fi 6 connection close to the router.  It's less steady than a cable, though, and that's what causes buffering on high-bitrate streams.  Test both with the same file or speed test.</div></details>
+<details class="faq"><summary>Why does Plex or Jellyfin buffer on my LG TV over Ethernet?</summary><div>Often it's the 100 Mbit/s port: a 4K remux can peak above what it carries, even when the file plays fine elsewhere.  Check the file's bitrate against 95 Mbit/s.  Wi-Fi with a strong signal, or a USB adapter as <code>eth0</code> on a rooted TV, gives it room.</div></details>
 <details class="faq"><summary>What needs more than 100 Mbit/s?</summary><div>4K Blu-ray remuxes from Plex, Jellyfin or a local server, which can peak well above 100 Mbit/s, and game streaming like Moonlight at high bitrates.  Regular streaming apps use far less.</div></details>
 </article>
 </div>
@@ -230,7 +269,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611b" defer></script>
+<script src="/assets/js/site.js?v=r2611c" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
