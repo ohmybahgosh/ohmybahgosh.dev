@@ -167,10 +167,10 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.10.0</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.10.1</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
-        <span class="badge">in testing <b class="c-gr">354 builds</b></span>
+        <span class="badge">in testing <b class="c-gr">353 builds</b></span>
         <span class="badge">★ <b data-gh="LG-USB-2-ETH0:stars">27</b></span>
         <span class="badge">shell <b>POSIX sh</b></span>
         <span class="badge">CI <b class="c-gr">busybox · dash · bash</b></span>
@@ -182,11 +182,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.10.0" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.10.0</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.10.1" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.10.1</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.10.1</b></td><td>A tested ASIX AX88179 driver for the 2017 C7 and UJ7 too, with its <code>usbnet.ko</code>.  Faster driver offers it.</td></tr>
         <tr><td><b class="c-gr">2.10.0</b></td><td>A tested Realtek driver for 2017 OLEDs like the C7, and UJ7 LCDs (M16P chip, webOS 3.5): <code>r8152_oot</code> ran at 500 Mbit/s in a speed test and comes up as <code>eth0</code> at every boot.  Faster driver offers it.</td></tr>
         <tr><td><b class="c-gr">2.9.9</b></td><td>Test a new driver waits for slower webOS versions: with no address yet, it takes the link down and up so webOS notices it, then checks again.</td></tr>
         <tr><td><b class="c-gr">2.9.8</b></td><td>Drivers to test on older TVs without <code>usbnet</code> (2017 C7 and LJ, 2018 B8 and others) load their <code>usbnet.ko</code> first, so ASIX and Davicom drivers no longer fail with &ldquo;unknown symbol&rdquo;.</td></tr>
@@ -267,7 +268,7 @@
   </section>
 
   <section id="testing" data-pal="drivers in testing, built from LG's kernel source" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  354 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
+    <div class="sec-head rv"><div><div class="eyebrow">test-driver</div><h2 class="h2" style="margin-top:12px">Drivers for many more TVs, waiting for testers.</h2><p>Drivers are now built from LG's own kernel source too, the way <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">DonZoomik</a> built his: rebuilt this way, his driver comes out the same as his original.  353 builds for Realtek, ASIX, Aquantia, Davicom and Microchip chips, one set per kernel and chip, each with that TV's own config, read from LG's firmware.  Each is checked before it's published: exact <code class="c-gr">vermagic</code>, and every symbol it uses is exported by the TV's kernel.  None has run on a TV yet.  That's what testers are for: once a test report comes in, a driver moves to <b class="c-wh">Faster driver</b> for everyone with that kernel.</p></div><a class="btn pri" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/4" target="_blank" rel="noopener">help test ↗</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>kernel (<code>uname -r</code>)</th><th>TVs</th></tr></thead>
       <tbody>
@@ -421,7 +422,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.10.0}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.10.1}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
@@ -476,7 +477,7 @@
       <thead><tr><th>webOS</th><th>reported</th></tr></thead>
       <tbody>
         <tr><td>3.5 / 4 (B7, C7, C8)</td><td>ASIX adapters work out of the box.  Settings show "no connection" while apps work, which is what this fixes.</td></tr>
-        <tr><td>webOS 3.5 · 2017 C7</td><td class="yes">An RTL8153 on <code>r8152_oot</code>, built from LG's source for kernel <code>4.4.3-119.drd4tv.6</code>: 500 Mbit/s in a speed test, and <code>eth0</code> at 1000 Mbit/s after a reboot.  Faster driver offers it.</td></tr>
+        <tr><td>webOS 3.5 · 2017 C7</td><td class="yes">An RTL8153 on <code>r8152_oot</code>, built from LG's source for kernel <code>4.4.3-119.drd4tv.6</code>: 500 Mbit/s in a speed test, and <code>eth0</code> at 1000 Mbit/s after a reboot.  An ASIX AX88179B works too, on <code>ax88179_178a</code> with its <code>usbnet.ko</code>.  Faster driver offers both.</td></tr>
         <tr><td>webOS 5 · 2020 UN7300</td><td>No ASIX driver in the kernel.  A TP-Link UE306 (AX88179) works with OCT0PUSCRIME's driver from <code>get-driver</code>, and this makes it <code>eth0</code>: 228 Mbit/s down, 325 up.</td></tr>
         <tr><td>webOS 24</td><td>Where the script was first written.</td></tr>
         <tr><td>webOS 25 · 2022 C2</td><td class="yes">Tested by the author.  RTL8156 on <code>r8152_oot</code> via <code>get-driver</code>, confirmed through a full reboot.</td></tr>
