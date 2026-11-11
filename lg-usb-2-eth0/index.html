@@ -168,7 +168,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.5</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.6</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">352 builds</b></span>
@@ -183,11 +183,12 @@
     </div>
   </section>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.5" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.5</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.6" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.6</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.11.6</b></td><td>Wi-Fi wake in standby works on webOS 25 (a 2022 C2) and starts right away, no restart needed.  status names the right Wi-Fi MAC to wake the TV by.</td></tr>
         <tr><td><b class="c-gr">2.11.5</b></td><td>Faster driver works on TVs with an older busybox, like the 2018 B8: paths sent to the app no longer lose their dashes.</td></tr>
         <tr><td><b class="c-gr">2.11.4</b></td><td>Test a new driver follows an adapter that reconnects as a new USB device during the test, so it no longer says "no link" for a driver that works.</td></tr>
         <tr><td><b class="c-gr">2.11.3</b></td><td>A tested ASIX AX88179 driver for 2018 OLEDs like the B8, C8 and E8 (webOS 4.0), with its <code>usbnet.ko</code>.  Faster driver offers it.</td></tr>
@@ -430,7 +431,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.5}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.6}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
