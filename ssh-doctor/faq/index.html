@@ -130,6 +130,30 @@
       "@type": "Answer",
       "text": "No. Settings live in the Homebrew Channel's folders, a backup is kept before every change, and Reset to Homebrew Channel defaults removes all of it."
      }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens to my keys after a factory reset?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "They're gone with everything else, unless you saved them first. In More tools, Save or restore my setup puts your keys, the TV's own SSH keys, your settings and your password's hash on a USB drive. After rooting again, put them back: logins work as before, and computers don't warn that the TV changed."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can it tell if my TV's SSH is open to the internet?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, if your router has UPnP on. Each time the app opens, it asks the router which ports it forwards, and warns if the TV's SSH or telnet is one of them. Close it on the router takes those forwards off. Forwards set up by hand in the router usually aren't listed, so check its port forwarding page too."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "SSH didn't come back after a restart.  Can it fix that by itself?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Turn on Fix SSH at startup in SSH settings. After every restart it checks that SSH came up, starts it if it didn't, and fixes keys file permissions the SSH server would refuse. The main screen tells you when it had to."
+     }
     }
    ]
   }
@@ -187,7 +211,7 @@
 <details class="faq"><summary>How does pairing a key work?</summary><div>Choose <b>Set up a key</b> on the TV, scan the QR code or open the address on your computer or phone, enter the short code, and upload a public key or let the browser make one.  The private key never leaves your device.</div></details>
 <details class="faq"><summary>Can I set my own root password?</summary><div>Yes, on the TV or from your phone.  It's turned into a SHA-512 crypt hash first, so the password itself is never sent over the network or saved on the TV.</div></details>
 <details class="faq"><summary>Can I move SSH off port 22?</summary><div>Yes.  The old port stays open alongside the new one until you've logged in on the new one, so a typo can't lock you out.</div></details>
-<details class="faq"><summary>Does it change system files?</summary><div>No.  Settings live in the Homebrew Channel's folders, a backup is kept before every change, and <b>Reset to Homebrew Channel defaults</b> removes all of it.</div></details><h2>Related</h2><div class="gcards"><a class="card gcard" href="/ssh-doctor/"><b>SSH Doctor</b><span>The project page</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a><a class="card gcard" href="/guides/"><b>Guides</b><span>How-tos for rooted LG TVs</span></a></div>
+<details class="faq"><summary>Does it change system files?</summary><div>No.  Settings live in the Homebrew Channel's folders, a backup is kept before every change, and <b>Reset to Homebrew Channel defaults</b> removes all of it.</div></details><details class="faq"><summary>What happens to my keys after a factory reset?</summary><div>They're gone with everything else, unless you saved them first.  In More tools, <b>Save or restore my setup</b> puts your keys, the TV's own SSH keys, your settings and your password's hash on a USB drive.  After rooting again, put them back: logins work as before, and computers don't warn that the TV changed.</div></details><details class="faq"><summary>Can it tell if my TV's SSH is open to the internet?</summary><div>Yes, if your router has UPnP on.  Each time the app opens, it asks the router which ports it forwards, and warns if the TV's SSH or telnet is one of them.  <b>Close it on the router</b> takes those forwards off.  Forwards set up by hand in the router usually aren't listed, so check its port forwarding page too.</div></details><details class="faq"><summary>SSH didn't come back after a restart.  Can it fix that by itself?</summary><div>Turn on <b>Fix SSH at startup</b> in SSH settings.  After every restart it checks that SSH came up, starts it if it didn't, and fixes keys file permissions the SSH server would refuse.  The main screen tells you when it had to.</div></details><h2>Related</h2><div class="gcards"><a class="card gcard" href="/ssh-doctor/"><b>SSH Doctor</b><span>The project page</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a><a class="card gcard" href="/guides/"><b>Guides</b><span>How-tos for rooted LG TVs</span></a></div>
 </article>
 </div>
 </main>

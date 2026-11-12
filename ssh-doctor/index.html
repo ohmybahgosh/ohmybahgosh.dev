@@ -50,7 +50,7 @@
    "applicationCategory": "UtilitiesApplication",
    "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
    "url": "https://ohmybahgosh.dev/ssh-doctor/",
-   "softwareVersion": "0.3.0",
+   "softwareVersion": "0.4.0",
    "downloadUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/latest",
    "installUrl": "https://ohmybahgosh.dev/install/",
    "screenshot": "https://ohmybahgosh.dev/assets/img/ssh-doctor-main.webp",
@@ -95,7 +95,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "0.3.0",
+   "softwareVersion": "0.4.0",
    "@id": "https://ohmybahgosh.dev/ssh-doctor/#source"
   },
   {
@@ -161,14 +161,14 @@
       <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">ssh-doctor</span></div>
       <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/ssh-doctor-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">SSH Doctor</div><div class="muted" style="margin-top:6px;font-size:17px">for rooted LG webOS TVs</div></div></div>
       <h1 class="h2" style="margin-top:10px">SSH broke?<br><span class="grad">Fix it from the couch.</span></h1>
-      <p class="lead">SSH on a rooted LG TV breaks in a handful of ways: a keys file with Windows line endings, a private key pasted by mistake, the <code class="c-gr">alpine</code> password gone after the first key, a host key warning after a reset.  SSH Doctor finds out which one, in plain words, and fixes it with the remote.  It runs through the Homebrew Channel, not over SSH, so it still works when SSH is completely broken.  It also pairs a key from your phone or computer with a short code, and lets you set your own password, switch to keys only or move SSH to another port, all kept after a restart.  Use Entware's OpenSSH or dropbear instead?  It checks that too.</p>
+      <p class="lead">SSH on a rooted LG TV breaks in a handful of ways: a keys file with Windows line endings, a private key pasted by mistake, the <code class="c-gr">alpine</code> password gone after the first key, a host key warning after a reset.  SSH Doctor finds out which one, in plain words, and fixes it with the remote.  It runs through the Homebrew Channel, not over SSH, so it still works when SSH is completely broken.  It also pairs a key from your phone or computer with a short code, and lets you set your own password, switch to keys only or move SSH to another port, all kept after a restart.  It can bring SSH back by itself after a restart, tell you if your router exposes it to the internet, and save your setup to a USB drive for after a reset.  Use Entware's OpenSSH or dropbear instead?  It checks that too.</p>
       <div class="btns">
         <a class="btn pri" href="#homebrew">$ get the TV app</a>
         <a class="btn" href="#settings">ssh settings</a>
         <a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.3.0</b></span>
+        <span class="badge">version <b data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.4.0</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">ssh <b>dropbear · Entware</b></span>
         <span class="badge">languages <b>en · ru · es</b></span>
@@ -227,6 +227,16 @@
     </div>
   </section>
 
+  <section id="safety" data-pal="SSH Doctor startup, internet and USB" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">reboot · router · usb</div><h2 class="h2" style="margin-top:12px">Back by itself, closed to the internet, saved for later.</h2><p>Three things that matter most right after a restart, a reset, or when the TV can be reached from outside.</p></div></div>
+    <div class="bento">
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">&#x21bb;</div><h3>Fix SSH at startup</h3><p>Turn it on in SSH settings and, after every restart, SSH Doctor checks that SSH came up.  If it didn't, it starts it, and fixes keys file permissions dropbear would refuse.  The main screen says when it had to.  It never touches a port another program has.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">&#x2197;</div><h3>Reachable from the internet?</h3><p>Each time the app opens, it asks your router (UPnP, the way games open ports) whether it forwards the TV's SSH or telnet to the internet.  If it does, <b class="c-wh">Close it on the router</b> takes those forwards off.  Telnet, root with no password, is flagged first.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">USB</div><h3>Save or restore my setup</h3><p>Your keys, the TV's own SSH keys, settings and password hash on a USB drive.  After a factory reset and rooting again, put them back: logins work as before, and computers don't warn <code>REMOTE HOST IDENTIFICATION HAS CHANGED</code>.</p></div>
+      <div class="card s6 rv" style="--ca:#ffb547"><div class="ic">$_</div><h3>Get more from SSH</h3><p>No <a class="c-pk" href="/webos-entware-installer/">Entware</a> on the TV yet?  SSH Doctor points to it: bash with history and tab completion, tmux to keep work running after you disconnect, nano, vim, htop, git, rsync and hundreds more packages, from the same Homebrew Channel repo.</p></div>
+    </div>
+  </section>
+
   <section id="pairing" data-pal="pair a key with a code" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">set up a key</div><h2 class="h2" style="margin-top:12px">No copying keys around.</h2><p>The pairing page only runs while its screen is open on the TV, and nothing changes until you press OK on the remote.</p></div></div>
     <div class="two rv" style="align-items:center">
@@ -264,6 +274,9 @@ sh $S password-on       # back to user root, password alpine
 sh $S set-port 2222     # then: port-keep, or port-revert
 sh $S reset-settings    # back to the Homebrew Channel's defaults
 sh $S entware           # Entware's OpenSSH and dropbear, checked
+sh $S set-bootfix on    # check SSH at every start
+sh $S exposure          # does the router forward SSH or telnet?
+sh $S kit-save          # save to a USB drive; then kit-restore
 sh $S report            # a report for asking for help
 sh $S help              # everything else</pre></div>
   </section>
@@ -278,7 +291,9 @@ sh $S help              # everything else</pre></div>
         <tr><td><code>/var/lib/webosbrew/ssh-doctor</code></td><td>Your SSH settings, and your password's hash (readable by root only)</td></tr>
         <tr><td><code>/var/lib/webosbrew/init.d/60-ssh-doctor</code></td><td>Startup script that restarts the Homebrew Channel's dropbear with your settings.  Only there while a setting is on</td></tr>
         <tr><td><code>/var/luna/preferences/webosbrew_*</code></td><td>The Homebrew Channel's own SSH and telnet switches, only when you turn them on or off</td></tr>
-        <tr><td><code>/var/lib/webosbrew/sshd</code></td><td>The TV's host keys, only if you make new ones (backed up first)</td></tr>
+        <tr><td><code>/var/lib/webosbrew/sshd</code></td><td>The TV's host keys, only if you make new ones or put saved ones back (backed up first)</td></tr>
+        <tr><td><code>/tmp/usb/…/ssh-doctor-kit</code></td><td>Your saved setup, only when you save one to a USB drive.  It holds the TV's private SSH keys, so keep the drive safe</td></tr>
+        <tr><td>your router</td><td>Asked which ports it forwards (UPnP).  Only <b class="c-wh">Close it on the router</b> changes it, and only the forwards to this TV's SSH or telnet</td></tr>
         <tr><td><code>/opt/etc</code></td><td>Entware's SSH settings, host keys and password file: only read, never changed.  OpenSSH is asked for its settings with <code>sshd -T</code>, which only reads them</td></tr>
       </tbody>
     </table></div>
@@ -288,7 +303,7 @@ sh $S help              # everything else</pre></div>
     <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
     <div class="rv">
       <details class="faq"><summary>I added a key and now alpine doesn't work.  Is something broken?</summary><div>No, that's the Homebrew Channel on purpose: at startup it only turns <code>alpine</code> on when there's no keys file.  If the key doesn't work either, open SSH Doctor and choose <b>Fix my keys file</b>, or <b>Go back to password login</b>.</div></details>
-      <details class="faq"><summary>Can I lock myself out with the settings?</summary><div>It's hard to.  Keys only won't turn on without a key, a port change keeps the old port open until you keep the new one, and the app itself runs through the Homebrew Channel, so <b>Go back to password login</b> always works from the remote.</div></details>
+      <details class="faq"><summary>Can I lock myself out with the settings?</summary><div>It's hard to.  Open SSH sessions stay connected when settings restart SSH.  Keys only won't turn on without a key, a port change keeps the old port open until you keep the new one, and the app itself runs through the Homebrew Channel, so <b>Go back to password login</b> always works from the remote.</div></details>
       <details class="faq"><summary>Does my password go over the network?</summary><div>No.  The TV app or the pairing page turns it into a SHA-512 crypt hash first, and only the hash is sent and kept.</div></details>
       <details class="faq"><summary>I use Entware's OpenSSH.  Will it touch that?</summary><div>It never changes, starts or stops it.  When Entware's OpenSSH or dropbear is how you log in, SSH Doctor treats it as your SSH and checks it: whether OpenSSH accepts its settings, whether root may log in, whether a password works there (OpenSSH turns root's password off by default, and Entware keeps its own password file, <code>/opt/etc/shadow</code>), its host keys, its port, and whether Entware starts at boot.  <b>Set up a key</b> works for it too, since it reads the same keys file.</div></details>
       <details class="faq"><summary>Was this written by AI?</summary><div>It's written with AI coding agents (Claude), directed, reviewed and tested by me.  The script has a test suite that runs every check and repair against a fake TV under busybox sh, dash and bash, CI drives the TV app and the pairing page in a browser, and each release is tried on a real TV.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
