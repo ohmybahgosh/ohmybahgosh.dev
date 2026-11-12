@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Turn on an LG TV over the network with a USB Ethernet adapter (Wake on LAN)</title>
+<meta name="description" content="Why Wake on LAN and Turn on via Wi-Fi stop working when a USB Ethernet adapter is an LG TV&#x27;s main connection, and how to keep them working on a rooted TV.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/lg-tv-wake-on-lan/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Turn on an LG TV over the network with a USB Ethernet adapter (Wake on LAN)">
+<meta property="og:description" content="Why Wake on LAN and Turn on via Wi-Fi stop working when a USB Ethernet adapter is an LG TV&#x27;s main connection, and how to keep them working on a rooted TV.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/lg-tv-wake-on-lan/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Turn on an LG TV over the network with a USB Ethernet adapter (Wake on LAN)">
+<meta name="twitter:description" content="Why Wake on LAN and Turn on via Wi-Fi stop working when a USB Ethernet adapter is an LG TV&#x27;s main connection, and how to keep them working on a rooted TV.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-12">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Wake on LAN with a USB adapter",
+     "item": "https://ohmybahgosh.dev/guides/lg-tv-wake-on-lan/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/lg-tv-wake-on-lan/#article",
+   "headline": "Turn on an LG TV over the network with a USB Ethernet adapter (Wake on LAN)",
+   "description": "Why Wake on LAN and Turn on via Wi-Fi stop working when a USB Ethernet adapter is an LG TV's main connection, and how to keep them working on a rooted TV.",
+   "url": "https://ohmybahgosh.dev/guides/lg-tv-wake-on-lan/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/lg-tv-wake-on-lan/",
+   "image": "https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-12",
+   "keywords": [
+    "lg tv wake on lan",
+    "lg tv turn on via wifi",
+    "lg tv wake on lan usb ethernet",
+    "home assistant turn on lg tv",
+    "lg tv wol not working"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Can an LG TV wake up through a USB Ethernet adapter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Standby resets the TV's USB ports, so the adapter is gone by the time the wake-up arrives. LG's network wake listens on Wi-Fi, and on the built-in port when it has a cable."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which MAC address do I send the wake-up to?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Wi-Fi MAC address, not the adapter's. On a rooted TV, LG-USB-2-ETH0's status prints the right one. If the built-in port has a cable in it, its MAC works too."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does the internet stop working when I turn Wi-Fi back on?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "webOS's connection manager ranks a connection it has checked as online ahead of one that's only ready, so Wi-Fi can take over the TV's traffic. Wi-Fi wake in standby keeps the adapter first, and checks every 10 seconds."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Wi-Fi need its own IP address?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, if you set fixed IPs. Wi-Fi and the adapter with the same IP break the TV's connection. Letting the router hand out addresses, with a reservation for each MAC, is easiest."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why did the TV boot instead of just turning on?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "After a longer time off, the TV can be in deeper standby, and waking it boots it fresh. That's normal, and the adapter is connected again either way."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">lg-tv-wake-on-lan</span></div>
+<section class="doc-hero" style="--accent:#33e1ff">
+  <div class="eyebrow">$ cat guides/lg-tv-wake-on-lan.md</div>
+  <h1 class="h2" style="margin-top:12px">Turn on an LG TV over the network, with a USB adapter.</h1>
+  <p class="lead">A USB Ethernet adapter makes an LG TV two to three times faster on the wire.  But Wake on LAN, <b class="c-wh">Turn on via Wi-Fi</b>, the ThinQ app and Home Assistant can't wake the TV through it.  Here's why, and how to keep all of them working on a rooted TV.</p>
+</section><article class="doc" style="--accent:#33e1ff">
+
+<h2>Why the adapter can't wake the TV</h2>
+<p>Standby resets the TV's USB ports, so the adapter is gone by the time a wake-up packet arrives.  LG's network wake listens on Wi-Fi instead, and on the built-in port when it has a cable.  So with an adapter, Wi-Fi is how the TV gets woken.</p>
+<p>Two things get in the way of that:</p>
+<ul>
+<li><b class="c-wh">Some TVs drop off Wi-Fi in standby</b> while the adapter is the main connection.  A G6 on webOS 26 did (<a href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions/19" target="_blank" rel="noopener">discussion #19</a>): connected while on, unreachable once off.</li>
+<li><b class="c-wh">Some TVs turn Wi-Fi off when a cable is connected.</b>  A 2022 C2 on webOS 25 turned it off at boot with the adapter in, and didn't join Wi-Fi again on its own.</li>
+</ul>
+<p>And once Wi-Fi is kept on next to the adapter, webOS's connection manager can move the TV's traffic to Wi-Fi.  It ranks a connection it has checked as online ahead of one that's only ready, so when Wi-Fi reconnects, the internet goes through Wi-Fi.  On the C2 that meant apps slowed down or stopped loading until Wi-Fi was turned off again.</p>
+
+<h2>The fix: Wi-Fi wake in standby</h2>
+<p><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>, which makes the adapter the TV's <code>eth0</code>, has a <b class="c-wh">Wi-Fi wake in standby</b> switch (<code>--wifi-wake</code> over SSH) that handles all three:</p>
+<ul>
+<li><b class="c-wh">While the TV is on</b>, it keeps Wi-Fi on and joined to your saved network, and keeps the adapter ahead of Wi-Fi so traffic goes over the cable.  Every 10 seconds it checks the internet hasn't moved to Wi-Fi, and moves it back if it has.</li>
+<li><b class="c-wh">Just before standby</b>, if Wi-Fi is connected and Turn on via Wi-Fi is on, it disconnects only the adapter's network session.  The adapter stays plugged in and stays <code>eth0</code>, and Wi-Fi stays ready for the wake-up.</li>
+<li><b class="c-wh">When the TV is on again</b>, or at the next boot if it lost power in standby, it connects the adapter again (up to 10 tries, as the adapter can take a few seconds to come back) and puts it ahead of Wi-Fi.</li>
+</ul>
+<p>Tested on a 2022 C2, woken from standby over Wi-Fi with the adapter back as the main connection afterwards, and on a G6 on webOS 26.</p>
+
+<h2>Set it up</h2>
+<ol>
+<li>Root the TV and install the Homebrew Channel (see the <a href="/install/">install guide</a>), then LG-USB-2-ETH0, and turn on <b class="c-wh">Run at every boot</b>.</li>
+<li>Turn on <b class="c-wh">Turn on via Wi-Fi</b> in the TV's settings, usually under General, Devices, External Devices, TV On With Mobile.</li>
+<li>Join your Wi-Fi network once in the TV's network settings.  If you use fixed IPs, give Wi-Fi its own, not the adapter's: two connections with the same IP break the TV's connection.</li>
+<li>Turn on <b class="c-wh">Wi-Fi wake in standby</b> in the app.  It starts right away, no restart needed.</li>
+</ol>
+<p>Or over SSH:</p>
+<div class="code"><pre><span class="pr">$ </span>sh LG-USB-2-ETH0.sh install --wifi-wake</pre></div>
+
+<h2>Wake the TV</h2>
+<p>Send the wake-up to the TV's <b class="c-wh">Wi-Fi MAC address</b>, not the adapter's.  <code>status</code> prints the one to use:</p>
+<div class="code"><pre>Turning the TV on over the network (Turn on via Wi-Fi, apps, Home Assistant)
+goes through Wi-Fi, not the adapter: standby resets the USB ports.
+Wake it by wlan0&#x27;s MAC, aa:bb:cc:dd:ee:ff.</pre></div>
+<p>Send it to your network's broadcast address (like <code>192.168.1.255</code>) on port 9:</p>
+<ul>
+<li><b class="c-wh">A phone app:</b> any Wake on LAN app, with the Wi-Fi MAC, the broadcast address and port 9.</li>
+<li><b class="c-wh">Linux or a Pi:</b> <code>wakeonlan -i 192.168.1.255 aa:bb:cc:dd:ee:ff</code></li>
+<li><b class="c-wh">Home Assistant:</b> <code>wake_on_lan.send_magic_packet</code> with the Wi-Fi MAC and broadcast address, for example in the LG webOS integration's Turn on automation.</li>
+<li><b class="c-wh">The LG ThinQ app</b> uses Turn on via Wi-Fi on its own.</li>
+</ul>
+<p>If Home Assistant or an app learned the TV's "wired" MAC after the adapter became <code>eth0</code>, that's the adapter's.  Point it at the Wi-Fi MAC.</p>
+
+<h2>Check it's working</h2>
+<p>Everything it does goes in <code>/var/lib/webosbrew/lg-usb-2-eth0.log</code>, with why it did or didn't hand over.  A full standby and wake on a C2:</p>
+<div class="code"><pre>=== power: Active Standby ===
+=== standby: disconnected the adapter&#x27;s network session, so Wi-Fi stays ready for wake ===
+=== power: Active Standby (Prepare Power Off) ===
+=== power: Power Off ===
+=== boot hook (wait 120s, module .../r8152_oot.ko) ===
+Done: the USB adapter is eth0, the built-in port is eth2.
+=== awake: try 1 of 10: the adapter has no cable link yet ===
+=== awake: the adapter is connected again (try 2) ===
+Following standby for Wi-Fi wake.
+=== power: Active ===</pre></div>
+<p>With the TV on, the internet should go through the adapter, with Wi-Fi ready behind it:</p>
+<div class="code"><pre>$ ip route | head -1
+default via 192.168.1.1 dev eth0
+$ connmanctl services | head -2
+*AO Wired              ethernet_..._cable
+*AR YourNetwork        wifi_..._managed_psk</pre></div>
+<p>The <a href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/wiki/Wi-Fi-wake" target="_blank" rel="noopener">full guide on GitHub</a> lists every log line and what it means, plus troubleshooting.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>Includes Wi-Fi wake in standby</span></a><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>LG TV Ethernet stuck at 100 Mbps</b><span>Why, and how to go faster</span></a><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Which USB Ethernet adapter</b><span>The chip matters more than the brand</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Can an LG TV wake up through a USB Ethernet adapter?</summary><div>No.  Standby resets the TV's USB ports, so the adapter is gone by the time the wake-up arrives.  LG's network wake listens on Wi-Fi, and on the built-in port when it has a cable.</div></details>
+<details class="faq"><summary>Which MAC address do I send the wake-up to?</summary><div>The Wi-Fi MAC address, not the adapter's.  On a rooted TV, LG-USB-2-ETH0's <code>status</code> prints the right one.  If the built-in port has a cable in it, its MAC works too.</div></details>
+<details class="faq"><summary>Why does the internet stop working when I turn Wi-Fi back on?</summary><div>webOS's connection manager ranks a connection it has checked as online ahead of one that's only ready, so Wi-Fi can take over the TV's traffic.  <b>Wi-Fi wake in standby</b> keeps the adapter first, and checks every 10 seconds.</div></details>
+<details class="faq"><summary>Does Wi-Fi need its own IP address?</summary><div>Yes, if you set fixed IPs.  Wi-Fi and the adapter with the same IP break the TV's connection.  Letting the router hand out addresses, with a reservation for each MAC, is easiest.</div></details>
+<details class="faq"><summary>Why did the TV boot instead of just turning on?</summary><div>After a longer time off, the TV can be in deeper standby, and waking it boots it fresh.  That's normal, and the adapter is connected again either way.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611d" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

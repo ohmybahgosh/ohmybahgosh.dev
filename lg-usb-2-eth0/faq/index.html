@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Answers about LG-USB-2-ETH0: firmware updates, Wi-Fi, waking the TV over the network, drivers, two adapters and how to undo it.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-09">
+<meta property="article:modified_time" content="2026-11-12">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -104,7 +104,7 @@
      "name": "Can I still turn the TV on over the network?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Not through the adapter: standby resets the TV's USB ports. Leave Wi-Fi connected and send the wake-up to the Wi-Fi MAC address, which status prints."
+      "text": "Not through the adapter: standby resets the TV's USB ports. Leave Wi-Fi connected and send the wake-up to the Wi-Fi MAC address, which status prints. If your TV drops off Wi-Fi in standby, turns Wi-Fi off with the adapter in, or moves traffic to Wi-Fi, turn on Wi-Fi wake in standby: see Wake on LAN with a USB adapter."
      }
     },
     {
@@ -184,7 +184,7 @@
 <details class="faq"><summary>How much faster is it?</summary><div>About 250 to 330 Mbit/s over the USB 2.0 ports most LG TVs have, against about 95 for the built-in port.  See <a href="/guides/lg-tv-ethernet-100mbps/">LG TV Ethernet stuck at 100 Mbps</a>.</div></details>
 <details class="faq"><summary>Does it survive a firmware update?</summary><div>The hook lives in the Homebrew Channel's folder, so it stays as long as root does.  If an update removes root, the TV just goes back to the built-in port.  Current firmware can't be rooted again, so keep updates off.</div></details>
 <details class="faq"><summary>Does it change my network settings?</summary><div>No.  webOS still sets up the wired connection.  Only the interface names change, unless you turn on the Wi-Fi backup or Block updates harder.</div></details>
-<details class="faq"><summary>Can I still turn the TV on over the network?</summary><div>Not through the adapter: standby resets the TV's USB ports.  Leave Wi-Fi connected and send the wake-up to the Wi-Fi MAC address, which <code>status</code> prints.</div></details>
+<details class="faq"><summary>Can I still turn the TV on over the network?</summary><div>Not through the adapter: standby resets the TV's USB ports.  Leave Wi-Fi connected and send the wake-up to the Wi-Fi MAC address, which <code>status</code> prints.  If your TV drops off Wi-Fi in standby, turns Wi-Fi off with the adapter in, or moves traffic to Wi-Fi, turn on <b>Wi-Fi wake in standby</b>: see <a href="/guides/lg-tv-wake-on-lan/">Wake on LAN with a USB adapter</a>.</div></details>
 <details class="faq"><summary>My adapter isn't detected.</summary><div>The kernel likely has no driver for its chip.  <code>get-driver</code> offers one built for your exact kernel when one is known, and <code>test-driver</code> one waiting for testers.  More than 350 are built, for over 50 LG kernels from webOS 3.5 to webOS 25.</div></details>
 <details class="faq"><summary>Can I use two adapters?</summary><div>Yes.  Pin the one you want with <code>--mac</code>.  Otherwise the first adapter with a cable in wins.</div></details>
 <details class="faq"><summary>How do I undo it?</summary><div>Press <b>Turn everything off</b> in the TV app before removing it, or run <code>sh LG-USB-2-ETH0.sh uninstall --now</code>.  No system files are touched.</div></details><h2>Related</h2><div class="gcards"><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>The project page</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a><a class="card gcard" href="/guides/"><b>Guides</b><span>How-tos for rooted LG TVs</span></a></div>
@@ -215,7 +215,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611c" defer></script>
+<script src="/assets/js/site.js?v=r2611d" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

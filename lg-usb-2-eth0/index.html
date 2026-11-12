@@ -364,6 +364,23 @@
     </div>
   </section>
 
+  <section id="wake" data-pal="Wi-Fi wake in standby, Wake on LAN" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">--wifi-wake</div><h2 class="h2" style="margin-top:12px">Turn it on over the network.</h2><p>Wake on LAN, <b class="c-wh">Turn on via Wi-Fi</b>, the ThinQ app and Home Assistant can't wake the TV through a USB adapter: standby resets the USB ports.  LG's wake listens on Wi-Fi.  But with an adapter in, some TVs drop off Wi-Fi in standby, some turn Wi-Fi off at boot, and webOS can move your traffic to Wi-Fi once it's back.  <b class="c-wh">Wi-Fi wake in standby</b> handles all three.</p></div></div>
+    <div class="two rv">
+      <div class="steps" style="min-width:0">
+        <div class="step"><div><h3>Keeps Wi-Fi ready, and the adapter first</h3><p>While the TV is on, it keeps Wi-Fi on and joined to your saved network, and keeps the adapter ahead of Wi-Fi so traffic goes over the cable.  Every 10 seconds it checks the internet hasn't moved to Wi-Fi.</p></div></div>
+        <div class="step"><div><h3>Hands over just before standby</h3><p>If Wi-Fi is connected and Turn on via Wi-Fi is on, it disconnects only the adapter's network session.  The adapter stays plugged in and stays <code>eth0</code>.</p></div></div>
+        <div class="step"><div><h3>Takes it back on wake</h3><p>When the TV is on again, or at the next boot after a power cut, it connects the adapter again and puts it ahead of Wi-Fi.  Up to 10 tries, since the adapter takes a few seconds to come back.</p></div></div>
+        <div class="step"><div><h3>Logs every step</h3><p>Each power state, hand-over and try goes in <code>/var/lib/webosbrew/lg-usb-2-eth0.log</code>, with why it did or didn't hand over.</p></div></div>
+      </div>
+      <div style="min-width:0">
+        <p class="muted">Turn on <b class="c-wh">Turn on via Wi-Fi</b> in the TV's settings and join your Wi-Fi once.  Then switch on <b class="c-wh">Wi-Fi wake in standby</b> in the app.  It starts right away, no restart needed.  Wake the TV by its <b class="c-wh">Wi-Fi MAC</b>, which <code>status</code> prints, sent to your network's broadcast address on port 9.  Tested on a 2022 C2 and a G6 on webOS 26.</p>
+        <div class="code" style="margin-top:16px"><pre><span class="pr">$ </span>sh LG-USB-2-ETH0.sh install --wifi-wake</pre></div>
+        <div class="callout" style="margin-top:18px;--accent:#33e1ff"><b>Fixed IPs?</b>  Give Wi-Fi its own address, not the adapter's.  Two connections with the same IP break the TV's connection, so it disconnects Wi-Fi if it finds that, and <code>status</code> warns.  The full walk-through, with phone apps, Linux and Home Assistant: <a class="c-gr" href="/guides/lg-tv-wake-on-lan/">Wake on LAN with a USB adapter</a>.  Every log line and troubleshooting: <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/wiki/Wi-Fi-wake" target="_blank" rel="noopener">the wiki</a>.</div>
+      </div>
+    </div>
+  </section>
+
   <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
     <div class="card rv" style="padding:28px">
       <div class="hb-head"><img src="/assets/img/eth0-icon.webp" alt="" width="72" height="72"><div><div class="eyebrow">homebrew channel repo</div><h2 class="h2" style="margin:10px 0 0;font-size:clamp(26px,3vw,34px)">Install it from the Homebrew Channel.</h2></div></div>
@@ -529,7 +546,7 @@
 <div class="wrap">
   <section id="read-next" data-pal="read next" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">$ ls related/</div><h2 class="h2" style="margin-top:12px">Read next.</h2></div></div>
-    <div class="gcards rv"><a class="card gcard" href="/lg-usb-2-eth0/faq/"><b>LG-USB-2-ETH0 FAQ</b><span>Updates, Wi-Fi, wake-on-LAN, drivers, undo</span></a><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>LG TV Ethernet stuck at 100 Mbps</b><span>Why, and how to go faster</span></a><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Which USB Ethernet adapter?</b><span>Chips that work, and ones to skip</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, the Homebrew Channel, the repo and compatibility</span></a></div>
+    <div class="gcards rv"><a class="card gcard" href="/lg-usb-2-eth0/faq/"><b>LG-USB-2-ETH0 FAQ</b><span>Updates, Wi-Fi, wake-on-LAN, drivers, undo</span></a><a class="card gcard" href="/guides/lg-tv-wake-on-lan/"><b>Wake on LAN with a USB adapter</b><span>Turn on via Wi-Fi and Home Assistant</span></a><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>LG TV Ethernet stuck at 100 Mbps</b><span>Why, and how to go faster</span></a><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Which USB Ethernet adapter?</b><span>Chips that work, and ones to skip</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, the Homebrew Channel, the repo and compatibility</span></a></div>
   </section>
 </div>
 </main>
@@ -556,7 +573,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611c" defer></script>
+<script src="/assets/js/site.js?v=r2611d" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

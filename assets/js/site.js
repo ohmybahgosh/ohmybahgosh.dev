@@ -249,7 +249,7 @@
     { i: '▸', t: 'cd install', s: 'install guide: root, Homebrew Channel, repo', u: ROOT + 'install/' },
     { i: '▸', t: 'cd guides', s: 'how-tos for rooted LG TVs', u: ROOT + 'guides/' },
     { i: '▶', t: 'play tour', s: 'the 2-minute video tour', u: ROOT + 'tour/' },
-    ...[['lg-tv-ethernet-100mbps', 'LG TV Ethernet stuck at 100 Mbps'], ['usb-ethernet-adapter-lg-tv', 'which USB Ethernet adapter'], ['ssh-into-lg-tv', 'SSH into a rooted LG TV'], ['homebrew-channel-repository', 'add a Homebrew Channel repo'], ['iptv-player-lg-tv', 'an IPTV player for LG TVs'], ['root-lg-tv-2026', 'rooting an LG TV in 2026'], ['block-lg-tv-updates', 'block LG TV firmware updates'], ['tailscale-lg-tv', 'Tailscale on an LG TV'], ['lg-tv-file-sharing-samba', 'Samba and file sharing on an LG TV']]
+    ...[['lg-tv-ethernet-100mbps', 'LG TV Ethernet stuck at 100 Mbps'], ['usb-ethernet-adapter-lg-tv', 'which USB Ethernet adapter'], ['ssh-into-lg-tv', 'SSH into a rooted LG TV'], ['homebrew-channel-repository', 'add a Homebrew Channel repo'], ['iptv-player-lg-tv', 'an IPTV player for LG TVs'], ['root-lg-tv-2026', 'rooting an LG TV in 2026'], ['lg-tv-wake-on-lan', 'turn on an LG TV over the network (Wake on LAN)'], ['block-lg-tv-updates', 'block LG TV firmware updates'], ['tailscale-lg-tv', 'Tailscale on an LG TV'], ['lg-tv-file-sharing-samba', 'Samba and file sharing on an LG TV']]
       .map(([g, d]) => ({ i: '▸', t: `cat guides/${g}`, s: d, u: ROOT + 'guides/' + g + '/' })),
     ...REPOS.filter((r) => !r.tool).map((r) => ({ i: '?', t: `man ${r.slug}`, s: r.name + ' FAQ', u: ROOT + r.slug + '/faq/' })),
     { i: '▸', t: 'cd luna-atlas/examples', s: 'common luna-send commands', u: ROOT + 'luna-atlas/examples/' },

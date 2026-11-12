@@ -4,7 +4,7 @@ import html, json
 
 SITE = "https://ohmybahgosh.dev"
 CSS_V = "r2611b"
-JS_V = "r2611c"
+JS_V = "r2611d"
 
 def esc(s): return html.escape(s, quote=True)
 

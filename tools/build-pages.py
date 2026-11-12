@@ -499,6 +499,80 @@ ngfts.lge.com</pre></div>
           ("/install/", "Install guide", "Root, Homebrew Channel, the repo")])}
 """)
 
+# --- Wake on LAN with a USB adapter
+WAKE_FAQ = [
+    ("Can an LG TV wake up through a USB Ethernet adapter?",
+     "No.  Standby resets the TV's USB ports, so the adapter is gone by the time the wake-up arrives.  LG's network wake listens on Wi-Fi, and on the built-in port when it has a cable."),
+    ("Which MAC address do I send the wake-up to?",
+     "The Wi-Fi MAC address, not the adapter's.  On a rooted TV, LG-USB-2-ETH0's <code>status</code> prints the right one.  If the built-in port has a cable in it, its MAC works too."),
+    ("Why does the internet stop working when I turn Wi-Fi back on?",
+     "webOS's connection manager ranks a connection it has checked as online ahead of one that's only ready, so Wi-Fi can take over the TV's traffic.  <b>Wi-Fi wake in standby</b> keeps the adapter first, and checks every 10 seconds."),
+    ("Does Wi-Fi need its own IP address?",
+     "Yes, if you set fixed IPs.  Wi-Fi and the adapter with the same IP break the TV's connection.  Letting the router hand out addresses, with a reservation for each MAC, is easiest."),
+    ("Why did the TV boot instead of just turning on?",
+     "After a longer time off, the TV can be in deeper standby, and waking it boots it fresh.  That's normal, and the adapter is connected again either way."),
+]
+WAKE_GH = "https://github.com/ohmybahgosh/LG-USB-2-ETH0"
+def wout(s): return f'<div class="code"><pre>{esc(s.strip())}</pre></div>'
+guide("lg-tv-wake-on-lan",
+      title="Turn on an LG TV over the network with a USB Ethernet adapter (Wake on LAN)",
+      desc="Why Wake on LAN and Turn on via Wi-Fi stop working when a USB Ethernet adapter is an LG TV's main connection, and how to keep them working on a rooted TV.",
+      card=("Wake on LAN with a USB adapter", "Keep Turn on via Wi-Fi and Home Assistant working"),
+      h1="Turn on an LG TV over the network, with a USB adapter.",
+      lead="A USB Ethernet adapter makes an LG TV two to three times faster on the wire.  But Wake on LAN, <b class=\"c-wh\">Turn on via Wi-Fi</b>, the ThinQ app and Home Assistant can't wake the TV through it.  Here's why, and how to keep all of them working on a rooted TV.",
+      accent="#33e1ff", og="/assets/og/lg-usb-2-eth0.png", keywords=["lg tv wake on lan", "lg tv turn on via wifi", "lg tv wake on lan usb ethernet", "home assistant turn on lg tv", "lg tv wol not working"],
+      faq=WAKE_FAQ, body=f"""
+<h2>Why the adapter can't wake the TV</h2>
+<p>Standby resets the TV's USB ports, so the adapter is gone by the time a wake-up packet arrives.  LG's network wake listens on Wi-Fi instead, and on the built-in port when it has a cable.  So with an adapter, Wi-Fi is how the TV gets woken.</p>
+<p>Two things get in the way of that:</p>
+<ul>
+<li><b class="c-wh">Some TVs drop off Wi-Fi in standby</b> while the adapter is the main connection.  A G6 on webOS 26 did (<a href="{WAKE_GH}/discussions/19" target="_blank" rel="noopener">discussion #19</a>): connected while on, unreachable once off.</li>
+<li><b class="c-wh">Some TVs turn Wi-Fi off when a cable is connected.</b>  A 2022 C2 on webOS 25 turned it off at boot with the adapter in, and didn't join Wi-Fi again on its own.</li>
+</ul>
+<p>And once Wi-Fi is kept on next to the adapter, webOS's connection manager can move the TV's traffic to Wi-Fi.  It ranks a connection it has checked as online ahead of one that's only ready, so when Wi-Fi reconnects, the internet goes through Wi-Fi.  On the C2 that meant apps slowed down or stopped loading until Wi-Fi was turned off again.</p>
+
+<h2>The fix: Wi-Fi wake in standby</h2>
+<p><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>, which makes the adapter the TV's <code>eth0</code>, has a <b class="c-wh">Wi-Fi wake in standby</b> switch (<code>--wifi-wake</code> over SSH) that handles all three:</p>
+<ul>
+<li><b class="c-wh">While the TV is on</b>, it keeps Wi-Fi on and joined to your saved network, and keeps the adapter ahead of Wi-Fi so traffic goes over the cable.  Every 10 seconds it checks the internet hasn't moved to Wi-Fi, and moves it back if it has.</li>
+<li><b class="c-wh">Just before standby</b>, if Wi-Fi is connected and Turn on via Wi-Fi is on, it disconnects only the adapter's network session.  The adapter stays plugged in and stays <code>eth0</code>, and Wi-Fi stays ready for the wake-up.</li>
+<li><b class="c-wh">When the TV is on again</b>, or at the next boot if it lost power in standby, it connects the adapter again (up to 10 tries, as the adapter can take a few seconds to come back) and puts it ahead of Wi-Fi.</li>
+</ul>
+<p>Tested on a 2022 C2, woken from standby over Wi-Fi with the adapter back as the main connection afterwards, and on a G6 on webOS 26.</p>
+
+<h2>Set it up</h2>
+<ol>
+<li>Root the TV and install the Homebrew Channel (see the <a href="/install/">install guide</a>), then LG-USB-2-ETH0, and turn on <b class="c-wh">Run at every boot</b>.</li>
+<li>Turn on <b class="c-wh">Turn on via Wi-Fi</b> in the TV's settings, usually under General, Devices, External Devices, TV On With Mobile.</li>
+<li>Join your Wi-Fi network once in the TV's network settings.  If you use fixed IPs, give Wi-Fi its own, not the adapter's: two connections with the same IP break the TV's connection.</li>
+<li>Turn on <b class="c-wh">Wi-Fi wake in standby</b> in the app.  It starts right away, no restart needed.</li>
+</ol>
+<p>Or over SSH:</p>
+{code("sh LG-USB-2-ETH0.sh install --wifi-wake")}
+
+<h2>Wake the TV</h2>
+<p>Send the wake-up to the TV's <b class="c-wh">Wi-Fi MAC address</b>, not the adapter's.  <code>status</code> prints the one to use:</p>
+{wout("Turning the TV on over the network (Turn on via Wi-Fi, apps, Home Assistant)\ngoes through Wi-Fi, not the adapter: standby resets the USB ports.\nWake it by wlan0's MAC, aa:bb:cc:dd:ee:ff.")}
+<p>Send it to your network's broadcast address (like <code>192.168.1.255</code>) on port 9:</p>
+<ul>
+<li><b class="c-wh">A phone app:</b> any Wake on LAN app, with the Wi-Fi MAC, the broadcast address and port 9.</li>
+<li><b class="c-wh">Linux or a Pi:</b> <code>wakeonlan -i 192.168.1.255 aa:bb:cc:dd:ee:ff</code></li>
+<li><b class="c-wh">Home Assistant:</b> <code>wake_on_lan.send_magic_packet</code> with the Wi-Fi MAC and broadcast address, for example in the LG webOS integration's Turn on automation.</li>
+<li><b class="c-wh">The LG ThinQ app</b> uses Turn on via Wi-Fi on its own.</li>
+</ul>
+<p>If Home Assistant or an app learned the TV's "wired" MAC after the adapter became <code>eth0</code>, that's the adapter's.  Point it at the Wi-Fi MAC.</p>
+
+<h2>Check it's working</h2>
+<p>Everything it does goes in <code>/var/lib/webosbrew/lg-usb-2-eth0.log</code>, with why it did or didn't hand over.  A full standby and wake on a C2:</p>
+{wout("=== power: Active Standby ===\n=== standby: disconnected the adapter's network session, so Wi-Fi stays ready for wake ===\n=== power: Active Standby (Prepare Power Off) ===\n=== power: Power Off ===\n=== boot hook (wait 120s, module .../r8152_oot.ko) ===\nDone: the USB adapter is eth0, the built-in port is eth2.\n=== awake: try 1 of 10: the adapter has no cable link yet ===\n=== awake: the adapter is connected again (try 2) ===\nFollowing standby for Wi-Fi wake.\n=== power: Active ===")}
+<p>With the TV on, the internet should go through the adapter, with Wi-Fi ready behind it:</p>
+{wout("$ ip route | head -1\ndefault via 192.168.1.1 dev eth0\n$ connmanctl services | head -2\n*AO Wired              ethernet_..._cable\n*AR YourNetwork        wifi_..._managed_psk")}
+<p>The <a href="{WAKE_GH}/wiki/Wi-Fi-wake" target="_blank" rel="noopener">full guide on GitHub</a> lists every log line and what it means, plus troubleshooting.</p>
+{related([("/lg-usb-2-eth0/", "LG-USB-2-ETH0", "Includes Wi-Fi wake in standby"),
+          ("/guides/lg-tv-ethernet-100mbps/", "LG TV Ethernet stuck at 100 Mbps", "Why, and how to go faster"),
+          ("/guides/usb-ethernet-adapter-lg-tv/", "Which USB Ethernet adapter", "The chip matters more than the brand")])}
+""")
+
 # --- 8. tailscale
 TS_FAQ = [
     ("Is there a Tailscale app for LG TVs?",
@@ -626,7 +700,7 @@ app_faq("lg-usb-2-eth0", "LG-USB-2-ETH0", "LG-USB-2-ETH0 FAQ: USB Ethernet as et
     ("How much faster is it?", "About 250 to 330 Mbit/s over the USB 2.0 ports most LG TVs have, against about 95 for the built-in port.  See <a href=\"/guides/lg-tv-ethernet-100mbps/\">LG TV Ethernet stuck at 100 Mbps</a>."),
     ("Does it survive a firmware update?", "The hook lives in the Homebrew Channel's folder, so it stays as long as root does.  If an update removes root, the TV just goes back to the built-in port.  Current firmware can't be rooted again, so keep updates off."),
     ("Does it change my network settings?", "No.  webOS still sets up the wired connection.  Only the interface names change, unless you turn on the Wi-Fi backup or Block updates harder."),
-    ("Can I still turn the TV on over the network?", "Not through the adapter: standby resets the TV's USB ports.  Leave Wi-Fi connected and send the wake-up to the Wi-Fi MAC address, which <code>status</code> prints."),
+    ("Can I still turn the TV on over the network?", "Not through the adapter: standby resets the TV's USB ports.  Leave Wi-Fi connected and send the wake-up to the Wi-Fi MAC address, which <code>status</code> prints.  If your TV drops off Wi-Fi in standby, turns Wi-Fi off with the adapter in, or moves traffic to Wi-Fi, turn on <b>Wi-Fi wake in standby</b>: see <a href=\"/guides/lg-tv-wake-on-lan/\">Wake on LAN with a USB adapter</a>."),
     ("My adapter isn't detected.", "The kernel likely has no driver for its chip.  <code>get-driver</code> offers one built for your exact kernel when one is known, and <code>test-driver</code> one waiting for testers.  More than 350 are built, for over 50 LG kernels from webOS 3.5 to webOS 25."),
     ("Can I use two adapters?", "Yes.  Pin the one you want with <code>--mac</code>.  Otherwise the first adapter with a cable in wins."),
     ("How do I undo it?", "Press <b>Turn everything off</b> in the TV app before removing it, or run <code>sh LG-USB-2-ETH0.sh uninstall --now</code>.  No system files are touched."),
