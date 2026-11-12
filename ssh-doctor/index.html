@@ -50,7 +50,7 @@
    "applicationCategory": "UtilitiesApplication",
    "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
    "url": "https://ohmybahgosh.dev/ssh-doctor/",
-   "softwareVersion": "0.4.0",
+   "softwareVersion": "0.5.0",
    "downloadUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/latest",
    "installUrl": "https://ohmybahgosh.dev/install/",
    "screenshot": "https://ohmybahgosh.dev/assets/img/ssh-doctor-main.webp",
@@ -61,7 +61,9 @@
     "Key pairing with a short code",
     "Your own root password",
     "SSH port and keys only",
-    "Login history"
+    "Login history",
+    "Copy commands and fingerprints on your phone by QR code",
+    "Update from the app"
    ],
    "offers": {
     "@type": "Offer",
@@ -95,7 +97,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "0.4.0",
+   "softwareVersion": "0.5.0",
    "@id": "https://ohmybahgosh.dev/ssh-doctor/#source"
   },
   {
@@ -168,7 +170,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.4.0</b></span>
+        <span class="badge">version <b data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.5.0</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">ssh <b>dropbear · Entware</b></span>
         <span class="badge">languages <b>en · ru · es</b></span>
@@ -197,7 +199,7 @@
       <div class="card s3 rv" style="--ca:#33e1ff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z"/></svg></div><h3>One button per fix</h3><p><b class="c-wh">Turn SSH on now</b> without a restart, <b class="c-wh">Fix my keys file</b> (line endings, hidden characters, wrapped and PuTTY keys, private keys, permissions), <b class="c-wh">Go back to password login</b> for anyone locked out, and <b class="c-wh">Undo a change</b>.</p></div>
       <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">QR</div><h3>Pair a key by code</h3><p>Scan the QR on the TV, type the short code, and send a key you have or let the browser make one.  The private key never leaves your phone or computer.</p></div>
       <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Entware's SSH too</h3><p>When Entware's OpenSSH or dropbear is how you log in, it counts as your SSH and gets checked: its settings, root login, whether a password works there, host keys, its port and starting at boot.  It also spots Developer Mode's SSH on 9922, and only ever changes the Homebrew Channel's server.</p></div>
-      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">$_</div><h3>Works over telnet too</h3><p><code>ssh-doctor.sh</code> runs on its own, for when telnet is the only way in: <code>status</code>, <code>fix-keys</code>, <code>password-on</code> and the rest.</p></div>
+      <div class="card s2 rv" style="--ca:#2dd4bf"><div class="ic">$_</div><h3>Works over telnet too</h3><p><code>ssh-doctor.sh</code> runs on its own, for when telnet is the only way in: <code>status</code>, <code>fix-keys</code>, <code>password-on</code> and the rest.</p></div>
     </div>
   </section>
 
@@ -209,7 +211,7 @@
         <div class="card"><div class="ic">***</div><h3>Your own password</h3><p>Typed on the TV, or on your phone through the pairing page.  It's turned into a SHA-512 crypt hash first, so the password itself is never sent over your network or saved on the TV, and applied the way the Homebrew Channel applies <code>alpine</code>.</p></div>
         <div class="card" style="--ca:#33e1ff"><div class="ic">#</div><h3>Keys only</h3><p>Passwords stop logging in.  It won't turn on until a key is on the TV, and <b class="c-wh">Go back to password login</b> undoes it if you lose the key.</p></div>
         <div class="card" style="--ca:#ffb547"><div class="ic">:22</div><h3>Another port</h3><p>2222, 22022 or any free port.  The old port stays open until you've logged in on the new one and keep it, and if dropbear won't start there, SSH goes straight back.</p></div>
-        <div class="card" style="--ca:#3ddc97"><div class="ic">♥</div><h3>Keepalive and reset</h3><p>A keepalive every 30 seconds so routers don't drop quiet sessions, and <b class="c-wh">Reset to Homebrew Channel defaults</b> removes all of it, the startup script too.</p></div>
+        <div class="card" style="--ca:#2dd4bf"><div class="ic">♥</div><h3>Keepalive and reset</h3><p>A keepalive every 30 seconds so routers don't drop quiet sessions, and <b class="c-wh">Reset to Homebrew Channel defaults</b> removes all of it, the startup script too.</p></div>
       </div>
     </div>
   </section>
@@ -227,10 +229,23 @@
     </div>
   </section>
 
+  <section id="copy" data-pal="SSH Doctor copy page and updates" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">scan &#8594; copy</div><h2 class="h2" style="margin-top:12px">Copy it on your phone.</h2><p>No typing long commands off the TV.  The screens with something worth copying show a QR code beside it.</p></div></div>
+    <div class="rv" style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;justify-content:center;margin-bottom:26px">
+      <div class="tv" style="flex:3 1 520px;min-width:0"><img src="/assets/img/ssh-doctor-howto.webp" alt="How to log in on the TV, with a QR code to copy it on a phone" width="1280" height="720" loading="lazy"></div>
+      <img src="/assets/img/ssh-doctor-phone-copy.webp" alt="The copy page on a phone: the login command, an SSH config and the TV's known_hosts lines, each with a Copy button" width="390" height="844" loading="lazy" style="flex:1 1 200px;width:100%;max-width:300px;height:auto;border-radius:18px;border:1px solid var(--line)">
+    </div>
+    <div class="bento">
+      <div class="card s2 rv" style="--ca:#2dd4bf"><div class="ic">QR</div><h3>Everything, one tap each</h3><p><b class="c-wh">How to log in</b>, <b class="c-wh">Report for getting help</b> and the TV's fingerprints open a read-only page on your phone: the login command for Mac, Linux, Windows, PuTTY or SFTP, <b class="c-wh">Open in an SSH app</b>, the <code>ssh-keygen -R</code> line for a changed host key, an SSH config and the keys that can log in.  It stops when that screen closes.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">&#x2193;</div><h3>Update from the app</h3><p>Each time it opens, SSH Doctor checks GitHub for a newer release.  <b class="c-wh">Update to v&#8230;</b> shows what's new and installs it through the Homebrew Channel, which checks the download's SHA-256 first.  The app opens again by itself and shows what changed.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">SFTP</div><h3>File transfer, key or password</h3><p><b class="c-wh">File transfer</b> says how to log in from WinSCP, FileZilla or Cyberduck: with your key (and where each one takes it), <code>alpine</code> or your own password.  The address shown is the main connection's, so a wired eth0 comes before Wi-Fi.</p></div>
+    </div>
+  </section>
+
   <section id="safety" data-pal="SSH Doctor startup, internet and USB" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">reboot · router · usb</div><h2 class="h2" style="margin-top:12px">Back by itself, closed to the internet, saved for later.</h2><p>Three things that matter most right after a restart, a reset, or when the TV can be reached from outside.</p></div></div>
     <div class="bento">
-      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">&#x21bb;</div><h3>Fix SSH at startup</h3><p>Turn it on in SSH settings and, after every restart, SSH Doctor checks that SSH came up.  If it didn't, it starts it, and fixes keys file permissions dropbear would refuse.  The main screen says when it had to.  It never touches a port another program has.</p></div>
+      <div class="card s2 rv" style="--ca:#2dd4bf"><div class="ic">&#x21bb;</div><h3>Fix SSH at startup</h3><p>Turn it on in SSH settings and, after every restart, SSH Doctor checks that SSH came up.  If it didn't, it starts it, and fixes keys file permissions dropbear would refuse.  The main screen says when it had to.  It never touches a port another program has.</p></div>
       <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">&#x2197;</div><h3>Reachable from the internet?</h3><p>Each time the app opens, it asks your router (UPnP, the way games open ports) whether it forwards the TV's SSH or telnet to the internet.  If it does, <b class="c-wh">Close it on the router</b> takes those forwards off.  Telnet, root with no password, is flagged first.</p></div>
       <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">USB</div><h3>Save or restore my setup</h3><p>Your keys, the TV's own SSH keys, settings and password hash on a USB drive.  After a factory reset and rooting again, put them back: logins work as before, and computers don't warn <code>REMOTE HOST IDENTIFICATION HAS CHANGED</code>.</p></div>
       <div class="card s6 rv" style="--ca:#ffb547"><div class="ic">$_</div><h3>Get more from SSH</h3><p>No <a class="c-pk" href="/webos-entware-installer/">Entware</a> on the TV yet?  SSH Doctor points to it: bash with history and tab completion, tmux to keep work running after you disconnect, nano, vim, htop, git, rsync and hundreds more packages, from the same Homebrew Channel repo.</p></div>
@@ -277,6 +292,7 @@ sh $S entware           # Entware's OpenSSH and dropbear, checked
 sh $S set-bootfix on    # check SSH at every start
 sh $S exposure          # does the router forward SSH or telnet?
 sh $S kit-save          # save to a USB drive; then kit-restore
+sh $S update-check      # a newer release?  then update-install
 sh $S report            # a report for asking for help
 sh $S help              # everything else</pre></div>
   </section>
@@ -294,6 +310,7 @@ sh $S help              # everything else</pre></div>
         <tr><td><code>/var/lib/webosbrew/sshd</code></td><td>The TV's host keys, only if you make new ones or put saved ones back (backed up first)</td></tr>
         <tr><td><code>/tmp/usb/…/ssh-doctor-kit</code></td><td>Your saved setup, only when you save one to a USB drive.  It holds the TV's private SSH keys, so keep the drive safe</td></tr>
         <tr><td>your router</td><td>Asked which ports it forwards (UPnP).  Only <b class="c-wh">Close it on the router</b> changes it, and only the forwards to this TV's SSH or telnet</td></tr>
+        <tr><td>the app itself</td><td>Updated only when you choose <b class="c-wh">Update to v&#8230;</b>, through the Homebrew Channel, which checks the download from GitHub against its SHA-256 first</td></tr>
         <tr><td><code>/opt/etc</code></td><td>Entware's SSH settings, host keys and password file: only read, never changed.  OpenSSH is asked for its settings with <code>sshd -T</code>, which only reads them</td></tr>
       </tbody>
     </table></div>
@@ -306,6 +323,8 @@ sh $S help              # everything else</pre></div>
       <details class="faq"><summary>Can I lock myself out with the settings?</summary><div>It's hard to.  Open SSH sessions stay connected when settings restart SSH.  Keys only won't turn on without a key, a port change keeps the old port open until you keep the new one, and the app itself runs through the Homebrew Channel, so <b>Go back to password login</b> always works from the remote.</div></details>
       <details class="faq"><summary>Does my password go over the network?</summary><div>No.  The TV app or the pairing page turns it into a SHA-512 crypt hash first, and only the hash is sent and kept.</div></details>
       <details class="faq"><summary>I use Entware's OpenSSH.  Will it touch that?</summary><div>It never changes, starts or stops it.  When Entware's OpenSSH or dropbear is how you log in, SSH Doctor treats it as your SSH and checks it: whether OpenSSH accepts its settings, whether root may log in, whether a password works there (OpenSSH turns root's password off by default, and Entware keeps its own password file, <code>/opt/etc/shadow</code>), its host keys, its port, and whether Entware starts at boot.  <b>Set up a key</b> works for it too, since it reads the same keys file.</div></details>
+      <details class="faq"><summary>Can I copy the login command on my phone instead of typing it?</summary><div>Yes.  <b>How to log in</b>, <b>Report for getting help</b> and the TV's fingerprints show a QR code.  Scan it and your phone opens a page with everything ready to copy, one tap each.  On a computer, type the address and the code it shows.  It's read only and stops when you close that screen.</div></details>
+      <details class="faq"><summary>How do I update SSH Doctor?</summary><div>From the app.  It checks GitHub each time it opens and offers <b>Update to v&#8230;</b> with what's new.  The Homebrew Channel installs it after checking the download's SHA-256, then SSH Doctor opens again and shows what changed.  More tools, <b>Updates</b> checks by hand, and the Homebrew Channel's own update works too.</div></details>
       <details class="faq"><summary>Was this written by AI?</summary><div>It's written with AI coding agents (Claude), directed, reviewed and tested by me.  The script has a test suite that runs every check and repair against a fake TV under busybox sh, dash and bash, CI drives the TV app and the pairing page in a browser, and each release is tried on a real TV.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
     </div>
   </section>

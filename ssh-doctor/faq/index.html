@@ -154,6 +154,30 @@
       "@type": "Answer",
       "text": "Turn on Fix SSH at startup in SSH settings. After every restart it checks that SSH came up, starts it if it didn't, and fixes keys file permissions the SSH server would refuse. The main screen tells you when it had to."
      }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I copy the login command on my phone instead of typing it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. How to log in, Report for getting help and the TV's fingerprints show a QR code. Scan it and your phone opens a page with everything ready to copy, one tap each: the login command for Mac, Linux, Windows, PuTTY or SFTP, an Open in an SSH app link, the line for a changed host key, an SSH config and the keys that can log in. It's read only and stops when you close that screen on the TV."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I update SSH Doctor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "From the app. Each time it opens, it checks GitHub for a newer release and offers Update with what's new. The Homebrew Channel installs it after checking the download's SHA-256, then SSH Doctor opens again by itself and shows what changed. More tools, Updates checks by hand."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Should I use my key or a password in WinSCP or FileZilla?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Whichever you log in with over SSH: File transfer in More tools says which one this TV takes. With a key, pick your private key file in the program (WinSCP and FileZilla offer to convert an OpenSSH key). With a password, it's alpine or the one you set. The host, port and user are the same as for SSH."
+     }
     }
    ]
   }
@@ -211,7 +235,7 @@
 <details class="faq"><summary>How does pairing a key work?</summary><div>Choose <b>Set up a key</b> on the TV, scan the QR code or open the address on your computer or phone, enter the short code, and upload a public key or let the browser make one.  The private key never leaves your device.</div></details>
 <details class="faq"><summary>Can I set my own root password?</summary><div>Yes, on the TV or from your phone.  It's turned into a SHA-512 crypt hash first, so the password itself is never sent over the network or saved on the TV.</div></details>
 <details class="faq"><summary>Can I move SSH off port 22?</summary><div>Yes.  The old port stays open alongside the new one until you've logged in on the new one, so a typo can't lock you out.</div></details>
-<details class="faq"><summary>Does it change system files?</summary><div>No.  Settings live in the Homebrew Channel's folders, a backup is kept before every change, and <b>Reset to Homebrew Channel defaults</b> removes all of it.</div></details><details class="faq"><summary>What happens to my keys after a factory reset?</summary><div>They're gone with everything else, unless you saved them first.  In More tools, <b>Save or restore my setup</b> puts your keys, the TV's own SSH keys, your settings and your password's hash on a USB drive.  After rooting again, put them back: logins work as before, and computers don't warn that the TV changed.</div></details><details class="faq"><summary>Can it tell if my TV's SSH is open to the internet?</summary><div>Yes, if your router has UPnP on.  Each time the app opens, it asks the router which ports it forwards, and warns if the TV's SSH or telnet is one of them.  <b>Close it on the router</b> takes those forwards off.  Forwards set up by hand in the router usually aren't listed, so check its port forwarding page too.</div></details><details class="faq"><summary>SSH didn't come back after a restart.  Can it fix that by itself?</summary><div>Turn on <b>Fix SSH at startup</b> in SSH settings.  After every restart it checks that SSH came up, starts it if it didn't, and fixes keys file permissions the SSH server would refuse.  The main screen tells you when it had to.</div></details><h2>Related</h2><div class="gcards"><a class="card gcard" href="/ssh-doctor/"><b>SSH Doctor</b><span>The project page</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a><a class="card gcard" href="/guides/"><b>Guides</b><span>How-tos for rooted LG TVs</span></a></div>
+<details class="faq"><summary>Does it change system files?</summary><div>No.  Settings live in the Homebrew Channel's folders, a backup is kept before every change, and <b>Reset to Homebrew Channel defaults</b> removes all of it.</div></details><details class="faq"><summary>What happens to my keys after a factory reset?</summary><div>They're gone with everything else, unless you saved them first.  In More tools, <b>Save or restore my setup</b> puts your keys, the TV's own SSH keys, your settings and your password's hash on a USB drive.  After rooting again, put them back: logins work as before, and computers don't warn that the TV changed.</div></details><details class="faq"><summary>Can it tell if my TV's SSH is open to the internet?</summary><div>Yes, if your router has UPnP on.  Each time the app opens, it asks the router which ports it forwards, and warns if the TV's SSH or telnet is one of them.  <b>Close it on the router</b> takes those forwards off.  Forwards set up by hand in the router usually aren't listed, so check its port forwarding page too.</div></details><details class="faq"><summary>SSH didn't come back after a restart.  Can it fix that by itself?</summary><div>Turn on <b>Fix SSH at startup</b> in SSH settings.  After every restart it checks that SSH came up, starts it if it didn't, and fixes keys file permissions the SSH server would refuse.  The main screen tells you when it had to.</div></details><details class="faq"><summary>Can I copy the login command on my phone instead of typing it?</summary><div>Yes.  <b>How to log in</b>, <b>Report for getting help</b> and the TV's fingerprints show a QR code.  Scan it and your phone opens a page with everything ready to copy, one tap each: the login command for Mac, Linux, Windows, PuTTY or SFTP, an <b>Open in an SSH app</b> link, the <code>ssh-keygen -R</code> line for a changed host key, an SSH config and the keys that can log in.  It's read only and stops when you close that screen on the TV.</div></details><details class="faq"><summary>How do I update SSH Doctor?</summary><div>From the app.  Each time it opens, it checks GitHub for a newer release and offers <b>Update to v&#8230;</b> with what's new.  The Homebrew Channel installs it after checking the download's SHA-256, then SSH Doctor opens again by itself and shows what changed.  More tools, <b>Updates</b> checks by hand.</div></details><details class="faq"><summary>Should I use my key or a password in WinSCP or FileZilla?</summary><div>Whichever you log in with over SSH: <b>File transfer</b> in More tools says which one this TV takes.  With a key, pick your private key file in the program (WinSCP and FileZilla offer to convert an OpenSSH key).  With a password, it's <code>alpine</code> or the one you set.  The host, port and user are the same as for SSH.</div></details><h2>Related</h2><div class="gcards"><a class="card gcard" href="/ssh-doctor/"><b>SSH Doctor</b><span>The project page</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, repo</span></a><a class="card gcard" href="/guides/"><b>Guides</b><span>How-tos for rooted LG TVs</span></a></div>
 </article>
 </div>
 </main>
