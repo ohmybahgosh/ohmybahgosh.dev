@@ -94,31 +94,31 @@
       "id": "app.tivibro.tv",
       "title": "TiviBro",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.122/app.tivibro.tv.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.123/app.tivibro.tv.manifest.json",
       "manifest": {
         "id": "app.tivibro.tv",
-        "version": "0.5.10122",
+        "version": "0.5.10123",
         "type": "web",
         "title": "TiviBro",
-        "appDescription": "Test build 0.6.0-alpha.122.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+        "appDescription": "Test build 0.6.0-alpha.123.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
         "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
         "rootRequired": false,
-        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.122/app.tivibro.tv_0.5.10122_all.ipk",
-        "ipkSize": 4670816,
+        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.123/app.tivibro.tv_0.5.10123_all.ipk",
+        "ipkSize": 4671110,
         "ipkHash": {
-          "sha256": "54a4156f18e15c081cce52ce245885e588a27e4560519068897afe4c9c6b61ad"
+          "sha256": "42db028cbef31261ea8ede9e1975212f86310db3a3511d5d8797f7ababd49f7b"
         }
       },
-      "shortDescription": "Test build 0.6.0-alpha.122.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
+      "shortDescription": "Test build 0.6.0-alpha.123.  Free, guide-first IPTV player for your own Xtream Codes or M3U subscription",
       "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
       "requirements": {
         "webosRelease": ">=4.0"
       },
       "release": {
-        "tag": "v0.6.0-alpha.122",
-        "published": "2026-11-12T16:35:23Z",
-        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.122"
+        "tag": "v0.6.0-alpha.123",
+        "published": "2026-11-12T22:34:40Z",
+        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.123"
       }
     }
   ]
