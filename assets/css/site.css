@@ -575,3 +575,12 @@ html[data-theme=light] .mpanel{background:#fff}
 .lchips a span{color:var(--fg3);margin-left:4px}
 .lchips a:hover{border-color:var(--accent);color:var(--hi)}
 html[data-theme=light] .lm{background:#fff}
+
+/* special thanks (project pages; filled by tools/gen-thanks.py) */
+.thanks{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.thank{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border:1px solid var(--line);border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));color:var(--fg)!important;text-decoration:none!important;transition:border-color .2s,transform .2s}
+.thank:hover{border-color:var(--ca,#3ddc97);transform:translateY(-2px)}
+.thank img{width:56px;height:56px;border-radius:50%}
+.thank span{display:flex;flex-direction:column;line-height:1.3;text-align:left}
+.thank small{color:var(--fg3);font-size:13px}
+.thanks-empty{text-align:center;color:var(--fg3)}

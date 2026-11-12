@@ -14,7 +14,7 @@
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=r2611b">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611e">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="LG-USB-2-ETH0 · USB Ethernet as eth0 on LG webOS">
@@ -164,6 +164,7 @@
       <div class="btns">
         <a class="btn pri" href="#homebrew">$ get the TV app</a>
         <a class="btn" href="#install">ssh install</a>
+        <a class="btn" href="#contribute">help test drivers</a>
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0" target="_blank" rel="noopener">source ↗</a>
         <a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest" target="_blank" rel="noopener">latest release ↗</a>
       </div>
@@ -182,6 +183,7 @@
       <video src="/assets/media/eth0-app-tour.mp4" poster="/assets/img/eth0-app-tour-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The LG-USB-2-ETH0 app as a 2019 C9 with a Realtek adapter in Realtek mode: scrolling the menu, opening the Wi-Fi as a backup confirmation and the Report for GitHub QR code, then back to the top."></video>
     </div>
   </section>
+  <div class="callout rv" style="margin:8px 0 0;--accent:#3ddc97"><b>Help make it work on more TVs.</b>  Test a driver built for your TV, send a compatibility report, translate the app or build a feature with AI, and get your name in the <a class="c-gr" href="#contribute">special thanks</a>.  <a class="c-gr" href="#contribute">Ways to help ↓</a></div>
 
   <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.9" style="padding-top:40px">
     <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.9</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
@@ -532,6 +534,33 @@
       <details class="faq"><summary>Can I use two adapters?</summary><div>Yes.  Pin the one you want with <code>--mac</code>.  Without it, the first adapter with a cable in wins.</div></details>
     </div>
     <div class="callout rv" style="margin-top:24px;--accent:#3ddc97"><b>Thanks to DonZoomik</b> for <a class="c-gr" href="https://github.com/DonZoomik/webos-r8152" target="_blank" rel="noopener">webos-r8152</a>, the Realtek driver build and benchmarks that <code>get-driver</code> and <code>--module</code> are built on, and to <b>mbenitez343</b> for <a class="c-gr" href="https://github.com/mbenitez343/lg-webos-2024-ethernet-fix" target="_blank" rel="noopener">lg-webos-2024-ethernet-fix</a>, the driver for 2024 QNED and OLED TVs.  Thanks also to <b>OCT0PUSCRIME</b> and <b>dd3git</b> for ASIX drivers for 2020 webOS 5 and 2025 B5 TVs (<a class="c-gr" href="https://github.com/OCT0PUSCRIME/lg-webos-ax88179-driver" target="_blank" rel="noopener">OCT0PUSCRIME</a>, <a class="c-gr" href="https://github.com/dd3git/lg-webos-ax88179-driver" target="_blank" rel="noopener">dd3git</a>), and to <b>throwaway96</b> for <a class="c-gr" href="https://github.com/throwaway96/webos-kernel-drivers" target="_blank" rel="noopener">webos-kernel-drivers</a>.</div>
+  </section>
+
+  <section id="contribute" data-pal="help build LG-USB-2-ETH0, contribute, special thanks" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git commit --author=you</div><h2 class="h2" style="margin-top:12px">Help make it work on more TVs.</h2><p>This project grows from people trying it on their own TVs.  Every driver test and report lands in the docs for the next person, and gets your name below.</p></div><a class="btn" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">contributing ↗</a></div>
+    <div class="bento">
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">🧪</div><h3>Test a driver</h3><p>Drivers for many more TVs are built from LG's own source and wait for someone with that TV.  If yours has one, the app shows <b class="c-wh">Test a new driver</b>: one press tests it and fills in the report.  <a class="c-gr" href="#testing">Drivers waiting for testers</a></p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">📺</div><h3>Send a compatibility report</h3><p>Worked or not, it tells the next person what to buy.  The app's <b class="c-wh">Report for GitHub</b> QR code fills it in from your phone.  <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/issues/new?template=compatibility-report.yml" target="_blank" rel="noopener">Report form ↗</a></p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">🌍</div><h3>Translate the app</h3><p>English, Russian and Spanish so far.  One file holds every line of text, and a half-done language still works.  <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0#translating-the-app" target="_blank" rel="noopener">How ↗</a></p></div>
+      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic">🤖</div><h3>Build a feature with AI</h3><p>Attach the knowledge base to Claude, ChatGPT or Gemini first: the rules, every function and how to test.  <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest/download/lg-usb-2-eth0-for-ai.md">Download it</a> · <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0#contributing" target="_blank" rel="noopener">contributing ↗</a></p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">💬</div><h3>Ask, share or suggest</h3><p>Questions, your working setup, or an idea for what's next.  <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/discussions" target="_blank" rel="noopener">Discussions ↗</a></p></div>
+    </div>
+    <div class="rv" style="margin-top:34px;text-align:center"><div class="eyebrow">special thanks</div><h3 class="h2" style="margin:10px 0 8px;font-size:clamp(24px,2.6vw,30px)">Built with help.</h3><p class="muted" style="margin:0 auto 20px;max-width:640px">Everyone who has helped with code, driver tests, compatibility reports, ideas or bug reports.  This list updates itself.</p></div>
+    <div class="rv">
+      <!-- thanks:LG-USB-2-ETH0:start -->
+      <div class="thanks">
+        <a class="thank" href="https://github.com/xbmcjase" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/261321952?v=4&amp;s=112" width="56" height="56" alt=""><span><b>xbmcjase</b><small>2 driver tests, 2 compatibility reports</small></span></a>
+        <a class="thank" href="https://github.com/Yevrashka" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/24300377?v=4&amp;s=112" width="56" height="56" alt=""><span><b>Yevrashka</b><small>2 driver tests, 2 compatibility reports</small></span></a>
+        <a class="thank" href="https://github.com/tirth0jain" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/163157087?v=4&amp;s=112" width="56" height="56" alt=""><span><b>tirth0jain</b><small>2 driver tests, 1 compatibility report</small></span></a>
+        <a class="thank" href="https://github.com/izoT3P" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/354215212?v=4&amp;s=112" width="56" height="56" alt=""><span><b>izoT3P</b><small>2 compatibility reports</small></span></a>
+        <a class="thank" href="https://github.com/romansat" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/94401139?v=4&amp;s=112" width="56" height="56" alt=""><span><b>romansat</b><small>1 compatibility report, 1 discussion</small></span></a>
+        <a class="thank" href="https://github.com/artemisxrpg" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/74358884?v=4&amp;s=112" width="56" height="56" alt=""><span><b>artemisxrpg</b><small>1 compatibility report</small></span></a>
+        <a class="thank" href="https://github.com/Mazda77" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/44847930?v=4&amp;s=112" width="56" height="56" alt=""><span><b>Mazda77</b><small>1 discussion</small></span></a>
+        <a class="thank" href="https://github.com/OCT0PUSCRIME" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/65912221?v=4&amp;s=112" width="56" height="56" alt=""><span><b>OCT0PUSCRIME</b><small>1 discussion</small></span></a>
+        <a class="thank" href="https://github.com/PargsZ" target="_blank" rel="noopener"><img loading="lazy" src="https://avatars.githubusercontent.com/u/60362178?v=4&amp;s=112" width="56" height="56" alt=""><span><b>PargsZ</b><small>1 compatibility report</small></span></a>
+      </div>
+      <!-- thanks:LG-USB-2-ETH0:end -->
+    </div>
   </section>
 
   <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
