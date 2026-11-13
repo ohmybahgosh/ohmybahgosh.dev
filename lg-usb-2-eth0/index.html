@@ -429,7 +429,7 @@
 <span class="cm"># download the latest release and its checksum</span>
 <span class="pr">$ </span>curl -fsSLO https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest/download/LG-USB-2-ETH0.sh
 <span class="pr">$ </span>curl -fsSLO https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/latest/download/SHA256SUMS
-<span class="pr">$ </span>sha256sum -c SHA256SUMS
+<span class="pr">$ </span>grep &#39; LG-USB-2-ETH0.sh$&#39; SHA256SUMS | sha256sum -c -
 <span class="cm"># read-only look at the TV first</span>
 <span class="pr">$ </span>sh LG-USB-2-ETH0.sh status
 <span class="cm"># install the boot hook (asks before it writes), then switch now</span>
@@ -448,7 +448,7 @@
         <tr><td><code>get-driver</code></td><td>Downloads a better driver if one is known for your exact kernel, and checks its SHA-256.  <code>--file PATH</code> uses a copy you downloaded yourself.</td></tr>
         <tr><td><code>test-driver</code></td><td>Tries a new driver built for your exact kernel and chip that hasn't run on a TV yet, until the next restart only, and makes a report to send.  <code>--last</code> shows the last result.</td></tr>
         <tr><td><code>speedtest</code></td><td>Latency, download and upload through the TV's current connection, against Cloudflare's nearest server.  Uses a few hundred MB.</td></tr>
-        <tr><td><code>update</code></td><td>Checks for a newer release and installs it after checking its SHA-256.  <code>--check</code> only checks.  Your settings stay.</td></tr>
+        <tr><td><code>update</code></td><td>Checks for a newer release and installs it once the release's signature checks out and the download matches its SHA-256.  <code>--check</code> only checks.  Your settings stay.</td></tr>
         <tr><td><code>disable</code> / <code>enable</code></td><td>Keep the hook but stop it running at boot, or turn it back on.</td></tr>
         <tr><td><code>--watch</code></td><td>Keeps following the adapter after boot.  Plug in or out at will.</td></tr>
         <tr><td><code>--wifi-fallback</code></td><td>Turns Wi-Fi on if the cable stops working, and off again once it's back.  Only when Wi-Fi was off.</td></tr>
