@@ -66,28 +66,28 @@
       "id": "org.ohmybahgosh.sshdoctor",
       "title": "SSH Doctor",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.5.0/org.ohmybahgosh.sshdoctor.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.5.1/org.ohmybahgosh.sshdoctor.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.sshdoctor",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "type": "web",
         "title": "SSH Doctor",
         "appDescription": "Check and fix SSH on a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.5.0/org.ohmybahgosh.sshdoctor_0.5.0_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.5.1/org.ohmybahgosh.sshdoctor_0.5.1_all.ipk",
         "ipkHash": {
-          "sha256": "d53fa7a5ea560160b95e9f0a1af3eb688df1ecdda4103d956e6120da747e3f83"
+          "sha256": "afcef71cc2087c15a4f9663bb551420b893c59f194dbd3f8063009871d2411e8"
         },
-        "ipkSize": 142722
+        "ipkSize": 145416
       },
       "shortDescription": "Check and fix SSH on a rooted TV, and add a key from your phone or computer with a pairing code",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/ssh-doctor.html",
       "release": {
-        "tag": "v0.5.0",
-        "published": "2026-11-12T16:43:43Z",
-        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.5.0"
+        "tag": "v0.5.1",
+        "published": "2026-11-13T00:14:50Z",
+        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.5.1"
       }
     },
     {
