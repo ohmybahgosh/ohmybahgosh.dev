@@ -179,7 +179,7 @@
       </div>
     </div>
     <div class="tv">
-      <video src="/assets/media/entware-app-demo.mp4" poster="/assets/img/entware-app-demo-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The TV app with the remote, on an LG C2: Packages opens on Start here, rclone's page with tips for using it on a TV, the Files and backup category, then SSH commands switching from tv to ent, and Add-ons with Samba, File Browser and the media server running"></video>
+      <video src="/assets/media/entware-app-packages.mp4" poster="/assets/img/entware-app-packages-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="Packages in the TV app: Browse opens on Start here, yt-dlp's page with its size and a tip for the TV, a search for video with the word marked, then the Installed tab and the Updates tab with curl and nmap"></video>
     </div>
   </section>
 
@@ -213,7 +213,6 @@
     </div>
     <div class="gallery rv" style="margin-top:26px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start">
       <figure><img src="/assets/img/entware-cli-addons.webp" alt="webos-entware addons lists each add-on and whether it's installed, then webos-entware add banner sets up the login banner" loading="lazy" width="1100" height="972" style="aspect-ratio:auto"><figcaption>webos-entware addons</figcaption></figure>
-      <figure><img src="/assets/img/entware-cli-banner.webp" alt="Logging in to an LG C2 over SSH with the login banner: a webOS wordmark in a pink to cyan gradient, then the TV's specs in boxes for Software, Hardware and Uptime" loading="lazy" width="1100" height="956" style="aspect-ratio:auto"><figcaption>the login banner</figcaption></figure>
     </div>
   </section>
 
@@ -241,7 +240,6 @@
 <span class="pr">$ </span>webos-entware password samba        <span class="cm"># a new random one</span>
 <span class="pr">$ </span>webos-entware password samba --ask  <span class="cm"># or type your own</span></pre></div>
       </div>
-      <div><div class="tv"><img src="/assets/img/entware-app-addon-info.webp" alt="File Browser in the TV app's Add-ons: Running, with a QR code of http://192.168.50.96:8090, the address, user admin and its password, and Remove File Browser" width="1280" height="720" loading="lazy"></div><p class="dim" style="font-size:14px;margin-top:34px">Open a service in <b>Add-ons</b> for its address and password, with a QR code for your phone, and <b>New random password</b>.</p></div>
     </div>
   </section>
 
@@ -256,14 +254,12 @@
         <div class="code"><pre><span class="pr">$ </span>webos-entware web start   <span class="cm"># prints the address and code</span>
 <span class="pr">$ </span>webos-entware web stop</pre></div>
       </div>
-      <div style="text-align:center"><img src="/assets/img/entware-web-dashboard.webp" alt="The phone dashboard: Tailscale asking you to sign in, and File Browser running with its address, user admin, its password with Show and Copy, and Open, Change password and Remove" width="600" height="1308" loading="lazy" style="width:min(300px,80%);height:auto;border-radius:28px;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.5)"></div>
     </div>
   </section>
 
   <section id="app" data-pal="the Entware TV app" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">the tv app</div><h2 class="h2" style="margin-top:12px;display:flex;gap:16px;align-items:center"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48">No SSH needed.</h2><p>The TV app runs the same installer underneath, as root through the Homebrew Channel.  Install, repair, packages, add-ons, updates, logs and uninstall, all from the remote, plus a list of every SSH command.</p></div><a class="btn pri" href="#homebrew">get it ↓</a></div>
     <div class="two rv" style="align-items:start">
-      <div class="tv stick" style="margin-bottom:26px"><img src="/assets/img/entware-app-status.webp" alt="The Entware app on an LG C2: Entware is ready, 121 packages on app storage, no problems found, with Check and repair, Package updates (all up to date), Packages, Add-ons, SSH commands, Full check and logs, Report for GitHub and Uninstall Entware" width="1280" height="720" loading="lazy"></div>
       <div class="appgrid">
         <div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg></div><h3>Status at a glance</h3><p>Build, packages, disk use, where it lives, free space on both storage areas, boot script, SSH shell and telnet recovery, plus any problems found.</p></div>
         <div class="card" style="--ca:#3ddc97"><div class="ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><h3>Install or repair</h3><p>The recommended build for your TV, on app storage.  A repair keeps your packages and settings, and moves older installs off user data.</p></div>
@@ -417,7 +413,6 @@
     <div class="sec-head rv"><div><div class="eyebrow">tv help · ent help</div><h2 class="h2" style="margin-top:12px">Two commands.  Tab does the rest.</h2><p><code class="c-pk">tv</code> runs the TV and <code class="c-pk">ent</code> runs Entware.  Tab completes their commands and what each one takes: package names, add-ons, services, app IDs, inputs and settings.  Anything that changes something asks first.</p></div></div>
     <div class="two rv" style="align-items:start">
       <div style="min-width:0">
-        <div class="tv"><video src="/assets/media/entware-term-tv.mp4" poster="/assets/img/entware-term-tv-poster.webp" autoplay muted loop playsinline preload="metadata" width="1120" height="651" aria-label="Over SSH on an LG C2: tv shows the model, webOS, address, what's on screen, the volume and a line about Entware, then Tab completes tv input and lists the inputs, tv input list shows the SHIELD and the sound bar plugged in, and tv volume reads 9"></video></div>
         <div class="tblw" style="margin-top:18px"><table class="tbl">
           <thead><tr><th>tv</th><th>what it does</th></tr></thead>
           <tbody>
@@ -461,7 +456,6 @@
     <div class="gallery rv">
       <figure><img src="/assets/img/entware-cli-install.webp" alt="The installer checking the TV, recommending the 64-bit build, test-running it and installing Entware" loading="lazy" width="1100" height="1073" style="aspect-ratio:4/3;object-position:top"><figcaption>install</figcaption></figure>
       <figure><img src="/assets/img/entware-cli-doctor.webp" alt="webos-entware doctor going through every check and ending with Everything looks right" loading="lazy" width="1100" height="972" style="aspect-ratio:4/3;object-position:top"><figcaption>doctor</figcaption></figure>
-      <figure><img src="/assets/img/entware-cli-tv.webp" alt="tv shows the TV and what's on screen, tv input lists the inputs and what's plugged in, and tv volume" loading="lazy" width="1120" height="651" style="aspect-ratio:4/3;object-position:top"><figcaption>tv</figcaption></figure>
       <figure><img src="/assets/img/entware-cli-ent.webp" alt="ent svc lists Entware's services, all running, then ent show rsync gives its size, what it adds and its description" loading="lazy" width="1120" height="786" style="aspect-ratio:4/3;object-position:top"><figcaption>ent</figcaption></figure>
     </div>
   </section>
