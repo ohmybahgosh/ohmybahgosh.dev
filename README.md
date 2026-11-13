@@ -35,7 +35,7 @@ Four apps for LG webOS TVs.  Each one installs from the Homebrew Channel and run
 
 <a href="https://ohmybahgosh.dev/tivibro/"><img src="docs/page-tivibro.webp" width="100%" alt="The TiviBro page: the TiviBro wordmark and the headline The IPTV player LG TVs never got, beside the guide on a TV"></a>
 
-The IPTV player LG TVs never got.  A free, TiviMate-style player for webOS 4 and up, for your own Xtream Codes or M3U subscription: a guide-first layout, catch-up, movies and shows, sports and PPV events, a web editor for your phone or computer, and an Android remote.
+The IPTV player LG TVs never got.  A free, TiviMate-style player for webOS 4 and up, for your own Xtream Codes, M3U or Stalker portal subscription: a guide-first layout, catch-up, movies and shows, sports and PPV events, a web editor for your phone or computer, and an Android remote.
 
 [![Stars](https://img.shields.io/github/stars/ohmybahgosh/TiviBro?style=flat-square&color=33e1ff&labelColor=0a0e1a)](https://github.com/ohmybahgosh/TiviBro)
 [![Release](https://img.shields.io/github/v/release/ohmybahgosh/TiviBro?include_prereleases&style=flat-square&color=5b8cff&labelColor=0a0e1a&label=release)](https://github.com/ohmybahgosh/TiviBro/releases)

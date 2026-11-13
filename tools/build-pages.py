@@ -350,7 +350,7 @@ IPTV_FAQ = [
     ("Is TiviMate available on LG TVs?",
      "No.  TiviMate is an Android app, for Android TV and Fire TV.  LG TVs run webOS, so it doesn't install there."),
     ("What is TiviBro?",
-     "A free, open-source IPTV player for LG webOS TVs, built in the style of TiviMate: the guide is the home screen.  It plays your own Xtream Codes or M3U subscription.  It doesn't come with channels."),
+     "A free, open-source IPTV player for LG webOS TVs, built in the style of TiviMate: the guide is the home screen.  It plays your own Xtream Codes, M3U or Stalker portal subscription.  It doesn't come with channels."),
     ("Do I need a rooted TV for TiviBro?",
      "No.  It installs in LG's Developer Mode too.  On a rooted TV, the Homebrew Channel installs and updates it from the TV."),
     ("Is TiviBro free?",
@@ -684,7 +684,7 @@ def app_faq(slug, name, title, desc, intro, qas, accent, og):
 app_faq("tivibro", "TiviBro", "TiviBro FAQ: install, providers, backups and privacy",
         "Answers about TiviBro, the free IPTV player for LG webOS TVs: root or not, providers, the phone app, backups, updates and privacy.",
         "Quick answers.  The full user guide lives on <a href=\"https://tivibro.app\" target=\"_blank\" rel=\"noopener\">tivibro.app</a>.", IPTV_FAQ[1:] + [
-    ("Does TiviBro come with channels?", "No.  It plays the Xtream Codes or M3U subscription you already have, with its XMLTV guide."),
+    ("Does TiviBro come with channels?", "No.  It plays the Xtream Codes, M3U or Stalker portal subscription you already have, with its XMLTV guide."),
     ("How do I install it?", "On a rooted TV, add <code>https://tivibro.app/repo</code> or <code>https://ohmybahgosh.dev/repo</code> to the Homebrew Channel, or run <code>curl -fsSL https://tivibro.app/install | sh</code> over SSH.  Without root, use LG's Developer Mode."),
     ("Is there a phone app?", "Yes, for Android.  It's a remote, plays your channels and media on the TV, opens the web editor, and turns the TV on over the network and Bluetooth.  Download the APK from <a href=\"https://tivibro.app/apk/\" target=\"_blank\" rel=\"noopener\">tivibro.app/apk</a>."),
     ("Can I edit my channels from a computer?", "Yes.  Open <b>Edit on phone</b> on the TV for a QR code, an address and a password.  The web editor hides, sorts, renames and copies channels, and changes are drafts until you press <b>Send to TV</b>."),
