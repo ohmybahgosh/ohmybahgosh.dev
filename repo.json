@@ -10,28 +10,28 @@
       "id": "org.ohmybahgosh.lgusb2eth0",
       "title": "LG-USB-2-ETH0",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.28/org.ohmybahgosh.lgusb2eth0.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.27/org.ohmybahgosh.lgusb2eth0.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.lgusb2eth0",
-        "version": "2.11.28",
+        "version": "2.11.27",
         "type": "web",
         "title": "LG-USB-2-ETH0",
         "appDescription": "Make a USB Ethernet adapter the TV's eth0",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.28/org.ohmybahgosh.lgusb2eth0_2.11.28_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.27/org.ohmybahgosh.lgusb2eth0_2.11.27_all.ipk",
         "ipkHash": {
-          "sha256": "76c7ade26f4f32a143770c95e38ec9b4ae09d61428a425e617ab8207aad678c3"
+          "sha256": "b4190ddf50b6370693e24ef441b7f031015923126773a236393bcf79bd56f263"
         },
-        "ipkSize": 155360
+        "ipkSize": 152228
       },
       "shortDescription": "Make a USB Ethernet adapter the TV's eth0, for the faster wired link",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/lg-usb-2-eth0.html",
       "release": {
-        "tag": "v2.11.28",
-        "published": "2026-11-14T17:18:53Z",
-        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.11.28"
+        "tag": "v2.11.27",
+        "published": "2026-11-14T15:06:57Z",
+        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.11.27"
       }
     },
     {
@@ -94,32 +94,32 @@
       "id": "app.tivibro.tv",
       "title": "TiviBro",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.133/app.tivibro.tv.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.134/app.tivibro.tv.manifest.json",
       "manifest": {
         "id": "app.tivibro.tv",
-        "version": "0.5.10133",
+        "version": "0.5.10134",
         "type": "web",
         "title": "TiviBro",
-        "appDescription": "Test build 0.6.0-alpha.133.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
+        "appDescription": "Test build 0.6.0-alpha.134.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
         "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
         "rootRequired": false,
-        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.133/app.tivibro.tv_0.5.10133_all.ipk",
-        "ipkSize": 4746360,
+        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.134/app.tivibro.tv_0.5.10134_all.ipk",
+        "ipkSize": 4751236,
         "ipkHash": {
-          "sha256": "2a2ad938ee36b08571b09f03471387ab986cbafde7540f8f15844f9da9ccfb6e"
+          "sha256": "5787992d186ad64d332b183f70509a68ca3231925acb1193ecc7c24eea0d8b9b"
         },
-        "tivibroSig": "fniec1gELeVXQqsZXqPfGEVSlARWqwiLcjKnfYMqozgS5DPgJJNpACwYGEvm119fjFnPJsbU1i+kviUkZe+tOEK3BJbOaH2W9Hl/7rNzZE0yp6fdQHTA7EwJ3UUykaqaM81X00jujEH1+UQdX7W7+uvx+vnxkT1y1zfirYJY9mTxdZXtbCHiVPjhsZRJIb/d+0LakmRHXr25QrcxImYdw3Xr8vOCuOrjnQTXBujk+JNYLBhakVQRsAKqg/2HkzqM5uHOr0MjwnI1rNBwZDY6WFhjgYL6ES7acosIH3i0YAYh/SxgMeMMPNHGeeOHZ1m2qH3EA4dIqziRZ8yXxTjEBTaJFuO1IVlQ5Bw8wmLWEYWnoWzj4p7XYWNmVot2cjmF5D8xGC+q7v4vcOFFlLdiahyIgC5PhnEIQXansYEoNgAZgkt4azqcdtIk8kVCJM9dUO3/WnafUsls79KegoOUa2eTNVrB/Pbum+2DL0HqISEcwG1s84nSR3sfkychpW5l"
+        "tivibroSig": "mDV/k6gCmeKwi7A73UkOl6A8k0ereGd1t6uAF3WYTSRsNUxIpua7fEP4Kr/sWJfOvwqZtwA7c8gaC1u6BQJJ3BfEUwOI7Saq0TlNnV1VluGE9sF4aflHkVoVS/gmUyQMqU+HZBhwr1fjG85CHgnajmyxlwK8iM3q2gq3GhaqxY03dSe5gCNKSores0UdnSZGUXSymS4cN54P0pIZNRPt9xMXJrHy8f5U6jrQtVL03veIAAAMT+RbfW7VIdJCZzB0HiqGewg+tkCdr5rRpakHN6Y3zl2dvBLqgjR4hqaJ7YMDv2//QUmxNETBRJxKR0UnFCIkpCcsYJgJt697aMY0ylXsgajHBhI8eqmtuJXW12h4TklMuojJMUVjEhG0VjEIzaxfI4ALxJ2Mh7GGpKBwtNh5bFJsrjauALjpEsHpPFYJgeNYXMf1gOOWWBMY355nP4Va6nrxNx5t7qLdAisnAskXYh+aalG7C83sepsahpaDd2zAFyhw7Nvcoec+CusI"
       },
-      "shortDescription": "Test build 0.6.0-alpha.133.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
+      "shortDescription": "Test build 0.6.0-alpha.134.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
       "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
       "requirements": {
         "webosRelease": ">=4.0"
       },
       "release": {
-        "tag": "v0.6.0-alpha.133",
-        "published": "2026-11-14T12:59:18Z",
-        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.133"
+        "tag": "v0.6.0-alpha.134",
+        "published": "2026-11-14T17:39:12Z",
+        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.134"
       }
     }
   ]
