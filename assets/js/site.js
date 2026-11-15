@@ -229,6 +229,26 @@
     document.body.appendChild(lb);
   }));
 
+  /* ---------- long tables: the first rows, and a button for the rest ---------- */
+  $$('table[data-clip]').forEach((t) => {
+    const keep = +t.dataset.clip, rows = $$('tbody tr', t);
+    if (rows.length <= keep + 1) return;
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'btn clip-btn';
+    const set = (open) => {
+      rows.forEach((r, i) => { if (i >= keep) r.hidden = !open; });
+      b.textContent = open ? 'show fewer \u2191' : `show all ${rows.length} \u2193`;
+      b.setAttribute('aria-expanded', open);
+    };
+    b.addEventListener('click', () => {
+      const open = b.getAttribute('aria-expanded') !== 'true';
+      set(open);
+      if (!open) t.scrollIntoView({ block: 'nearest' });
+    });
+    (t.closest('.tblw') || t).after(b);
+    set(false);
+  });
+
   /* ---------- projects menu: hover on desktop, tap on touch ---------- */
   $$('[data-menu]').forEach((m) => {
     const b = $('.mbtn', m);
