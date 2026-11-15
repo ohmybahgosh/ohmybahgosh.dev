@@ -265,7 +265,7 @@ guide("ssh-into-lg-tv",
       card=("SSH into a rooted LG TV", "Log in, add a key, copy files, and fix the common errors"),
       h1="SSH into a rooted LG TV.",
       lead="How to turn SSH on, log in as root, switch to a key, copy files, and get back in when it breaks.",
-      accent="#3ddc97", og="/assets/og/ssh-doctor.png", faq=SSH_FAQ, body=f"""
+      accent="#2dd4bf", og="/assets/og/ssh-doctor.png", faq=SSH_FAQ, body=f"""
 <h2>1. Turn SSH on</h2>
 <p>You need a rooted TV with the <a href="/install/">Homebrew Channel</a>.  Open it, select the gear icon, turn on <b class="c-wh">SSH Server</b>, and restart the TV.  While you're there, keeping <b class="c-wh">Telnet</b> on too gives you a way back in if SSH ever breaks.</p>
 
@@ -727,7 +727,7 @@ app_faq("ssh-doctor", "SSH Doctor", "SSH Doctor FAQ: fix SSH on rooted LG webOS 
     ("Can I set my own root password?", "Yes, on the TV or from your phone.  It's turned into a SHA-512 crypt hash first, so the password itself is never sent over the network or saved on the TV."),
     ("Can I move SSH off port 22?", "Yes.  The old port stays open alongside the new one until you've logged in on the new one, so a typo can't lock you out."),
     ("Does it change system files?", "No.  Settings live in the Homebrew Channel's folders, a backup is kept before every change, and <b>Reset to Homebrew Channel defaults</b> removes all of it."),
-], "#3ddc97", "/assets/og/ssh-doctor.png")
+], "#2dd4bf", "/assets/og/ssh-doctor.png")
 
 app_faq("luna-atlas", "Luna Atlas", "Luna Atlas FAQ: luna-send on LG webOS TVs",
         "Answers about luna-send and Luna Atlas: what the Luna Service Bus is, running commands, access levels, dangerous methods and where the data comes from.",

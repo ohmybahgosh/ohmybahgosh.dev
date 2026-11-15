@@ -223,11 +223,11 @@
 <main>
 <div class="wrap">
 <div class="crumb"><a href="/">~</a><span>/</span><a href="/ssh-doctor/">ssh-doctor</a><span>/</span><span class="c-gr">faq</span></div>
-<section class="doc-hero" style="--accent:#3ddc97">
+<section class="doc-hero" style="--accent:#2dd4bf">
   <div class="eyebrow">$ man ssh</div>
   <h1 class="h2" style="margin-top:12px">SSH Doctor FAQ.</h1>
   <p class="lead">Fixing SSH on a rooted LG TV from the TV itself, answered.</p>
-</section><article class="doc" style="--accent:#3ddc97">
+</section><article class="doc" style="--accent:#2dd4bf">
 <details class="faq"><summary>What's the default SSH login for a rooted LG TV?</summary><div>User <code>root</code>, port 22, password <code>alpine</code>, once SSH is turned on in the Homebrew Channel.  Adding your first key turns the <code>alpine</code> password off at the next boot.</div></details>
 <details class="faq"><summary>Why does SSH say Connection refused?</summary><div>The SSH server isn't running or listening on that port.  Turn on SSH in the Homebrew Channel's settings and restart the TV, or use SSH Doctor's <b>Turn SSH on now</b>, which starts it without a restart.</div></details>
 <details class="faq"><summary>I added a key and now the password doesn't work.</summary><div>That's by design: the first key in <code>authorized_keys</code> turns <code>alpine</code> off at the next boot.  If the key itself doesn't work, often because of Windows line endings or a key pasted on several lines, SSH Doctor's <b>Fix my keys file</b> or <b>Go back to password login</b> gets you back in.</div></details>
