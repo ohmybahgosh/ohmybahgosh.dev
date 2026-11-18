@@ -1,9 +1,9 @@
 {
   "paging": {
     "page": 1,
-    "count": 4,
+    "count": 3,
     "maxPage": 1,
-    "itemsTotal": 4
+    "itemsTotal": 3
   },
   "packages": [
     {
@@ -88,38 +88,6 @@
         "tag": "v0.5.3",
         "published": "2026-11-15T03:07:59Z",
         "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.5.3"
-      }
-    },
-    {
-      "id": "app.tivibro.tv",
-      "title": "TiviBro",
-      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.159/app.tivibro.tv.manifest.json",
-      "manifest": {
-        "id": "app.tivibro.tv",
-        "version": "0.5.10159",
-        "type": "web",
-        "title": "TiviBro",
-        "appDescription": "Test build 0.6.0-alpha.159.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
-        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-        "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
-        "rootRequired": false,
-        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.159/app.tivibro.tv_0.5.10159_all.ipk",
-        "ipkSize": 6317986,
-        "ipkHash": {
-          "sha256": "90a98580e7922e716951452b6d20f1fad6157429d30ef45f77d75361c71086aa"
-        },
-        "tivibroSig": "Vn8MjyY7OsdQztKni9hapKECpCMvRCDzQA8P4ujbxeV47Dhi7YEl6dDSt22HhDKjRE4wLPr+g9RHoVemz+i6PRSifENO0nKbgohEi+pjkGW3QZGA9NdP/bX3bFqLo+AEiY7WfEvsCQ9Ov4lrdI9T4lAbd8xq0ZfkIL1MmIcno5ImCFEMWbeuGpGSAwcV1Wi7Y5PuXiRFRgCG/R0ZrVp2Yzb4N8GiCQ2nKBoGcmCOQe6KxHmg8y3Iih3jcXtiHNU+be/+jvgdLiGSffMEDKSZAwdcLvtdemwUZrhPDkugeGv3wkIf/bYsjYvcq9G/6CeTFTLRyIXsUueF60OeCeN/CLGDShFAmGbCLz099JN5cTyaL20Hhuf89WaNwQGYr2yAeNdCigezLj7LJQL8wXdumCCoWY/oR+sLHPWOZKz3tHl5zy6KdwK8xK0eV0LDTkc8iyZsjXbpjcRC2FoJOfR7tAaHAokhYFKk6MKNCWqQOFgnWsyS4NyE9csT11Yuii3T"
-      },
-      "shortDescription": "Test build 0.6.0-alpha.159.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
-      "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
-      "requirements": {
-        "webosRelease": ">=4.0"
-      },
-      "release": {
-        "tag": "v0.6.0-alpha.159",
-        "published": "2026-11-18T12:54:57Z",
-        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.159"
       }
     }
   ]
