@@ -10,28 +10,28 @@
       "id": "org.ohmybahgosh.lgusb2eth0",
       "title": "LG-USB-2-ETH0",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.44/org.ohmybahgosh.lgusb2eth0.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.45/org.ohmybahgosh.lgusb2eth0.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.lgusb2eth0",
-        "version": "2.11.44",
+        "version": "2.11.45",
         "type": "web",
         "title": "LG-USB-2-ETH0",
         "appDescription": "Make a USB Ethernet adapter the TV's eth0",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.44/org.ohmybahgosh.lgusb2eth0_2.11.44_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.45/org.ohmybahgosh.lgusb2eth0_2.11.45_all.ipk",
         "ipkHash": {
-          "sha256": "c47958f8d06c371a0bf052282b028dec8386df99f850aa23a055e0234e2bf431"
+          "sha256": "ba18a0ac459d4cb6520b4db22b899d2ad0fb68308bd6f8370d46e763a91f0504"
         },
-        "ipkSize": 177098
+        "ipkSize": 177522
       },
       "shortDescription": "Make a USB Ethernet adapter the TV's eth0, for the faster wired link",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/lg-usb-2-eth0.html",
       "release": {
-        "tag": "v2.11.44",
-        "published": "2026-11-19T12:57:22Z",
-        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.11.44"
+        "tag": "v2.11.45",
+        "published": "2026-11-19T20:37:29Z",
+        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.11.45"
       }
     },
     {
