@@ -753,6 +753,7 @@ app_faq("fw-block", "FW Block", "FW Block FAQ: block LG firmware updates on root
     ("What are the backups for?", "Before it turns on, restores or updates, it saves webOS's update settings, its own switches, <code>/etc/hosts</code>, the phone gateway's file and the firewall's rules.  <b>Backups</b> in the app puts one back."),
     ("How does it update?", "The app checks GitHub when it opens, and <b>Updates</b> installs a new version through the Homebrew Channel, only if the release is signed with the project's key."),
     ("What happens if I uninstall it?", "It notices within about 30 seconds and undoes everything it added, then removes its startup hook and folder."),
+    ("Was FW Block written by AI?", "Partly, and openly.  It's written with AI coding agents (Claude), directed, reviewed and tested by OhMyBahGosh.  Nothing ships until it runs on a real TV, 58 tests run on every push, and releases are signed.  <a href=\"/#built\">How these are built</a>."),
 ], "#ff2d55", "/assets/og/fw-block.png")
 
 app_faq("luna-atlas", "Luna Atlas", "Luna Atlas FAQ: luna-send on LG webOS TVs",
