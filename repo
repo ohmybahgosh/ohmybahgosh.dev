@@ -1,9 +1,9 @@
 {
   "paging": {
     "page": 1,
-    "count": 5,
+    "count": 4,
     "maxPage": 1,
-    "itemsTotal": 5
+    "itemsTotal": 4
   },
   "packages": [
     {
@@ -66,28 +66,28 @@
       "id": "org.ohmybahgosh.sshdoctor",
       "title": "SSH Doctor",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.5.3/org.ohmybahgosh.sshdoctor.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.6.0/org.ohmybahgosh.sshdoctor.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.sshdoctor",
-        "version": "0.5.3",
+        "version": "0.6.0",
         "type": "web",
         "title": "SSH Doctor",
         "appDescription": "Check and fix SSH on a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.5.3/org.ohmybahgosh.sshdoctor_0.5.3_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/download/v0.6.0/org.ohmybahgosh.sshdoctor_0.6.0_all.ipk",
         "ipkHash": {
-          "sha256": "6b53d694f5a3fe5682a46daa4a09bb071c1df91149da311c61f66ab3fffa8f20"
+          "sha256": "04e99a1b4257c443c48f10241e9fa2bda936e0c73a88abc10d47e955ff6d0b1b"
         },
-        "ipkSize": 148688
+        "ipkSize": 151478
       },
       "shortDescription": "Check and fix SSH on a rooted TV, and add a key from your phone or computer with a pairing code",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/ssh-doctor.html",
       "release": {
-        "tag": "v0.5.3",
-        "published": "2026-11-15T03:07:59Z",
-        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.5.3"
+        "tag": "v0.6.0",
+        "published": "2026-11-20T12:56:28Z",
+        "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.6.0"
       }
     },
     {
@@ -116,38 +116,6 @@
         "tag": "v0.1.0",
         "published": "2026-11-20T01:09:39Z",
         "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v0.1.0"
-      }
-    },
-    {
-      "id": "app.tivibro.tv",
-      "title": "TiviBro",
-      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.179/app.tivibro.tv.manifest.json",
-      "manifest": {
-        "id": "app.tivibro.tv",
-        "version": "0.5.10179",
-        "type": "web",
-        "title": "TiviBro",
-        "appDescription": "Test build 0.6.0-alpha.179.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
-        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-        "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
-        "rootRequired": false,
-        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.179/app.tivibro.tv_0.5.10179_all.ipk",
-        "ipkSize": 6543122,
-        "ipkHash": {
-          "sha256": "5aa08bcc90299476a5580d04aa3c3a08ffd969b10969261f77fabc355a61ffd7"
-        },
-        "tivibroSig": "mfjSgt1W1pysKjVpqItpKR4UnjR7vdtLvcgr396XBbbpr9+F4qd7xZIBzC6rLlS0/ZreMHlQB19bpXzEDeQ9uM6NRc3rnC7CAnZnM/JKsDMMpY1KbV6yDbNdOx5FnBCodu9cQGc5mfk2JnUR0WmGaQrKdRIi41mgW1NTC4G2mC0ZUuGoIbrGBPFaUeedS+6p4PsV2YOl548iQcWBkymjdP3yguEAoIJRyzehehr4C/FE0Sj5K8ksGCTjatRbMLXVIzue0DO5tpqZCrA25uzINJlAj9QjTnw1rUwTIUPoYzUVpsr4e/3/z1uddJxNFvScJSAXUvxJnfmH/0Wxnjj9EUUyQgrJEBR+zHhT7SUUg3XlrLAJ9G3doPyxvJSK6VkaukLHoYKH++H9HmG4W1yLQXNb962UsuVPSgFhstTR7tvLVh1eKAkGM/8vBlIaU1CFV5kjNyV3+wruWRQg4SPC2yQd7FI8z0CnEkrfaly27bkzMjcpN7hfjOoooS/XQRTd"
-      },
-      "shortDescription": "Test build 0.6.0-alpha.179.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription",
-      "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
-      "requirements": {
-        "webosRelease": ">=4.0"
-      },
-      "release": {
-        "tag": "v0.6.0-alpha.179",
-        "published": "2026-11-20T02:52:07Z",
-        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.179"
       }
     }
   ]
