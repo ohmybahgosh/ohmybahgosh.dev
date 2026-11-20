@@ -50,7 +50,7 @@
    "applicationCategory": "UtilitiesApplication",
    "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
    "url": "https://ohmybahgosh.dev/ssh-doctor/",
-   "softwareVersion": "0.5.3",
+   "softwareVersion": "0.6.0",
    "downloadUrl": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/latest",
    "installUrl": "https://ohmybahgosh.dev/install/",
    "screenshot": "https://ohmybahgosh.dev/assets/img/ssh-doctor-main.webp",
@@ -97,7 +97,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "0.5.3",
+   "softwareVersion": "0.6.0",
    "@id": "https://ohmybahgosh.dev/ssh-doctor/#source"
   },
   {
@@ -171,7 +171,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.5.3</b></span>
+        <span class="badge">version <b data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.6.0</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">ssh <b>dropbear · Entware</b></span>
         <span class="badge">languages <b>en · ru · es</b></span>
@@ -180,7 +180,7 @@
       </div>
     </div>
     <div class="tv">
-      <video src="/assets/media/ssh-doctor-app-tour.mp4" poster="/assets/img/ssh-doctor-app-tour-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The SSH Doctor TV app: SSH settings with a port change underway, More tools and the login history, then Set up a key with its QR code and pairing code"></video>
+      <video src="/assets/media/ssh-doctor-app-tour.mp4" poster="/assets/img/ssh-doctor-app-tour-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The SSH Doctor TV app: the SSH, Settings, Tools and More tabs, the login history, then Set up a key with its QR code and pairing code"></video>
     </div>
   </section>
 
@@ -207,7 +207,7 @@
   <section id="settings" data-pal="SSH settings" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">dropbear -p 2222 -s -K 30</div><h2 class="h2" style="margin-top:12px">SSH settings that stick.</h2><p>dropbear has no settings file: its options are set when it starts, and the Homebrew Channel starts it with none.  SSH Doctor keeps yours and puts them back after every restart, with a small startup script in <code>/var/lib/webosbrew/init.d</code>.</p></div></div>
     <div class="two rv" style="align-items:start">
-      <div class="tv stick" style="margin-bottom:26px"><img src="/assets/img/ssh-doctor-settings.webp" alt="The SSH settings menu: your own password, keys only, SSH port and keep idle sessions connected" width="1280" height="720" loading="lazy"></div>
+      <div class="tv stick" style="margin-bottom:26px"><img src="/assets/img/ssh-doctor-settings.webp" alt="The Settings tab: your own password, keys only and keep idle sessions connected as switches, and the SSH port" width="1280" height="720" loading="lazy"></div>
       <div class="appgrid">
         <div class="card"><div class="ic">***</div><h3>Your own password</h3><p>Typed on the TV, or on your phone through the pairing page.  It's turned into a SHA-512 crypt hash first, so the password itself is never sent over your network or saved on the TV, and applied the way the Homebrew Channel applies <code>alpine</code>.</p></div>
         <div class="card" style="--ca:#33e1ff"><div class="ic">#</div><h3>Keys only</h3><p>Passwords stop logging in.  It won't turn on until a key is on the TV, and <b class="c-wh">Go back to password login</b> undoes it if you lose the key.</p></div>
@@ -218,7 +218,7 @@
   </section>
 
   <section id="tools" data-pal="SSH Doctor more tools" style="padding-top:20px">
-    <div class="sec-head rv"><div><div class="eyebrow">more tools</div><h2 class="h2" style="margin-top:12px">Who's been logging in?</h2><p>Recent logins and failed tries from the TV's own log, with a warning when the tries come from outside your home network.</p></div></div>
+    <div class="sec-head rv"><div><div class="eyebrow">tools &#183; more</div><h2 class="h2" style="margin-top:12px">Who's been logging in?</h2><p>Recent logins and failed tries from the TV's own log, with a warning when the tries come from outside your home network.</p></div></div>
     <div class="two rv" style="align-items:start">
       <div class="tv" style="margin-bottom:26px"><img src="/assets/img/ssh-doctor-logins.webp" alt="Login history: logins by key and password, and failed tries, with where they came from" width="1280" height="720" loading="lazy"></div>
       <div class="appgrid">
@@ -246,7 +246,7 @@
   <section id="safety" data-pal="SSH Doctor startup, internet and USB" style="padding-top:20px">
     <div class="sec-head rv"><div><div class="eyebrow">reboot · router · usb</div><h2 class="h2" style="margin-top:12px">Back by itself, closed to the internet, saved for later.</h2><p>Three things that matter most right after a restart, a reset, or when the TV can be reached from outside.</p></div></div>
     <div class="bento">
-      <div class="card s2 rv" style="--ca:#2dd4bf"><div class="ic">&#x21bb;</div><h3>Fix SSH at startup</h3><p>Turn it on in SSH settings and, after every restart, SSH Doctor checks that SSH came up.  If it didn't, it starts it, and fixes keys file permissions dropbear would refuse.  The main screen says when it had to.  It never touches a port another program has.</p></div>
+      <div class="card s2 rv" style="--ca:#2dd4bf"><div class="ic">&#x21bb;</div><h3>Fix SSH at startup</h3><p>Turn it on in the Settings tab and, after every restart, SSH Doctor checks that SSH came up.  If it didn't, it starts it, and fixes keys file permissions dropbear would refuse.  The main screen says when it had to.  It never touches a port another program has.</p></div>
       <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">&#x2197;</div><h3>Reachable from the internet?</h3><p>Each time the app opens, it asks your router (UPnP, the way games open ports) whether it forwards the TV's SSH or telnet to the internet.  If it does, <b class="c-wh">Close it on the router</b> takes those forwards off.  Telnet, root with no password, is flagged first.</p></div>
       <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">USB</div><h3>Save or restore my setup</h3><p>Your keys, the TV's own SSH keys, settings and password hash on a USB drive.  After a factory reset and rooting again, put them back: logins work as before, and computers don't warn <code>REMOTE HOST IDENTIFICATION HAS CHANGED</code>.</p></div>
       <div class="card s6 rv" style="--ca:#ffb547"><div class="ic">$_</div><h3>Get more from SSH</h3><p>No <a class="c-pk" href="/webos-entware-installer/">Entware</a> on the TV yet?  SSH Doctor points to it: bash with history and tab completion, tmux to keep work running after you disconnect, nano, vim, htop, git, rsync and hundreds more packages, from the same Homebrew Channel repo.</p></div>
@@ -325,13 +325,13 @@ sh $S help              # everything else</pre></div>
       <details class="faq"><summary>Does my password go over the network?</summary><div>No.  The TV app or the pairing page turns it into a SHA-512 crypt hash first, and only the hash is sent and kept.</div></details>
       <details class="faq"><summary>I use Entware's OpenSSH.  Will it touch that?</summary><div>It never changes, starts or stops it.  When Entware's OpenSSH or dropbear is how you log in, SSH Doctor treats it as your SSH and checks it: whether OpenSSH accepts its settings, whether root may log in, whether a password works there (OpenSSH turns root's password off by default, and Entware keeps its own password file, <code>/opt/etc/shadow</code>), its host keys, its port, and whether Entware starts at boot.  <b>Set up a key</b> works for it too, since it reads the same keys file.</div></details>
       <details class="faq"><summary>Can I copy the login command on my phone instead of typing it?</summary><div>Yes.  <b>How to log in</b>, <b>Report for getting help</b> and the TV's fingerprints show a QR code.  Scan it and your phone opens a page with everything ready to copy, one tap each.  On a computer, type the address and the code it shows.  It's read only and stops when you close that screen.</div></details>
-      <details class="faq"><summary>How do I update SSH Doctor?</summary><div>From the app.  It checks GitHub each time it opens and offers <b>Update to v&#8230;</b> with what's new.  The Homebrew Channel installs it after checking the download's SHA-256, then SSH Doctor opens again and shows what changed.  More tools, <b>Updates</b> checks by hand, and the Homebrew Channel's own update works too.</div></details>
+      <details class="faq"><summary>How do I update SSH Doctor?</summary><div>From the app.  It checks GitHub each time it opens and offers <b>Update to v&#8230;</b> with what's new.  The Homebrew Channel installs it after checking the download's SHA-256, then SSH Doctor opens again and shows what changed.  More, <b>Updates</b> checks by hand, and the Homebrew Channel's own update works too.</div></details>
       <details class="faq"><summary>Was this written by AI?</summary><div>It's written with AI coding agents (Claude), directed, reviewed and tested by me.  The script has a test suite that runs every check and repair against a fake TV under busybox sh, dash and bash, CI drives the TV app and the pairing page in a browser, and each release is tried on a real TV.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
     </div>
   </section>
 
   <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
-    <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px">The <a class="c-cy" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/wiki/Troubleshooting" target="_blank" rel="noopener">wiki</a> covers every common SSH error.  Pick a template and it fills in the right GitHub form for you.  <b>More tools, Report for getting help</b> in the TV app gives you a report to paste in.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="/contact/?t=sd-bug">report a bug</a><a class="btn" href="/contact/?t=sd-tv">how it went on my TV</a><a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/wiki" target="_blank" rel="noopener">read the wiki ↗</a><a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/discussions/new?category=ideas" target="_blank" rel="noopener">suggest an idea ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+    <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px">The <a class="c-cy" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/wiki/Troubleshooting" target="_blank" rel="noopener">wiki</a> covers every common SSH error.  Pick a template and it fills in the right GitHub form for you.  <b>More, Report for getting help</b> in the TV app gives you a report to paste in.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="/contact/?t=sd-bug">report a bug</a><a class="btn" href="/contact/?t=sd-tv">how it went on my TV</a><a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/wiki" target="_blank" rel="noopener">read the wiki ↗</a><a class="btn" href="https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/discussions/new?category=ideas" target="_blank" rel="noopener">suggest an idea ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
   </section>
 
   <section id="releases" data-pal="SSH Doctor release notes" style="padding-top:20px">
