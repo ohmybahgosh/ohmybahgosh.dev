@@ -1,9 +1,9 @@
 {
   "paging": {
     "page": 1,
-    "count": 4,
+    "count": 5,
     "maxPage": 1,
-    "itemsTotal": 4
+    "itemsTotal": 5
   },
   "packages": [
     {
@@ -88,6 +88,34 @@
         "tag": "v0.5.3",
         "published": "2026-11-15T03:07:59Z",
         "url": "https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR/releases/tag/v0.5.3"
+      }
+    },
+    {
+      "id": "org.ohmybahgosh.fwblock",
+      "title": "FW Block",
+      "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
+      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v0.1.0/org.ohmybahgosh.fwblock.manifest.json",
+      "manifest": {
+        "id": "org.ohmybahgosh.fwblock",
+        "version": "0.1.0",
+        "type": "web",
+        "title": "FW Block",
+        "appDescription": "Keep LG firmware updates off a rooted LG TV",
+        "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
+        "sourceUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK",
+        "rootRequired": true,
+        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v0.1.0/org.ohmybahgosh.fwblock_0.1.0_all.ipk",
+        "ipkHash": {
+          "sha256": "fc3f7b71ace9d1d5fba6f7b7351e6f14c42c87e5b7466e962fa4fbc6cb0a2ac4"
+        },
+        "ipkSize": 146208
+      },
+      "shortDescription": "Block LG firmware updates and keep root: the update check, all seven update servers, Remote Support, phone app updates and stray downloads",
+      "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/fw-block.html",
+      "release": {
+        "tag": "v0.1.0",
+        "published": "2026-11-20T01:09:39Z",
+        "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v0.1.0"
       }
     },
     {
