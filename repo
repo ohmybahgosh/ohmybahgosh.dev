@@ -94,28 +94,28 @@
       "id": "org.ohmybahgosh.fwblock",
       "title": "FW Block",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v0.1.0/org.ohmybahgosh.fwblock.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v0.1.1/org.ohmybahgosh.fwblock.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.fwblock",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "type": "web",
         "title": "FW Block",
         "appDescription": "Keep LG firmware updates off a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v0.1.0/org.ohmybahgosh.fwblock_0.1.0_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v0.1.1/org.ohmybahgosh.fwblock_0.1.1_all.ipk",
         "ipkHash": {
-          "sha256": "fc3f7b71ace9d1d5fba6f7b7351e6f14c42c87e5b7466e962fa4fbc6cb0a2ac4"
+          "sha256": "0e8f31936280894c4f3b4d232c1a1f4312d6cb0e05481a8cccc3b4e2832036ed"
         },
-        "ipkSize": 146208
+        "ipkSize": 159208
       },
       "shortDescription": "Block LG firmware updates and keep root: the update check, all seven update servers, Remote Support, phone app updates and stray downloads",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/fw-block.html",
       "release": {
-        "tag": "v0.1.0",
-        "published": "2026-11-20T01:09:39Z",
-        "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v0.1.0"
+        "tag": "v0.1.1",
+        "published": "2026-11-20T19:00:35Z",
+        "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v0.1.1"
       }
     },
     {
