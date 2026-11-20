@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>OhMyBahGosh · open-source apps for rooted LG TVs, and dev tools</title>
-<meta name="description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor, plus Luna Atlas and pipseek.">
+<meta name="description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block, plus Luna Atlas and pipseek.">
 <meta name="theme-color" content="#05070d">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://ohmybahgosh.dev/">
@@ -14,7 +14,7 @@
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="dns-prefetch" href="https://api.github.com">
-<link rel="stylesheet" href="/assets/css/site.css?v=r2611f">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
 <style>
 .helptest{display:flex;gap:10px;align-items:center;margin:18px 0 0;padding:10px 14px;border:1px solid color-mix(in srgb,#3ddc97 45%,transparent);border-radius:12px;background:color-mix(in srgb,#3ddc97 9%,transparent);font:500 13px/1.45 var(--mono);color:#3ddc97;cursor:pointer}
 .helptest:hover,.helptest:focus-visible{background:color-mix(in srgb,#3ddc97 16%,transparent);outline:none}
@@ -27,7 +27,7 @@ html[data-theme=light] .helptest b{color:#000}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="OhMyBahGosh · open-source apps for rooted LG TVs, and dev tools">
-<meta property="og:description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor, plus Luna Atlas and pipseek.">
+<meta property="og:description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block, plus Luna Atlas and pipseek.">
 <meta property="og:url" content="https://ohmybahgosh.dev/">
 <meta property="og:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@ html[data-theme=light] .helptest b{color:#000}
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OhMyBahGosh · open-source apps for rooted LG TVs, and dev tools">
-<meta name="twitter:description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor, plus Luna Atlas and pipseek.">
+<meta name="twitter:description" content="Open-source apps for rooted LG webOS TVs from one Homebrew Channel repo: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block, plus Luna Atlas and pipseek.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -96,12 +96,18 @@ html[data-theme=light] .helptest b{color:#000}
     {
      "@type": "ListItem",
      "position": 5,
+     "url": "https://ohmybahgosh.dev/fw-block/",
+     "name": "FW Block"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
      "url": "https://ohmybahgosh.dev/luna-atlas/",
      "name": "Luna Atlas"
     },
     {
      "@type": "ListItem",
-     "position": 6,
+     "position": 7,
      "url": "https://ohmybahgosh.dev/pipseek/",
      "name": "pipseek"
     }
@@ -128,12 +134,13 @@ html[data-theme=light] .helptest b{color:#000}
           <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
           <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
           <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
         </div>
         <div class="mgrp"><span>reference and tools</span>
           <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
           <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
         </div>
-        <a class="mall" href="/#homebrew">$ add the four TV apps: ohmybahgosh.dev/repo</a>
+        <a class="mall" href="/#homebrew">$ add the five TV apps: ohmybahgosh.dev/repo</a>
         </div>
       </div>
       <a href="/install/" class="hide-s">install</a>
@@ -152,7 +159,7 @@ html[data-theme=light] .helptest b{color:#000}
     <div style="min-width:0">
       <div class="eyebrow">open source · dev showcase</div>
       <h1 class="h1 hname" style="margin-top:16px"><span class="tilde">~/</span>ohmybahgosh</h1>
-      <div class="hcli" aria-label="Current focus: LG webOS homebrew.  Projects: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor, Luna Atlas and pipseek.">
+      <div class="hcli" aria-label="Current focus: LG webOS homebrew.  Projects: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor, FW Block, Luna Atlas and pipseek.">
         <div><span class="p">$</span> cat focus</div>
         <div class="out"><span class="fdot"></span>LG webOS homebrew</div>
         <div style="margin-top:10px"><span class="p">$</span> ls projects/</div>
@@ -161,6 +168,7 @@ html[data-theme=light] .helptest b{color:#000}
           <a href="/lg-usb-2-eth0/" style="--c:#3ddc97">usb-2-eth0/</a>
           <a href="/webos-entware-installer/" style="--c:#ff3ea5">entware/</a>
           <a href="/ssh-doctor/" style="--c:#2dd4bf">ssh-doctor/</a>
+          <a href="/fw-block/" style="--c:#ff2d55">fw-block/</a>
           <a href="/luna-atlas/" style="--c:#3ddc97">luna-atlas/</a>
           <a href="/pipseek/" style="--c:#4c9eff">pipseek/</a>
         </div>
@@ -181,11 +189,12 @@ html[data-theme=light] .helptest b{color:#000}
       </div>
       <div class="tabpanel" id="h-tv">
         <a class="tv" id="hero-link" href="/tivibro/" aria-label="Open the TiviBro page"><video id="hero-video" src="/assets/media/tivibro-guide.mp4" poster="/assets/img/tivibro-guide-poster.webp" autoplay muted playsinline preload="metadata" width="1920" height="1080" aria-label="The TiviBro guide: browse, preview in the window, then fullscreen"></video></a>
-        <nav class="hdock" aria-label="The four apps">
+        <nav class="hdock" aria-label="The five apps">
           <a href="/tivibro/" aria-current="true" data-i="0"><img src="/assets/img/tivibro-icon.webp" alt="" width="160" height="160"><span>TiviBro</span></a>
           <a href="/lg-usb-2-eth0/" aria-current="false" data-i="1"><img src="/assets/img/eth0-icon.webp" alt="" width="160" height="160"><span>LG-USB-2-ETH0</span></a>
           <a href="/webos-entware-installer/" aria-current="false" data-i="2"><img src="/assets/img/entware-icon.webp" alt="" width="160" height="160"><span>Entware</span></a>
           <a href="/ssh-doctor/" aria-current="false" data-i="3"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="160" height="160"><span>SSH Doctor</span></a>
+          <a href="/fw-block/" aria-current="false" data-i="4"><img src="/assets/img/fw-block-icon.webp" alt="" width="160" height="160"><span>FW Block</span></a>
         </nav>
         <p class="hcap" aria-live="polite"><b>TiviBro</b> <span>The IPTV player LG TVs never got.</span> <a href="/tivibro/">more ↗</a></p>
       </div>
@@ -214,16 +223,16 @@ html[data-theme=light] .helptest b{color:#000}
 
 <div class="wrap">
   <div class="stats hstats rv" aria-label="At a glance">
-    <div><b>6</b><span>open-source projects</span></div>
-    <div><b>4</b><span>TV apps, one repo</span></div>
+    <div><b>7</b><span>open-source projects</span></div>
+    <div><b>5</b><span>TV apps, one repo</span></div>
     <div><b data-gh="all:stars">42</b><span>stars on GitHub</span></div>
     <div><b>8,125</b><span>luna-send methods mapped</span></div>
   </div>
 </div>
 
 <div class="marq" aria-hidden="true" style="margin-top:56px"><div class="in">
-  <span>POSIX sh</span><span>tested on real LG TVs</span><span>Homebrew Channel</span><span>webOS 4 → 25</span><span>aarch64 + armv7</span><span>clean uninstall</span><span>Xtream Codes + M3U</span><span>SSH pairing codes</span><span>English · Español · Русский</span><span>Python + Textual</span><span>no ads, no accounts</span>
-  <span>POSIX sh</span><span>tested on real LG TVs</span><span>Homebrew Channel</span><span>webOS 4 → 25</span><span>aarch64 + armv7</span><span>clean uninstall</span><span>Xtream Codes + M3U</span><span>SSH pairing codes</span><span>English · Español · Русский</span><span>Python + Textual</span><span>no ads, no accounts</span>
+  <span>POSIX sh</span><span>tested on real LG TVs</span><span>Homebrew Channel</span><span>webOS 4 → 25</span><span>aarch64 + armv7</span><span>clean uninstall</span><span>Xtream Codes + M3U</span><span>SSH pairing codes</span><span>firmware updates blocked</span><span>English · Español · Русский</span><span>Python + Textual</span><span>no ads, no accounts</span>
+  <span>POSIX sh</span><span>tested on real LG TVs</span><span>Homebrew Channel</span><span>webOS 4 → 25</span><span>aarch64 + armv7</span><span>clean uninstall</span><span>Xtream Codes + M3U</span><span>SSH pairing codes</span><span>firmware updates blocked</span><span>English · Español · Русский</span><span>Python + Textual</span><span>no ads, no accounts</span>
 </div></div>
 
 <div class="wrap">
@@ -339,7 +348,24 @@ html[data-theme=light] .helptest b{color:#000}
             <li>Copy the login command on your phone by QR code, and update from the app</li>
             <li>Checks Entware's OpenSSH or dropbear too, when that's how you log in</li>
           </ul>
-          <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="LG-WEBOS-SSH-DOCTOR:stars">1</b></span><span>en · es · ru</span><span>new</span></div>
+          <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="LG-WEBOS-SSH-DOCTOR:stars">1</b></span><span>en · es · ru</span></div>
+        </div>
+      </a>
+
+      <a class="card proj rv" href="/fw-block/" style="--ca:#ff2d55;--cb:#ffb547">
+        <span class="go">↗</span>
+        <div class="pmedia"><video src="/assets/media/fw-block-app-tour.mp4" poster="/assets/img/fw-block-app-tour-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The FW Block TV app: firmware updates blocked with every switch on, the Activity tab, every block and who keeps it, then the More tab and Backups"></video></div>
+        <div class="pbody">
+          <div class="phead"><img class="appicon sm" src="/assets/img/fw-block-icon.webp" alt="" width="48" height="48" loading="lazy"><h3>FW Block</h3><span class="pill" style="--ca:#ff2d55" data-gh="WEBOS-FW-BLOCK:release">v0.1.0</span></div>
+          <p class="ptag">One firmware update can take root away for good.  This closes every way LG can update the TV that we found, and keeps it closed.</p>
+          <ul>
+            <li>The update check off, all seven update servers and the fallback IP blocked</li>
+            <li>LG Remote Support and phone app updates blocked, casting still works</li>
+            <li>A download that starts anyway is stopped, checked every 10 minutes</li>
+            <li>Works alongside LG-USB-2-ETH0 and the Homebrew Channel's block</li>
+            <li>Backups before every change, and signed updates from the app</li>
+          </ul>
+          <div class="meta"><span class="lang" style="--lc:#89e051">Shell</span><span>★ <b data-gh="WEBOS-FW-BLOCK:stars">0</b></span><span>en · es · ru</span><span>new</span></div>
         </div>
       </a>
 
@@ -368,13 +394,14 @@ html[data-theme=light] .helptest b{color:#000}
   <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
     <div class="card rv" style="padding:32px">
       <div class="eyebrow">homebrew channel repo</div>
-      <h2 class="h2" style="margin:12px 0 10px;font-size:clamp(28px,3.4vw,38px)">Four TV apps.  One repository.</h2>
-      <p class="muted" style="margin:0 0 6px;max-width:720px">Add this once in the Homebrew Channel (gear icon, <b class="c-wh">Repositories</b>, <b class="c-wh">Add repository</b>) and all four apps show up in its app list, with updates as new versions come out.  No SSH needed.</p>
+      <h2 class="h2" style="margin:12px 0 10px;font-size:clamp(28px,3.4vw,38px)">Five TV apps.  One repository.</h2>
+      <p class="muted" style="margin:0 0 6px;max-width:720px">Add this once in the Homebrew Channel (gear icon, <b class="c-wh">Repositories</b>, <b class="c-wh">Add repository</b>) and all five apps show up in its app list, with updates as new versions come out.  No SSH needed.</p>
       <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
       <div class="hbapps">
         <a class="hbapp" href="/tivibro/#install"><img class="appicon sm" src="/assets/img/tivibro-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>TiviBro <span class="pill" style="--ca:#33e1ff" data-gh="TiviBro:version">0.6.0-alpha.105</span></b><span>The IPTV player LG TVs never got.  Newest test builds.</span></div></a>
         <a class="hbapp" href="/lg-usb-2-eth0/#homebrew"><img class="appicon sm" src="/assets/img/eth0-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>LG-USB-2-ETH0 <span class="pill" style="--ca:#3ddc97" data-gh="LG-USB-2-ETH0:release">v2.11.46</span></b><span>Make a USB Ethernet adapter the TV's eth0.</span></div></a>
         <a class="hbapp" href="/ssh-doctor/"><img class="appicon sm" src="/assets/img/ssh-doctor-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>SSH Doctor <span class="pill" style="--ca:#2dd4bf" data-gh="LG-WEBOS-SSH-DOCTOR:release">v0.5.3</span></b><span>Check and fix SSH on a rooted TV, and pair a key.</span></div></a>
+        <a class="hbapp" href="/fw-block/#homebrew"><img class="appicon sm" src="/assets/img/fw-block-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>FW Block <span class="pill" style="--ca:#ff2d55" data-gh="WEBOS-FW-BLOCK:release">v0.1.0</span></b><span>Block LG firmware updates and keep root.</span></div></a>
         <a class="hbapp" href="/webos-entware-installer/#homebrew"><img class="appicon sm" src="/assets/img/entware-icon.webp" alt="" width="48" height="48" loading="lazy"><div><b>Entware <span class="pill" style="--ca:#ff3ea5">v<span data-gh="WEBOS-ENTWARE-INSTALLER:version">2.15.1</span></span></b><span>Linux packages, a bash shell, updates and add-ons.</span></div></a>
       </div>
       <p class="dim" style="font-size:14px;margin:14px 0 0">The address is for the Homebrew Channel; a browser just downloads it.  To read it in a browser, open <a class="c-cy" href="/repo.json">repo.json</a>.  TiviBro here follows its newest test builds, the same as <code>tivibro.app/testing</code>.  Its own repositories on tivibro.app work as before; see the <a class="c-cy" href="/tivibro/#install">TiviBro page</a>.</p>
@@ -413,7 +440,7 @@ html[data-theme=light] .helptest b{color:#000}
     <div class="bento">
       <div class="card s3 rv"><div class="ic">01</div><h3>Looks before it touches</h3><p>Each tool reads your model, webOS version and free space first, and says what it will change before it changes anything.</p></div>
       <div class="card s3 rv" style="--ca:#3ddc97"><div class="ic">02</div><h3>Undo is built in</h3><p>A backup before every change, a clean uninstall, and a reboot that always starts clean.</p></div>
-      <div class="card s3 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested on real TVs</h3><p>Nothing ships until it runs on a real LG TV.  Before that, test suites stand in for one under busybox and dash: 90 tests for LG-USB-2-ETH0, 430+ for Entware and 41 for SSH Doctor, and the TV apps run in a headless browser.</p></div>
+      <div class="card s3 rv" style="--ca:#ff3ea5"><div class="ic">03</div><h3>Tested on real TVs</h3><p>Nothing ships until it runs on a real LG TV.  Before that, test suites stand in for one under busybox and dash: 90 tests for LG-USB-2-ETH0, 430+ for Entware, 41 for SSH Doctor and 58 for FW Block, and the TV apps run in a headless browser.</p></div>
       <div class="card s3 rv" style="--ca:#ffb547"><div class="ic">04</div><h3>No accounts, no tracking</h3><p>Open source and MIT licensed.  Bring your own playlist.  Nothing phones home except an opt-out anonymous install count in TiviBro.</p></div>
     </div>
 
@@ -459,7 +486,8 @@ html[data-theme=light] .helptest b{color:#000}
     { name: 'TiviBro', cap: 'The IPTV player LG TVs never got.', url: '/tivibro/', src: '/assets/media/tivibro-guide.mp4', poster: '/assets/img/tivibro-guide-poster.webp', w: 1920, h: 1080, label: 'The TiviBro guide: browse, preview in the window, then fullscreen' },
     { name: 'LG-USB-2-ETH0', cap: 'A USB adapter as the TV\'s eth0, two to three times faster.', url: '/lg-usb-2-eth0/', src: '/assets/media/eth0-app-tour.mp4', poster: '/assets/img/eth0-app-tour-poster.webp', w: 960, h: 540, label: 'The LG-USB-2-ETH0 app as a 2019 C9 with a Realtek adapter in Realtek mode: scrolling the menu, opening the Wi-Fi as a backup confirmation and the Report for GitHub QR code, then back to the top.' },
     { name: 'Entware', cap: 'Linux packages, add-ons and network services from the remote.', url: '/webos-entware-installer/', src: '/assets/media/entware-app-packages.mp4', poster: '/assets/img/entware-app-packages-poster.webp', w: 960, h: 540, label: 'Packages in the Entware TV app: Browse opens on Start here, yt-dlp\'s page, a search for video, then the Installed and Updates tabs' },
-    { name: 'SSH Doctor', cap: 'Check and fix SSH from the TV, and pair a key with a code.', url: '/ssh-doctor/', src: '/assets/media/ssh-doctor-app-tour.mp4', poster: '/assets/img/ssh-doctor-app-tour-poster.webp', w: 960, h: 540, label: 'The SSH Doctor TV app: SSH settings with a port change underway, More tools and the login history, then Set up a key with its QR code and pairing code' }
+    { name: 'SSH Doctor', cap: 'Check and fix SSH from the TV, and pair a key with a code.', url: '/ssh-doctor/', src: '/assets/media/ssh-doctor-app-tour.mp4', poster: '/assets/img/ssh-doctor-app-tour-poster.webp', w: 960, h: 540, label: 'The SSH Doctor TV app: SSH settings with a port change underway, More tools and the login history, then Set up a key with its QR code and pairing code' },
+    { name: 'FW Block', cap: 'Block LG firmware updates and keep your root.', url: '/fw-block/', src: '/assets/media/fw-block-app-tour.mp4', poster: '/assets/img/fw-block-app-tour-poster.webp', w: 960, h: 540, label: 'The FW Block TV app: firmware updates blocked with every switch on, the Activity tab, every block and who keeps it, then the More tab and Backups' }
   ];
   const v = document.getElementById('hero-video');
   if (!v) return;
@@ -499,6 +527,7 @@ html[data-theme=light] .helptest b{color:#000}
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
       <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/install/">install</a>
@@ -516,7 +545,7 @@ document.querySelectorAll('.helptest[data-href]').forEach(el => {
   el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') go(e); });
 });
 </script>
-<script src="/assets/js/site.js?v=r2611f" defer></script>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

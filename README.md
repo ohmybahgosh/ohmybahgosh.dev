@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://ohmybahgosh.dev"><img src="docs/banner.svg" width="100%" alt="ohmybahgosh.dev: open-source things I build and share, now focused on LG webOS homebrew: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor, Luna Atlas and pipseek"></a>
+<a href="https://ohmybahgosh.dev"><img src="docs/banner.svg" width="100%" alt="ohmybahgosh.dev: open-source things I build and share, now focused on LG webOS homebrew: TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor, FW Block, Luna Atlas and pipseek"></a>
 
 <br>
 
@@ -25,7 +25,7 @@
 
 ## Projects
 
-Four apps for LG webOS TVs.  Each one installs from the Homebrew Channel and runs with the remote, works over SSH too, is tried on a real TV before release, and removes cleanly.  Each has its own page with its banner, a recording of the TV app, install steps, an FAQ and live release notes.
+Five apps for LG webOS TVs.  Each one installs from the Homebrew Channel and runs with the remote, works over SSH too, is tried on a real TV before release, and removes cleanly.  Each has its own page with its banner, a recording of the TV app, install steps, an FAQ and live release notes.
 
 <table>
 <tr>
@@ -87,7 +87,21 @@ Fixes SSH on a rooted TV from the TV itself, with the remote: a broken `authoriz
 [Page](https://ohmybahgosh.dev/ssh-doctor/) · [Repo](https://github.com/ohmybahgosh/LG-WEBOS-SSH-DOCTOR)
 
 </td>
-<td width="67%" colspan="2" valign="top">
+<td width="33%" valign="top">
+
+### <img src="assets/img/fw-block-icon.webp" width="28" align="top" alt=""> [FW Block](https://ohmybahgosh.dev/fw-block/)
+
+<a href="https://ohmybahgosh.dev/fw-block/"><img src="docs/page-fw-block.webp" width="100%" alt="The FW Block page: its icon and the headline Block LG firmware updates.  Keep your root., beside the TV app's main screen"></a>
+
+Blocks LG firmware updates on a rooted TV, so root stays: webOS's update check, all seven update servers, the fallback IP, LG Remote Support, phone app updates and a download that starts anyway, checked every 10 minutes.  Works alongside LG-USB-2-ETH0 and the Homebrew Channel, with backups and signed updates.
+
+[![Stars](https://img.shields.io/github/stars/ohmybahgosh/WEBOS-FW-BLOCK?style=flat-square&color=ff2d55&labelColor=0a0e1a)](https://github.com/ohmybahgosh/WEBOS-FW-BLOCK)
+[![Release](https://img.shields.io/github/v/release/ohmybahgosh/WEBOS-FW-BLOCK?style=flat-square&color=ff2d55&labelColor=0a0e1a&label=release)](https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases)
+
+[Page](https://ohmybahgosh.dev/fw-block/) · [Repo](https://github.com/ohmybahgosh/WEBOS-FW-BLOCK)
+
+</td>
+<td width="33%" valign="top">
 
 Also on the site, and not TV apps so not in the Homebrew Channel repository:
 
@@ -106,7 +120,7 @@ On a rooted LG TV, open the Homebrew Channel, select the gear icon, go to **Repo
 https://ohmybahgosh.dev/repo
 ```
 
-All four apps then show up in the Homebrew Channel's app list, and new releases appear there as updates.
+All five apps then show up in the Homebrew Channel's app list, and new releases appear there as updates.
 
 | App | What the repository offers |
 |:--|:--|
@@ -114,8 +128,9 @@ All four apps then show up in the Homebrew Channel's app list, and new releases 
 | **LG-USB-2-ETH0** | The latest release. |
 | **Entware** | The latest release. |
 | **SSH Doctor** | The latest release. |
+| **FW Block** | The latest release. |
 
-Each entry uses the manifest attached to that project's GitHub release, so the download and its SHA-256 match the release exactly.  On the TV, each app's info page shows a full description with screenshots: [LG-USB-2-ETH0](homebrew/lg-usb-2-eth0.html), [Entware](homebrew/webos-entware.html), [SSH Doctor](homebrew/ssh-doctor.html), and TiviBro's own from tivibro.app.
+Each entry uses the manifest attached to that project's GitHub release, so the download and its SHA-256 match the release exactly.  On the TV, each app's info page shows a full description with screenshots: [LG-USB-2-ETH0](homebrew/lg-usb-2-eth0.html), [Entware](homebrew/webos-entware.html), [SSH Doctor](homebrew/ssh-doctor.html), [FW Block](homebrew/fw-block.html), and TiviBro's own from tivibro.app.
 
 `/repo` has no file extension, which is what the Homebrew Channel expects, so a browser downloads it instead of showing it.  To read it in a browser, open [ohmybahgosh.dev/repo.json](https://ohmybahgosh.dev/repo.json), an identical copy.
 
@@ -146,7 +161,7 @@ Plain HTML, CSS and JavaScript, with no framework.  A dark terminal look with a 
 .
 ├── index.html                          home page
 ├── tivibro/  lg-usb-2-eth0/  webos-entware-installer/  ssh-doctor/
-│   luna-atlas/  pipseek/               one folder per project page
+│   fw-block/  luna-atlas/  pipseek/              one folder per project page
 ├── about/  contact/  404.html
 ├── assets/
 │   ├── css/site.css                    every style, design tokens at the top

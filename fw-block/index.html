@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FW Block for rooted LG webOS · block LG firmware updates</title>
+<meta name="description" content="Block LG firmware updates on rooted LG webOS TVs and keep root: the update check off, all 7 update servers, the fallback IP, LG Remote Support, phone app updates and stray downloads, from a Homebrew Channel app.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/fw-block/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="dns-prefetch" href="https://api.github.com">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="FW Block for rooted LG webOS · block LG firmware updates">
+<meta property="og:description" content="Block LG firmware updates on rooted LG webOS TVs and keep root: the update check off, all 7 update servers, the fallback IP, LG Remote Support, phone app updates and stray downloads, from a Homebrew Channel app.">
+<meta property="og:url" content="https://ohmybahgosh.dev/fw-block/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/fw-block.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FW Block: keep LG firmware updates from taking root off your TV, with its status in a terminal">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FW Block for rooted LG webOS · block LG firmware updates">
+<meta name="twitter:description" content="Block LG firmware updates on rooted LG webOS TVs and keep root: the update check off, all 7 update servers, the fallback IP, LG Remote Support, phone app updates and stray downloads, from a Homebrew Channel app.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/fw-block.png">
+<meta name="author" content="OhMyBahGosh">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://ohmybahgosh.dev/fw-block/#app",
+   "name": "FW Block",
+   "description": "Block LG firmware updates on a rooted LG webOS TV and keep root: webOS's update check off, all seven LG update servers and the fallback IP blocked, LG Remote Support and phone app updates blocked, and stray downloads stopped.  A Homebrew Channel TV app.",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
+   "url": "https://ohmybahgosh.dev/fw-block/",
+   "softwareVersion": "0.1.0",
+   "downloadUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/latest",
+   "installUrl": "https://ohmybahgosh.dev/install/",
+   "screenshot": "https://ohmybahgosh.dev/assets/img/fw-block-blocked.webp",
+   "image": "https://ohmybahgosh.dev/assets/og/fw-block.png",
+   "featureList": [
+    "webOS update check and automatic updates off",
+    "All seven LG update servers blocked",
+    "The updater's fallback IP dropped",
+    "LG Remote Support blocked",
+    "Phone app (ThinQ) updates blocked, casting keeps working",
+    "Downloads that start anyway stopped",
+    "Checked every 10 minutes",
+    "Automatic backups with restore",
+    "Signed updates from the app"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "isAccessibleForFree": true,
+   "license": "https://opensource.org/licenses/MIT",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "sameAs": [
+    "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK"
+   ]
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "name": "WEBOS-FW-BLOCK",
+   "description": "Block LG firmware updates on rooted LG webOS TVs, from a Homebrew Channel TV app or a POSIX sh script.",
+   "codeRepository": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK",
+   "programmingLanguage": "Shell",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://ohmybahgosh.dev/fw-block/",
+   "author": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "runtimePlatform": "LG webOS",
+   "softwareVersion": "0.1.0",
+   "@id": "https://ohmybahgosh.dev/fw-block/#source"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "FW Block",
+     "item": "https://ohmybahgosh.dev/fw-block/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-fwblock">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/" aria-current="page"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/#homebrew">$ add the five TV apps: ohmybahgosh.dev/repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="crumb"><a href="/">~</a><span>/</span><span class="c-gr">fw-block</span></div>
+      <div style="display:flex;align-items:center;gap:18px;margin:22px 0 16px"><img class="appicon" src="/assets/img/fw-block-icon.webp" alt="" width="160" height="160" fetchpriority="high" style="width:76px;height:76px"><div><div class="grad" style="font:800 clamp(40px,5vw,56px)/1 var(--sans);letter-spacing:-.02em">FW Block</div><div class="muted" style="margin-top:6px;font-size:17px">for rooted LG webOS TVs</div></div></div>
+      <h1 class="h2" style="margin-top:10px">Block LG firmware updates.<br><span class="grad">Keep your root.</span></h1>
+      <p class="lead">One firmware update can take root off your LG TV for good, along with everything you installed through the Homebrew Channel.  LG's current firmware patches the known ways in.  FW Block closes every route to an update we found by running LG's own updater in a sandbox and reading nine firmwares, from 2018 models to webOS 26: the update check, all seven update servers, the address with no name, LG Remote Support, phone apps, and a download that starts anyway.  It keeps them closed, backs itself up before every change, and shows exactly what's blocked and who blocks it.</p>
+      <div class="btns">
+        <a class="btn pri" href="#homebrew">$ get the TV app</a>
+        <a class="btn" href="#blocks">what it blocks</a>
+        <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK" target="_blank" rel="noopener">source ↗</a>
+      </div>
+      <div class="badges">
+        <span class="badge">version <b data-gh="WEBOS-FW-BLOCK:release">v0.1.0</b></span>
+        <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
+        <span class="badge">webOS <b>4 to 26</b></span>
+        <span class="badge">languages <b>en · ru · es</b></span>
+        <span class="badge">releases <b class="c-gr">signed</b></span>
+        <span class="badge">license <b>MIT</b></span>
+      </div>
+    </div>
+    <div class="tv">
+      <video src="/assets/media/fw-block-app-tour.mp4" poster="/assets/img/fw-block-app-tour-poster.webp" autoplay muted loop playsinline preload="metadata" width="960" height="540" aria-label="The FW Block TV app: firmware updates blocked with every switch on, the Activity tab, every block and who keeps it, LG-USB-2-ETH0 keeping every block, then the More tab and Backups"></video>
+    </div>
+  </section>
+
+  <div class="card rv" style="padding:18px 22px;margin-top:8px;--ca:#ffb547"><b class="c-wh">First version, so bugs may occur.</b> <span class="muted">0.1.0 has run on a real LG C2 with webOS 25 and passes its tests against a fake TV, but it hasn't met many TVs yet.  If something looks wrong, <a class="c-cy" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/issues/new?template=bug-report.yml" target="_blank" rel="noopener">open a bug report</a>.</span></div>
+
+  <section id="blocks" data-pal="what FW Block blocks" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">$ fw-block status</div><h2 class="h2" style="margin-top:12px">Every way in, closed.</h2><p>The Homebrew Channel's <b class="c-wh">Block system updates</b> covers four servers.  FW Block keeps it, and closes the rest.</p></div></div>
+    <div class="tv rv" style="margin-bottom:26px"><img src="/assets/img/fw-block-layers.webp" alt="Every block, and who keeps it: the update check, found updates, the seven update servers, the address with no name, LG Remote Support, phone apps and downloads, each blocked" width="1280" height="720" loading="lazy"></div>
+    <div class="bento">
+      <div class="card s2 rv"><div class="ic">01</div><h3>The update check, off</h3><p>webOS's hidden <code>softwareUpdateEnable</code> and the visible <b class="c-wh">Automatic software update</b>.  The updater doesn't even ask, from the moment the TV starts.</p></div>
+      <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">02</div><h3>Found updates, gone</h3><p>An update webOS already found or downloaded is deleted before it can install, and a waiting prompt goes away.</p></div>
+      <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">03</div><h3>Seven servers, nowhere</h3><p><code>snu</code>, <code>su</code>, <code>su-ssl</code>, <code>su-dev</code>, <code>snu-dev</code>, <code>nsu</code> and <code>ngfts.lge.com</code> in <code>/etc/hosts</code>, including the three the Homebrew Channel misses.</p></div>
+      <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">04</div><h3>The address with no name</h3><p>With its "network" server, the updater goes straight to <code>156.147.69.32</code>.  A firewall rule in a chain of its own drops it.</p></div>
+      <div class="card s2 rv" style="--ca:#8b5cff"><div class="ic">05</div><h3>LG Remote Support</h3><p>A support session can hand the updater a download directly.  Its servers and addresses are blocked, with a switch for when LG support needs in.</p></div>
+      <div class="card s2 rv" style="--ca:#3ddc97"><div class="ic">06</div><h3>Phone apps</h3><p>A paired phone app can push an update straight from the phone.  FW Block takes away only the update calls: casting, the phone remote and ThinQ keep working.</p></div>
+      <div class="card s6 rv" style="--ca:#ff2d55"><div class="ic">07</div><h3>A download that starts anyway, stopped</h3><p>From a support session or the antenna, cancelled within 30 seconds with a notice on the TV.  An install already running is never interrupted, and USB updates you start yourself are left alone.  All seven are checked every 10 minutes and at every start, and anything undone is put back.</p></div>
+    </div>
+  </section>
+
+  <section id="app" data-pal="FW Block TV app" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">open fw-block</div><h2 class="h2" style="margin-top:12px">One switch.  Green means blocked.</h2><p>Three tabs sized for the big screen and the remote.  Each part has its own switch with a line on what it does, and a tag says why one is off.</p></div></div>
+    <div class="two rv" style="align-items:start">
+      <div class="tv stick" style="margin-bottom:26px"><img src="/assets/img/fw-block-blocked.webp" alt="FW Block's main screen: firmware updates blocked, every row green, and the Blocks tab's four switches on" width="1280" height="720" loading="lazy"></div>
+      <div class="appgrid">
+        <div class="card"><h3>Blocks</h3><p><b class="c-wh">Block firmware updates</b>, <b class="c-wh">LG Remote Support</b>, <b class="c-wh">Phone apps</b> and <b class="c-wh">Stop downloads</b>.</p></div>
+        <div class="card" style="--ca:#33e1ff"><h3>Activity</h3><p><b class="c-wh">Check now</b>, <b class="c-wh">What it caught</b> (every updater try stopped and part put back), and <b class="c-wh">Every block, and who keeps it</b>.</p></div>
+        <div class="card" style="--ca:#ffb547"><h3>More</h3><p><b class="c-wh">Updates</b>, <b class="c-wh">Backups</b>, <b class="c-wh">Help and report</b>, <b class="c-wh">Language</b> and <b class="c-wh">About</b>.</p></div>
+        <div class="card" style="--ca:#ff3ea5"><h3>Says who does what</h3><p>Each status line names who keeps that block: FW Block, LG-USB-2-ETH0 or the Homebrew Channel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="eth0" data-pal="FW Block with LG-USB-2-ETH0" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">plays well with others</div><h2 class="h2" style="margin-top:12px">Works with LG-USB-2-ETH0 and the Homebrew Channel.</h2><p><a class="c-gr" href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>'s <b class="c-wh">Block updates harder</b> did this job first.  If you use it, you don't need FW Block, but the two work together.</p></div></div>
+    <div class="two rv" style="align-items:start">
+      <div class="tv" style="margin-bottom:26px"><img src="/assets/img/fw-block-eth0-all.webp" alt="FW Block with LG-USB-2-ETH0 keeping every block: blocked by LG-USB-2-ETH0, every row green, and switches tagged Kept by LG-USB-2-ETH0" width="1280" height="720" loading="lazy"></div>
+      <div class="appgrid">
+        <div class="card"><h3>They never fight</h3><p>FW Block reads the others' settings and adds only what nothing else blocks yet.</p></div>
+        <div class="card" style="--ca:#33e1ff"><h3>Off never means off for both</h3><p>Turn FW Block off and LG-USB-2-ETH0's and the Homebrew Channel's blocks stay exactly as they were.</p></div>
+        <div class="card" style="--ca:#ffb547"><h3>A backup that takes over</h3><p>Turn LG-USB-2-ETH0's block off and FW Block takes over within 10 minutes.</p></div>
+        <div class="card" style="--ca:#ff3ea5"><h3>Other blockers too</h3><p>APL Launcher's hosts lines and other firewall chains are recognized and left alone.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="backups" data-pal="FW Block backups and updates" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">backup · restore · update</div><h2 class="h2" style="margin-top:12px">Backed up first.  Updated safely.</h2><p>Undo is built in, and a new version only installs if it's the signed release.</p></div></div>
+    <div class="rv" style="display:flex;flex-wrap:wrap;gap:18px;margin-bottom:26px">
+      <div class="tv" style="flex:1 1 420px;min-width:0"><img src="/assets/img/fw-block-backups.webp" alt="Backups: Back up now, and dated backups, each with FW Block on or off and the update settings it had" width="1280" height="720" loading="lazy"></div>
+      <div class="tv" style="flex:1 1 420px;min-width:0"><img src="/assets/img/fw-block-more.webp" alt="The More tab: Updates (up to date), Backups, Help and report, Language" width="1280" height="720" loading="lazy"></div>
+    </div>
+    <div class="bento">
+      <div class="card s3 rv" style="--ca:#3ddc97"><div class="ic">&#x21bb;</div><h3>Automatic backups</h3><p>Before it turns on, restores or updates, FW Block saves webOS's update settings, its own switches, <code>/etc/hosts</code>, the phone gateway's file and the firewall's rules.  <b class="c-wh">Backups</b> lists the newest 10 and puts one back.</p></div>
+      <div class="card s3 rv" style="--ca:#33e1ff"><div class="ic">&#x2193;</div><h3>Signed updates from the app</h3><p>Each time it opens, it checks GitHub for a newer release.  <b class="c-wh">Updates</b> installs it through the Homebrew Channel, only if it's signed with the project's release key, and the block stays on the whole time.</p></div>
+    </div>
+  </section>
+
+  <section id="homebrew" data-pal="Homebrew Channel repo" style="padding-top:20px">
+    <div class="card rv" style="padding:28px">
+      <div class="hb-head"><img src="/assets/img/fw-block-icon.webp" alt="" width="72" height="72"><div><div class="eyebrow">homebrew channel repo</div><h2 class="h2" style="margin:10px 0 0;font-size:clamp(26px,3vw,34px)">Install it from the Homebrew Channel.</h2></div></div>
+      <p class="muted" style="margin:16px 0 6px;max-width:720px">Add this repository once and FW Block shows up in the Homebrew Channel's app list, next to <a class="c-cy" href="/tivibro/">TiviBro</a>, <a class="c-gr" href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>, <a class="c-pk" href="/webos-entware-installer/">Entware</a> and <a class="c-gr" href="/ssh-doctor/">SSH Doctor</a>.  New releases appear there as updates.</p>
+      <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
+      <div class="steps" style="margin-top:18px">
+        <div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div>
+        <div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b>, choose <b class="c-wh">Add repository</b>, enter <code class="c-gr">https://ohmybahgosh.dev/repo</code> and select <b class="c-wh">Add repository</b>.</p></div></div>
+        <div class="step"><div><h3>Install, open, turn it on</h3><p>Install <b class="c-wh">FW Block</b> from the app list, open it and turn on <b class="c-wh">Block firmware updates</b>.  Restart the TV once so the phone app block takes hold.</p></div></div>
+      </div>
+      <p class="dim" style="font-size:14px;margin:16px 0 0">Or install the IPK yourself: <code>org.ohmybahgosh.fwblock_*.ipk</code> is attached to every <a class="c-gr" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/latest" target="_blank" rel="noopener">release</a>, signed.</p>
+    </div>
+  </section>
+
+  <section id="cli" data-pal="fw-block.sh over SSH" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">ssh root@tv</div><h2 class="h2" style="margin-top:12px">Over SSH.</h2><p>The script inside the app works on its own too.</p></div></div>
+    <div class="code rv"><pre>S=/media/developer/apps/usr/palm/applications/org.ohmybahgosh.fwblock/assets/fw-block.sh
+sh $S status            # what's blocked, and who blocks it
+sh $S on                # block now and at every start
+sh $S off               # undo everything it added
+sh $S remote off        # let LG Remote Support connect (remote on to block)
+sh $S check             # put back anything that was undone
+sh $S backups           # the backups it made; restore NAME puts one back
+sh $S update-check      # a newer release?  then update-install
+sh $S report            # a report for asking for help</pre></div>
+  </section>
+
+  <section id="changes" data-pal="what FW Block changes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">diff /</div><h2 class="h2" style="margin-top:12px">Exactly what it changes.</h2><p>System partitions are never written, no system service is restarted, and <b class="c-wh">Turn FW Block off</b> removes all of it.</p></div></div>
+    <div class="tblw rv"><table class="tbl">
+      <thead><tr><th>path</th><th>what</th></tr></thead>
+      <tbody>
+        <tr><td>webOS settings, <code>support</code></td><td><code>softwareUpdateEnable</code> to false and <code>automaticUpdate</code> to off, put back as they were when it's turned off</td></tr>
+        <tr><td><code>/etc/hosts</code></td><td>Lines tagged <code># webos-fw-block</code>, in a copy in <code>/tmp</code> bind-mounted over it, the way the Homebrew Channel does it</td></tr>
+        <tr><td>firewall</td><td>A chain of its own, <code>FWBLOCK</code>, dropping the updater's and Remote Support's addresses</td></tr>
+        <tr><td>phone gateway</td><td>The update service's file covered by a copy with only the read-only calls (bind mount, nothing written)</td></tr>
+        <tr><td><code>/mnt/lg/cmn_data/swupdate</code></td><td>Details of an update webOS found, deleted</td></tr>
+        <tr><td><code>/var/lib/webosbrew/webos-fw-block</code></td><td>Its settings, counts, events and backups (readable by root only)</td></tr>
+        <tr><td><code>/var/lib/webosbrew/init.d/50-webos-fw-block</code></td><td>The startup hook that blocks again at every start</td></tr>
+        <tr><td>the app itself</td><td>Updated only when you choose to, through the Homebrew Channel, after checking the release's signature</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="faq" data-pal="FW Block FAQ" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">faq</div><h2 class="h2" style="margin-top:12px">Questions.</h2></div></div>
+    <div class="rv">
+      <details class="faq"><summary>Does turning FW Block off turn off LG-USB-2-ETH0's block, or the Homebrew Channel's?</summary><div>No.  FW Block only removes what it added itself.  Their settings, hosts lines and firewall rules stay exactly as they were.</div></details>
+      <details class="faq"><summary>I already use LG-USB-2-ETH0's Block updates harder.  Do I need this?</summary><div>No.  Newer LG-USB-2-ETH0 versions block everything FW Block does.  Install both and FW Block shows that LG-USB-2-ETH0 keeps each block, stays out of its way, and takes over if that block is ever turned off.</div></details>
+      <details class="faq"><summary>Will casting and the phone remote still work?</summary><div>Yes.  The phone block only takes away the update service's update calls.  Every other phone call stays the same, which was checked with LG's own gateway code on webOS 25 and 26.</div></details>
+      <details class="faq"><summary>Why does the phone block say "from the next TV start"?</summary><div>The TV's phone connection reads which calls it offers when it starts, and FW Block never restarts it.  Restart the TV once and it holds from then on.</div></details>
+      <details class="faq"><summary>Can it undo an update that already installed?</summary><div>No.  Nothing can undo a firmware update from the TV, so block updates before LG gets the chance.</div></details>
+      <details class="faq"><summary>Does it block app updates?</summary><div>No.  The LG Content Store and app updates are left alone.  Only firmware updates are blocked.</div></details>
+      <details class="faq"><summary>Was this written by AI?</summary><div>It's written with AI coding agents (Claude), directed, reviewed and tested by me.  Its test suite runs the script against a fake TV under busybox sh, dash and bash, CI builds the app and shows its screens in a browser, and it was run on a real TV before release.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
+    </div>
+  </section>
+
+  <section id="help" data-pal="get help or report a problem" style="padding-top:20px">
+    <div class="card rv" style="padding:28px"><div class="eyebrow">need a hand?</div><h2 class="h2" style="margin:12px 0 10px;font-size:clamp(26px,3vw,34px)">Stuck, found a bug, or got an idea?</h2><p class="muted" style="margin:0 0 18px"><b>More, Help and report</b> in the TV app gives you a short report to paste in.  Seen an update server or address it misses?  That's the most useful report of all.  For anything private, <a class="c-cy" data-mail href="/contact/?t=mail-private">email me</a>.</p><div class="btns"><a class="btn pri" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/issues/new?template=bug-report.yml" target="_blank" rel="noopener">report a bug ↗</a><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/issues/new?template=tv-report.yml" target="_blank" rel="noopener">how it went on my TV ↗</a><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/discussions/new?category=ideas" target="_blank" rel="noopener">suggest an idea ↗</a><a class="btn" href="/contact/?t=mail-hello">email me</a></div></div>
+  </section>
+
+  <section id="releases" data-pal="FW Block release notes" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">git tag --sort=-creatordate</div><h2 class="h2" style="margin-top:12px">Release notes.</h2><p>Every release and what changed, pulled from GitHub automatically.</p></div><a class="btn" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases" target="_blank" rel="noopener">all releases ↗</a></div>
+    <div class="timeline rv" id="timeline" data-repo="WEBOS-FW-BLOCK" aria-live="polite"><p class="muted">loading releases…</p></div>
+  </section>
+</div>
+<div class="wrap">
+  <section id="read-next" data-pal="read next" style="padding-top:20px">
+    <div class="sec-head rv"><div><div class="eyebrow">$ ls related/</div><h2 class="h2" style="margin-top:12px">Read next.</h2></div></div>
+    <div class="gcards rv"><a class="card gcard" href="/guides/block-lg-tv-updates/"><b>Block LG TV firmware updates</b><span>Pi-hole, router DNS, and what the Homebrew Channel misses</span></a><a class="card gcard" href="/guides/root-lg-tv-2026/"><b>Rooting an LG TV in 2026</b><span>The webOS 26 cutoff and which firmware still works</span></a><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>USB Ethernet as eth0, with the update block built in</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, the Homebrew Channel, the repo and compatibility</span></a></div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

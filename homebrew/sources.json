@@ -23,6 +23,13 @@
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/ssh-doctor.html"
     },
     {
+      "repo": "ohmybahgosh/WEBOS-FW-BLOCK",
+      "manifest": "org.ohmybahgosh.fwblock.manifest.json",
+      "prerelease": false,
+      "shortDescription": "Block LG firmware updates and keep root: the update check, all seven update servers, Remote Support, phone app updates and stray downloads",
+      "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/fw-block.html"
+    },
+    {
       "repo": "ohmybahgosh/TiviBro",
       "manifest": "app.tivibro.tv.manifest.json",
       "prerelease": true,

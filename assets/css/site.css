@@ -15,6 +15,7 @@ body.p-tivibro{--accent:#33e1ff;--accent2:#5b8cff}
 body.p-eth0{--accent:#3ddc97;--accent2:#33e1ff}
 body.p-entware{--accent:#ff3ea5;--accent2:#ffb547}
 body.p-sshdoctor{--accent:#3ddc97;--accent2:#33e1ff}
+body.p-fwblock{--accent:#ff2d55;--accent2:#ffb547}
 body.p-pipseek{--accent:#4c9eff;--accent2:#ffd43b}
 body.p-lunaatlas{--accent:#3ddc97;--accent2:#33e1ff}
 
@@ -274,6 +275,7 @@ html[data-theme=light] body.p-tivibro{--accent:#0a8db0;--accent2:#3460dd}
 html[data-theme=light] body.p-eth0{--accent:#118a59;--accent2:#0a8db0}
 html[data-theme=light] body.p-entware{--accent:#cc1468;--accent2:#b06a00}
 html[data-theme=light] body.p-sshdoctor{--accent:#118a59;--accent2:#0a8db0}
+html[data-theme=light] body.p-fwblock{--accent:#c8102e;--accent2:#b06a00}
 html[data-theme=light] .bgfx{background:
     radial-gradient(900px 520px at 80% -8%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 62%),
     radial-gradient(760px 560px at -5% 105%,color-mix(in srgb,var(--accent2) 12%,transparent),transparent 62%),

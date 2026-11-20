@@ -1,0 +1,36 @@
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://ohmybahgosh.dev/fw-block/">
+<div class="webosbrew-screenshots" style="display:flex;gap:8px;overflow-x:auto">
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/fw-block-blocked.webp" alt="FW Block's main screen: firmware updates blocked, every row green, and the four switches on" title="Firmware updates blocked" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/fw-block-layers.webp" alt="Every block, and who keeps it: the update check, found updates, seven update servers, the address with no name, LG Remote Support, phone apps and downloads" title="Every block, and who keeps it" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/fw-block-eth0-all.webp" alt="FW Block with LG-USB-2-ETH0 keeping every block, each switch tagged Kept by LG-USB-2-ETH0" title="Works with LG-USB-2-ETH0" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+<figure class="webosbrew-screenshot" style="flex:none;margin:0"><img src="https://ohmybahgosh.dev/homebrew/img/fw-block-backups.webp" alt="Backups: back up now, and dated backups to restore" title="Backups" width="960" height="540" style="height:240px;width:427px" loading="lazy"></figure>
+</div>
+<p><strong>Needs a rooted TV with the Homebrew Channel.</strong>  First version (0.1.0), so bugs may occur: please report anything that looks wrong on GitHub.</p>
+<h1>FW Block</h1>
+<p>One firmware update can take root off your LG TV for good, along with everything you installed through the Homebrew Channel.  FW Block closes every route to an update found by running LG's own updater in a sandbox and reading nine firmwares, from 2018 models to webOS 26, and keeps them closed.</p>
+<h2>What it blocks</h2>
+<ul>
+<li><strong>The update check:</strong> webOS's hidden update check and Automatic software update, off from the moment the TV starts.</li>
+<li><strong>Found updates:</strong> an update webOS already found is deleted before it can install.</li>
+<li><strong>All seven update servers,</strong> including the three the Homebrew Channel's Block system updates misses: <code>nsu</code>, <code>snu-dev</code> and <code>ngfts.lge.com</code>.</li>
+<li><strong>The address with no name</strong> (<code>156.147.69.32</code>), dropped by a firewall rule.</li>
+<li><strong>LG Remote Support,</strong> which can hand the updater a download directly.</li>
+<li><strong>Phone apps</strong> pushing an update from the phone.  Casting, the phone remote and ThinQ keep working.</li>
+<li><strong>A download that starts anyway,</strong> cancelled within 30 seconds with a notice on the TV.</li>
+</ul>
+<p>All of it is checked every 10 minutes and at every start, and anything undone is put back.</p>
+<h2>Safe to use</h2>
+<ul>
+<li>One switch on the remote, with a switch and a description for each part.  Green means blocked.</li>
+<li>Works alongside LG-USB-2-ETH0 and the Homebrew Channel's block without changing their settings.  Turning FW Block off never turns theirs off.</li>
+<li>A backup before every change, with restore.  Updates from the app are signed and checked first.</li>
+<li>No system partition written, no system service restarted.  Uninstalling cleans up by itself.</li>
+</ul>
+<p>After turning it on, restart the TV once so the phone app block takes hold.</p>
+<h2>Learn more</h2>
+<ul>
+<li><a href="https://ohmybahgosh.dev/fw-block/">The FW Block page: what it blocks, the app, backups and FAQ</a></li>
+<li><a href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK">Source, releases and the command-line script: github.com/ohmybahgosh/WEBOS-FW-BLOCK</a></li>
+</ul>
+<p>English, Russian and Spanish.  Free and open source (MIT).  Made by OhMyBahGosh.  Not affiliated with LG Electronics.</p>

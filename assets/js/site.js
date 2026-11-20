@@ -10,6 +10,7 @@
     { name: 'LG-USB-2-ETH0', slug: 'lg-usb-2-eth0', desc: 'USB Ethernet becomes the TV\'s eth0' },
     { name: 'WEBOS-ENTWARE-INSTALLER', slug: 'webos-entware-installer', desc: 'Entware for rooted webOS: TV app, packages, add-ons' },
     { name: 'LG-WEBOS-SSH-DOCTOR', slug: 'ssh-doctor', desc: 'Check and fix SSH on a rooted LG TV, pair a key' },
+    { name: 'WEBOS-FW-BLOCK', slug: 'fw-block', desc: 'Block LG firmware updates on a rooted LG TV and keep root' },
     { name: 'WEBOS-LUNA-SEND-ATLAS', slug: 'luna-atlas', desc: 'Every LG webOS luna-send command, documented' },
     { name: 'pipseek', slug: 'pipseek', desc: 'Search PyPI from your terminal', tool: true },
   ];
@@ -126,7 +127,7 @@
   const plain = (md) => md.replace(/```[\s\S]*?```/g, ' ').replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
     .replace(/<[^>]+>/g, '').replace(/^#+\s*/gm, '').replace(/[*_`>|]/g, '').replace(/^\s*[-+]\s+/gm, '• ').replace(/\s+/g, ' ').trim();
   const COLORS = { 'TiviBro': '#33e1ff', 'LG-USB-2-ETH0': '#3ddc97', 'WEBOS-ENTWARE-INSTALLER': '#ff3ea5', 'pipseek': '#4c9eff', 'WEBOS-LUNA-SEND-ATLAS': '#3ddc97', 'LG-WEBOS-SSH-DOCTOR': '#3ddc97' };
-  const SHORT = { 'TiviBro': 'TiviBro', 'LG-USB-2-ETH0': 'USB-2-ETH0', 'WEBOS-ENTWARE-INSTALLER': 'Entware', 'pipseek': 'pipseek', 'WEBOS-LUNA-SEND-ATLAS': 'Luna Atlas', 'LG-WEBOS-SSH-DOCTOR': 'SSH Doctor' };
+  const SHORT = { 'TiviBro': 'TiviBro', 'LG-USB-2-ETH0': 'USB-2-ETH0', 'WEBOS-ENTWARE-INSTALLER': 'Entware', 'pipseek': 'pipseek', 'WEBOS-LUNA-SEND-ATLAS': 'Luna Atlas', 'LG-WEBOS-SSH-DOCTOR': 'SSH Doctor', 'WEBOS-FW-BLOCK': 'FW Block' };
 
   gh().then((d) => {
     let total = 0, all = 0;

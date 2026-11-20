@@ -3,8 +3,8 @@ Matches the hand-written pages: same head, header, menu and footer."""
 import html, json
 
 SITE = "https://ohmybahgosh.dev"
-CSS_V = "r2611e"
-JS_V = "r2611d"
+CSS_V = "r2611g"
+JS_V = "r2611g"
 
 def esc(s): return html.escape(s, quote=True)
 
@@ -25,6 +25,7 @@ def menu(current=""):
           {a("/lg-usb-2-eth0/", "eth0-icon.webp", "LG-USB-2-ETH0", "USB Ethernet as the TV's eth0")}
           {a("/webos-entware-installer/", "entware-icon.webp", "Entware", "Linux packages and add-ons")}
           {a("/ssh-doctor/", "ssh-doctor-icon.webp", "SSH Doctor", "Check and fix SSH from the TV")}
+          {a("/fw-block/", "fw-block-icon.webp", "FW Block", "Block LG firmware updates")}
         </div>
         <div class="mgrp"><span>reference and tools</span>
           {a("/luna-atlas/", "luna-atlas-icon.webp", "Luna Atlas", "Every luna-send command")}
@@ -57,6 +58,7 @@ FOOTER = f"""<footer>
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
       <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/install/">install</a>

@@ -13,7 +13,7 @@
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=r2611f">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="TiviBro FAQ: install, providers, backups and privacy">
@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Answers about TiviBro, the free IPTV player for LG webOS TVs: root or not, providers, the phone app, backups, updates and privacy.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/tivibro.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-13">
+<meta property="article:modified_time" content="2026-11-19">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -120,7 +120,7 @@
      "name": "Is there a phone app?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes, for Android. It's a remote, plays your channels and media on the TV, opens the web editor, and turns the TV on over the network and Bluetooth. Download the APK from tivibro.app/apk, then pair it on the TV under Settings > Phone app and web editor > Pair the TiviBro app."
+      "text": "Yes, for Android. It's a remote, plays your channels and media on the TV, opens the web editor, and turns the TV on over the network and Bluetooth. Download the APK from tivibro.app/apk."
      }
     },
     {
@@ -178,6 +178,7 @@
           <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
           <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
           <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
         </div>
         <div class="mgrp"><span>reference and tools</span>
           <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
@@ -210,7 +211,7 @@
 <details class="faq"><summary>Which LG TVs does TiviBro run on?</summary><div>webOS 4 and newer.  It's tested every day on real TVs from a 2019 webOS 4 OLED to webOS 25.  It's in alpha testing, so expect some rough edges.</div></details>
 <details class="faq"><summary>Does TiviBro come with channels?</summary><div>No.  It plays the Xtream Codes, M3U or Stalker portal subscription you already have, with its XMLTV guide.</div></details>
 <details class="faq"><summary>How do I install it?</summary><div>On a rooted TV, add <code>https://tivibro.app/repo</code> or <code>https://ohmybahgosh.dev/repo</code> to the Homebrew Channel, or run <code>curl -fsSL https://tivibro.app/install | sh</code> over SSH.  Without root, use LG's Developer Mode.</div></details>
-<details class="faq"><summary>Is there a phone app?</summary><div>Yes, for Android.  It's a remote, plays your channels and media on the TV, opens the web editor, and turns the TV on over the network and Bluetooth.  Download the APK from <a href="https://tivibro.app/apk/" target="_blank" rel="noopener">tivibro.app/apk</a>, then pair it on the TV under <b>Settings &gt; Phone app and web editor &gt; Pair the TiviBro app</b>.</div></details>
+<details class="faq"><summary>Is there a phone app?</summary><div>Yes, for Android.  It's a remote, plays your channels and media on the TV, opens the web editor, and turns the TV on over the network and Bluetooth.  Download the APK from <a href="https://tivibro.app/apk/" target="_blank" rel="noopener">tivibro.app/apk</a>.</div></details>
 <details class="faq"><summary>Can I edit my channels from a computer?</summary><div>Yes.  Open <b>Edit on phone</b> on the TV for a QR code, an address and a password.  The web editor hides, sorts, renames and copies channels, and changes are drafts until you press <b>Send to TV</b>.</div></details>
 <details class="faq"><summary>How do backups work?</summary><div>Everything goes into one file locked with a passphrase you choose (AES-256-GCM), from the TV, the phone app or the web editor.  A brand-new TV can restore it from its first screen.</div></details>
 <details class="faq"><summary>Do my provider logins leave the TV?</summary><div>No.  The web editor only sees server names, logs mask usernames and passwords, and problem reports replace server names before anything is sent.</div></details>
@@ -232,6 +233,7 @@
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
       <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/install/">install</a>
@@ -242,7 +244,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611f" defer></script>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

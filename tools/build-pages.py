@@ -46,7 +46,7 @@ def add(path, **kw): PAGES.append((path, kw))
 # =====================================================================================  install hub
 INSTALL_FAQ = [
     ("Do I need a rooted TV?",
-     "For LG-USB-2-ETH0, Entware and SSH Doctor, yes: they change things only root can.  TiviBro also runs in LG's Developer Mode without root, and Luna Atlas's catalog is a web page anyone can browse.  Running <code>luna-send</code> commands needs root or Developer Mode."),
+     "For LG-USB-2-ETH0, Entware, SSH Doctor and FW Block, yes: they change things only root can.  TiviBro also runs in LG's Developer Mode without root, and Luna Atlas's catalog is a web page anyone can browse.  Running <code>luna-send</code> commands needs root or Developer Mode."),
     ("Can my TV still be rooted?",
      "It depends on the exact firmware, not just the model.  Check it at <a href=\"https://cani.rootmy.tv/\" target=\"_blank\" rel=\"noopener\">cani.rootmy.tv</a>.  As of November 2026, webOS 26 firmware released after October 10, 2026 can't be rooted, and a TV on patched firmware can't be rooted again, so keep firmware updates off on a rooted TV."),
     ("What is the Homebrew Channel?",
@@ -69,19 +69,19 @@ add("/install/",
 <nav class="toc" aria-label="On this page"><a href="#root">1. Root</a><a href="#hbc">2. Homebrew Channel</a><a href="#repo">3. Add the repo</a><a href="#compat">4. Compatibility</a><a href="#no-root">No root?</a><a href="#faq">FAQ</a></nav>
 
 <h2 id="root">1. Check whether your TV can be rooted</h2>
-<p>Three of the four TV apps need root, because they change things a normal app can't: which network port the TV uses, Linux packages on its storage, and its SSH server.  Whether a TV can be rooted depends on its exact firmware version, so look it up first at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a>.</p>
-{callout("<b>webOS 26 and current firmware.</b>  LG has been patching the holes rooting tools use.  Per the <a href=\"https://tv.slada.sk/guides/rooting-guide\" target=\"_blank\" rel=\"noopener\">EPK archive's rooting guide</a>, webOS 26 firmware released after October 10, 2026 can't be rooted, and once a TV is on patched firmware it can't be rooted again.  On a rooted TV, keep updates off: the Homebrew Channel's <b>Block system updates</b>, and LG-USB-2-ETH0's <a href=\"/lg-usb-2-eth0/#updates\">Block updates harder</a> for what that misses.", "#ff3ea5")}
+<p>Four of the five TV apps need root, because they change things a normal app can't: which network port the TV uses, Linux packages on its storage, its SSH server, and its firmware updates.  Whether a TV can be rooted depends on its exact firmware version, so look it up first at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a>.</p>
+{callout("<b>webOS 26 and current firmware.</b>  LG has been patching the holes rooting tools use.  Per the <a href=\"https://tv.slada.sk/guides/rooting-guide\" target=\"_blank\" rel=\"noopener\">EPK archive's rooting guide</a>, webOS 26 firmware released after October 10, 2026 can't be rooted, and once a TV is on patched firmware it can't be rooted again.  On a rooted TV, keep updates off: the Homebrew Channel's <b>Block system updates</b>, plus <a href=\"/fw-block/\">FW Block</a> or LG-USB-2-ETH0's <a href=\"/lg-usb-2-eth0/#updates\">Block updates harder</a> for what that misses.", "#ff3ea5")}
 <p>The common rooting tools are <a href="https://rootmy.tv" target="_blank" rel="noopener">RootMyTV</a>, <a href="https://github.com/throwaway96/faultmanager-autoroot" target="_blank" rel="noopener">faultmanager-autoroot</a> (webOS 4.0 to 4.5 and others), crashd and DejaVuln.  The <a href="https://www.webosbrew.org/pages/rooting/" target="_blank" rel="noopener">webosbrew rooting page</a> lists which one fits which firmware.</p>
 
 <h2 id="hbc">2. The Homebrew Channel</h2>
 <p>Every rooting tool above installs the <a href="https://github.com/webosbrew/webos-homebrew-channel" target="_blank" rel="noopener">webOS Homebrew Channel</a>, the open-source app store for rooted LG TVs.  It runs apps as root, turns SSH and telnet on, blocks system updates, and installs apps from repositories.  If it's on your home screen, you're ready for step 3.</p>
 
 <h2 id="repo">3. Add the ohmybahgosh.dev repository</h2>
-<p>One repository gives you all four TV apps, and each new release shows up as an update.</p>
+<p>One repository gives you all five TV apps, and each new release shows up as an update.</p>
 <div class="code"><pre>{REPO}</pre></div>
 {steps([("Open the Homebrew Channel's settings", "Open the Homebrew Channel and select the gear icon at the top right."),
         ("Add the repository", "Scroll to <b class=\"c-wh\">Repositories</b>, choose <b class=\"c-wh\">Add repository</b>, enter <code>https://ohmybahgosh.dev/repo</code> and confirm."),
-        ("Install the apps", "Go back to the app list.  TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor are there: install the ones you want.")])}
+        ("Install the apps", "Go back to the app list.  TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block are there: install the ones you want.")])}
 <p>More detail, and how to remove a repository, in <a href="/guides/homebrew-channel-repository/">How to add a repository to the Homebrew Channel</a>.</p>
 
 <h2 id="compat">4. Which app works on which TV</h2>
@@ -90,11 +90,12 @@ add("/install/",
     ['<a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>', "root + Homebrew Channel", "every rooted webOS", "Reports from webOS 3.5 to 26.  Whether an adapter works depends on its chip and your kernel's drivers."],
     ['<a href="/webos-entware-installer/">Entware</a>', "root + Homebrew Channel", "23 to 25 tested, 4 and up", "64-bit (aarch64) and 32-bit (armv7) kernels.  About 50 MB free."],
     ['<a href="/ssh-doctor/">SSH Doctor</a>', "root + Homebrew Channel", "every rooted webOS", "Runs through the Homebrew Channel, so it works when SSH doesn't."],
+    ['<a href="/fw-block/">FW Block</a>', "root + Homebrew Channel", "4 to 26", "Run on a 2022 C2 with webOS 25.  The update path is the same in every firmware checked, 2018 to webOS 26."],
     ['<a href="/luna-atlas/">Luna Atlas</a>', "nothing to browse", "any", "The catalog is a web page.  Running commands needs root or Developer Mode."],
 ])}
 
 <h2 id="no-root">No root?</h2>
-<p>LG's own <a href="https://webostv.developer.lge.com/develop/getting-started/developer-mode-app" target="_blank" rel="noopener">Developer Mode</a> can install apps on any webOS TV, without root.  TiviBro works that way: its <a href="https://tivibro.app" target="_blank" rel="noopener">install guide on tivibro.app</a> covers it.  Developer Mode sessions expire and need renewing, and the three tools that change the system still need root.</p>
+<p>LG's own <a href="https://webostv.developer.lge.com/develop/getting-started/developer-mode-app" target="_blank" rel="noopener">Developer Mode</a> can install apps on any webOS TV, without root.  TiviBro works that way: its <a href="https://tivibro.app" target="_blank" rel="noopener">install guide on tivibro.app</a> covers it.  Developer Mode sessions expire and need renewing, and the tools that change the system still need root.</p>
 
 <h2 id="faq">FAQ</h2>
 {faq_html(INSTALL_FAQ)}
@@ -306,7 +307,7 @@ REPO_FAQ = [
     ("Is it safe to add a repository?",
      "Apps from it run as root, so only add ones you trust.  Every app in <code>ohmybahgosh.dev/repo</code> is open source, built from its GitHub releases, and checked by SHA-256 when it downloads."),
     ("Which apps does ohmybahgosh.dev/repo add?",
-     "TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor."),
+     "TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block."),
     ("How do I remove a repository?",
      "In the Homebrew Channel's settings, under Repositories, select it and remove it.  Apps you already installed stay installed."),
 ]
@@ -329,7 +330,7 @@ guide("homebrew-channel-repository",
 
 <h2>Repositories worth adding</h2>
 {table(["address", "what's in it"], [
-    ["<code>https://ohmybahgosh.dev/repo</code>", "TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor"],
+    ["<code>https://ohmybahgosh.dev/repo</code>", "TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block"],
     ["<code>https://tivibro.app/repo</code>", "TiviBro on its own"],
     ["<code>https://tivibro.app/testing</code>", "Every TiviBro test build as soon as it's out"],
 ])}
@@ -457,6 +458,8 @@ UPD_FAQ = [
      "<code>snu.lge.com</code>, <code>su.lge.com</code>, <code>su-ssl.lge.com</code> and <code>su-dev.lge.com</code> (what the Homebrew Channel blocks), plus <code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>ngfts.lge.com</code>, which it misses."),
     ("Can I block LG TV updates with Pi-hole or my router's DNS?",
      "Yes, add those hostnames to your blocklist.  It covers the TV before it has even started.  It can't block the update server the TV reaches by IP address, <code>156.147.69.32</code>: that needs a firewall rule, on the router or on the TV."),
+    ("Is there an app that blocks LG firmware updates?",
+     "Yes, on a rooted TV: <a href=\"/fw-block/\">FW Block</a> turns the update check off and blocks the servers, the IP address, LG Remote Support, phone app updates and stray downloads from one switch in a Homebrew Channel app.  LG-USB-2-ETH0's Block updates harder does the same."),
     ("Will blocking updates break apps?",
      "It doesn't touch app updates from LG's store or the Homebrew Channel.  It blocks firmware updates only."),
 ]
@@ -494,7 +497,17 @@ ngfts.lge.com</pre></div>
 <li>Deletes update details already found or downloaded, so a waiting prompt goes away.</li>
 </ul>
 <p>Turning it off undoes all of it.  It's a toggle in the LG-USB-2-ETH0 TV app, or <code>--block-updates</code> over SSH, and it works whether or not you use a USB adapter.</p>
-{related([("/guides/root-lg-tv-2026/", "Rooting an LG TV in 2026", "Which firmware is still rootable"),
+
+<h2>5. On a rooted TV: FW Block, an app just for this</h2>
+<p>Don't need a USB adapter?  <a href="/fw-block/">FW Block</a> is the same block as its own Homebrew Channel app, one switch on the remote.  Along with everything above, it closes the side doors found by running LG's own updater in a sandbox:</p>
+<ul>
+<li><b class="c-wh">LG Remote Support</b>: a support session can hand the updater a download directly.  Its servers and addresses are blocked.</li>
+<li><b class="c-wh">Phone apps</b>: a paired phone app can push an update straight from the phone, past every server block.  Only the update calls are taken away, so casting and the phone remote keep working.</li>
+<li><b class="c-wh">A download that starts anyway</b> is cancelled within 30 seconds, with a notice on the TV.</li>
+</ul>
+<p>It checks all of it every 10 minutes, backs itself up before every change, and works alongside LG-USB-2-ETH0 and the Homebrew Channel without touching their settings.  Newer LG-USB-2-ETH0 versions cover the side doors too, so you only need one of the two.</p>
+{related([("/fw-block/", "FW Block", "Block LG firmware updates from one switch"),
+          ("/guides/root-lg-tv-2026/", "Rooting an LG TV in 2026", "Which firmware is still rootable"),
           ("/lg-usb-2-eth0/", "LG-USB-2-ETH0", "Includes Block updates harder"),
           ("/install/", "Install guide", "Root, Homebrew Channel, the repo")])}
 """)
@@ -728,6 +741,19 @@ app_faq("ssh-doctor", "SSH Doctor", "SSH Doctor FAQ: fix SSH on rooted LG webOS 
     ("Can I move SSH off port 22?", "Yes.  The old port stays open alongside the new one until you've logged in on the new one, so a typo can't lock you out."),
     ("Does it change system files?", "No.  Settings live in the Homebrew Channel's folders, a backup is kept before every change, and <b>Reset to Homebrew Channel defaults</b> removes all of it."),
 ], "#2dd4bf", "/assets/og/ssh-doctor.png")
+
+app_faq("fw-block", "FW Block", "FW Block FAQ: block LG firmware updates on rooted webOS TVs",
+        "Answers about FW Block: what it blocks, phone apps and casting, LG-USB-2-ETH0, the Homebrew Channel's switch, backups, updates and uninstalling.",
+        "Blocking LG firmware updates on a rooted TV, answered.", [
+    ("What does FW Block block?", "webOS's update check and Automatic software update, an update webOS already found, all seven LG update servers, the address the updater reaches with no name (<code>156.147.69.32</code>), LG Remote Support, phone app updates, and a download that starts anyway.  It checks all of it every 10 minutes and at every start."),
+    ("Isn't the Homebrew Channel's Block system updates enough?", "It covers four servers.  The updater also knows <code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>ngfts.lge.com</code>, reaches an address with no name, and checks on its own, and none of that touches Remote Support or phone apps.  FW Block keeps the Homebrew Channel's block and adds the rest."),
+    ("Will casting and the phone remote still work?", "Yes.  Only the update service's update calls are taken away from paired phones.  Every other phone call is unchanged, checked with LG's own gateway code on webOS 25 and 26."),
+    ("I use LG-USB-2-ETH0.  Do I need FW Block?", "No.  Newer LG-USB-2-ETH0 versions block everything FW Block does.  With both installed, FW Block shows that LG-USB-2-ETH0 keeps each block and takes over only if that one is turned off."),
+    ("Does turning FW Block off turn the others off?", "No.  It removes only what it added.  LG-USB-2-ETH0's and the Homebrew Channel's blocks stay as they were."),
+    ("What are the backups for?", "Before it turns on, restores or updates, it saves webOS's update settings, its own switches, <code>/etc/hosts</code>, the phone gateway's file and the firewall's rules.  <b>Backups</b> in the app puts one back."),
+    ("How does it update?", "The app checks GitHub when it opens, and <b>Updates</b> installs a new version through the Homebrew Channel, only if the release is signed with the project's key."),
+    ("What happens if I uninstall it?", "It notices within about 30 seconds and undoes everything it added, then removes its startup hook and folder."),
+], "#ff2d55", "/assets/og/fw-block.png")
 
 app_faq("luna-atlas", "Luna Atlas", "Luna Atlas FAQ: luna-send on LG webOS TVs",
         "Answers about luna-send and Luna Atlas: what the Luna Service Bus is, running commands, access levels, dangerous methods and where the data comes from.",

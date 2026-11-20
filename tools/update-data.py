@@ -15,6 +15,7 @@ REPOS = {
     "LG-USB-2-ETH0": "LG-USB-2-ETH0.sh",
     "WEBOS-ENTWARE-INSTALLER": "webos-entware-installer.sh",
     "LG-WEBOS-SSH-DOCTOR": "ssh-doctor.sh",
+    "WEBOS-FW-BLOCK": "fw-block.sh",
     "pipseek": None,
     "WEBOS-LUNA-SEND-ATLAS": None,
 }

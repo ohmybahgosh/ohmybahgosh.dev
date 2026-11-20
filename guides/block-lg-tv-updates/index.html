@@ -13,7 +13,7 @@
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=r2611f">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="How to block LG TV firmware updates (Pi-hole, DNS, rooted TVs)">
@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Block LG webOS firmware updates: the servers to block on Pi-hole or your router, what the Homebrew Channel misses, and a fuller block for rooted TVs.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-12">
+<meta property="article:modified_time" content="2026-11-19">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -89,7 +89,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-19",
    "keywords": [
     "lg tv block updates",
     "lg tv block updates dns",
@@ -127,6 +127,14 @@
     },
     {
      "@type": "Question",
+     "name": "Is there an app that blocks LG firmware updates?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, on a rooted TV: FW Block turns the update check off and blocks the servers, the IP address, LG Remote Support, phone app updates and stray downloads from one switch in a Homebrew Channel app. LG-USB-2-ETH0's Block updates harder does the same."
+     }
+    },
+    {
+     "@type": "Question",
      "name": "Will blocking updates break apps?",
      "acceptedAnswer": {
       "@type": "Answer",
@@ -156,6 +164,7 @@
           <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
           <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
           <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
         </div>
         <div class="mgrp"><span>reference and tools</span>
           <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
@@ -209,11 +218,21 @@ ngfts.lge.com</pre></div>
 <li>Deletes update details already found or downloaded, so a waiting prompt goes away.</li>
 </ul>
 <p>Turning it off undoes all of it.  It's a toggle in the LG-USB-2-ETH0 TV app, or <code>--block-updates</code> over SSH, and it works whether or not you use a USB adapter.</p>
-<h2>Related</h2><div class="gcards"><a class="card gcard" href="/guides/root-lg-tv-2026/"><b>Rooting an LG TV in 2026</b><span>Which firmware is still rootable</span></a><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>Includes Block updates harder</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, the repo</span></a></div>
+
+<h2>5. On a rooted TV: FW Block, an app just for this</h2>
+<p>Don't need a USB adapter?  <a href="/fw-block/">FW Block</a> is the same block as its own Homebrew Channel app, one switch on the remote.  Along with everything above, it closes the side doors found by running LG's own updater in a sandbox:</p>
+<ul>
+<li><b class="c-wh">LG Remote Support</b>: a support session can hand the updater a download directly.  Its servers and addresses are blocked.</li>
+<li><b class="c-wh">Phone apps</b>: a paired phone app can push an update straight from the phone, past every server block.  Only the update calls are taken away, so casting and the phone remote keep working.</li>
+<li><b class="c-wh">A download that starts anyway</b> is cancelled within 30 seconds, with a notice on the TV.</li>
+</ul>
+<p>It checks all of it every 10 minutes, backs itself up before every change, and works alongside LG-USB-2-ETH0 and the Homebrew Channel without touching their settings.  Newer LG-USB-2-ETH0 versions cover the side doors too, so you only need one of the two.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/fw-block/"><b>FW Block</b><span>Block LG firmware updates from one switch</span></a><a class="card gcard" href="/guides/root-lg-tv-2026/"><b>Rooting an LG TV in 2026</b><span>Which firmware is still rootable</span></a><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>Includes Block updates harder</span></a><a class="card gcard" href="/install/"><b>Install guide</b><span>Root, Homebrew Channel, the repo</span></a></div>
 <h2 id="faq">FAQ</h2>
 <details class="faq"><summary>Is turning off automatic updates in the TV's settings enough?</summary><div>Not on its own.  It stops automatic installs, but the TV still checks and can prompt, and people have found updates getting through.  On a rooted TV, block the servers as well.</div></details>
 <details class="faq"><summary>Which LG update servers should I block?</summary><div><code>snu.lge.com</code>, <code>su.lge.com</code>, <code>su-ssl.lge.com</code> and <code>su-dev.lge.com</code> (what the Homebrew Channel blocks), plus <code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>ngfts.lge.com</code>, which it misses.</div></details>
 <details class="faq"><summary>Can I block LG TV updates with Pi-hole or my router's DNS?</summary><div>Yes, add those hostnames to your blocklist.  It covers the TV before it has even started.  It can't block the update server the TV reaches by IP address, <code>156.147.69.32</code>: that needs a firewall rule, on the router or on the TV.</div></details>
+<details class="faq"><summary>Is there an app that blocks LG firmware updates?</summary><div>Yes, on a rooted TV: <a href="/fw-block/">FW Block</a> turns the update check off and blocks the servers, the IP address, LG Remote Support, phone app updates and stray downloads from one switch in a Homebrew Channel app.  LG-USB-2-ETH0's Block updates harder does the same.</div></details>
 <details class="faq"><summary>Will blocking updates break apps?</summary><div>It doesn't touch app updates from LG's store or the Homebrew Channel.  It blocks firmware updates only.</div></details>
 </article>
 </div>
@@ -232,6 +251,7 @@ ngfts.lge.com</pre></div>
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
       <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/install/">install</a>
@@ -242,7 +262,7 @@ ngfts.lge.com</pre></div>
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611f" defer></script>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

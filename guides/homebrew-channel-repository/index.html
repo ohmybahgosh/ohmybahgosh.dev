@@ -13,7 +13,7 @@
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=r2611f">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="Homebrew Channel on LG TV: install it and add a repository">
@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Add a repository to the webOS Homebrew Channel on a rooted LG TV, step by step, plus what a repository is, how updates work and how to remove one.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-12">
+<meta property="article:modified_time" content="2026-11-19">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -89,7 +89,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-19",
    "keywords": [
     "homebrew channel lg tv",
     "install homebrew channel lg tv",
@@ -121,7 +121,7 @@
      "name": "Which apps does ohmybahgosh.dev/repo add?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor."
+      "text": "TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block."
      }
     },
     {
@@ -155,6 +155,7 @@
           <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
           <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
           <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
         </div>
         <div class="mgrp"><span>reference and tools</span>
           <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
@@ -189,7 +190,7 @@
 <div class="steps"><div class="step"><div><h3>Open the settings</h3><p>Open the Homebrew Channel on the TV and select the gear icon at the top right.</p></div></div><div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b> and choose <b class="c-wh">Add repository</b>.  Type the address, for example <code>https://ohmybahgosh.dev/repo</code>, and confirm.</p></div></div><div class="step"><div><h3>Find the apps</h3><p>Go back to the app list.  The repository's apps are listed with the rest: open one and choose <b class="c-wh">Install</b>.</p></div></div><div class="step"><div><h3>Updates</h3><p>New versions show up as an update on the app's page in the Homebrew Channel.</p></div></div></div>
 
 <h2>Repositories worth adding</h2>
-<div class="tblw"><table class="tbl"><thead><tr><th>address</th><th>what's in it</th></tr></thead><tbody><tr><td><code>https://ohmybahgosh.dev/repo</code></td><td>TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor</td></tr><tr><td><code>https://tivibro.app/repo</code></td><td>TiviBro on its own</td></tr><tr><td><code>https://tivibro.app/testing</code></td><td>Every TiviBro test build as soon as it's out</td></tr></tbody></table></div>
+<div class="tblw"><table class="tbl"><thead><tr><th>address</th><th>what's in it</th></tr></thead><tbody><tr><td><code>https://ohmybahgosh.dev/repo</code></td><td>TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block</td></tr><tr><td><code>https://tivibro.app/repo</code></td><td>TiviBro on its own</td></tr><tr><td><code>https://tivibro.app/testing</code></td><td>Every TiviBro test build as soon as it's out</td></tr></tbody></table></div>
 
 <h2>Typing it with the remote</h2>
 <p>The on-screen keyboard is slow, so type carefully: <code>https://</code> included, no trailing spaces.  If the app list doesn't change, check the TV is online and the address has no typos, then reopen the Homebrew Channel.</p>
@@ -201,7 +202,7 @@
 <h2 id="faq">FAQ</h2>
 <details class="faq"><summary>What is a Homebrew Channel repository?</summary><div>A web address that serves a list of apps with their versions and download links.  The Homebrew Channel reads it, shows those apps in its list, and offers updates when the list changes.</div></details>
 <details class="faq"><summary>Is it safe to add a repository?</summary><div>Apps from it run as root, so only add ones you trust.  Every app in <code>ohmybahgosh.dev/repo</code> is open source, built from its GitHub releases, and checked by SHA-256 when it downloads.</div></details>
-<details class="faq"><summary>Which apps does ohmybahgosh.dev/repo add?</summary><div>TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor.</div></details>
+<details class="faq"><summary>Which apps does ohmybahgosh.dev/repo add?</summary><div>TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block.</div></details>
 <details class="faq"><summary>How do I remove a repository?</summary><div>In the Homebrew Channel's settings, under Repositories, select it and remove it.  Apps you already installed stay installed.</div></details>
 </article>
 </div>
@@ -220,6 +221,7 @@
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
       <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/install/">install</a>
@@ -230,7 +232,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611f" defer></script>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

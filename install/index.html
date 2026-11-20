@@ -13,7 +13,7 @@
 <script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=r2611f">
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ohmybahgosh.dev">
 <meta property="og:title" content="Install guide: root, Homebrew Channel and app compatibility">
@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="How to get the ohmybahgosh.dev apps on an LG TV: check if it can be rooted, set up the Homebrew Channel, add the repo, and see which app works on which TV.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-12">
+<meta property="article:modified_time" content="2026-11-19">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -83,7 +83,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-12",
+   "dateModified": "2026-11-19",
    "keywords": [
     "root LG TV",
     "webOS Homebrew Channel",
@@ -99,7 +99,7 @@
      "name": "Do I need a rooted TV?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "For LG-USB-2-ETH0, Entware and SSH Doctor, yes: they change things only root can. TiviBro also runs in LG's Developer Mode without root, and Luna Atlas's catalog is a web page anyone can browse. Running luna-send commands needs root or Developer Mode."
+      "text": "For LG-USB-2-ETH0, Entware, SSH Doctor and FW Block, yes: they change things only root can. TiviBro also runs in LG's Developer Mode without root, and Luna Atlas's catalog is a web page anyone can browse. Running luna-send commands needs root or Developer Mode."
      }
     },
     {
@@ -157,6 +157,7 @@
           <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
           <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
           <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
         </div>
         <div class="mgrp"><span>reference and tools</span>
           <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
@@ -187,27 +188,27 @@
 <nav class="toc" aria-label="On this page"><a href="#root">1. Root</a><a href="#hbc">2. Homebrew Channel</a><a href="#repo">3. Add the repo</a><a href="#compat">4. Compatibility</a><a href="#no-root">No root?</a><a href="#faq">FAQ</a></nav>
 
 <h2 id="root">1. Check whether your TV can be rooted</h2>
-<p>Three of the four TV apps need root, because they change things a normal app can't: which network port the TV uses, Linux packages on its storage, and its SSH server.  Whether a TV can be rooted depends on its exact firmware version, so look it up first at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a>.</p>
-<div class="callout" style="--accent:#ff3ea5"><b>webOS 26 and current firmware.</b>  LG has been patching the holes rooting tools use.  Per the <a href="https://tv.slada.sk/guides/rooting-guide" target="_blank" rel="noopener">EPK archive's rooting guide</a>, webOS 26 firmware released after October 10, 2026 can't be rooted, and once a TV is on patched firmware it can't be rooted again.  On a rooted TV, keep updates off: the Homebrew Channel's <b>Block system updates</b>, and LG-USB-2-ETH0's <a href="/lg-usb-2-eth0/#updates">Block updates harder</a> for what that misses.</div>
+<p>Four of the five TV apps need root, because they change things a normal app can't: which network port the TV uses, Linux packages on its storage, its SSH server, and its firmware updates.  Whether a TV can be rooted depends on its exact firmware version, so look it up first at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a>.</p>
+<div class="callout" style="--accent:#ff3ea5"><b>webOS 26 and current firmware.</b>  LG has been patching the holes rooting tools use.  Per the <a href="https://tv.slada.sk/guides/rooting-guide" target="_blank" rel="noopener">EPK archive's rooting guide</a>, webOS 26 firmware released after October 10, 2026 can't be rooted, and once a TV is on patched firmware it can't be rooted again.  On a rooted TV, keep updates off: the Homebrew Channel's <b>Block system updates</b>, plus <a href="/fw-block/">FW Block</a> or LG-USB-2-ETH0's <a href="/lg-usb-2-eth0/#updates">Block updates harder</a> for what that misses.</div>
 <p>The common rooting tools are <a href="https://rootmy.tv" target="_blank" rel="noopener">RootMyTV</a>, <a href="https://github.com/throwaway96/faultmanager-autoroot" target="_blank" rel="noopener">faultmanager-autoroot</a> (webOS 4.0 to 4.5 and others), crashd and DejaVuln.  The <a href="https://www.webosbrew.org/pages/rooting/" target="_blank" rel="noopener">webosbrew rooting page</a> lists which one fits which firmware.</p>
 
 <h2 id="hbc">2. The Homebrew Channel</h2>
 <p>Every rooting tool above installs the <a href="https://github.com/webosbrew/webos-homebrew-channel" target="_blank" rel="noopener">webOS Homebrew Channel</a>, the open-source app store for rooted LG TVs.  It runs apps as root, turns SSH and telnet on, blocks system updates, and installs apps from repositories.  If it's on your home screen, you're ready for step 3.</p>
 
 <h2 id="repo">3. Add the ohmybahgosh.dev repository</h2>
-<p>One repository gives you all four TV apps, and each new release shows up as an update.</p>
+<p>One repository gives you all five TV apps, and each new release shows up as an update.</p>
 <div class="code"><pre>https://ohmybahgosh.dev/repo</pre></div>
-<div class="steps"><div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div><div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b>, choose <b class="c-wh">Add repository</b>, enter <code>https://ohmybahgosh.dev/repo</code> and confirm.</p></div></div><div class="step"><div><h3>Install the apps</h3><p>Go back to the app list.  TiviBro, LG-USB-2-ETH0, Entware and SSH Doctor are there: install the ones you want.</p></div></div></div>
+<div class="steps"><div class="step"><div><h3>Open the Homebrew Channel's settings</h3><p>Open the Homebrew Channel and select the gear icon at the top right.</p></div></div><div class="step"><div><h3>Add the repository</h3><p>Scroll to <b class="c-wh">Repositories</b>, choose <b class="c-wh">Add repository</b>, enter <code>https://ohmybahgosh.dev/repo</code> and confirm.</p></div></div><div class="step"><div><h3>Install the apps</h3><p>Go back to the app list.  TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block are there: install the ones you want.</p></div></div></div>
 <p>More detail, and how to remove a repository, in <a href="/guides/homebrew-channel-repository/">How to add a repository to the Homebrew Channel</a>.</p>
 
 <h2 id="compat">4. Which app works on which TV</h2>
-<div class="tblw"><table class="tbl"><thead><tr><th>app</th><th>needs</th><th>webOS</th><th>notes</th></tr></thead><tbody><tr><td><a href="/tivibro/">TiviBro</a></td><td>Developer Mode or root</td><td>4 and newer</td><td>Tested from a 2019 webOS 4 OLED to webOS 25.  Also in its own repo, <code>tivibro.app/repo</code>.</td></tr><tr><td><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a></td><td>root + Homebrew Channel</td><td>every rooted webOS</td><td>Reports from webOS 3.5 to 26.  Whether an adapter works depends on its chip and your kernel's drivers.</td></tr><tr><td><a href="/webos-entware-installer/">Entware</a></td><td>root + Homebrew Channel</td><td>23 to 25 tested, 4 and up</td><td>64-bit (aarch64) and 32-bit (armv7) kernels.  About 50 MB free.</td></tr><tr><td><a href="/ssh-doctor/">SSH Doctor</a></td><td>root + Homebrew Channel</td><td>every rooted webOS</td><td>Runs through the Homebrew Channel, so it works when SSH doesn't.</td></tr><tr><td><a href="/luna-atlas/">Luna Atlas</a></td><td>nothing to browse</td><td>any</td><td>The catalog is a web page.  Running commands needs root or Developer Mode.</td></tr></tbody></table></div>
+<div class="tblw"><table class="tbl"><thead><tr><th>app</th><th>needs</th><th>webOS</th><th>notes</th></tr></thead><tbody><tr><td><a href="/tivibro/">TiviBro</a></td><td>Developer Mode or root</td><td>4 and newer</td><td>Tested from a 2019 webOS 4 OLED to webOS 25.  Also in its own repo, <code>tivibro.app/repo</code>.</td></tr><tr><td><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a></td><td>root + Homebrew Channel</td><td>every rooted webOS</td><td>Reports from webOS 3.5 to 26.  Whether an adapter works depends on its chip and your kernel's drivers.</td></tr><tr><td><a href="/webos-entware-installer/">Entware</a></td><td>root + Homebrew Channel</td><td>23 to 25 tested, 4 and up</td><td>64-bit (aarch64) and 32-bit (armv7) kernels.  About 50 MB free.</td></tr><tr><td><a href="/ssh-doctor/">SSH Doctor</a></td><td>root + Homebrew Channel</td><td>every rooted webOS</td><td>Runs through the Homebrew Channel, so it works when SSH doesn't.</td></tr><tr><td><a href="/fw-block/">FW Block</a></td><td>root + Homebrew Channel</td><td>4 to 26</td><td>Run on a 2022 C2 with webOS 25.  The update path is the same in every firmware checked, 2018 to webOS 26.</td></tr><tr><td><a href="/luna-atlas/">Luna Atlas</a></td><td>nothing to browse</td><td>any</td><td>The catalog is a web page.  Running commands needs root or Developer Mode.</td></tr></tbody></table></div>
 
 <h2 id="no-root">No root?</h2>
-<p>LG's own <a href="https://webostv.developer.lge.com/develop/getting-started/developer-mode-app" target="_blank" rel="noopener">Developer Mode</a> can install apps on any webOS TV, without root.  TiviBro works that way: its <a href="https://tivibro.app" target="_blank" rel="noopener">install guide on tivibro.app</a> covers it.  Developer Mode sessions expire and need renewing, and the three tools that change the system still need root.</p>
+<p>LG's own <a href="https://webostv.developer.lge.com/develop/getting-started/developer-mode-app" target="_blank" rel="noopener">Developer Mode</a> can install apps on any webOS TV, without root.  TiviBro works that way: its <a href="https://tivibro.app" target="_blank" rel="noopener">install guide on tivibro.app</a> covers it.  Developer Mode sessions expire and need renewing, and the tools that change the system still need root.</p>
 
 <h2 id="faq">FAQ</h2>
-<details class="faq"><summary>Do I need a rooted TV?</summary><div>For LG-USB-2-ETH0, Entware and SSH Doctor, yes: they change things only root can.  TiviBro also runs in LG's Developer Mode without root, and Luna Atlas's catalog is a web page anyone can browse.  Running <code>luna-send</code> commands needs root or Developer Mode.</div></details>
+<details class="faq"><summary>Do I need a rooted TV?</summary><div>For LG-USB-2-ETH0, Entware, SSH Doctor and FW Block, yes: they change things only root can.  TiviBro also runs in LG's Developer Mode without root, and Luna Atlas's catalog is a web page anyone can browse.  Running <code>luna-send</code> commands needs root or Developer Mode.</div></details>
 <details class="faq"><summary>Can my TV still be rooted?</summary><div>It depends on the exact firmware, not just the model.  Check it at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a>.  As of November 2026, webOS 26 firmware released after October 10, 2026 can't be rooted, and a TV on patched firmware can't be rooted again, so keep firmware updates off on a rooted TV.</div></details>
 <details class="faq"><summary>What is the Homebrew Channel?</summary><div>The open-source app store for rooted LG TVs, from the webosbrew project.  The rooting tools install it, it runs apps as root, and it can add repositories like <code>ohmybahgosh.dev/repo</code> so apps show up and update from the TV.</div></details>
 <details class="faq"><summary>Will these apps void anything or change system files?</summary><div>None of them writes to the TV's system partitions.  They keep their files in the Homebrew Channel's folders or on app storage, and each one has a clean uninstall.  Rooting itself is your choice and your risk, as with any homebrew.</div></details>
@@ -232,6 +233,7 @@
       <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
       <a href="/webos-entware-installer/">entware</a>
       <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
       <a href="/luna-atlas/">luna-atlas</a>
       <a href="/pipseek/">pipseek</a>
       <a href="/install/">install</a>
@@ -242,7 +244,7 @@
     </nav>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=r2611f" defer></script>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
 <script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
