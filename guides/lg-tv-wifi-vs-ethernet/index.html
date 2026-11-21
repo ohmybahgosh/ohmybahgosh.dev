@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LG TV: is Wi-Fi or Ethernet better? (Often Wi-Fi, here&#x27;s why)</title>
+<meta name="description" content="On an LG TV, Wi-Fi is often faster than the 100 Mbit/s Ethernet port, but less steady.  How to test both, which to use, and how a rooted TV gets both.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/lg-tv-wifi-vs-ethernet/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="LG TV: is Wi-Fi or Ethernet better? (Often Wi-Fi, here&#x27;s why)">
+<meta property="og:description" content="On an LG TV, Wi-Fi is often faster than the 100 Mbit/s Ethernet port, but less steady.  How to test both, which to use, and how a rooted TV gets both.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/lg-tv-wifi-vs-ethernet/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LG TV: is Wi-Fi or Ethernet better? (Often Wi-Fi, here&#x27;s why)">
+<meta name="twitter:description" content="On an LG TV, Wi-Fi is often faster than the 100 Mbit/s Ethernet port, but less steady.  How to test both, which to use, and how a rooted TV gets both.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Wi-Fi or Ethernet on an LG TV?",
+     "item": "https://ohmybahgosh.dev/guides/lg-tv-wifi-vs-ethernet/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/lg-tv-wifi-vs-ethernet/#article",
+   "headline": "LG TV: is Wi-Fi or Ethernet better? (Often Wi-Fi, here's why)",
+   "description": "On an LG TV, Wi-Fi is often faster than the 100 Mbit/s Ethernet port, but less steady.  How to test both, which to use, and how a rooted TV gets both.",
+   "url": "https://ohmybahgosh.dev/guides/lg-tv-wifi-vs-ethernet/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/lg-tv-wifi-vs-ethernet/",
+   "image": "https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "keywords": [
+    "lg tv wifi vs ethernet",
+    "lg tv wifi faster than ethernet",
+    "should i use ethernet for lg tv",
+    "lg tv ethernet or wifi for streaming",
+    "lg oled wifi or ethernet"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is Wi-Fi faster than Ethernet on an LG TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Often, yes. The built-in port is 100 Mbit/s, about 95 in practice, and a strong Wi-Fi 5 or 6 signal can beat that. A cable is steadier, though."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which should I use for 4K streaming?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Netflix and the other big apps need about 15 to 25 Mbit/s for 4K, so either works. For 4K remuxes from Plex or Jellyfin, Wi-Fi can beat the port, and a USB adapter as eth0 beats both."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use Wi-Fi and Ethernet at the same time?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "webOS uses one for traffic, and the cable wins when it's connected. On a rooted TV, LG-USB-2-ETH0 can keep Wi-Fi up next to a USB adapter, for waking the TV over the network."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">lg-tv-wifi-vs-ethernet</span></div>
+<section class="doc-hero" style="--accent:#3ddc97">
+  <div class="eyebrow">$ cat guides/lg-tv-wifi-vs-ethernet.md</div>
+  <h1 class="h2" style="margin-top:12px">Wi-Fi or Ethernet on an LG TV?</h1>
+  <p class="lead">On most devices a cable is the easy answer.  LG TVs are different: the port is slower than good Wi-Fi.</p>
+</section><article class="doc" style="--accent:#3ddc97">
+
+<div class="callout" style="--accent:#3ddc97"><b>Short answer.</b>  For regular streaming, either works.  For big files, strong Wi-Fi often beats the 100 Mbit/s port, but a cable is steadier.  On a rooted TV, <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> gives you both: a USB adapter as the wired connection at about 250 to 330 Mbit/s.</div>
+
+<h2>The numbers</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>connection</th><th>real speed on the TV</th></tr></thead><tbody><tr><td>Built-in Ethernet port</td><td>about 95 Mbit/s, every LG model measured</td></tr><tr><td>Wi-Fi 5 or 6, same room as the router</td><td>often 200 Mbit/s or more</td></tr><tr><td>Wi-Fi through walls or floors</td><td>anywhere from great to unwatchable</td></tr><tr><td>USB adapter as <code>eth0</code>, rooted TV</td><td>about 250 to 330 Mbit/s</td></tr></tbody></table></div>
+
+<h2>Test your own TV</h2>
+<div class="steps"><div class="step"><div><h3>Open the web browser</h3><p>Go to a speed test site like fast.com on the TV.</p></div></div><div class="step"><div><h3>Test on Wi-Fi, then on the cable</h3><p>Same time of day, same spot.  Run each two or three times.</p></div></div><div class="step"><div><h3>Watch for steadiness, not just the top number</h3><p>Wi-Fi that swings from 300 to 40 buffers more than a cable that sits at 95.</p></div></div></div>
+
+<h2>Which to pick</h2>
+<ul>
+<li><b class="c-wh">Netflix, YouTube, Disney+ and IPTV:</b> a cable.  95 Mbit/s is plenty, and it never drops.</li>
+<li><b class="c-wh">4K remuxes from Plex or Jellyfin:</b> Wi-Fi if it's strong and steady, or see <a href="/guides/lg-tv-plex-4k-buffering/">Plex buffering on an LG TV</a>.</li>
+<li><b class="c-wh">Rooted TV:</b> a USB adapter as <code>eth0</code> is faster than both.  <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>.</li>
+</ul>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>A USB adapter as the TV's eth0</span></a><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>Stuck at 100 Mbps?</b><span>Why the port is slow</span></a><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Which USB adapter to buy</b><span>Chips with drivers, ones to skip</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Is Wi-Fi faster than Ethernet on an LG TV?</summary><div>Often, yes.  The built-in port is 100 Mbit/s, about 95 in practice, and a strong Wi-Fi 5 or 6 signal can beat that.  A cable is steadier, though.</div></details>
+<details class="faq"><summary>Which should I use for 4K streaming?</summary><div>Netflix and the other big apps need about 15 to 25 Mbit/s for 4K, so either works.  For 4K remuxes from Plex or Jellyfin, Wi-Fi can beat the port, and a USB adapter as <code>eth0</code> beats both.</div></details>
+<details class="faq"><summary>Can I use Wi-Fi and Ethernet at the same time?</summary><div>webOS uses one for traffic, and the cable wins when it's connected.  On a rooted TV, LG-USB-2-ETH0 can keep Wi-Fi up next to a USB adapter, for waking the TV over the network.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

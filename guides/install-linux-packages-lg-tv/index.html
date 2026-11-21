@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Install Linux packages on an LG TV: opkg, htop, Python and more</title>
+<meta name="description" content="Install Linux command line packages on a rooted LG webOS TV with Entware and opkg: htop, tmux, git, Python, ffmpeg and over 1,100 more, from the remote or SSH.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/install-linux-packages-lg-tv/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Install Linux packages on an LG TV: opkg, htop, Python and more">
+<meta property="og:description" content="Install Linux command line packages on a rooted LG webOS TV with Entware and opkg: htop, tmux, git, Python, ffmpeg and over 1,100 more, from the remote or SSH.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/install-linux-packages-lg-tv/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Install Linux packages on an LG TV: opkg, htop, Python and more">
+<meta name="twitter:description" content="Install Linux command line packages on a rooted LG webOS TV with Entware and opkg: htop, tmux, git, Python, ffmpeg and over 1,100 more, from the remote or SSH.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Linux packages on an LG TV",
+     "item": "https://ohmybahgosh.dev/guides/install-linux-packages-lg-tv/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/install-linux-packages-lg-tv/#article",
+   "headline": "Install Linux packages on an LG TV: opkg, htop, Python and more",
+   "description": "Install Linux command line packages on a rooted LG webOS TV with Entware and opkg: htop, tmux, git, Python, ffmpeg and over 1,100 more, from the remote or SSH.",
+   "url": "https://ohmybahgosh.dev/guides/install-linux-packages-lg-tv/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/install-linux-packages-lg-tv/",
+   "image": "https://ohmybahgosh.dev/assets/og/webos-entware-installer.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "keywords": [
+    "opkg lg tv",
+    "install packages webos",
+    "htop lg tv",
+    "python on lg tv",
+    "linux commands lg tv",
+    "entware webos"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Can I install Linux packages on an LG TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On a rooted TV, yes. Entware adds opkg and over 1,100 packages, installed to the TV's app storage."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it fill up the TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Entware itself is about 50 MB. The TV app shows each package's size and the free space before you install."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it survive a reboot?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. A Homebrew Channel boot script mounts it at every start."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">install-linux-packages-lg-tv</span></div>
+<section class="doc-hero" style="--accent:#ff3ea5">
+  <div class="eyebrow">$ cat guides/install-linux-packages-lg-tv.md</div>
+  <h1 class="h2" style="margin-top:12px">Install Linux packages on an LG TV.</h1>
+  <p class="lead">webOS is Linux, but it ships with almost no tools.  Entware fills the gap, from a TV app or over SSH.</p>
+</section><article class="doc" style="--accent:#ff3ea5">
+
+<div class="callout" style="--accent:#ff3ea5"><b>Short answer.</b>  Install <a href="/webos-entware-installer/">Entware</a> from <code>https://ohmybahgosh.dev/repo</code> on a rooted TV.  Then browse and install packages from its TV app, or run <code>opkg install htop</code> over SSH.</div>
+
+<h2>From the remote</h2>
+<p>The Entware TV app's <b class="c-wh">Packages</b> screen lists every package by category, with a one-line description, its size, what else it pulls in and the free space left.  <b class="c-wh">Start here</b> has the popular ones: htop, mc, rclone, ncdu, tmux, aria2, fzf, zsh, ffmpeg, yt-dlp, micro and nmap.</p>
+
+<h2>Over SSH</h2>
+<div class="code"><pre><span class="pr">$ </span>opkg update
+<span class="pr">$ </span>opkg list | grep -i python
+<span class="pr">$ </span>opkg install htop tmux git</pre></div>
+<p>Entware also adds <code>ent</code>, a helper for searching and checking packages with Tab completion, and a bash shell.  <code>opkg</code> itself is Entware's own, untouched.</p>
+
+<h2>32-bit or 64-bit</h2>
+<p>Every LG TV runs 32-bit apps, but Entware brings its own libraries, so only the kernel matters.  The installer checks and picks the faster 64-bit build when the kernel is 64-bit, after a test run on the TV.</p>
+
+<h2>Add-ons, set up for you</h2>
+<p>Some packages need more than an install to work on webOS.  Entware's 25 add-ons do that part: Tailscale, Samba, File Browser, a DLNA server, Transmission, Syncthing, Python, git and more.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/webos-entware-installer/"><b>Entware</b><span>Linux packages and add-ons</span></a><a class="card gcard" href="/guides/ssh-into-lg-tv/"><b>SSH into a rooted LG TV</b><span>Log in, add a key, fix errors</span></a><a class="card gcard" href="/guides/what-to-do-with-rooted-lg-tv/"><b>What to do with a rooted TV</b><span>Ten things rooting gets you</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Can I install Linux packages on an LG TV?</summary><div>On a rooted TV, yes.  Entware adds <code>opkg</code> and over 1,100 packages, installed to the TV's app storage.</div></details>
+<details class="faq"><summary>Does it fill up the TV?</summary><div>Entware itself is about 50 MB.  The TV app shows each package's size and the free space before you install.</div></details>
+<details class="faq"><summary>Does it survive a reboot?</summary><div>Yes.  A Homebrew Channel boot script mounts it at every start.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

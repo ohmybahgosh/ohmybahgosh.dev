@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Will an LG TV firmware update remove root? (Yes. Block it.)</title>
+<meta name="description" content="A firmware update can remove root from an LG TV for good, and LG doesn&#x27;t allow downgrades.  What breaks, what keeps working, and how to block updates.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/lg-tv-update-remove-root/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Will an LG TV firmware update remove root? (Yes. Block it.)">
+<meta property="og:description" content="A firmware update can remove root from an LG TV for good, and LG doesn&#x27;t allow downgrades.  What breaks, what keeps working, and how to block updates.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/lg-tv-update-remove-root/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/fw-block.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Will an LG TV firmware update remove root? (Yes. Block it.)">
+<meta name="twitter:description" content="A firmware update can remove root from an LG TV for good, and LG doesn&#x27;t allow downgrades.  What breaks, what keeps working, and how to block updates.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/fw-block.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Will an update remove root?",
+     "item": "https://ohmybahgosh.dev/guides/lg-tv-update-remove-root/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/lg-tv-update-remove-root/#article",
+   "headline": "Will an LG TV firmware update remove root? (Yes. Block it.)",
+   "description": "A firmware update can remove root from an LG TV for good, and LG doesn't allow downgrades.  What breaks, what keeps working, and how to block updates.",
+   "url": "https://ohmybahgosh.dev/guides/lg-tv-update-remove-root/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/lg-tv-update-remove-root/",
+   "image": "https://ohmybahgosh.dev/assets/og/fw-block.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "keywords": [
+    "lg tv update remove root",
+    "lg tv lost root after update",
+    "webos update unroot",
+    "lg firmware downgrade",
+    "keep root lg tv"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Will a firmware update remove root on my LG TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually, yes. Updates patch the holes rooting tools use, and once a TV is on patched firmware there's no known way to root it again."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens to my homebrew apps after an update?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Apps that don't need root, like TiviBro, keep working. Apps that need root, like LG-USB-2-ETH0, Entware and SSH Doctor, stop working until the TV is rooted again, which may not be possible."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I roll back LG firmware?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not in any normal way. LG doesn't offer downgrades, so blocking updates beforehand is the only real protection."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">lg-tv-update-remove-root</span></div>
+<section class="doc-hero" style="--accent:#ff2d55">
+  <div class="eyebrow">$ cat guides/lg-tv-update-remove-root.md</div>
+  <h1 class="h2" style="margin-top:12px">Will a firmware update remove root?</h1>
+  <p class="lead">Short version: usually, and you can't go back.  Here's what breaks, what keeps working, and how to make sure it doesn't happen.</p>
+</section><article class="doc" style="--accent:#ff2d55">
+
+<div class="callout" style="--accent:#ff2d55"><b>Short answer.</b>  Usually yes, and patched firmware can't be rooted again.  Turn on <a href="/fw-block/">FW Block</a> as soon as your TV is rooted: one switch blocks the update check, every LG update server, Remote Support and phone app updates.</div>
+
+<h2>Why updates remove root</h2>
+<p>Rooting tools use security holes in LG's software.  Updates close them, and a fresh firmware image wipes the changes that gave you root.  Since LG doesn't offer downgrades, a TV that updates to patched firmware stays that way.</p>
+
+<h2>What breaks</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>app</th><th>after an update that removes root</th></tr></thead><tbody><tr><td><a href="/tivibro/">TiviBro</a></td><td>Keeps working.  It doesn't need root.</td></tr><tr><td><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a></td><td>Stops.  The TV goes back to the built-in port.</td></tr><tr><td><a href="/webos-entware-installer/">Entware</a></td><td>Stops, with every add-on.</td></tr><tr><td><a href="/ssh-doctor/">SSH Doctor</a></td><td>Stops, and so does SSH as root.</td></tr></tbody></table></div>
+
+<h2>How updates slip through</h2>
+<ul>
+<li>Turning off automatic updates in settings doesn't stop every check.</li>
+<li>The Homebrew Channel's <b class="c-wh">Block system updates</b> covers four servers.  The updater knows seven, plus one IP address.</li>
+<li>LG Remote Support and paired phone apps can push an update past server blocks.</li>
+</ul>
+<p><a href="/fw-block/">FW Block</a> closes all of them and checks every 10 minutes.  If you already run LG-USB-2-ETH0, its <b class="c-wh">Block updates harder</b> does the same.  The details are in <a href="/guides/block-lg-tv-updates/">Block LG TV firmware updates</a>.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/fw-block/"><b>FW Block</b><span>Block LG firmware updates from one switch</span></a><a class="card gcard" href="/guides/block-lg-tv-updates/"><b>Block LG TV firmware updates</b><span>Every layer, router to TV</span></a><a class="card gcard" href="/guides/root-lg-tv-2026/"><b>Rooting an LG TV in 2026</b><span>Which firmware is still rootable</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Will a firmware update remove root on my LG TV?</summary><div>Usually, yes.  Updates patch the holes rooting tools use, and once a TV is on patched firmware there's no known way to root it again.</div></details>
+<details class="faq"><summary>What happens to my homebrew apps after an update?</summary><div>Apps that don't need root, like TiviBro, keep working.  Apps that need root, like LG-USB-2-ETH0, Entware and SSH Doctor, stop working until the TV is rooted again, which may not be possible.</div></details>
+<details class="faq"><summary>Can I roll back LG firmware?</summary><div>Not in any normal way.  LG doesn't offer downgrades, so blocking updates beforehand is the only real protection.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
