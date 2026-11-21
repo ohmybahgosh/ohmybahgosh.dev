@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LG TV Ethernet not working? Fix &quot;wired connection not connected&quot;</title>
+<meta name="description" content="LG TV&#x27;s wired connection says not connected or keeps dropping?  The fixes in order, why a USB adapter shows as not connected, and how to replace a flaky port.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/lg-tv-ethernet-not-working/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="LG TV Ethernet not working? Fix &quot;wired connection not connected&quot;">
+<meta property="og:description" content="LG TV&#x27;s wired connection says not connected or keeps dropping?  The fixes in order, why a USB adapter shows as not connected, and how to replace a flaky port.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/lg-tv-ethernet-not-working/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LG TV Ethernet not working? Fix &quot;wired connection not connected&quot;">
+<meta name="twitter:description" content="LG TV&#x27;s wired connection says not connected or keeps dropping?  The fixes in order, why a USB adapter shows as not connected, and how to replace a flaky port.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "LG TV Ethernet not working",
+     "item": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-not-working/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-not-working/#article",
+   "headline": "LG TV Ethernet not working? Fix \"wired connection not connected\"",
+   "description": "LG TV's wired connection says not connected or keeps dropping?  The fixes in order, why a USB adapter shows as not connected, and how to replace a flaky port.",
+   "url": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-not-working/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/lg-tv-ethernet-not-working/",
+   "image": "https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "keywords": [
+    "lg tv ethernet not working",
+    "lg tv wired connection not connected",
+    "lg tv wired lan cable disconnected",
+    "lg tv ethernet keeps disconnecting",
+    "lg tv not detecting ethernet",
+    "lg tv usb ethernet not connected"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Why does my LG TV say the wired connection is not connected?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most often a loose cable, a bad port on the router or switch, or a TV that needs a full power cycle. If the cable is in a USB Ethernet adapter instead, webOS calls that eth1 and doesn't show it as the wired connection at all."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does my LG TV keep dropping its wired connection?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Try a different cable and router port, and reserve an address for the TV on the router. Some mesh systems have had trouble with LG TVs, so check the router's firmware too."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I replace a dead Ethernet port on an LG TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not the port itself, short of a board repair. On a rooted TV, a USB Ethernet adapter made the TV's eth0 with LG-USB-2-ETH0 takes over as the wired connection, and it's faster too."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">lg-tv-ethernet-not-working</span></div>
+<section class="doc-hero" style="--accent:#3ddc97">
+  <div class="eyebrow">$ cat guides/lg-tv-ethernet-not-working.md</div>
+  <h1 class="h2" style="margin-top:12px">LG TV Ethernet not working?</h1>
+  <p class="lead">"Not connected", "Wired LAN cable disconnected", or a connection that comes and goes.  Here are the fixes in the order worth trying them.</p>
+</section><article class="doc" style="--accent:#3ddc97">
+
+<div class="callout" style="--accent:#3ddc97"><b>Short answer.</b>  Check the cable and the port lights, then unplug the TV from the wall for a minute.  If the built-in port is flaky or dead, or you plugged in a USB adapter the TV won't use, a rooted TV can make that adapter its real wired connection with <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>.</div>
+
+<h2>The fixes, in order</h2>
+<div class="steps"><div class="step"><div><h3>Look at the lights</h3><p>The port on the router or switch should light up with the TV on.  No light, no link: swap the cable or the router port first.</p></div></div><div class="step"><div><h3>Unplug the TV for a minute</h3><p>Turning it off with the remote isn't a full restart, because the TV keeps parts of itself running for a fast start.  Unplug it from the wall, wait a minute, plug it back in.</p></div></div><div class="step"><div><h3>Restart the router</h3><p>Especially after a router or mesh change, or when other wired devices act up too.</p></div></div><div class="step"><div><h3>Set the address by hand, or reserve one</h3><p>In the TV's network settings, edit the wired connection and set the IP, gateway and DNS yourself, or reserve an address for the TV on the router.</p></div></div><div class="step"><div><h3>Reset the network settings</h3><p>As a last step before a factory reset, look in the TV's support or general settings for a network reset.</p></div></div></div>
+
+<h2>Plugged in a USB Ethernet adapter, and it says not connected?</h2>
+<p>That's expected.  webOS names a USB adapter <code>eth1</code>, but its settings and many apps only look at <code>eth0</code>, the built-in port.  So the adapter can be working while the TV says there's no wired connection, and some apps, like Paramount+, refuse to play over it.</p>
+<p>On a rooted TV, <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> makes the adapter <code>eth0</code> and parks the built-in port as <code>eth2</code>.  Settings show the wired connection, apps use it, and you get about 250 to 330 Mbit/s instead of about 95.  If the adapter isn't detected at all, its chip may have no driver in your kernel: the app can fetch one built for it.</p>
+
+<h2>A port that keeps dropping</h2>
+<ul>
+<li>A different, short cable rules out the cable.  Cat 5e is plenty for this port.</li>
+<li>Plug straight into the router, not a powerline adapter or an old switch, to rule those out.</li>
+<li>If it's still dropping and the TV is rooted, an adapter as <code>eth0</code> moves you off the built-in port for good.  See <a href="/guides/usb-ethernet-adapter-lg-tv/">which adapter to buy</a>.</li>
+</ul>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>A USB adapter as the TV's eth0</span></a><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Which USB adapter to buy</b><span>Chips with drivers, ones to skip</span></a><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>Stuck at 100 Mbps?</b><span>Why the port is slow</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Why does my LG TV say the wired connection is not connected?</summary><div>Most often a loose cable, a bad port on the router or switch, or a TV that needs a full power cycle.  If the cable is in a USB Ethernet adapter instead, webOS calls that <code>eth1</code> and doesn't show it as the wired connection at all.</div></details>
+<details class="faq"><summary>Why does my LG TV keep dropping its wired connection?</summary><div>Try a different cable and router port, and reserve an address for the TV on the router.  Some mesh systems have had trouble with LG TVs, so check the router's firmware too.</div></details>
+<details class="faq"><summary>Can I replace a dead Ethernet port on an LG TV?</summary><div>Not the port itself, short of a board repair.  On a rooted TV, a USB Ethernet adapter made the TV's <code>eth0</code> with <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> takes over as the wired connection, and it's faster too.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

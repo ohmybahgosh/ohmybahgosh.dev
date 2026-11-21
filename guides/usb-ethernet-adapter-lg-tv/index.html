@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Which USB Ethernet adapters work on LG webOS TVs: the chips with drivers (Realtek RTL8153, RTL8156, ASIX AX88179), ones to skip, and tested models.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-19">
+<meta property="article:modified_time" content="2026-11-20">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -89,7 +89,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-19",
+   "dateModified": "2026-11-20",
    "keywords": [
     "usb ethernet adapter lg tv",
     "lg tv usb ethernet adapter not working",
@@ -192,7 +192,7 @@
   <p class="lead">Buy by chip, not by brand.  An adapter only works if the TV's kernel has a driver for its chip, and LG's kernels vary by model and firmware.</p>
 </section><article class="doc" style="--accent:#3ddc97">
 
-<div class="callout" style="--accent:#3ddc97"><b>Safe picks.</b>  A gigabit adapter with a <b>Realtek RTL8153</b> or <b>ASIX AX88179</b> chip.  A <b>Realtek RTL8156</b> 2.5G adapter is fine too, but on a USB 2.0 port it's no faster.</div>
+<div class="callout" style="--accent:#3ddc97"><b>Short answer.</b>  Buy by chip: a gigabit adapter with a <b>Realtek RTL8153</b> or <b>ASIX AX88179</b> chip.  A <b>Realtek RTL8156</b> 2.5G adapter is fine too, but on a USB 2.0 port it's no faster.  Plugged in, webOS treats it as a second connection, not the wired one: on a rooted TV, <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> makes it the TV's real <code>eth0</code>, and fetches a driver if your kernel lacks one.</div>
 
 <h2>The chips</h2>
 <div class="tblw"><table class="tbl"><thead><tr><th>chip</th><th>on LG TVs</th></tr></thead><tbody><tr><td><b>Realtek RTL8153</b> (gigabit), <code>0bda:8153</code></td><td>The most common.  Many kernels have Realtek's <code>r8152</code> built in.  Newer ones may only have the slower generic <code>cdc_ncm</code> driver, and a few none at all, where a driver built for that kernel can be loaded.</td></tr><tr><td><b>Realtek RTL8156</b> (2.5G), <code>0bda:8156</code></td><td>Works on <code>cdc_ncm</code> out of the box, and faster with Realtek's newer <code>r8152_oot</code> driver where one is built for your kernel.</td></tr><tr><td><b>ASIX AX88179</b> (gigabit), <code>0b95:1790</code></td><td>Works out of the box on many TVs with the kernel's own <code>ax88179_178a</code> driver.  Where it's missing, there's often one to get or test.</td></tr><tr><td>ASIX AX88179A, AX88772D</td><td>Skip for now: newer chips older TV kernels may not handle, and untested on a TV.</td></tr><tr><td>Aquantia AQC111/112, Davicom DM9601, Microchip LAN78xx</td><td>No LG kernel includes these drivers.  Builds are waiting for testers, but a Realtek or ASIX adapter is the safer buy.</td></tr></tbody></table></div>

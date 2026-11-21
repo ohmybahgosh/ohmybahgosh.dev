@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Plex or Jellyfin buffering on an LG TV? Blame the 100 Mbps port</title>
+<meta name="description" content="4K remuxes buffer on LG TVs over Ethernet because the port tops out near 95 Mbit/s.  How to check the bitrate, and the fixes, up to about 300 Mbit/s wired.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/lg-tv-plex-4k-buffering/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Plex or Jellyfin buffering on an LG TV? Blame the 100 Mbps port">
+<meta property="og:description" content="4K remuxes buffer on LG TVs over Ethernet because the port tops out near 95 Mbit/s.  How to check the bitrate, and the fixes, up to about 300 Mbit/s wired.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/lg-tv-plex-4k-buffering/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plex or Jellyfin buffering on an LG TV? Blame the 100 Mbps port">
+<meta name="twitter:description" content="4K remuxes buffer on LG TVs over Ethernet because the port tops out near 95 Mbit/s.  How to check the bitrate, and the fixes, up to about 300 Mbit/s wired.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Plex or Jellyfin buffering on an LG TV",
+     "item": "https://ohmybahgosh.dev/guides/lg-tv-plex-4k-buffering/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/lg-tv-plex-4k-buffering/#article",
+   "headline": "Plex or Jellyfin buffering on an LG TV? Blame the 100 Mbps port",
+   "description": "4K remuxes buffer on LG TVs over Ethernet because the port tops out near 95 Mbit/s.  How to check the bitrate, and the fixes, up to about 300 Mbit/s wired.",
+   "url": "https://ohmybahgosh.dev/guides/lg-tv-plex-4k-buffering/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/lg-tv-plex-4k-buffering/",
+   "image": "https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "keywords": [
+    "plex buffering lg tv",
+    "jellyfin buffering lg tv",
+    "lg tv 4k remux buffering",
+    "plex lg tv ethernet slow",
+    "lg tv direct play buffering",
+    "lg tv bitrate limit"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Why does Plex buffer on my LG TV but not on my computer?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The LG's wired port is 100 Mbit/s, about 95 in practice, and a 4K remux can peak above that. A computer with a gigabit port never hits the ceiling."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Wi-Fi better than Ethernet for Plex on an LG TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It can be, on Wi-Fi 5 or 6 close to the router. Test the same file both ways. Wi-Fi is less steady, so it can buffer in different places."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I see a file's bitrate?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In Plex, the file's info page shows it, and the server dashboard shows it while it plays. In Jellyfin, turn on playback info while it plays."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will Direct Play fix it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Direct Play stops the server from converting, which helps a weak server. It doesn't make the TV's port any faster: a file above about 95 Mbit/s still needs a faster connection."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">lg-tv-plex-4k-buffering</span></div>
+<section class="doc-hero" style="--accent:#3ddc97">
+  <div class="eyebrow">$ cat guides/lg-tv-plex-4k-buffering.md</div>
+  <h1 class="h2" style="margin-top:12px">Plex or Jellyfin buffering on an LG TV?</h1>
+  <p class="lead">The file plays fine everywhere else.  On the LG, over a cable, it stutters at the same busy scenes.  That's usually not Plex or Jellyfin.  It's the port.</p>
+</section><article class="doc" style="--accent:#3ddc97">
+
+<div class="callout" style="--accent:#3ddc97"><b>Short answer.</b>  LG's wired port carries about 95 Mbit/s, and 4K remuxes can peak above that.  Try strong Wi-Fi, or play a lower-bitrate version.  On a rooted TV, a USB Ethernet adapter made the TV's <code>eth0</code> with <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> gives it about 250 to 330 Mbit/s.</div>
+
+<h2>Is it the port?</h2>
+<p>Look at the file's bitrate.  An average near or over 80 Mbit/s will hit the port's ceiling in busy scenes, because peaks run well above the average.  Signs it's the port:</p>
+<ul>
+<li>It buffers at the same scenes every time, and only on big files.</li>
+<li>The server isn't converting (Direct Play), and its CPU is quiet.</li>
+<li>A lower-bitrate version of the same movie plays fine.</li>
+</ul>
+
+<h2>What needs what</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>what you're playing</th><th>typical bitrate</th></tr></thead><tbody><tr><td>Netflix, YouTube and other 4K streaming</td><td>about 15 to 25 Mbit/s</td></tr><tr><td>1080p Blu-ray remux</td><td>about 20 to 40 Mbit/s</td></tr><tr><td>4K Blu-ray remux</td><td>about 50 to 80 Mbit/s on average, peaks past 100</td></tr><tr><td>Built-in LG port</td><td>about 95 Mbit/s, the ceiling</td></tr><tr><td>USB adapter as <code>eth0</code>, USB 2.0</td><td>about 250 to 330 Mbit/s</td></tr></tbody></table></div>
+
+<h2>The fixes</h2>
+<ul>
+<li><b class="c-wh">Wi-Fi.</b>  A strong Wi-Fi 5 or 6 signal can beat the port.  Test the same file both ways.</li>
+<li><b class="c-wh">A smaller version.</b>  Keep a 4K encode at a lower bitrate for this TV, or let the server convert, if it's strong enough.</li>
+<li><b class="c-wh">Sound the TV can't play.</b>  DTS on 2020 to 2022 LG models makes the server convert the stream.  Pick another audio track.</li>
+<li><b class="c-wh">A faster wired connection, on a rooted TV.</b>  <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> makes a USB adapter the TV's <code>eth0</code>, so Plex, Jellyfin and every other app use it.  Measured on TVs from a 2020 UN7300 to a 2026 G6.</li>
+</ul>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/lg-usb-2-eth0/"><b>LG-USB-2-ETH0</b><span>About 300 Mbit/s wired on a rooted TV</span></a><a class="card gcard" href="/guides/lg-tv-ethernet-100mbps/"><b>Stuck at 100 Mbps?</b><span>Why the port is slow</span></a><a class="card gcard" href="/guides/usb-ethernet-adapter-lg-tv/"><b>Which USB adapter to buy</b><span>Chips with drivers, ones to skip</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Why does Plex buffer on my LG TV but not on my computer?</summary><div>The LG's wired port is 100 Mbit/s, about 95 in practice, and a 4K remux can peak above that.  A computer with a gigabit port never hits the ceiling.</div></details>
+<details class="faq"><summary>Is Wi-Fi better than Ethernet for Plex on an LG TV?</summary><div>It can be, on Wi-Fi 5 or 6 close to the router.  Test the same file both ways.  Wi-Fi is less steady, so it can buffer in different places.</div></details>
+<details class="faq"><summary>How do I see a file's bitrate?</summary><div>In Plex, the file's info page shows it, and the server dashboard shows it while it plays.  In Jellyfin, turn on playback info while it plays.</div></details>
+<details class="faq"><summary>Will Direct Play fix it?</summary><div>Direct Play stops the server from converting, which helps a weak server.  It doesn't make the TV's port any faster: a file above about 95 Mbit/s still needs a faster connection.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

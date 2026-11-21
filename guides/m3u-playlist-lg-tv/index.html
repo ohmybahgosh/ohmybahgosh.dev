@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>How to add an M3U playlist or Xtream login to an LG TV</title>
+<meta name="description" content="Add an IPTV subscription to an LG webOS TV: Xtream Codes login, M3U link or Stalker portal, plus how to get the TV guide (EPG) working.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/m3u-playlist-lg-tv/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="How to add an M3U playlist or Xtream login to an LG TV">
+<meta property="og:description" content="Add an IPTV subscription to an LG webOS TV: Xtream Codes login, M3U link or Stalker portal, plus how to get the TV guide (EPG) working.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/m3u-playlist-lg-tv/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/tivibro.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to add an M3U playlist or Xtream login to an LG TV">
+<meta name="twitter:description" content="Add an IPTV subscription to an LG webOS TV: Xtream Codes login, M3U link or Stalker portal, plus how to get the TV guide (EPG) working.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/tivibro.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Add an M3U or Xtream login to an LG TV",
+     "item": "https://ohmybahgosh.dev/guides/m3u-playlist-lg-tv/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/m3u-playlist-lg-tv/#article",
+   "headline": "How to add an M3U playlist or Xtream login to an LG TV",
+   "description": "Add an IPTV subscription to an LG webOS TV: Xtream Codes login, M3U link or Stalker portal, plus how to get the TV guide (EPG) working.",
+   "url": "https://ohmybahgosh.dev/guides/m3u-playlist-lg-tv/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/m3u-playlist-lg-tv/",
+   "image": "https://ohmybahgosh.dev/assets/og/tivibro.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "keywords": [
+    "m3u playlist lg tv",
+    "how to add m3u to lg tv",
+    "xtream codes lg tv",
+    "iptv guide lg tv",
+    "xmltv epg lg tv",
+    "stalker portal lg tv"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Can an LG TV play an M3U playlist without an app?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. LG's own apps don't read M3U links or Xtream logins. You need an IPTV player, like TiviBro."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Which is better, Xtream Codes or M3U?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Xtream, if your provider offers it. It brings the guide, catch-up, movies and shows with it. An M3U link is just the channel list, and the guide comes from a separate XMLTV link."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is my TV guide empty?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "With M3U, the guide needs its own XMLTV link, and the channel IDs in the playlist have to match the guide's. With Xtream, the provider's guide may just be slow to fill the first time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where do I find my M3U link?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In your provider's welcome email or account page. Many Xtream providers also give an M3U link made from the same login."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">m3u-playlist-lg-tv</span></div>
+<section class="doc-hero" style="--accent:#5b8cff">
+  <div class="eyebrow">$ cat guides/m3u-playlist-lg-tv.md</div>
+  <h1 class="h2" style="margin-top:12px">Add an M3U playlist or Xtream login to an LG TV.</h1>
+  <p class="lead">LG TVs don't play IPTV links on their own.  You need a player app, your provider's login, and the guide to match.  Here's all three.</p>
+</section><article class="doc" style="--accent:#5b8cff">
+
+<div class="callout" style="--accent:#5b8cff"><b>Short answer.</b>  Install an IPTV player, then give it your provider's login.  In <a href="/tivibro/">TiviBro</a>, scan the QR code on its first screen with your phone and paste your provider's whole link: it fills in the rest.</div>
+
+<h2>The three kinds of login</h2>
+<div class="tblw"><table class="tbl"><thead><tr><th>kind</th><th>what your provider gives you</th><th>the guide</th></tr></thead><tbody><tr><td><b>Xtream Codes</b></td><td>A server address, a username and a password</td><td>Comes with it</td></tr><tr><td><b>M3U</b></td><td>One link, often ending in <code>.m3u</code> or with <code>get.php</code> in it</td><td>A separate XMLTV link</td></tr><tr><td><b>Stalker portal</b></td><td>A portal address, tied to a MAC address</td><td>Comes with it</td></tr></tbody></table></div>
+
+<h2>Add it in TiviBro</h2>
+<div class="steps"><div class="step"><div><h3>Install TiviBro</h3><p>From the Homebrew Channel on a rooted TV, or LG's Developer Mode without root.  <a href="https://tivibro.app" target="_blank" rel="noopener">tivibro.app</a> has both.</p></div></div><div class="step"><div><h3>Scan the QR code</h3><p>The first screen shows one.  It opens a page on your phone, so you type on a real keyboard instead of the remote.</p></div></div><div class="step"><div><h3>Paste the whole link</h3><p>Paste what your provider sent, as is.  An Xtream link with the username and password in it is split up for you.</p></div></div><div class="step"><div><h3>Add the guide, if it's M3U</h3><p>Paste the XMLTV link too.  With Xtream and Stalker, the guide comes along by itself.</p></div></div></div>
+
+<h2>When the guide is empty or wrong</h2>
+<ul>
+<li><b class="c-wh">No XMLTV link.</b>  An M3U link alone has no guide.  Ask your provider for one.</li>
+<li><b class="c-wh">IDs that don't match.</b>  Each channel's <code>tvg-id</code> in the playlist has to match a channel in the guide.  When a few channels are blank, that's usually why.</li>
+<li><b class="c-wh">Shows off by an hour or more.</b>  Check the TV's time zone and automatic time setting first.</li>
+<li><b class="c-wh">Thousands of channels you'll never watch.</b>  TiviBro's web editor hides, sorts and renames them from a computer, as drafts you send to the TV when you're done.</li>
+</ul>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/guides/best-iptv-player-lg-tv/"><b>Top 5 IPTV players for LG</b><span>TiviMate, TiviBro and the rest</span></a><a class="card gcard" href="/tivibro/faq/"><b>TiviBro FAQ</b><span>Root, providers, backups, privacy</span></a><a class="card gcard" href="https://tivibro.app"><b>tivibro.app</b><span>Install TiviBro</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Can an LG TV play an M3U playlist without an app?</summary><div>No.  LG's own apps don't read M3U links or Xtream logins.  You need an IPTV player, like <a href="/tivibro/">TiviBro</a>.</div></details>
+<details class="faq"><summary>Which is better, Xtream Codes or M3U?</summary><div>Xtream, if your provider offers it.  It brings the guide, catch-up, movies and shows with it.  An M3U link is just the channel list, and the guide comes from a separate XMLTV link.</div></details>
+<details class="faq"><summary>Why is my TV guide empty?</summary><div>With M3U, the guide needs its own XMLTV link, and the channel IDs in the playlist have to match the guide's.  With Xtream, the provider's guide may just be slow to fill the first time.</div></details>
+<details class="faq"><summary>Where do I find my M3U link?</summary><div>In your provider's welcome email or account page.  Many Xtream providers also give an M3U link made from the same login.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

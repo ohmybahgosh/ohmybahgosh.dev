@@ -205,7 +205,7 @@ guide("usb-ethernet-adapter-lg-tv",
       h1="Which USB Ethernet adapter for an LG TV?",
       lead="Buy by chip, not by brand.  An adapter only works if the TV's kernel has a driver for its chip, and LG's kernels vary by model and firmware.",
       accent="#3ddc97", og="/assets/og/lg-usb-2-eth0.png", faq=ADP_FAQ, body=f"""
-{callout("<b>Safe picks.</b>  A gigabit adapter with a <b>Realtek RTL8153</b> or <b>ASIX AX88179</b> chip.  A <b>Realtek RTL8156</b> 2.5G adapter is fine too, but on a USB 2.0 port it's no faster.", "#3ddc97")}
+{callout("<b>Short answer.</b>  Buy by chip: a gigabit adapter with a <b>Realtek RTL8153</b> or <b>ASIX AX88179</b> chip.  A <b>Realtek RTL8156</b> 2.5G adapter is fine too, but on a USB 2.0 port it's no faster.  Plugged in, webOS treats it as a second connection, not the wired one: on a rooted TV, <a href=\"/lg-usb-2-eth0/\">LG-USB-2-ETH0</a> makes it the TV's real <code>eth0</code>, and fetches a driver if your kernel lacks one.", "#3ddc97")}
 
 <h2>The chips</h2>
 {table(["chip", "on LG TVs"], [
@@ -267,6 +267,8 @@ guide("ssh-into-lg-tv",
       h1="SSH into a rooted LG TV.",
       lead="How to turn SSH on, log in as root, switch to a key, copy files, and get back in when it breaks.",
       accent="#2dd4bf", og="/assets/og/ssh-doctor.png", faq=SSH_FAQ, body=f"""
+{callout("<b>Short answer.</b>  On a rooted TV, turn on <b>SSH Server</b> in the Homebrew Channel, then log in as <code>root</code> with the password <code>alpine</code>.  When it won't let you in, <a href=\"/ssh-doctor/\">SSH Doctor</a> fixes it from the TV with just the remote: keys, password, port and host key errors.", "#2dd4bf")}
+
 <h2>1. Turn SSH on</h2>
 <p>You need a rooted TV with the <a href="/install/">Homebrew Channel</a>.  Open it, select the gear icon, turn on <b class="c-wh">SSH Server</b>, and restart the TV.  While you're there, keeping <b class="c-wh">Telnet</b> on too gives you a way back in if SSH ever breaks.</p>
 
@@ -319,6 +321,8 @@ guide("homebrew-channel-repository",
       h1="Add a repository to the Homebrew Channel.",
       lead="Repositories are how apps that aren't in the default list get onto a rooted LG TV, and how they update from the TV.",
       faq=REPO_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Open the Homebrew Channel, select the gear icon, add the repository's address, and its apps show up in the list.  For TiviBro, LG-USB-2-ETH0, Entware, SSH Doctor and FW Block, the address is <code>https://ohmybahgosh.dev/repo</code>.", "#33e1ff")}
+
 <h2 id="install-hbc">Installing the Homebrew Channel</h2>
 <p>The Homebrew Channel isn't in LG's store.  The rooting tool installs it: <a href="https://rootmy.tv" target="_blank" rel="noopener">RootMyTV</a>, faultmanager-autoroot, crashd or DejaVuln, depending on your firmware.  Check yours at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a>, and see <a href="/guides/root-lg-tv-2026/">rooting an LG TV in 2026</a>.</p>
 
@@ -361,13 +365,15 @@ IPTV_FAQ = [
 ]
 guide("iptv-player-lg-tv",
       title="TiviMate for LG TV? The free webOS alternative with a real guide",
-      keywords=["tivimate for lg tv", "tivimate alternative for lg webos", "best iptv player lg tv", "lg webos iptv player free", "xtream iptv lg tv", "m3u player lg tv"],
+      keywords=["tivimate for lg tv", "tivimate alternative for lg webos", "lg webos iptv player free", "xtream iptv lg tv", "m3u player lg tv"],
       desc="TiviMate doesn't run on LG webOS TVs.  TiviBro is a free, open-source IPTV player for webOS 4 and newer with a TiviMate-style guide, catch-up and a web editor.",
       card=("An IPTV player for LG TVs", "Looking for TiviMate on webOS? Here's the alternative"),
       h1="Looking for TiviMate on an LG TV?",
       lead="TiviMate is Android-only, so it won't install on webOS.  TiviBro is a free, open-source IPTV player built for LG TVs, with the same guide-first layout.",
       accent="#5b8cff", og="/assets/og/tivibro.png", faq=IPTV_FAQ,
       about={"@type": "SoftwareApplication", "name": "TiviBro", "url": "https://tivibro.app", "operatingSystem": "LG webOS"}, body=f"""
+{callout("<b>Short answer.</b>  No, TiviMate is Android-only and won't install on webOS.  On the TV itself, <a href=\"/tivibro/\">TiviBro</a> is a free player in TiviMate's style for webOS 4 and newer, rooted or not.  Want TiviMate anyway?  It runs on a Google TV or Fire TV stick in the LG's HDMI port: see the <a href=\"/guides/best-iptv-player-lg-tv/\">top 5 IPTV players for LG</a>.", "#5b8cff")}
+
 {callout("<b>TiviBro's home is <a href=\"https://tivibro.app\" target=\"_blank\" rel=\"noopener\">tivibro.app</a>.</b>  Install steps, the full feature list, the Android phone app and the user guide are all there.  This page is the short version.", "#5b8cff")}
 
 <h2>What it does</h2>
@@ -419,6 +425,8 @@ guide("root-lg-tv-2026",
       lead="Whether an LG TV can be rooted comes down to its exact firmware build.  Here's where things stand, model by model, as of November 2026.",
       accent="#ff3ea5", keywords=["root lg tv 2026", "webos 26 root", "lg tv root check", "root lg tv webos 25", "can i root my tv lg"],
       faq=ROOT_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Some can.  It comes down to the exact firmware: webOS 26 builds from before October 10, 2026 still root, later ones don't.  Once you're rooted, turn on <a href=\"/fw-block/\">FW Block</a> right away, so one update can't take root away for good.", "#ff3ea5")}
+
 {callout("<b>Check your exact firmware first</b> at <a href=\"https://cani.rootmy.tv/\" target=\"_blank\" rel=\"noopener\">cani.rootmy.tv</a> (Settings, then Support, then Software Update shows the version).  And if your TV is rootable today, turn off automatic updates now: one update can close the door for good.", "#ff3ea5")}
 
 <h2>The short version</h2>
@@ -471,6 +479,8 @@ guide("block-lg-tv-updates",
       lead="A firmware update can remove root, and patched firmware can't be rooted again.  Here's every layer of blocking, from your router to the TV itself.",
       accent="#ff3ea5", keywords=["lg tv block updates", "lg tv block updates dns", "pihole block lg tv updates", "lg tv disable updates", "lg tv stop updates"],
       faq=UPD_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Turn off automatic updates, then block LG's update servers on Pi-hole or your router.  On a rooted TV, <a href=\"/fw-block/\">FW Block</a> does all of it with one switch, plus what DNS and the Homebrew Channel miss: <code>nsu.lge.com</code>, a server reached by IP address, Remote Support and phone app updates.", "#ff2d55")}
+
 <h2>1. On any TV: turn off automatic updates</h2>
 <p>In the TV's settings, under Support and Software Update, turn off automatic updates.  It's the first layer, but not enough on its own.</p>
 
@@ -535,6 +545,8 @@ guide("lg-tv-wake-on-lan",
       lead="A USB Ethernet adapter makes an LG TV two to three times faster on the wire.  But Wake on LAN, <b class=\"c-wh\">Turn on via Wi-Fi</b>, the ThinQ app and Home Assistant can't wake the TV through it.  Here's why, and how to keep all of them working on a rooted TV.",
       accent="#33e1ff", og="/assets/og/lg-usb-2-eth0.png", keywords=["lg tv wake on lan", "lg tv turn on via wifi", "lg tv wake on lan usb ethernet", "home assistant turn on lg tv", "lg tv wol not working"],
       faq=WAKE_FAQ, body=f"""
+{callout("<b>Short answer.</b>  The adapter can't wake the TV, because standby resets the USB ports.  Keep Wi-Fi connected and send the wake-up to the Wi-Fi MAC address.  On a rooted TV, <a href=\"/lg-usb-2-eth0/\">LG-USB-2-ETH0</a>'s <b>Wi-Fi wake in standby</b> keeps that working while the adapter stays the main connection.", "#3ddc97")}
+
 <h2>Why the adapter can't wake the TV</h2>
 <p>Standby resets the TV's USB ports, so the adapter is gone by the time a wake-up packet arrives.  LG's network wake listens on Wi-Fi instead, and on the built-in port when it has a cable.  So with an adapter, Wi-Fi is how the TV gets woken.</p>
 <p>Two things get in the way of that:</p>
@@ -605,6 +617,8 @@ guide("tailscale-lg-tv",
       lead="On a rooted LG TV, Tailscale runs on the TV itself: one press in the Entware app, a QR code to sign in, and the TV is on your tailnet.",
       accent="#ffb547", og="/assets/og/webos-entware-installer.png", keywords=["tailscale lg tv", "tailscale lg tv webos", "install tailscale lg tv", "use tailscale on lg tv"],
       faq=TS_FAQ, body=f"""
+{callout("<b>Short answer.</b>  There's no Tailscale app in LG's store.  On a rooted TV, install <a href=\"/webos-entware-installer/\">Entware</a>, press <b>Tailscale</b> in its Add-ons, and scan the QR code to sign in.", "#ff3ea5")}
+
 <h2>What you need</h2>
 <ul>
 <li>A rooted LG TV with the Homebrew Channel (<a href="/install/">install guide</a>).</li>
@@ -651,6 +665,8 @@ guide("lg-tv-file-sharing-samba",
       lead="Copy files to the TV from Windows or Mac, manage them from your phone's browser, and play them on other devices.  On a rooted TV, each is one press.",
       accent="#ffb547", og="/assets/og/webos-entware-installer.png", keywords=["samba lg tv", "lg tv samba share", "smb lg tv", "lg tv file browser", "lg tv dlna server"],
       faq=SMB_FAQ, body=f"""
+{callout("<b>Short answer.</b>  An LG TV can play from a share, but can't host one.  On a rooted TV, <a href=\"/webos-entware-installer/\">Entware</a> adds a Samba share, File Browser and a DLNA server, one press each in its Add-ons.", "#ff3ea5")}
+
 <h2>The three add-ons</h2>
 {table(["add-on", "what you get", "where"], [
     ["<b>Samba</b>", "Share <code>/opt/files</code> with Windows and Mac, SMB2 and up.  It shows up in Windows' Network.", "<code>\\\\&lt;TV IP&gt;\\TV</code>, user <code>tv</code>"],
@@ -674,6 +690,333 @@ guide("lg-tv-file-sharing-samba",
 {related([("/guides/tailscale-lg-tv/", "Tailscale on an LG TV", "Reach the TV from anywhere"),
           ("/webos-entware-installer/", "Entware", "Linux packages and add-ons"),
           ("/install/", "Install guide", "Root, Homebrew Channel, the repo")])}
+""")
+
+# --- top 5 IPTV players
+TOP5_FAQ = [
+    ("Can I install TiviMate on an LG TV?",
+     "No.  TiviMate is built for Android TV and Fire TV, and LG TVs run webOS.  Plug a Google TV or Fire TV stick into one of the LG's HDMI ports and run it there, or use a player that runs on webOS, like TiviBro."),
+    ("What's the best IPTV player that runs on the LG TV itself?",
+     "TiviBro, if you want TiviMate's guide-first layout: it's free, open source and made for webOS 4 and newer.  It's still in alpha, so IBO Player and Smart IPTV are the longer-running picks."),
+    ("Do any of these come with channels?",
+     "No.  They're players.  Each one plays the subscription or playlist you already have: an Xtream Codes login, an M3U link or a Stalker portal."),
+    ("Is there a free IPTV player for LG TVs?",
+     "TiviBro is free with every feature.  Most others in LG's store are free to try and then ask for a yearly or one-time activation."),
+]
+guide("best-iptv-player-lg-tv",
+      title="Best IPTV player for LG TV in 2026: the top 5 for webOS",
+      keywords=["best iptv player lg tv", "best iptv app for lg webos", "iptv app lg smart tv", "tivimate lg tv", "top iptv players lg tv 2026", "free iptv player lg tv"],
+      desc="The 5 best IPTV players for LG webOS TVs in 2026: TiviMate (on a stick), TiviBro, IBO Player, Smart IPTV and IPTV Smarters, with what each is good at.",
+      card=("The 5 best IPTV players for LG TVs", "TiviMate on a stick, and the best that run on webOS"),
+      h1="The 5 best IPTV players for an LG TV.",
+      lead="Ranked by how good they are to live with every day.  One catch up front: the best IPTV player there is doesn't run on webOS, so here's how to use it anyway, and what comes closest on the TV itself.",
+      accent="#5b8cff", og="/assets/og/tivibro.png", faq=TOP5_FAQ, body=f"""
+{callout("<b>Short answer.</b>  <b>TiviMate</b> is #1, but it's Android-only, so on an LG it runs on a Google TV or Fire TV stick in an HDMI port.  The best player that runs on the LG itself is <a href=\"/tivibro/\">TiviBro</a>: free, open source, and built in TiviMate's style.", "#5b8cff")}
+
+<h2>The list</h2>
+{table(["player", "runs on the LG?", "logins", "price"], [
+    ["1. <b>TiviMate</b>", "No, on a Google TV or Fire TV stick", "Xtream, M3U, Stalker", "Free, Premium paid"],
+    ["2. <b><a href=\"/tivibro/\">TiviBro</a></b>", "Yes, webOS 4 and newer", "Xtream, M3U, Stalker", "Free, every feature"],
+    ["3. <b>IBO Player</b>", "Yes, LG's store", "Xtream, M3U", "Trial, then yearly or lifetime"],
+    ["4. <b>Smart IPTV</b>", "Yes, LG's store", "M3U", "Trial, then one-time"],
+    ["5. <b>IPTV Smarters</b>", "Yes, LG's store", "Xtream, M3U", "Check the listing"],
+])}
+<p class="dim" style="font-size:14px">From each app's own site and store listing, November 2026.  Prices change, so check before you pay.</p>
+
+<h2>1. TiviMate, on a stick</h2>
+<p>TiviMate is the one people mean when they ask for the best.  The guide is the home screen, it handles huge playlists, and Premium adds recording, several playlists and more.  The catch: it's an Android app, for Android TV, Google TV and Fire TV.  LG TVs run webOS, so it won't install, and no trick changes that.</p>
+<p>The way to use it on an LG is a streaming stick in an HDMI port, like a Google TV Streamer or a Fire TV Stick.  The TV's remote can drive it over HDMI-CEC, and the stick does the rest.  Give the stick a good connection too: its own Ethernet adapter, or strong Wi-Fi.</p>
+
+<h2>2. TiviBro, the closest thing on webOS</h2>
+<p><a href="/tivibro/">TiviBro</a> is a free, open-source IPTV player made for LG TVs, with TiviMate's guide-first layout.  No stick, no extra remote, no activation fee.</p>
+<ul>
+<li><b class="c-wh">Set up from your phone.</b>  Scan the QR code on the first screen and paste your provider's whole link.  It fills in the rest.</li>
+<li><b class="c-wh">Catch-up, movies and shows, one search</b> across everything, with posters and resume.</li>
+<li><b class="c-wh">Sports that read right.</b>  Events crammed into channel names show as the game, at its real time, and <b class="c-wh">My teams</b> gathers your teams' games.</li>
+<li><b class="c-wh">A web editor and an Android app.</b>  Clean up thousands of channels from a browser, and use your phone as a remote.</li>
+</ul>
+<p>It runs on webOS 4 and newer, installs through the Homebrew Channel on a rooted TV or LG's Developer Mode without root, and it's in alpha, so expect some rough edges.  Get it at <a href="https://tivibro.app" target="_blank" rel="noopener">tivibro.app</a>.</p>
+
+<h2>3. IBO Player</h2>
+<p>In LG's own store, cheap, and it takes an Xtream login or an M3U link.  You add your playlist on IBO's website using the code the TV shows.  Big playlists can feel slow on older TVs, and the layout is a list more than a guide.</p>
+
+<h2>4. Smart IPTV</h2>
+<p>One of the oldest players on LG TVs, and still a steady one.  It plays M3U links, loaded from its website by the TV's MAC address, with a one-time activation after the trial.  No Xtream login screen: use your provider's M3U link instead.</p>
+
+<h2>5. IPTV Smarters</h2>
+<p>The app many providers point you to, with an Xtream login and a familiar layout from phones and Fire TV.  The LG version and its pricing have changed over the years, so check the store listing for yours.</p>
+
+<h2>Honorable mention: SS IPTV</h2>
+<p>Free, long-running and simple.  Fine for a small playlist, rougher with a big one.</p>
+
+<h2>How to pick</h2>
+<ul>
+<li><b class="c-wh">Want TiviMate, exactly?</b>  Get a stick.  It's the only way.</li>
+<li><b class="c-wh">Want it on the TV, free, with a real guide?</b>  <a href="/tivibro/">TiviBro</a>.</li>
+<li><b class="c-wh">Want something from LG's store with a long track record?</b>  IBO Player or Smart IPTV.</li>
+</ul>
+{related([("/guides/iptv-player-lg-tv/", "TiviMate for LG TV?", "TiviBro and TiviMate, side by side"),
+          ("/guides/m3u-playlist-lg-tv/", "Add an M3U playlist to an LG TV", "Xtream, M3U and the guide"),
+          ("https://tivibro.app", "tivibro.app", "Install TiviBro")])}
+""")
+
+# --- M3U / Xtream on LG
+M3U_FAQ = [
+    ("Can an LG TV play an M3U playlist without an app?",
+     "No.  LG's own apps don't read M3U links or Xtream logins.  You need an IPTV player, like <a href=\"/tivibro/\">TiviBro</a>."),
+    ("Which is better, Xtream Codes or M3U?",
+     "Xtream, if your provider offers it.  It brings the guide, catch-up, movies and shows with it.  An M3U link is just the channel list, and the guide comes from a separate XMLTV link."),
+    ("Why is my TV guide empty?",
+     "With M3U, the guide needs its own XMLTV link, and the channel IDs in the playlist have to match the guide's.  With Xtream, the provider's guide may just be slow to fill the first time."),
+    ("Where do I find my M3U link?",
+     "In your provider's welcome email or account page.  Many Xtream providers also give an M3U link made from the same login."),
+]
+guide("m3u-playlist-lg-tv",
+      title="How to add an M3U playlist or Xtream login to an LG TV",
+      keywords=["m3u playlist lg tv", "how to add m3u to lg tv", "xtream codes lg tv", "iptv guide lg tv", "xmltv epg lg tv", "stalker portal lg tv"],
+      desc="Add an IPTV subscription to an LG webOS TV: Xtream Codes login, M3U link or Stalker portal, plus how to get the TV guide (EPG) working.",
+      card=("Add an M3U or Xtream login to an LG TV", "Your IPTV subscription and its guide, on webOS"),
+      h1="Add an M3U playlist or Xtream login to an LG TV.",
+      lead="LG TVs don't play IPTV links on their own.  You need a player app, your provider's login, and the guide to match.  Here's all three.",
+      accent="#5b8cff", og="/assets/og/tivibro.png", faq=M3U_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Install an IPTV player, then give it your provider's login.  In <a href=\"/tivibro/\">TiviBro</a>, scan the QR code on its first screen with your phone and paste your provider's whole link: it fills in the rest.", "#5b8cff")}
+
+<h2>The three kinds of login</h2>
+{table(["kind", "what your provider gives you", "the guide"], [
+    ["<b>Xtream Codes</b>", "A server address, a username and a password", "Comes with it"],
+    ["<b>M3U</b>", "One link, often ending in <code>.m3u</code> or with <code>get.php</code> in it", "A separate XMLTV link"],
+    ["<b>Stalker portal</b>", "A portal address, tied to a MAC address", "Comes with it"],
+])}
+
+<h2>Add it in TiviBro</h2>
+{steps([("Install TiviBro", "From the Homebrew Channel on a rooted TV, or LG's Developer Mode without root.  <a href=\"https://tivibro.app\" target=\"_blank\" rel=\"noopener\">tivibro.app</a> has both."),
+        ("Scan the QR code", "The first screen shows one.  It opens a page on your phone, so you type on a real keyboard instead of the remote."),
+        ("Paste the whole link", "Paste what your provider sent, as is.  An Xtream link with the username and password in it is split up for you."),
+        ("Add the guide, if it's M3U", "Paste the XMLTV link too.  With Xtream and Stalker, the guide comes along by itself.")])}
+
+<h2>When the guide is empty or wrong</h2>
+<ul>
+<li><b class="c-wh">No XMLTV link.</b>  An M3U link alone has no guide.  Ask your provider for one.</li>
+<li><b class="c-wh">IDs that don't match.</b>  Each channel's <code>tvg-id</code> in the playlist has to match a channel in the guide.  When a few channels are blank, that's usually why.</li>
+<li><b class="c-wh">Shows off by an hour or more.</b>  Check the TV's time zone and automatic time setting first.</li>
+<li><b class="c-wh">Thousands of channels you'll never watch.</b>  TiviBro's web editor hides, sorts and renames them from a computer, as drafts you send to the TV when you're done.</li>
+</ul>
+{related([("/guides/best-iptv-player-lg-tv/", "Top 5 IPTV players for LG", "TiviMate, TiviBro and the rest"),
+          ("/tivibro/faq/", "TiviBro FAQ", "Root, providers, backups, privacy"),
+          ("https://tivibro.app", "tivibro.app", "Install TiviBro")])}
+""")
+
+# --- Ethernet not working
+NOETH_FAQ = [
+    ("Why does my LG TV say the wired connection is not connected?",
+     "Most often a loose cable, a bad port on the router or switch, or a TV that needs a full power cycle.  If the cable is in a USB Ethernet adapter instead, webOS calls that <code>eth1</code> and doesn't show it as the wired connection at all."),
+    ("Why does my LG TV keep dropping its wired connection?",
+     "Try a different cable and router port, and reserve an address for the TV on the router.  Some mesh systems have had trouble with LG TVs, so check the router's firmware too."),
+    ("Can I replace a dead Ethernet port on an LG TV?",
+     "Not the port itself, short of a board repair.  On a rooted TV, a USB Ethernet adapter made the TV's <code>eth0</code> with <a href=\"/lg-usb-2-eth0/\">LG-USB-2-ETH0</a> takes over as the wired connection, and it's faster too."),
+]
+guide("lg-tv-ethernet-not-working",
+      title="LG TV Ethernet not working? Fix \"wired connection not connected\"",
+      keywords=["lg tv ethernet not working", "lg tv wired connection not connected", "lg tv wired lan cable disconnected", "lg tv ethernet keeps disconnecting", "lg tv not detecting ethernet", "lg tv usb ethernet not connected"],
+      desc="LG TV's wired connection says not connected or keeps dropping?  The fixes in order, why a USB adapter shows as not connected, and how to replace a flaky port.",
+      card=("LG TV Ethernet not working", "Not connected, keeps dropping, or a USB adapter it won't use"),
+      h1="LG TV Ethernet not working?",
+      lead="\"Not connected\", \"Wired LAN cable disconnected\", or a connection that comes and goes.  Here are the fixes in the order worth trying them.",
+      accent="#3ddc97", og="/assets/og/lg-usb-2-eth0.png", faq=NOETH_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Check the cable and the port lights, then unplug the TV from the wall for a minute.  If the built-in port is flaky or dead, or you plugged in a USB adapter the TV won't use, a rooted TV can make that adapter its real wired connection with <a href=\"/lg-usb-2-eth0/\">LG-USB-2-ETH0</a>.", "#3ddc97")}
+
+<h2>The fixes, in order</h2>
+{steps([("Look at the lights", "The port on the router or switch should light up with the TV on.  No light, no link: swap the cable or the router port first."),
+        ("Unplug the TV for a minute", "Turning it off with the remote isn't a full restart, because the TV keeps parts of itself running for a fast start.  Unplug it from the wall, wait a minute, plug it back in."),
+        ("Restart the router", "Especially after a router or mesh change, or when other wired devices act up too."),
+        ("Set the address by hand, or reserve one", "In the TV's network settings, edit the wired connection and set the IP, gateway and DNS yourself, or reserve an address for the TV on the router."),
+        ("Reset the network settings", "As a last step before a factory reset, look in the TV's support or general settings for a network reset.")])}
+
+<h2>Plugged in a USB Ethernet adapter, and it says not connected?</h2>
+<p>That's expected.  webOS names a USB adapter <code>eth1</code>, but its settings and many apps only look at <code>eth0</code>, the built-in port.  So the adapter can be working while the TV says there's no wired connection, and some apps, like Paramount+, refuse to play over it.</p>
+<p>On a rooted TV, <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> makes the adapter <code>eth0</code> and parks the built-in port as <code>eth2</code>.  Settings show the wired connection, apps use it, and you get about 250 to 330 Mbit/s instead of about 95.  If the adapter isn't detected at all, its chip may have no driver in your kernel: the app can fetch one built for it.</p>
+
+<h2>A port that keeps dropping</h2>
+<ul>
+<li>A different, short cable rules out the cable.  Cat 5e is plenty for this port.</li>
+<li>Plug straight into the router, not a powerline adapter or an old switch, to rule those out.</li>
+<li>If it's still dropping and the TV is rooted, an adapter as <code>eth0</code> moves you off the built-in port for good.  See <a href="/guides/usb-ethernet-adapter-lg-tv/">which adapter to buy</a>.</li>
+</ul>
+{related([("/lg-usb-2-eth0/", "LG-USB-2-ETH0", "A USB adapter as the TV's eth0"),
+          ("/guides/usb-ethernet-adapter-lg-tv/", "Which USB adapter to buy", "Chips with drivers, ones to skip"),
+          ("/guides/lg-tv-ethernet-100mbps/", "Stuck at 100 Mbps?", "Why the port is slow")])}
+""")
+
+# --- Plex / Jellyfin buffering
+PLEX_FAQ = [
+    ("Why does Plex buffer on my LG TV but not on my computer?",
+     "The LG's wired port is 100 Mbit/s, about 95 in practice, and a 4K remux can peak above that.  A computer with a gigabit port never hits the ceiling."),
+    ("Is Wi-Fi better than Ethernet for Plex on an LG TV?",
+     "It can be, on Wi-Fi 5 or 6 close to the router.  Test the same file both ways.  Wi-Fi is less steady, so it can buffer in different places."),
+    ("How do I see a file's bitrate?",
+     "In Plex, the file's info page shows it, and the server dashboard shows it while it plays.  In Jellyfin, turn on playback info while it plays."),
+    ("Will Direct Play fix it?",
+     "Direct Play stops the server from converting, which helps a weak server.  It doesn't make the TV's port any faster: a file above about 95 Mbit/s still needs a faster connection."),
+]
+guide("lg-tv-plex-4k-buffering",
+      title="Plex or Jellyfin buffering on an LG TV? Blame the 100 Mbps port",
+      keywords=["plex buffering lg tv", "jellyfin buffering lg tv", "lg tv 4k remux buffering", "plex lg tv ethernet slow", "lg tv direct play buffering", "lg tv bitrate limit"],
+      desc="4K remuxes buffer on LG TVs over Ethernet because the port tops out near 95 Mbit/s.  How to check the bitrate, and the fixes, up to about 300 Mbit/s wired.",
+      card=("Plex or Jellyfin buffering on an LG TV", "4K remuxes vs a 100 Mbps port, and the fixes"),
+      h1="Plex or Jellyfin buffering on an LG TV?",
+      lead="The file plays fine everywhere else.  On the LG, over a cable, it stutters at the same busy scenes.  That's usually not Plex or Jellyfin.  It's the port.",
+      accent="#3ddc97", og="/assets/og/lg-usb-2-eth0.png", faq=PLEX_FAQ, body=f"""
+{callout("<b>Short answer.</b>  LG's wired port carries about 95 Mbit/s, and 4K remuxes can peak above that.  Try strong Wi-Fi, or play a lower-bitrate version.  On a rooted TV, a USB Ethernet adapter made the TV's <code>eth0</code> with <a href=\"/lg-usb-2-eth0/\">LG-USB-2-ETH0</a> gives it about 250 to 330 Mbit/s.", "#3ddc97")}
+
+<h2>Is it the port?</h2>
+<p>Look at the file's bitrate.  An average near or over 80 Mbit/s will hit the port's ceiling in busy scenes, because peaks run well above the average.  Signs it's the port:</p>
+<ul>
+<li>It buffers at the same scenes every time, and only on big files.</li>
+<li>The server isn't converting (Direct Play), and its CPU is quiet.</li>
+<li>A lower-bitrate version of the same movie plays fine.</li>
+</ul>
+
+<h2>What needs what</h2>
+{table(["what you're playing", "typical bitrate"], [
+    ["Netflix, YouTube and other 4K streaming", "about 15 to 25 Mbit/s"],
+    ["1080p Blu-ray remux", "about 20 to 40 Mbit/s"],
+    ["4K Blu-ray remux", "about 50 to 80 Mbit/s on average, peaks past 100"],
+    ["Built-in LG port", "about 95 Mbit/s, the ceiling"],
+    ["USB adapter as <code>eth0</code>, USB 2.0", "about 250 to 330 Mbit/s"],
+])}
+
+<h2>The fixes</h2>
+<ul>
+<li><b class="c-wh">Wi-Fi.</b>  A strong Wi-Fi 5 or 6 signal can beat the port.  Test the same file both ways.</li>
+<li><b class="c-wh">A smaller version.</b>  Keep a 4K encode at a lower bitrate for this TV, or let the server convert, if it's strong enough.</li>
+<li><b class="c-wh">Sound the TV can't play.</b>  DTS on 2020 to 2022 LG models makes the server convert the stream.  Pick another audio track.</li>
+<li><b class="c-wh">A faster wired connection, on a rooted TV.</b>  <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a> makes a USB adapter the TV's <code>eth0</code>, so Plex, Jellyfin and every other app use it.  Measured on TVs from a 2020 UN7300 to a 2026 G6.</li>
+</ul>
+{related([("/lg-usb-2-eth0/", "LG-USB-2-ETH0", "About 300 Mbit/s wired on a rooted TV"),
+          ("/guides/lg-tv-ethernet-100mbps/", "Stuck at 100 Mbps?", "Why the port is slow"),
+          ("/guides/usb-ethernet-adapter-lg-tv/", "Which USB adapter to buy", "Chips with drivers, ones to skip")])}
+""")
+
+# --- update pop-up
+POP_FAQ = [
+    ("How do I stop my LG TV asking to update?",
+     "Turn off automatic updates under Support and Software Update.  A prompt for an update the TV already found can keep coming back.  Blocking LG's update servers on your router stops new checks, and on a rooted TV <a href=\"/fw-block/\">FW Block</a> clears the waiting one."),
+    ("My LG TV updated with automatic updates off.  How?",
+     "Turning off automatic updates doesn't close every path.  An update can still come through a Remote Support session or a paired phone app.  FW Block closes both on a rooted TV."),
+    ("Is it safe to skip LG updates?",
+     "Updates bring fixes and app support, so on a TV you don't plan to root, staying current is reasonable.  On a rooted TV, an update can remove root for good, which is why people block them."),
+]
+guide("lg-tv-update-notification",
+      title="Stop the LG TV software update pop-up (and surprise updates)",
+      keywords=["lg tv software update notification", "stop lg tv update popup", "lg tv keeps asking to update", "lg tv updated by itself", "lg tv automatic update off still updating"],
+      desc="Turn off LG TV's update prompts, why the pop-up comes back with automatic updates off, how TVs still update anyway, and how a rooted TV stops all of it.",
+      card=("Stop the LG TV update pop-up", "Prompts that come back, and updates that happen anyway"),
+      h1="Stop the LG TV update pop-up.",
+      lead="Automatic updates are off, and the TV still asks.  Or worse, it updated anyway.  Here's why both happen, and how to stop them.",
+      accent="#ff2d55", og="/assets/og/fw-block.png", faq=POP_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Turn off automatic updates, and block LG's update servers on your router.  On a rooted TV, <a href=\"/fw-block/\">FW Block</a> does it all with one switch: it turns off the check, deletes an update the TV already found so the prompt goes away, and cancels a download that starts anyway.", "#ff2d55")}
+
+<h2>Why the prompt comes back</h2>
+<p>Turning off automatic updates stops the install, not always the check.  Once the TV has found an update, it can keep reminding you about it.  To stop the reminders, the TV has to stop checking, or forget what it found.</p>
+
+<h2>Stop it on any TV</h2>
+{steps([("Turn off automatic updates", "Settings, then Support, then Software Update."),
+        ("Block the servers", "Add LG's update servers to Pi-hole, AdGuard Home or your router's DNS blocklist.  The full list is in <a href=\"/guides/block-lg-tv-updates/\">Block LG TV firmware updates</a>."),
+        ("Restart the TV", "Unplug it for a minute so it starts fresh with the block in place.")])}
+
+<h2>How a TV updates anyway</h2>
+<ul>
+<li><b class="c-wh">A server DNS can't block.</b>  The updater also reaches one by IP address, <code>156.147.69.32</code>.</li>
+<li><b class="c-wh">LG Remote Support.</b>  A support session can hand the updater a download directly.</li>
+<li><b class="c-wh">A paired phone app</b> can push an update from the phone, past every server block.</li>
+</ul>
+
+<h2>On a rooted TV: FW Block</h2>
+<p><a href="/fw-block/">FW Block</a> is one switch in a Homebrew Channel app.  It blocks all seven update servers and the IP address, blocks Remote Support, takes the update calls away from phone apps while casting and the phone remote keep working, clears an update already found, and cancels a download within 30 seconds with a notice on the TV.  It checks everything every 10 minutes and at every start.</p>
+{related([("/fw-block/", "FW Block", "Block LG firmware updates from one switch"),
+          ("/guides/block-lg-tv-updates/", "Block LG TV firmware updates", "Every layer, router to TV"),
+          ("/guides/root-lg-tv-2026/", "Rooting an LG TV in 2026", "Which firmware is still rootable")])}
+""")
+
+# --- what to do with a rooted TV
+ROOTED_FAQ = [
+    ("Is rooting an LG TV worth it?",
+     "If you want anything on this page, yes, and many TVs are only rootable on older firmware, so the chance can close.  If you only watch the built-in apps, there's little to gain."),
+    ("Does a rooted TV still get LG's apps?",
+     "Yes.  Netflix, YouTube and LG's store keep working.  Rooting adds the Homebrew Channel next to them."),
+    ("Can I undo root?",
+     "Most of what these apps add can be removed from the apps themselves.  A firmware update usually removes root too, but current firmware can't be rooted again."),
+]
+guide("what-to-do-with-rooted-lg-tv",
+      title="What can you do with a rooted LG TV? 10 useful things",
+      keywords=["rooted lg tv what can you do", "is rooting lg tv worth it", "lg tv root benefits", "webos homebrew apps", "things to do with rooted lg tv"],
+      desc="What rooting an LG webOS TV gets you: faster Ethernet, blocked updates, Linux packages with Entware, Tailscale, file sharing, downloads, SSH and more.",
+      card=("What to do with a rooted LG TV", "Ten things rooting gets you"),
+      h1="What can you do with a rooted LG TV?",
+      lead="Rooting gets you the Homebrew Channel and a root shell.  Here's what people actually do with them, and the app for each.",
+      accent="#ff3ea5", og="/assets/og/webos-entware-installer.png", faq=ROOTED_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Homebrew apps, SSH, a faster wired connection, blocked updates, and a whole Linux toolbox.  <a href=\"/webos-entware-installer/\">Entware</a> is the toolbox: over 1,100 packages and one-press add-ons like Tailscale, Samba, Syncthing and Transmission, all from a TV app.", "#ff3ea5")}
+
+<h2>Ten things</h2>
+<ol>
+<li><b class="c-wh">Block firmware updates</b>, so an update can't take root away.  <a href="/fw-block/">FW Block</a>.</li>
+<li><b class="c-wh">Get about three times faster wired internet</b> with a USB adapter as the TV's <code>eth0</code>.  <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>.</li>
+<li><b class="c-wh">Install a real Linux toolbox</b>: htop, tmux, git, Python, ffmpeg and over 1,100 more.  <a href="/webos-entware-installer/">Entware</a>.</li>
+<li><b class="c-wh">Reach the TV from anywhere</b> with Tailscale.  <a href="/guides/tailscale-lg-tv/">Tailscale on an LG TV</a>.</li>
+<li><b class="c-wh">Share files</b> with Windows and Mac, and manage them from your phone.  <a href="/guides/lg-tv-file-sharing-samba/">Samba, File Browser and DLNA</a>.</li>
+<li><b class="c-wh">Download straight to the TV</b> with Transmission, aria2 or yt-dlp.  <a href="/guides/download-to-lg-tv/">Downloads on an LG TV</a>.</li>
+<li><b class="c-wh">Keep folders in sync</b> with your phone and computers through Syncthing, an Entware add-on.</li>
+<li><b class="c-wh">Log in over SSH as root</b>, and fix it from the remote when it breaks.  <a href="/ssh-doctor/">SSH Doctor</a>.</li>
+<li><b class="c-wh">Install homebrew apps</b> from the Homebrew Channel and its repositories, like <a href="/tivibro/">TiviBro</a> for IPTV.  <a href="/guides/homebrew-channel-repository/">Adding a repository</a>.</li>
+<li><b class="c-wh">Script the TV itself</b>: inputs, volume, apps and notifications, through <code>luna-send</code>.  <a href="/luna-atlas/">Luna Atlas</a>.</li>
+</ol>
+
+<h2>Where to start</h2>
+<p>Check your firmware at <a href="https://cani.rootmy.tv/" target="_blank" rel="noopener">cani.rootmy.tv</a> and follow the <a href="/install/">install guide</a>.  Block updates first, then add <code>{REPO}</code> to the Homebrew Channel for everything else on this list.</p>
+{related([("/webos-entware-installer/", "Entware", "Linux packages and add-ons"),
+          ("/guides/root-lg-tv-2026/", "Rooting an LG TV in 2026", "Which firmware is still rootable"),
+          ("/install/", "Install guide", "Root, Homebrew Channel, the repo")])}
+""")
+
+# --- downloads on the TV
+DL_FAQ = [
+    ("Where do downloads go?",
+     "Transmission saves to <code>/opt/files/Downloads</code>.  With yt-dlp and aria2, you choose: somewhere in <code>/opt/files</code>, or a USB drive under <code>/opt/files/USB</code>."),
+    ("Can I watch what I downloaded on the TV?",
+     "Yes.  Save to a USB drive and open it in the TV's own media player, or play it on other devices with Entware's DLNA add-on."),
+    ("Does Transmission keep running when the TV is off?",
+     "Count on it only while the TV is on.  In standby, webOS stops most of what runs on it, so leave big downloads for when the TV is in use."),
+]
+guide("download-to-lg-tv",
+      title="Download straight to an LG TV: Transmission, aria2 and yt-dlp",
+      keywords=["transmission lg tv", "torrent client lg tv webos", "yt-dlp lg tv", "download manager lg tv", "download to lg tv usb", "aria2 webos"],
+      desc="Download files straight to a rooted LG webOS TV: Transmission with a web page and a watch folder, plus aria2 and yt-dlp, all from Entware.",
+      card=("Downloads on an LG TV", "Transmission, aria2 and yt-dlp on a rooted TV"),
+      h1="Download straight to an LG TV.",
+      lead="No computer in the middle.  On a rooted LG TV, Entware gives you a torrent client with a web page, a download manager and yt-dlp.",
+      accent="#ff3ea5", og="/assets/og/webos-entware-installer.png", faq=DL_FAQ, body=f"""
+{callout("<b>Short answer.</b>  Install <a href=\"/webos-entware-installer/\">Entware</a> on a rooted TV, then press <b>Transmission</b> in its Add-ons.  You get a web page at <code>http://&lt;TV IP&gt;:9091</code> and downloads in <code>/opt/files/Downloads</code>.  aria2 and yt-dlp are one install each.", "#ff3ea5")}
+
+<h2>Transmission</h2>
+<p>The Transmission add-on sets it up for webOS: a password made on the TV, downloads saved to <code>/opt/files/Downloads</code>, and a <code>Downloads/Watch</code> folder where a dropped torrent file starts by itself.  Open the web page from your phone or computer, with the address and password from the TV app's Add-ons.</p>
+
+<h2>yt-dlp and aria2</h2>
+<p>From the TV app's Packages, or over SSH:</p>
+<div class="code"><pre><span class="pr">$ </span>opkg install yt-dlp aria2</pre></div>
+<p>Then save where you'll watch it, like a USB drive:</p>
+<div class="code"><pre><span class="pr">$ </span>yt-dlp -P /opt/files/USB/&lt;drive&gt; &lt;video link&gt;
+<span class="pr">$ </span>aria2c -d /opt/files/Downloads &lt;file link&gt;</pre></div>
+
+<h2>Watch it</h2>
+<ul>
+<li>On a USB drive, the TV's own media player finds it.</li>
+<li>With Entware's <b class="c-wh">DLNA</b> add-on, other TVs, consoles and VLC can play it too.</li>
+<li>Add <b class="c-wh">File Browser</b> to grab files from your phone, or <a href="/guides/tailscale-lg-tv/">Tailscale</a> to reach them away from home.</li>
+</ul>
+<p class="dim" style="font-size:14px">Only download what you have the right to.</p>
+{related([("/webos-entware-installer/", "Entware", "Linux packages and add-ons"),
+          ("/guides/lg-tv-file-sharing-samba/", "File sharing on an LG TV", "Samba, File Browser and DLNA"),
+          ("/guides/what-to-do-with-rooted-lg-tv/", "What to do with a rooted TV", "Ten things rooting gets you")])}
 """)
 
 # --- guides index

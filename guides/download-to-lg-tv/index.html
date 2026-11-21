@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Download straight to an LG TV: Transmission, aria2 and yt-dlp</title>
+<meta name="description" content="Download files straight to a rooted LG webOS TV: Transmission with a web page and a watch folder, plus aria2 and yt-dlp, all from Entware.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/download-to-lg-tv/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611g">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="Download straight to an LG TV: Transmission, aria2 and yt-dlp">
+<meta property="og:description" content="Download files straight to a rooted LG webOS TV: Transmission with a web page and a watch folder, plus aria2 and yt-dlp, all from Entware.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/download-to-lg-tv/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Download straight to an LG TV: Transmission, aria2 and yt-dlp">
+<meta name="twitter:description" content="Download files straight to a rooted LG webOS TV: Transmission with a web page and a watch folder, plus aria2 and yt-dlp, all from Entware.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/webos-entware-installer.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Downloads on an LG TV",
+     "item": "https://ohmybahgosh.dev/guides/download-to-lg-tv/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/download-to-lg-tv/#article",
+   "headline": "Download straight to an LG TV: Transmission, aria2 and yt-dlp",
+   "description": "Download files straight to a rooted LG webOS TV: Transmission with a web page and a watch folder, plus aria2 and yt-dlp, all from Entware.",
+   "url": "https://ohmybahgosh.dev/guides/download-to-lg-tv/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/download-to-lg-tv/",
+   "image": "https://ohmybahgosh.dev/assets/og/webos-entware-installer.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "keywords": [
+    "transmission lg tv",
+    "torrent client lg tv webos",
+    "yt-dlp lg tv",
+    "download manager lg tv",
+    "download to lg tv usb",
+    "aria2 webos"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Where do downloads go?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Transmission saves to /opt/files/Downloads. With yt-dlp and aria2, you choose: somewhere in /opt/files, or a USB drive under /opt/files/USB."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I watch what I downloaded on the TV?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Save to a USB drive and open it in the TV's own media player, or play it on other devices with Entware's DLNA add-on."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Transmission keep running when the TV is off?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Count on it only while the TV is on. In standby, webOS stops most of what runs on it, so leave big downloads for when the TV is in use."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">download-to-lg-tv</span></div>
+<section class="doc-hero" style="--accent:#ff3ea5">
+  <div class="eyebrow">$ cat guides/download-to-lg-tv.md</div>
+  <h1 class="h2" style="margin-top:12px">Download straight to an LG TV.</h1>
+  <p class="lead">No computer in the middle.  On a rooted LG TV, Entware gives you a torrent client with a web page, a download manager and yt-dlp.</p>
+</section><article class="doc" style="--accent:#ff3ea5">
+
+<div class="callout" style="--accent:#ff3ea5"><b>Short answer.</b>  Install <a href="/webos-entware-installer/">Entware</a> on a rooted TV, then press <b>Transmission</b> in its Add-ons.  You get a web page at <code>http://&lt;TV IP&gt;:9091</code> and downloads in <code>/opt/files/Downloads</code>.  aria2 and yt-dlp are one install each.</div>
+
+<h2>Transmission</h2>
+<p>The Transmission add-on sets it up for webOS: a password made on the TV, downloads saved to <code>/opt/files/Downloads</code>, and a <code>Downloads/Watch</code> folder where a dropped torrent file starts by itself.  Open the web page from your phone or computer, with the address and password from the TV app's Add-ons.</p>
+
+<h2>yt-dlp and aria2</h2>
+<p>From the TV app's Packages, or over SSH:</p>
+<div class="code"><pre><span class="pr">$ </span>opkg install yt-dlp aria2</pre></div>
+<p>Then save where you'll watch it, like a USB drive:</p>
+<div class="code"><pre><span class="pr">$ </span>yt-dlp -P /opt/files/USB/&lt;drive&gt; &lt;video link&gt;
+<span class="pr">$ </span>aria2c -d /opt/files/Downloads &lt;file link&gt;</pre></div>
+
+<h2>Watch it</h2>
+<ul>
+<li>On a USB drive, the TV's own media player finds it.</li>
+<li>With Entware's <b class="c-wh">DLNA</b> add-on, other TVs, consoles and VLC can play it too.</li>
+<li>Add <b class="c-wh">File Browser</b> to grab files from your phone, or <a href="/guides/tailscale-lg-tv/">Tailscale</a> to reach them away from home.</li>
+</ul>
+<p class="dim" style="font-size:14px">Only download what you have the right to.</p>
+<h2>Related</h2><div class="gcards"><a class="card gcard" href="/webos-entware-installer/"><b>Entware</b><span>Linux packages and add-ons</span></a><a class="card gcard" href="/guides/lg-tv-file-sharing-samba/"><b>File sharing on an LG TV</b><span>Samba, File Browser and DLNA</span></a><a class="card gcard" href="/guides/what-to-do-with-rooted-lg-tv/"><b>What to do with a rooted TV</b><span>Ten things rooting gets you</span></a></div>
+<h2 id="faq">FAQ</h2>
+<details class="faq"><summary>Where do downloads go?</summary><div>Transmission saves to <code>/opt/files/Downloads</code>.  With yt-dlp and aria2, you choose: somewhere in <code>/opt/files</code>, or a USB drive under <code>/opt/files/USB</code>.</div></details>
+<details class="faq"><summary>Can I watch what I downloaded on the TV?</summary><div>Yes.  Save to a USB drive and open it in the TV's own media player, or play it on other devices with Entware's DLNA add-on.</div></details>
+<details class="faq"><summary>Does Transmission keep running when the TV is off?</summary><div>Count on it only while the TV is on.  In standby, webOS stops most of what runs on it, so leave big downloads for when the TV is in use.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611g" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

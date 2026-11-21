@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Block LG webOS firmware updates: the servers to block on Pi-hole or your router, what the Homebrew Channel misses, and a fuller block for rooted TVs.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/home.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-19">
+<meta property="article:modified_time" content="2026-11-20">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -89,7 +89,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-19",
+   "dateModified": "2026-11-20",
    "keywords": [
     "lg tv block updates",
     "lg tv block updates dns",
@@ -191,6 +191,8 @@
   <h1 class="h2" style="margin-top:12px">Block LG TV firmware updates.</h1>
   <p class="lead">A firmware update can remove root, and patched firmware can't be rooted again.  Here's every layer of blocking, from your router to the TV itself.</p>
 </section><article class="doc" style="--accent:#ff3ea5">
+
+<div class="callout" style="--accent:#ff2d55"><b>Short answer.</b>  Turn off automatic updates, then block LG's update servers on Pi-hole or your router.  On a rooted TV, <a href="/fw-block/">FW Block</a> does all of it with one switch, plus what DNS and the Homebrew Channel miss: <code>nsu.lge.com</code>, a server reached by IP address, Remote Support and phone app updates.</div>
 
 <h2>1. On any TV: turn off automatic updates</h2>
 <p>In the TV's settings, under Support and Software Update, turn off automatic updates.  It's the first layer, but not enough on its own.</p>

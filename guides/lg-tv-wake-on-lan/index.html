@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="Why Wake on LAN and Turn on via Wi-Fi stop working when a USB Ethernet adapter is an LG TV&#x27;s main connection, and how to keep them working on a rooted TV.">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/lg-usb-2-eth0.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-19">
+<meta property="article:modified_time" content="2026-11-20">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -89,7 +89,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-19",
+   "dateModified": "2026-11-20",
    "keywords": [
     "lg tv wake on lan",
     "lg tv turn on via wifi",
@@ -191,6 +191,8 @@
   <h1 class="h2" style="margin-top:12px">Turn on an LG TV over the network, with a USB adapter.</h1>
   <p class="lead">A USB Ethernet adapter makes an LG TV two to three times faster on the wire.  But Wake on LAN, <b class="c-wh">Turn on via Wi-Fi</b>, the ThinQ app and Home Assistant can't wake the TV through it.  Here's why, and how to keep all of them working on a rooted TV.</p>
 </section><article class="doc" style="--accent:#33e1ff">
+
+<div class="callout" style="--accent:#3ddc97"><b>Short answer.</b>  The adapter can't wake the TV, because standby resets the USB ports.  Keep Wi-Fi connected and send the wake-up to the Wi-Fi MAC address.  On a rooted TV, <a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>'s <b>Wi-Fi wake in standby</b> keeps that working while the adapter stays the main connection.</div>
 
 <h2>Why the adapter can't wake the TV</h2>
 <p>Standby resets the TV's USB ports, so the adapter is gone by the time a wake-up packet arrives.  LG's network wake listens on Wi-Fi instead, and on the built-in port when it has a cable.  So with an adapter, Wi-Fi is how the TV gets woken.</p>
