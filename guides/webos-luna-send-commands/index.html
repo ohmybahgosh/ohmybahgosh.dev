@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en" data-root="/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>webOS luna-send command cheatsheet for LG TVs (hacking, debugging, development)</title>
+<meta name="description" content="A big webOS luna-send command cheatsheet for rooted LG TVs: power, apps, sound, settings, screenshots, IR and more, for hacking, debugging and development.">
+<meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://ohmybahgosh.dev/guides/webos-luna-send-commands/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<script>try{var t=localStorage.getItem("omb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=r2611h">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ohmybahgosh.dev">
+<meta property="og:title" content="webOS luna-send command cheatsheet for LG TVs (hacking, debugging, development)">
+<meta property="og:description" content="A big webOS luna-send command cheatsheet for rooted LG TVs: power, apps, sound, settings, screenshots, IR and more, for hacking, debugging and development.">
+<meta property="og:url" content="https://ohmybahgosh.dev/guides/webos-luna-send-commands/">
+<meta property="og:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ohmybahgosh.dev: open-source apps for rooted LG webOS TVs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="webOS luna-send command cheatsheet for LG TVs (hacking, debugging, development)">
+<meta name="twitter:description" content="A big webOS luna-send command cheatsheet for rooted LG TVs: power, apps, sound, settings, screenshots, IR and more, for hacking, debugging and development.">
+<meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
+<meta name="author" content="OhMyBahGosh">
+<meta property="article:modified_time" content="2026-11-20">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://ohmybahgosh.dev/#website",
+   "name": "ohmybahgosh.dev",
+   "url": "https://ohmybahgosh.dev/"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://ohmybahgosh.dev/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://ohmybahgosh.dev/guides/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "luna-send command cheatsheet",
+     "item": "https://ohmybahgosh.dev/guides/webos-luna-send-commands/"
+    }
+   ]
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://ohmybahgosh.dev/guides/webos-luna-send-commands/#article",
+   "headline": "webOS luna-send command cheatsheet for LG TVs (hacking, debugging, development)",
+   "description": "A big webOS luna-send command cheatsheet for rooted LG TVs: power, apps, sound, settings, screenshots, IR and more, for hacking, debugging and development.",
+   "url": "https://ohmybahgosh.dev/guides/webos-luna-send-commands/",
+   "mainEntityOfPage": "https://ohmybahgosh.dev/guides/webos-luna-send-commands/",
+   "image": "https://ohmybahgosh.dev/assets/og/luna-atlas.png",
+   "author": {
+    "@type": "Person",
+    "@id": "https://ohmybahgosh.dev/#person",
+    "name": "OhMyBahGosh",
+    "url": "https://ohmybahgosh.dev/about/",
+    "sameAs": [
+     "https://github.com/ohmybahgosh"
+    ]
+   },
+   "publisher": {
+    "@id": "https://ohmybahgosh.dev/#person"
+   },
+   "isPartOf": {
+    "@id": "https://ohmybahgosh.dev/#website"
+   },
+   "inLanguage": "en-US",
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-20",
+   "about": {
+    "@type": "Thing",
+    "name": "luna-send"
+   },
+   "keywords": [
+    "webos command cheatsheet",
+    "luna-send commands",
+    "lg tv luna-send",
+    "webos hacking commands",
+    "webos debugging",
+    "webos development commands",
+    "luna service bus commands",
+    "lg webos ssh commands",
+    "rooted lg tv commands",
+    "luna-send cheatsheet"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is luna-send?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The command-line client every LG webOS TV ships to talk to the Luna Service Bus, the internal message bus that power, apps, picture, sound, Wi-Fi, notifications and hundreds of other services listen on. A call is a URI (luna://service/method) plus a JSON payload."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a rooted TV to run these?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "To run them, yes: a rooted TV with SSH from the Homebrew Channel, or LG's Developer Mode. Browsing the catalog needs nothing. Private methods need root; Developer Mode's shell is not root."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What's the difference between luna-send and luna-send-pub?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "luna-send uses the private bus, luna-send-pub the public one. A few methods are only registered on the public bus, so they need luna-send-pub. When a call says permission denied on one, try the other."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are these safe to run?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most just read or nudge the TV. The ones marked dangerous change power, launch or reset state, and the service-menu and factory calls can mis-calibrate or wipe the set. Running one is exactly as safe as typing the same luna-send yourself: read what it does first."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where can I find every command, not just these?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In the Luna Atlas catalog: thousands of methods across hundreds of services, each with its parameters, access level and a command to run. This cheatsheet is the handful people reach for most."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How were these verified?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Every command here was checked against the Luna Atlas catalog so the service and method exist and the access level is right, then grouped by task and reworded. Parameter shapes come from the catalog, community cheatsheets and real bus traffic."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<!-- Google Analytics (GA4); ads features stay off -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','G-7J8VQ3FKKM');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7J8VQ3FKKM"></script>
+</head>
+<body class="p-doc">
+<div class="bgfx" aria-hidden="true"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ohmybahgosh.dev home"><span class="px">&gt;_</span><span>ohmybahgosh<em>.dev</em></span></a>
+    <nav class="nav" aria-label="Main">
+      <div class="menu" data-menu>
+        <button class="mbtn" type="button" aria-expanded="false" aria-controls="pmenu">projects <span class="chev" aria-hidden="true">▾</span></button>
+        <div class="mpanel" id="pmenu">
+        <div class="mgrp"><span>TV apps</span>
+          <a href="/tivibro/"><img src="/assets/img/tivibro-icon.webp" alt="" width="40" height="40" loading="lazy"><b>TiviBro</b><small>IPTV player with a real guide</small></a>
+          <a href="/lg-usb-2-eth0/"><img src="/assets/img/eth0-icon.webp" alt="" width="40" height="40" loading="lazy"><b>LG-USB-2-ETH0</b><small>USB Ethernet as the TV's eth0</small></a>
+          <a href="/webos-entware-installer/"><img src="/assets/img/entware-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Entware</b><small>Linux packages and add-ons</small></a>
+          <a href="/ssh-doctor/"><img src="/assets/img/ssh-doctor-icon.webp" alt="" width="40" height="40" loading="lazy"><b>SSH Doctor</b><small>Check and fix SSH from the TV</small></a>
+          <a href="/fw-block/"><img src="/assets/img/fw-block-icon.webp" alt="" width="40" height="40" loading="lazy"><b>FW Block</b><small>Block LG firmware updates</small></a>
+        </div>
+        <div class="mgrp"><span>reference and tools</span>
+          <a href="/luna-atlas/"><img src="/assets/img/luna-atlas-icon.webp" alt="" width="40" height="40" loading="lazy"><b>Luna Atlas</b><small>Every luna-send command</small></a>
+          <a href="/pipseek/"><img src="/assets/img/pipseek-icon.webp" alt="" width="40" height="40" loading="lazy"><b>pipseek</b><small>Search PyPI from your terminal</small></a>
+        </div>
+        <a class="mall" href="/install/">$ install guide: root, Homebrew Channel, repo</a>
+        </div>
+      </div>
+      <a href="/install/" class="hide-s">install</a>
+      <a href="/guides/" class="hide-s">guides</a>
+      <a href="/about/" class="hide-s">about</a>
+      <a href="/contact/" class="hide-s">contact</a>
+      <a href="https://github.com/ohmybahgosh" class="hide-s" target="_blank" rel="noopener">github ↗</a>
+      <button class="kbtn theme" type="button" data-theme-toggle aria-label="Toggle light and dark theme" title="Light / dark"><span class="moon">☾</span><span class="sun">☀</span></button>
+      <button class="kbtn" type="button" data-pal-open aria-label="search: open the command palette"><span class="ic-s" aria-hidden="true">⌕</span><span>search</span><kbd>⌘K</kbd></button>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<div class="crumb"><a href="/">~</a><span>/</span><a href="/guides/">guides</a><span>/</span><span class="c-gr">webos-luna-send-commands</span></div>
+<section class="doc-hero" style="--accent:#33e1ff">
+  <div class="eyebrow">$ cat guides/webos-luna-send-commands.md</div>
+  <h1 class="h2" style="margin-top:12px">webOS luna-send command cheatsheet</h1>
+  <p class="lead">A grouped, copy-paste list of real <code>luna-send</code> commands for a rooted LG webOS TV: power, apps, sound, picture, notifications, inputs, channels, settings, network, Bluetooth, storage, screenshots, developer tools, IR and the service menu.  Every command is checked against the <a href="/luna-atlas/">Luna Atlas</a> catalog.</p>
+</section><article class="doc" style="--accent:#33e1ff">
+<div class="callout" style="--accent:#33e1ff"><b>71 commands, grouped by task.</b>  Every one has a <b>copy</b> button, runs on a rooted LG webOS TV over SSH or in Developer Mode, and is checked against the <a href="/luna-atlas/">Luna Atlas</a> catalog.  Calls that change or reset things are flagged <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span>.</div><h2>Running commands</h2>
+<p><code>luna-send</code> is on every webOS TV; you reach it over SSH on a rooted set or in Developer Mode.  <code>-n 1</code> waits for one reply then exits, <code>-f</code> prints it formatted, and <code>-i</code> stays subscribed and streams updates until Ctrl-C.  A few calls are only on the <b>public</b> bus, where you use <code>luna-send-pub</code>.  Private methods need root; Developer Mode's shell is not root.</p>
+<p style="margin:18px 0 6px"><b>Call shape</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://&lt;service&gt;/&lt;method&gt; &#x27;{&quot;key&quot;:&quot;value&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Stay subscribed to updates</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://&lt;service&gt;/&lt;method&gt; &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<h2>Power &amp; screen</h2>
+<p>Read or watch the power state, turn just the panel off while sound keeps playing, and reboot.</p>
+<p style="margin:18px 0 6px"><b>Watch the power state live</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.tvpower/power/getPowerState &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Turn the panel off (backlight only, audio keeps playing)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/turnOffScreen &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Turn the panel back on</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/turnOnScreen &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Screen off that sticks like the remote&#x27;s own option</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;settings&quot;:{&quot;energySaving&quot;:&quot;screen_off&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Open the energy-saving / screensaver screen</b> <span class="pill" style="--ca:#33e1ff">luna-send-pub</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 -f luna://com.webos.service.applicationManager/launch &#x27;{&quot;id&quot;:&quot;com.webos.app.tvhotkey&quot;,&quot;params&quot;:{&quot;activateType&quot;:&quot;energy-saving-mode&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Reboot the TV</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/reboot &#x27;{&quot;reason&quot;:&quot;luna-send&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Power the TV off</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/powerOff &#x27;{&quot;reason&quot;:&quot;luna-send&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>&quot;Stealth&quot; reboot (not logged the way a normal reboot is)</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -a webosbrew -f -n 1 luna://com.webos.service.sleep/shutdown/machineReboot &#x27;{&quot;reason&quot;:&quot;remoteKey&quot;}&#x27;</pre></div>
+<h2>Apps &amp; launcher</h2>
+<p>See what's on screen, launch and close apps, and list what's installed.</p>
+<p style="margin:18px 0 6px"><b>Show the foreground app, and each time it changes</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.applicationManager/getForegroundAppInfo &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Launch an app by ID</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/launch &#x27;{&quot;id&quot;:&quot;com.webos.app.browser&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Launch an app with parameters</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/launch &#x27;{&quot;id&quot;:&quot;com.webos.app.livetv&quot;,&quot;params&quot;:{&quot;channelId&quot;:&quot;...&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Jump to the Home launcher</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/launch &#x27;{&quot;id&quot;:&quot;com.webos.app.home&quot;,&quot;params&quot;:{&quot;activateType&quot;:&quot;powerOn&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Close an app by ID</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/closeByAppId &#x27;{&quot;id&quot;:&quot;com.webos.app.hdmi3&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>List every installed app</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listApps &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>List the launcher tiles (launch points)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listLaunchPoints &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Get one app&#x27;s metadata</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getAppInfo &#x27;{&quot;id&quot;:&quot;com.webos.app.livetv&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Check whether an app is running</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getAppStatus &#x27;{&quot;appId&quot;:&quot;com.webos.app.browser&quot;,&quot;appInfo&quot;:true}&#x27;</pre></div>
+<h2>Volume &amp; sound</h2>
+<p>Volume, mute and sound output.  Some read methods are on the public bus; the write methods under <code>com.webos.service.audio/master</code> are public too.</p>
+<p style="margin:18px 0 6px"><b>Read the volume and mute state</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/getVolume &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Watch the volume live</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.audio/master/getVolume &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Volume up one step</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/volumeUp &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Volume down one step</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/volumeDown &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set an exact volume</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audio/master/setVolume &#x27;{&quot;volume&quot;:15}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Mute / unmute</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/setMuted &#x27;{&quot;muted&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Mute one output only</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audiooutput/audio/volume/muteSoundOut &#x27;{&quot;mute&quot;:true,&quot;soundOutput&quot;:&quot;tv_external_speaker&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Read the current sound output</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audio/getSoundOutput &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Change the sound output (e.g. to a soundbar)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;sound&quot;,&quot;settings&quot;:{&quot;soundOutput&quot;:&quot;external_optical&quot;}}&#x27;</pre></div>
+<h2>Picture &amp; display</h2>
+<p>Read and change picture settings through the settings service.</p>
+<p style="margin:18px 0 6px"><b>Read the picture mode</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/getSystemSettings &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;keys&quot;:[&quot;pictureMode&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set the picture mode</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;settings&quot;:{&quot;pictureMode&quot;:&quot;expert1&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set the OLED light / backlight level</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;settings&quot;:{&quot;backlight&quot;:&quot;80&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Turn energy saving off (brightest picture)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;settings&quot;:{&quot;energySaving&quot;:&quot;off&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>List the allowed values for a setting</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/getSystemSettingValues &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;key&quot;:&quot;pictureMode&quot;}&#x27;</pre></div>
+<h2>Notifications</h2>
+<p>Put a message on the screen.  The friendliest place to start.</p>
+<p style="margin:18px 0 6px"><b>Show a toast (small corner banner)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast &#x27;{&quot;message&quot;:&quot;Hello from luna-send&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Toast with a tap action</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast &#x27;{&quot;message&quot;:&quot;Open the browser&quot;,&quot;onclick&quot;:{&quot;appId&quot;:&quot;com.webos.app.browser&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Show an alert box with buttons</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createAlert &#x27;{&quot;message&quot;:&quot;Pick one&quot;,&quot;buttons&quot;:[{&quot;label&quot;:&quot;OK&quot;,&quot;focus&quot;:true},{&quot;label&quot;:&quot;Cancel&quot;}]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Close a toast</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeToast &#x27;{&quot;toastId&quot;:&quot;...&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Close an alert</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeAlert &#x27;{&quot;alertId&quot;:&quot;...&quot;}&#x27;</pre></div>
+<h2>Inputs &amp; sources</h2>
+<p>List HDMI and other inputs, and add an app so it shows up under "All Inputs".</p>
+<p style="margin:18px 0 6px"><b>List the inputs and what&#x27;s connected</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/getAllInputStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Add an app as an input tile</b> <span class="pill" style="--ca:#33e1ff">luna-send-pub</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 luna://com.webos.service.eim/addDevice &#x27;{&quot;appId&quot;:&quot;com.example.app&quot;,&quot;pigImage&quot;:&quot;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Remove an app&#x27;s input tile</b> <span class="pill" style="--ca:#33e1ff">luna-send-pub</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 luna://com.webos.service.eim/deleteDevice &#x27;{&quot;appId&quot;:&quot;com.example.app&quot;,&quot;pigImage&quot;:&quot;&quot;}&#x27;</pre></div>
+<h2>TV, channels &amp; recording</h2>
+<p>The tuner side: channel lists, channel info and starting a recording.</p>
+<p style="margin:18px 0 6px"><b>List the channels</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.iepg/getChannelList &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Get info for one channel</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.iepg/getChannelInfo &#x27;{&quot;channelId&quot;:&quot;...&quot;,&quot;type&quot;:2}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Start a DVR recording to USB</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.dvr/record/startProgramRecord &#x27;{&quot;channelId&quot;:&quot;...&quot;,&quot;duration&quot;:2880,&quot;quality&quot;:&quot;record_quality_high&quot;,&quot;recordingMode&quot;:&quot;recording_direct&quot;,&quot;storagePath&quot;:&quot;/tmp/usb/sda/sda1&quot;}&#x27;</pre></div>
+<h2>System info</h2>
+<p>Model, firmware, build and device properties.</p>
+<p style="margin:18px 0 6px"><b>Model, webOS version and build date</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/osInfo/query &#x27;{&quot;parameters&quot;:[&quot;webos_manufacturing_version&quot;,&quot;webos_release&quot;,&quot;webos_build_datetime&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Model, firmware and SDK version</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.systemproperty/getSystemInfo &#x27;{&quot;keys&quot;:[&quot;modelName&quot;,&quot;firmwareVersion&quot;,&quot;sdkVersion&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Device properties (serial, board, IDs)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/deviceInfo/query &#x27;{&quot;parameters&quot;:[&quot;device_name&quot;,&quot;board_type&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Read platform config values</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/getConfigs &#x27;{&quot;configNames&quot;:[&quot;tv.model.sysType&quot;]}&#x27;</pre></div>
+<h2>Settings: read &amp; write</h2>
+<p>The settings service reads and changes almost everything the on-screen menus do.  Categories include <code>picture</code>, <code>sound</code>, <code>option</code>, <code>time</code> and <code>network</code>.</p>
+<p style="margin:18px 0 6px"><b>Read any setting</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/getSystemSettings &#x27;{&quot;category&quot;:&quot;option&quot;,&quot;keys&quot;:[&quot;country&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Write a setting</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;option&quot;,&quot;settings&quot;:{&quot;audioGuidance&quot;:&quot;off&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Read a setting&#x27;s description / allowed values</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/getSystemSettingDesc &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;keys&quot;:[&quot;pictureMode&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Stop the 15-minute no-signal auto power-off</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;time&quot;,&quot;settings&quot;:{&quot;autoOff15Min&quot;:&quot;off&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Turn off mobile (SSAP) access after rooting</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;network&quot;,&quot;settings&quot;:{&quot;allowMobileDeviceAccess&quot;:false}}&#x27;</pre></div>
+<h2>Network &amp; Wi-Fi</h2>
+<p>Connection state for wired and wireless.</p>
+<p style="margin:18px 0 6px"><b>Overall connection status (wired + Wi-Fi)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/getStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Watch the connection status live</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.connectionmanager/getStatus &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Wi-Fi status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/getstatus &#x27;{}&#x27;</pre></div>
+<h2>Bluetooth</h2>
+<p>Adapter and device status for the TV's Bluetooth stack.</p>
+<p style="margin:18px 0 6px"><b>Bluetooth adapter status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bluetooth2/adapter/getStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Paired / connected device status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bluetooth2/device/getStatus &#x27;{}&#x27;</pre></div>
+<h2>Storage &amp; USB</h2>
+<p>List attached drives and browse their contents.</p>
+<p style="margin:18px 0 6px"><b>List attached storage (USB, internal)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.attachedstoragemanager/listDevices &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>List a folder on a device</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.attachedstoragemanager/listFolderContents &#x27;{&quot;deviceId&quot;:&quot;...&quot;,&quot;path&quot;:&quot;/&quot;,&quot;limit&quot;:100}&#x27;</pre></div>
+<h2>Screenshots</h2>
+<p>Capture the current frame to a file.  The service was renamed from <code>com.webos.service.tv.capture</code> to <code>com.webos.service.capture</code> on newer sets; the call is the same.  Formats: BMP, JPG, PNG, RGB, RGBA, YUV422.  Methods: DISPLAY (the UI), SCREEN_WITH_SOURCE_VIDEO, VIDEO, GRAPHIC.  Defaults to 960x540.</p>
+<p style="margin:18px 0 6px"><b>Capture to /tmp (default size)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.capture/executeOneShot &#x27;{&quot;path&quot;:&quot;/tmp/capture.png&quot;,&quot;method&quot;:&quot;DISPLAY&quot;,&quot;format&quot;:&quot;PNG&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Capture at full 4K</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.capture/executeOneShot &#x27;{&quot;path&quot;:&quot;/tmp/capture.png&quot;,&quot;method&quot;:&quot;DISPLAY&quot;,&quot;format&quot;:&quot;PNG&quot;,&quot;width&quot;:3840,&quot;height&quot;:2160}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Capture with the date in the filename</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.capture/executeOneShot &quot;{\&quot;path\&quot;:\&quot;/home/root/cap_$(date +%Y-%m-%d_%H-%M-%S).png\&quot;,\&quot;method\&quot;:\&quot;DISPLAY\&quot;,\&quot;format\&quot;:\&quot;PNG\&quot;}&quot;</pre></div>
+<p style="margin:18px 0 6px"><b>Older sets (renamed service)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.capture/executeOneShot &#x27;{&quot;path&quot;:&quot;/tmp/capture.png&quot;,&quot;method&quot;:&quot;DISPLAY&quot;,&quot;format&quot;:&quot;PNG&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Alternate compositor capture</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.surfacemanager/captureCompositorOutput &#x27;{&quot;output&quot;:&quot;/tmp/screenshot.jpg&quot;,&quot;format&quot;:&quot;JPG&quot;}&#x27;</pre></div>
+<h2>Developer &amp; logging</h2>
+<p>Install apps, turn on developer logs and read them.  The <code>PmLogCtl</code> and <code>tail</code> lines are plain shell, not luna-send.</p>
+<p style="margin:18px 0 6px"><b>Install an IPK already on the TV</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.appInstallService/dev/install &#x27;{&quot;id&quot;:&quot;com.example.app&quot;,&quot;ipkUrl&quot;:&quot;/media/internal/downloads/app.ipk&quot;,&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Turn on developer logging</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/setConfigs &#x27;{&quot;configs&quot;:{&quot;system.collectDevLogs&quot;:true}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set one component&#x27;s log level</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="pr">$ </span>PmLogCtl set &lt;context&gt; debug</pre></div>
+<p style="margin:18px 0 6px"><b>Follow the logs for an app</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="pr">$ </span>tail -F /var/log/messages | grep &lt;app-or-context&gt;</pre></div>
+<p style="margin:18px 0 6px"><b>Turn Developer Mode on (reboots the TV)</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.devmode/setDevMode &#x27;{&quot;enabled&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Read the Developer Mode passphrase</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.devmode/getPassphrase &#x27;{}&#x27;</pre></div>
+<h2>IR &amp; the Magic Remote</h2>
+<p>Blast IR at other gear through the TV or Magic Remote.</p>
+<p style="margin:18px 0 6px"><b>Send an IR command (e.g. power a soundbar)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.irdbmanager/sendIrCommand &#x27;{&quot;buttonState&quot;:&quot;single&quot;,&quot;deviceType&quot;:&quot;audio&quot;,&quot;keyCode&quot;:&quot;IR_KEY_POWER&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Magic Remote IR-blaster status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/getStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Push raw IR codes through the Magic Remote</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/ir/pushIrCodes &#x27;{&quot;codes&quot;:[]}&#x27;</pre></div>
+<h2>Service menu &amp; factory tools</h2>
+<p>The factory / service menu (ezAdjust, inStart, inStop).  These change deep, undocumented settings and one of them is a factory reset, so treat the whole section as dangerous and know how to undo what you change.</p>
+<p style="margin:18px 0 6px"><b>Open a service-menu screen</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/launch &#x27;{&quot;id&quot;:&quot;com.webos.app.factorywin&quot;,&quot;params&quot;:{&quot;id&quot;:&quot;executeFactory&quot;,&quot;irKey&quot;:&quot;inStart&quot;}}&#x27;</pre></div>
+<div class="callout" style="--accent:#ff3ea5"><b>irKey values:</b> <code>ezAdjust</code> (service menu 1), <code>inStart</code> (service menu 2), <code>inStop</code> (factory reset), <code>pCheck</code> (picture test), <code>sCheck</code> (audio test), <code>tilt</code> (white screen, locks the remote until a reboot), <code>powerOnly</code>.  Service menus ask for a code; the common LG one is widely published as <code>0413</code>.  Wrong values here can leave the TV mis-calibrated or wipe it, so write down every value before you change it.</div><h2>Related</h2><div class="gcards"><a class="card gcard" href="/luna-atlas/"><b>Luna Atlas</b><span>Search every luna-send command</span></a><a class="card gcard" href="/luna-atlas/examples/"><b>Common examples</b><span>More copy-paste starters</span></a><a class="card gcard" href="/guides/ssh-into-lg-tv/"><b>SSH into a rooted LG TV</b><span>Get a shell to run these</span></a></div><h2 id="faq">FAQ</h2>
+<details class="faq"><summary>What is luna-send?</summary><div>The command-line client every LG webOS TV ships to talk to the Luna Service Bus, the internal message bus that power, apps, picture, sound, Wi-Fi, notifications and hundreds of other services listen on.  A call is a URI (<code>luna://service/method</code>) plus a JSON payload.</div></details>
+<details class="faq"><summary>Do I need a rooted TV to run these?</summary><div>To run them, yes: a rooted TV with SSH from the Homebrew Channel, or LG's Developer Mode.  Browsing the <a href="/luna-atlas/">catalog</a> needs nothing.  Private methods need root; Developer Mode's shell is not root.</div></details>
+<details class="faq"><summary>What's the difference between luna-send and luna-send-pub?</summary><div><code>luna-send</code> uses the private bus, <code>luna-send-pub</code> the public one.  A few methods are only registered on the public bus, so they need <code>luna-send-pub</code>.  When a call says permission denied on one, try the other.</div></details>
+<details class="faq"><summary>Are these safe to run?</summary><div>Most just read or nudge the TV.  The ones marked dangerous change power, launch or reset state, and the service-menu and factory calls can mis-calibrate or wipe the set.  Running one is exactly as safe as typing the same <code>luna-send</code> yourself: read what it does first.</div></details>
+<details class="faq"><summary>Where can I find every command, not just these?</summary><div>In the <a href="/luna-atlas/">Luna Atlas</a> catalog: thousands of methods across hundreds of services, each with its parameters, access level and a command to run.  This cheatsheet is the handful people reach for most.</div></details>
+<details class="faq"><summary>How were these verified?</summary><div>Every command here was checked against the Luna Atlas catalog so the service and method exist and the access level is right, then grouped by task and reworded.  Parameter shapes come from the catalog, community cheatsheets and real bus traffic.</div></details>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div><span class="c-gr">root@ohmybahgosh</span>:<span class="c-cy">~</span># echo "made by OhMyBahGosh"</div>
+      <div style="margin-top:6px">© <span data-year>2026</span> OhMyBahGosh · open-source projects · not affiliated with LG Electronics</div>
+      <div style="margin-top:6px"><a data-mail="text" href="/contact/">hello at ohmybahgosh dot dev</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">~/</a>
+      <a href="/tivibro/">tivibro</a>
+      <a href="/lg-usb-2-eth0/">lg-usb-2-eth0</a>
+      <a href="/webos-entware-installer/">entware</a>
+      <a href="/ssh-doctor/">ssh-doctor</a>
+      <a href="/fw-block/">fw-block</a>
+      <a href="/luna-atlas/">luna-atlas</a>
+      <a href="/pipseek/">pipseek</a>
+      <a href="/install/">install</a>
+      <a href="/guides/">guides</a>
+      <a href="/about/">about</a>
+      <a href="/contact/">contact</a>
+      <a href="https://github.com/ohmybahgosh" target="_blank" rel="noopener">github ↗</a>
+    </nav>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=r2611h" defer></script>
+<script data-goatcounter="https://ohmybahgosh.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

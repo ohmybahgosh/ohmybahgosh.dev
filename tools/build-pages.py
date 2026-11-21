@@ -1427,6 +1427,40 @@ guide("webos-ssh-not-working",
           ("/ssh-doctor/faq/", "SSH Doctor FAQ", "Keys, passwords, ports, SFTP")])}
 """)
 
+# =====================================================================================  luna-send cheatsheet
+import luna_cheatsheet_data as LCS
+def _luna_badge(tag):
+    return {
+        "d":    ' <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span>',
+        "root": ' <span class="pill" style="--ca:#ffb547">needs root</span>',
+        "pub":  ' <span class="pill" style="--ca:#33e1ff">luna-send-pub</span>',
+        "sub":  ' <span class="pill" style="--ca:#3ddc97">subscribe</span>',
+        "sh":   ' <span class="pill" style="--ca:#7783a8">shell</span>',
+    }.get(tag, "")
+def _luna_sheet():
+    out = []; n = 0
+    for title, intro, cmds in LCS.SHEET:
+        out.append(f"<h2>{esc(title)}</h2>")
+        if intro: out.append(f"<p>{intro}</p>")
+        for t, cmd, tag in cmds:
+            c = cmd.strip()
+            if c.startswith("luna-send") and "<service>" not in c and "<method>" not in c: n += 1
+            out.append(f'<p style="margin:18px 0 6px"><b>{esc(t)}</b>{_luna_badge(tag)}</p>')
+            out.append(code(c))
+        if title.startswith("Service menu"):
+            out.append(callout(LCS.SERVICE_MENU_NOTE, "#ff3ea5"))
+    return "\n".join(out), n
+_LUNA_BODY, LUNA_COUNT = _luna_sheet()
+guide("webos-luna-send-commands",
+      title=LCS.TITLE, keywords=LCS.KEYWORDS, desc=LCS.DESC, card=LCS.CARD,
+      h1=LCS.H1, lead=LCS.LEAD, accent="#33e1ff", og="/assets/og/luna-atlas.png",
+      about={"@type": "Thing", "name": "luna-send"}, faq=LCS.FAQ,
+      body=callout(f'<b>{LUNA_COUNT} commands, grouped by task.</b>  Every one has a <b>copy</b> button, runs on a rooted LG webOS TV over SSH or in Developer Mode, and is checked against the <a href="/luna-atlas/">Luna Atlas</a> catalog.  Calls that change or reset things are flagged <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span>.', "#33e1ff")
+           + _LUNA_BODY
+           + related([("/luna-atlas/", "Luna Atlas", "Search every luna-send command"),
+                      ("/luna-atlas/examples/", "Common examples", "More copy-paste starters"),
+                      ("/guides/ssh-into-lg-tv/", "SSH into a rooted LG TV", "Get a shell to run these")]))
+
 # --- guides index
 add("/guides/",
     title="Guides for rooted LG webOS TVs · ohmybahgosh.dev",
@@ -1617,5 +1651,6 @@ add("/tour/",
 
 # =====================================================================================  write
 if __name__ == "__main__":
+    print(f"luna-send cheatsheet commands: {LUNA_COUNT}")
     for path, kw in PAGES:
         print("wrote", write(ROOT, path, page(path, **kw)))
