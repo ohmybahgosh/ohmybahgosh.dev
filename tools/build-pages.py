@@ -372,7 +372,7 @@ guide("iptv-player-lg-tv",
       lead="TiviMate is Android-only, so it won't install on webOS.  TiviBro is a free, open-source IPTV player built for LG TVs, with the same guide-first layout.",
       accent="#5b8cff", og="/assets/og/tivibro.png", faq=IPTV_FAQ,
       about={"@type": "SoftwareApplication", "name": "TiviBro", "url": "https://tivibro.app", "operatingSystem": "LG webOS"}, body=f"""
-{callout("<b>Short answer.</b>  No, TiviMate is Android-only and won't install on webOS.  On the TV itself, <a href=\"/tivibro/\">TiviBro</a> is a free player in TiviMate's style for webOS 4 and newer, rooted or not.  Want TiviMate anyway?  It runs on a Google TV or Fire TV stick in the LG's HDMI port: see the <a href=\"/guides/best-iptv-player-lg-tv/\">top 5 IPTV players for LG</a>.", "#5b8cff")}
+{callout("<b>Short answer.</b>  No, TiviMate is Android-only and won't install on webOS.  On the TV itself, <a href=\"/tivibro/\">TiviBro</a> is a free player in TiviMate's style for webOS 4 and newer, rooted or not.  See how it ranks in the <a href=\"/guides/best-iptv-player-lg-tv/\">top 5 IPTV players for LG</a>.", "#5b8cff")}
 
 {callout("<b>TiviBro's home is <a href=\"https://tivibro.app\" target=\"_blank\" rel=\"noopener\">tivibro.app</a>.</b>  Install steps, the full feature list, the Android phone app and the user guide are all there.  This page is the short version.", "#5b8cff")}
 
@@ -694,41 +694,37 @@ guide("lg-tv-file-sharing-samba",
 
 # --- top 5 IPTV players
 TOP5_FAQ = [
+    ("What's the best IPTV player for an LG TV?",
+     "TiviBro, if you want a real guide: it's free, open source and made for webOS 4 and newer, in TiviMate's guide-first style.  It's still in alpha, so IBO Player and Smart IPTV are the longer-running picks from LG's store."),
     ("Can I install TiviMate on an LG TV?",
-     "No.  TiviMate is built for Android TV and Fire TV, and LG TVs run webOS.  Plug a Google TV or Fire TV stick into one of the LG's HDMI ports and run it there, or use a player that runs on webOS, like TiviBro."),
-    ("What's the best IPTV player that runs on the LG TV itself?",
-     "TiviBro, if you want TiviMate's guide-first layout: it's free, open source and made for webOS 4 and newer.  It's still in alpha, so IBO Player and Smart IPTV are the longer-running picks."),
+     "No.  TiviMate is built for Android TV and Fire TV, and LG TVs run webOS.  TiviBro is the closest thing that runs on webOS."),
     ("Do any of these come with channels?",
      "No.  They're players.  Each one plays the subscription or playlist you already have: an Xtream Codes login, an M3U link or a Stalker portal."),
     ("Is there a free IPTV player for LG TVs?",
-     "TiviBro is free with every feature.  Most others in LG's store are free to try and then ask for a yearly or one-time activation."),
+     "TiviBro is free with every feature, and SS IPTV is free too.  Most others in LG's store are free to try and then ask for a yearly or one-time activation."),
 ]
 guide("best-iptv-player-lg-tv",
-      title="Best IPTV player for LG TV in 2026: the top 5 for webOS",
-      keywords=["best iptv player lg tv", "best iptv app for lg webos", "iptv app lg smart tv", "tivimate lg tv", "top iptv players lg tv 2026", "free iptv player lg tv"],
-      desc="The 5 best IPTV players for LG webOS TVs in 2026: TiviMate (on a stick), TiviBro, IBO Player, Smart IPTV and IPTV Smarters, with what each is good at.",
-      card=("The 5 best IPTV players for LG TVs", "TiviMate on a stick, and the best that run on webOS"),
+      title="Best IPTV player for LG TV in 2026: the top 5 webOS apps",
+      keywords=["best iptv player lg tv", "best iptv app for lg webos", "iptv app lg smart tv", "top iptv players lg tv 2026", "free iptv player lg tv", "tivimate lg tv"],
+      desc="The 5 best IPTV players that run on LG webOS TVs in 2026: TiviBro, IBO Player, Smart IPTV, IPTV Smarters and SS IPTV, with what each is good at.",
+      card=("The 5 best IPTV players for LG TVs", "The top webOS apps, and which one fits you"),
       h1="The 5 best IPTV players for an LG TV.",
-      lead="Ranked by how good they are to live with every day.  One catch up front: the best IPTV player there is doesn't run on webOS, so here's how to use it anyway, and what comes closest on the TV itself.",
+      lead="Only apps that run on the TV itself: no sticks, no boxes.  Ranked by how good they are to live with every day.",
       accent="#5b8cff", og="/assets/og/tivibro.png", faq=TOP5_FAQ, body=f"""
-{callout("<b>Short answer.</b>  <b>TiviMate</b> is #1, but it's Android-only, so on an LG it runs on a Google TV or Fire TV stick in an HDMI port.  The best player that runs on the LG itself is <a href=\"/tivibro/\">TiviBro</a>: free, open source, and built in TiviMate's style.", "#5b8cff")}
+{callout("<b>Short answer.</b>  <a href=\"/tivibro/\">TiviBro</a> is #1: free, open source, and built for webOS in TiviMate's guide-first style.  IBO Player and Smart IPTV are the long-running picks from LG's store.", "#5b8cff")}
 
 <h2>The list</h2>
-{table(["player", "runs on the LG?", "logins", "price"], [
-    ["1. <b>TiviMate</b>", "No, on a Google TV or Fire TV stick", "Xtream, M3U, Stalker", "Free, Premium paid"],
-    ["2. <b><a href=\"/tivibro/\">TiviBro</a></b>", "Yes, webOS 4 and newer", "Xtream, M3U, Stalker", "Free, every feature"],
-    ["3. <b>IBO Player</b>", "Yes, LG's store", "Xtream, M3U", "Trial, then yearly or lifetime"],
-    ["4. <b>Smart IPTV</b>", "Yes, LG's store", "M3U", "Trial, then one-time"],
-    ["5. <b>IPTV Smarters</b>", "Yes, LG's store", "Xtream, M3U", "Check the listing"],
+{table(["player", "where to get it", "logins", "price"], [
+    ["1. <b><a href=\"/tivibro/\">TiviBro</a></b>", "Homebrew Channel or Developer Mode, webOS 4 and newer", "Xtream, M3U, Stalker", "Free, every feature"],
+    ["2. <b>IBO Player</b>", "LG's store", "Xtream, M3U", "Trial, then yearly or lifetime"],
+    ["3. <b>Smart IPTV</b>", "LG's store", "M3U", "Trial, then one-time"],
+    ["4. <b>IPTV Smarters</b>", "LG's store", "Xtream, M3U", "Check the listing"],
+    ["5. <b>SS IPTV</b>", "LG's store", "M3U", "Free"],
 ])}
 <p class="dim" style="font-size:14px">From each app's own site and store listing, November 2026.  Prices change, so check before you pay.</p>
 
-<h2>1. TiviMate, on a stick</h2>
-<p>TiviMate is the one people mean when they ask for the best.  The guide is the home screen, it handles huge playlists, and Premium adds recording, several playlists and more.  The catch: it's an Android app, for Android TV, Google TV and Fire TV.  LG TVs run webOS, so it won't install, and no trick changes that.</p>
-<p>The way to use it on an LG is a streaming stick in an HDMI port, like a Google TV Streamer or a Fire TV Stick.  The TV's remote can drive it over HDMI-CEC, and the stick does the rest.  Give the stick a good connection too: its own Ethernet adapter, or strong Wi-Fi.</p>
-
-<h2>2. TiviBro, the closest thing on webOS</h2>
-<p><a href="/tivibro/">TiviBro</a> is a free, open-source IPTV player made for LG TVs, with TiviMate's guide-first layout.  No stick, no extra remote, no activation fee.</p>
+<h2>1. TiviBro</h2>
+<p><a href="/tivibro/">TiviBro</a> is a free, open-source IPTV player made for LG TVs.  The guide is the home screen, like TiviMate, and there's no activation fee.</p>
 <ul>
 <li><b class="c-wh">Set up from your phone.</b>  Scan the QR code on the first screen and paste your provider's whole link.  It fills in the rest.</li>
 <li><b class="c-wh">Catch-up, movies and shows, one search</b> across everything, with posters and resume.</li>
@@ -737,23 +733,26 @@ guide("best-iptv-player-lg-tv",
 </ul>
 <p>It runs on webOS 4 and newer, installs through the Homebrew Channel on a rooted TV or LG's Developer Mode without root, and it's in alpha, so expect some rough edges.  Get it at <a href="https://tivibro.app" target="_blank" rel="noopener">tivibro.app</a>.</p>
 
-<h2>3. IBO Player</h2>
+<h2>2. IBO Player</h2>
 <p>In LG's own store, cheap, and it takes an Xtream login or an M3U link.  You add your playlist on IBO's website using the code the TV shows.  Big playlists can feel slow on older TVs, and the layout is a list more than a guide.</p>
 
-<h2>4. Smart IPTV</h2>
+<h2>3. Smart IPTV</h2>
 <p>One of the oldest players on LG TVs, and still a steady one.  It plays M3U links, loaded from its website by the TV's MAC address, with a one-time activation after the trial.  No Xtream login screen: use your provider's M3U link instead.</p>
 
-<h2>5. IPTV Smarters</h2>
-<p>The app many providers point you to, with an Xtream login and a familiar layout from phones and Fire TV.  The LG version and its pricing have changed over the years, so check the store listing for yours.</p>
+<h2>4. IPTV Smarters</h2>
+<p>The app many providers point you to, with an Xtream login and a layout you may know from phones.  The LG version and its pricing have changed over the years, so check the store listing for yours.</p>
 
-<h2>Honorable mention: SS IPTV</h2>
+<h2>5. SS IPTV</h2>
 <p>Free, long-running and simple.  Fine for a small playlist, rougher with a big one.</p>
+
+<h2>Looking for TiviMate?</h2>
+<p>TiviMate is Android-only, so it won't install on an LG TV.  TiviBro was built to fill that gap on webOS: see <a href="/guides/iptv-player-lg-tv/">TiviBro and TiviMate, side by side</a>.</p>
 
 <h2>How to pick</h2>
 <ul>
-<li><b class="c-wh">Want TiviMate, exactly?</b>  Get a stick.  It's the only way.</li>
-<li><b class="c-wh">Want it on the TV, free, with a real guide?</b>  <a href="/tivibro/">TiviBro</a>.</li>
-<li><b class="c-wh">Want something from LG's store with a long track record?</b>  IBO Player or Smart IPTV.</li>
+<li><b class="c-wh">Want a real guide, free, with no activation?</b>  <a href="/tivibro/">TiviBro</a>.</li>
+<li><b class="c-wh">Want something straight from LG's store with a long track record?</b>  IBO Player or Smart IPTV.</li>
+<li><b class="c-wh">Your provider set you up with Smarters?</b>  It's there too.</li>
 </ul>
 {related([("/guides/iptv-player-lg-tv/", "TiviMate for LG TV?", "TiviBro and TiviMate, side by side"),
           ("/guides/m3u-playlist-lg-tv/", "Add an M3U playlist to an LG TV", "Xtream, M3U and the guide"),
@@ -801,7 +800,7 @@ guide("m3u-playlist-lg-tv",
 <li><b class="c-wh">Shows off by an hour or more.</b>  Check the TV's time zone and automatic time setting first.</li>
 <li><b class="c-wh">Thousands of channels you'll never watch.</b>  TiviBro's web editor hides, sorts and renames them from a computer, as drafts you send to the TV when you're done.</li>
 </ul>
-{related([("/guides/best-iptv-player-lg-tv/", "Top 5 IPTV players for LG", "TiviMate, TiviBro and the rest"),
+{related([("/guides/best-iptv-player-lg-tv/", "Top 5 IPTV players for LG", "TiviBro and the best webOS apps"),
           ("/tivibro/faq/", "TiviBro FAQ", "Root, providers, backups, privacy"),
           ("https://tivibro.app", "tivibro.app", "Install TiviBro")])}
 """)
