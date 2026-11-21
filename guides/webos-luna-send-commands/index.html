@@ -208,12 +208,44 @@
   <h1 class="h2" style="margin-top:12px">webOS luna-send command cheatsheet</h1>
   <p class="lead">A grouped, copy-paste list of real <code>luna-send</code> commands for a rooted LG webOS TV: power, apps, sound, picture, notifications, inputs, channels, settings, network, Bluetooth, storage, screenshots, developer tools, IR and the service menu.  Every command is checked against the <a href="/luna-atlas/">Luna Atlas</a> catalog.</p>
 </section><article class="doc" style="--accent:#33e1ff">
-<div class="callout" style="--accent:#33e1ff"><b>71 commands, grouped by task.</b>  Every one has a <b>copy</b> button, runs on a rooted LG webOS TV over SSH or in Developer Mode, and is checked against the <a href="/luna-atlas/">Luna Atlas</a> catalog.  Calls that change or reset things are flagged <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span>.</div><h2>Running commands</h2>
+<div class="callout" style="--accent:#33e1ff"><b>621 commands, grouped by task.</b>  Every one has a <b>copy</b> button, runs on a rooted LG webOS TV over SSH or in Developer Mode, and is checked against the <a href="/luna-atlas/">Luna Atlas</a> catalog.  Calls that change or reset things are flagged <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span>.</div><h2>Running commands</h2>
 <p><code>luna-send</code> is on every webOS TV; you reach it over SSH on a rooted set or in Developer Mode.  <code>-n 1</code> waits for one reply then exits, <code>-f</code> prints it formatted, and <code>-i</code> stays subscribed and streams updates until Ctrl-C.  A few calls are only on the <b>public</b> bus, where you use <code>luna-send-pub</code>.  Private methods need root; Developer Mode's shell is not root.</p>
 <p style="margin:18px 0 6px"><b>Call shape</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://&lt;service&gt;/&lt;method&gt; &#x27;{&quot;key&quot;:&quot;value&quot;}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Stay subscribed to updates</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://&lt;service&gt;/&lt;method&gt; &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<h2>Stringing calls together</h2>
+<p>The real power is chaining calls: read something with one call and feed it to the next, or run a few in a row.  These use plain shell (<code>grep</code>, <code>cut</code>, <code>&amp;&amp;</code>), so they work in the TV's own <code>sh</code> with no extra tools.  Lines starting with <code>#</code> are comments.</p>
+<p style="margin:18px 0 6px"><b>Close whatever app is on screen right now</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="c-mu"># read the foreground app id, then close it</span>
+<span class="pr">$ </span>ID=$(luna-send -n 1 -f luna://com.webos.applicationManager/getForegroundAppInfo &#x27;{}&#x27; | grep -o &#x27;&quot;appId&quot;:&quot;[^&quot;]*&quot;&#x27; | head -1 | cut -d&#x27;&quot;&#x27; -f4)
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/closeByAppId &quot;{\&quot;id\&quot;:\&quot;$ID\&quot;}&quot;</pre></div>
+<p style="margin:18px 0 6px"><b>Mute, switch to HDMI 1, and say so</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/setMuted &#x27;{&quot;muted&quot;:true}&#x27; &amp;&amp; \
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/launch &#x27;{&quot;id&quot;:&quot;com.webos.app.hdmi1&quot;}&#x27; &amp;&amp; \
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast &#x27;{&quot;message&quot;:&quot;HDMI 1, muted&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Blink the panel: off, wait 5 seconds, back on</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/turnOffScreen &#x27;{}&#x27;; sleep 5; \
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/turnOnScreen &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Put the TV&#x27;s model name into a toast</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="pr">$ </span>MODEL=$(luna-send -n 1 -f luna://com.webos.service.tv.systemproperty/getSystemInfo &#x27;{&quot;keys&quot;:[&quot;modelName&quot;]}&#x27; | grep -o &#x27;&quot;modelName&quot;:&quot;[^&quot;]*&quot;&#x27; | cut -d&#x27;&quot;&#x27; -f4)
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast &quot;{\&quot;message\&quot;:\&quot;This TV is a $MODEL\&quot;}&quot;</pre></div>
+<p style="margin:18px 0 6px"><b>Find an app&#x27;s id by name, then launch it</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="c-mu"># list the launcher tiles and grep for the app</span>
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listLaunchPoints &#x27;{}&#x27; | grep -io &#x27;&quot;id&quot;:&quot;[^&quot;]*netflix[^&quot;]*&quot;&#x27;
+<span class="c-mu"># then launch the id it prints</span>
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/launch &#x27;{&quot;id&quot;:&quot;netflix&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Capture a screenshot, then pull it to your computer</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="c-mu"># on the TV:</span>
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.capture/executeOneShot &#x27;{&quot;path&quot;:&quot;/tmp/cap.png&quot;,&quot;method&quot;:&quot;DISPLAY&quot;,&quot;format&quot;:&quot;PNG&quot;}&#x27;
+<span class="c-mu"># on your computer:</span>
+<span class="pr">$ </span>scp root@YOUR_TV_IP:/tmp/cap.png .</pre></div>
+<p style="margin:18px 0 6px"><b>Turn off the two things people hate, in one line</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;time&quot;,&quot;settings&quot;:{&quot;autoOff15Min&quot;:&quot;off&quot;}}&#x27; &amp;&amp; \
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;settings&quot;:{&quot;energySaving&quot;:&quot;off&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set the volume, then read it back</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audio/master/setVolume &#x27;{&quot;volume&quot;:10}&#x27; &amp;&amp; \
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/getVolume &#x27;{}&#x27;</pre></div>
 <h2>Power &amp; screen</h2>
 <p>Read or watch the power state, turn just the panel off while sound keeps playing, and reboot.</p>
 <p style="margin:18px 0 6px"><b>Watch the power state live</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
@@ -232,6 +264,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/powerOff &#x27;{&quot;reason&quot;:&quot;luna-send&quot;}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>&quot;Stealth&quot; reboot (not logged the way a normal reboot is)</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -a webosbrew -f -n 1 luna://com.webos.service.sleep/shutdown/machineReboot &#x27;{&quot;reason&quot;:&quot;remoteKey&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Allows the device to remain powered on for a specific time period, after which the lock…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/acquireWakeLock &#x27;{ &quot;clientId&quot;:&quot;com.webos.lunasend-5726&quot;, &quot;timeout&quot;:60 }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the last reason set for powering-on the device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/getPowerOnReason &#x27;{ &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Obtains the currently set state</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n i luna://com.webos.service.power2/getState &#x27;{ &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Notifies about the alarm expiry</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.power2/notifyAlarmExpiry &#x27;{&quot;clientId&quot; : &quot;/var/run/ls2/yUGYsP.4&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Reboots the device with in timeout after acknowledged from registered client.…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/reboot &#x27;{ &quot;reason&quot; : &quot;ota&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Clients can register to get notified when the state changes from a specified state. For…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n i luna://com.webos.service.power2/registerStateTransition &#x27;{ &quot;state&quot;:&quot;ActiveState&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Instantly releases the wake lock for the client</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/releaseWakeLock &#x27;{ &quot;clientId&quot; : &quot;com.webos.lunasend-1110&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>For clients that have registered for state change notifications, some state transitions…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/respondStateTransitionAck &#x27;{ &quot;ack&quot;:true, &quot;state&quot;:&quot;ActiveState&quot;, &quot;token&quot;:&quot;6UixZdy.4&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Specify the reason that caused the device to be powered on</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/setPowerOnReason &#x27;{ &quot;reason&quot;:&quot;remoteKey&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the state of the device. This method forcefully sets the state and ignores the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/setState &#x27;{ &quot;state&quot;:&quot;ActiveState&quot;, &quot;reason&quot;:1 }</pre></div>
+<p style="margin:18px 0 6px"><b>Shuts down the device. Note : Client will be prompted for acknowledgement if registered…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.power2/shutdown &#x27;{ &quot;reason&quot; : &quot;remoteKey&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Cancel a previous request (identified by &quot;id&quot;) which was registered using activityStart</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n -f luna://com.webos.service.sleep/com/palm/power/activityEnd &#x27;{&quot;id&quot;:&quot;Diagnostics activity&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>An activity is a specified time duration for which you do not want the system to…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/com/palm/power/activityStart &#x27;{&quot;id&quot;:&quot;Diagnostics activity&quot;, &quot;duration_ms&quot;:100}</pre></div>
+<p style="margin:18px 0 6px"><b>Unregister the client by its name</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/com/palm/power/clientCancelByName &#x27;{&quot;clientName&quot;:&quot;rdxd&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Register a new client with the given name</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/com/palm/power/identify &#x27;{&quot;subscribe&quot;:true, &quot;clientName&quot;:&quot;rdxd&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Used by a client to respond (ack or nack) to the &quot;prepareSuspend&quot; signal. Once the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/com/palm/power/prepareSuspendAck &#x27;{&quot;clientId&quot;:&quot;VGb93LuP.2&quot;, &quot;ack&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Register a client (already registered with &quot;identify&quot; call) for &quot;prepare suspend&quot;…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/com/palm/power/prepareSuspendRegister &#x27;{&quot;clientId&quot;:&quot;MRw5pw2V.2&quot;, &quot;register&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Add the client&#x27;s count in the total number of ACKs received for the &quot;suspend request&quot;…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/com/palm/power/suspendRequestAck &#x27;{&quot;clientId&quot;:&quot;VVxhXwzw.2&quot;, &quot;ack&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Register a client (already registered with &quot;identify&quot; call) for &quot;suspend request&quot;…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/com/palm/power/suspendRequestRegister &#x27;{&quot;clientId&quot;:&quot;/var/run/ls2/T4fb64.4&quot;, &quot;register&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Shuts down the machine forcefully</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/shutdown/machineOff &#x27;{&quot;reason&quot;:&quot;remoteKey&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the client&#x27;s response as ACK for the &quot;shutdownApplications&quot; signal and trigger the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/shutdown/shutdownApplicationsAck &#x27;{&quot;clientId&quot;:&quot;/var/run/ls2/T4fb64.4&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Registers an application for the &quot;shutdownApplications&quot; signal. Returns the client ID of…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownApplicationsRegister &#x27;{&quot;clientName&quot;:&quot;facebook app&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the client&#x27;s response as ACK for the &quot;shutdownServices&quot; signal and trigger the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sleep/shutdown/shutdownServicesAck &#x27;{&quot;clientId&quot;:&quot;5zUn94NP.2&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Registers an application for the &quot;shutdownApplications&quot; signal. Returns the client ID of…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/shutdown/shutdownServicesRegister &#x27;{&quot;clientName&quot;:&quot;facebook service&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Set alarm to fire in a fixed time in the future</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.sleep/time/alarmAdd &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set a calendar event</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 2 luna://com.webos.service.sleep/time/alarmAddCalendar &#x27;{&quot;date&quot;:&quot;01-24-2020&quot;, &quot;time&quot;:&quot;10:01:03&quot;, &quot;subscribe&quot;:}&#x27;</pre></div>
 <h2>Apps &amp; launcher</h2>
 <p>See what's on screen, launch and close apps, and list what's installed.</p>
 <p style="margin:18px 0 6px"><b>Show the foreground app, and each time it changes</b> <span class="pill" style="--ca:#3ddc97">subscribe</span></p>
@@ -252,6 +336,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getAppInfo &#x27;{&quot;id&quot;:&quot;com.webos.app.livetv&quot;}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Check whether an app is running</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getAppStatus &#x27;{&quot;appId&quot;:&quot;com.webos.app.browser&quot;,&quot;appInfo&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Developer-mode variant of closeByAppId used by ares-launch to close a dev app</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 &#x27;luna://com.webos.applicationManager/dev/closeByAppId&#x27; &#x27;{&quot;id&quot;:&quot;com.example.app&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the app base path</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getAppBasePath &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns whether the app with the given ID is installed (webOS TV 4.0+)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getAppLoadStatus &#x27;{&quot;appId&quot;:&quot;com.yourdomain.callee&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the contents</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getContents &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for extension</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getHandlerForExtension &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for mime type</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getHandlerForMimeType &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for URL</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getHandlerForUrl &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for URL by verb</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/getHandlerForUrlByVerb &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for mime</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listAllHandlersForMime &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for multiple mime</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listAllHandlersForMultipleMime &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for multiple URL pattern</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listAllHandlersForMultipleUrlPattern &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for URL</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listAllHandlersForUrl &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for URL by verb</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listAllHandlersForUrlByVerb &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for URL pattern</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listAllHandlersForUrlPattern &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Handles the mime type for extension</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/mimeTypeForExtension &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Registers the app</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/registerApp &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the contents</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/setContents &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Checks whether an app exists/is loadable</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 luna://com.webos.service.applicationManager/getAppLoadStatus &#x27;{&quot;appId&quot;:&quot;com.example.app&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the contents</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/getContents &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for extension</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/getHandlerForExtension &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for mime type</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/getHandlerForMimeType &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for URL</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/getHandlerForUrl &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the handler for URL by verb</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/getHandlerForUrlByVerb &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for mime</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/listAllHandlersForMime &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for multiple mime</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/listAllHandlersForMultipleMime &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the all handlers for multiple URL pattern</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/listAllHandlersForMultipleUrlPattern &#x27;{}&#x27;</pre></div>
 <h2>Volume &amp; sound</h2>
 <p>Volume, mute and sound output.  Some read methods are on the public bus; the write methods under <code>com.webos.service.audio/master</code> are public too.</p>
 <p style="margin:18px 0 6px"><b>Read the volume and mute state</b></p>
@@ -272,6 +408,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audio/getSoundOutput &#x27;{}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Change the sound output (e.g. to a soundbar)</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;sound&quot;,&quot;settings&quot;:{&quot;soundOutput&quot;:&quot;external_optical&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the audio mute</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setAudioMute &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Establishes connection for the audio resource</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/UMI/connect &#x27;{ &quot;outputMode&quot;:&quot;alsa&quot;, &quot;audioType&quot;:&quot;umimedia&quot;, &quot;sink&quot;:&quot;ALSA&quot;, &quot;source&quot;:&quot;AMIXER&quot;, &quot;sourcePort&quot;:0 }</pre></div>
+<p style="margin:18px 0 6px"><b>Disconnects the connection</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/UMI/disconnect &#x27;{ &quot;sink&quot;:&quot;ALSA&quot;, &quot;source&quot;:&quot;AMIXER&quot;, &quot;sourcePort&quot;:0, &quot;audioType&quot;:&quot;umimedia&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Mutes or unmutes the input volume of the requested connection. Note: This method is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audio/UMI/mute &#x27;{ &quot;sink&quot;:&quot;ALSA&quot;, &quot;source&quot;:&quot;AMIXER&quot;, &quot;sourcePort&quot;:0, &quot;mute&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Registers the audio (UMI)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audio/UMI/register &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Unregisters the audio (UMI)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.audio/UMI/unregister &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Check the status of an audio effect</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/checkAudioEffectStatus &#x27;{&quot;effectName&quot;:&quot;speech enhancement&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Controls playback operations like stop, pause/resume for audio samples that are played…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.audio/controlPlayback &#x27;{&quot;playbackId&quot;:&quot;_utg7654h&quot;, &quot;requestType&quot;:&quot;stop&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the status of all the audio effects</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/getAudioEffectsStatus &#x27;{&quot;subscribe&quot;:false }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the input volume for audio streams</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.audio/getInputVolume &#x27;{ &quot;streamType&quot;:&quot;default1&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Checks the status of playback which is played using playSound method</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.audio/getPlaybackStatus &#x27;{ &quot;playbackId&quot;:&quot;_utg7654h&quot;, &quot;subscribe&quot;:false }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current active sound input device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.audio/getSoundInput &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets input volume of the source</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n -i luna://com.webos.service.audio/getSourceInputVolume &#x27;{&quot;sourceType&quot;:&quot;record&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the status of the source</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.audio/getSourceStatus &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the status and information of the active stream</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.audio/getStreamStatus &#x27;{ &quot;streamType&quot;:&quot;default1&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the list of supported audio input and output devices and their connection status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send –n –i luna://com.webos.service.audio/listSupportedDevices &#x27;{&quot;subscribe&quot;:true,&quot;query&quot;:&quot;all&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets volume of currently active microphone input</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send –n 1 luna://com.webos.service.audio/master/getMicVolume &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Mutes/unmutes the currently active microphone input device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send –n 1 luna://com.webos.service.audio/master/muteMic &#x27;{&quot;soundInput&quot;:&quot;usb_mic0&quot;,&quot;mute&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Mutes or unmutes the master volume of the audio output device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/master/muteVolume &#x27;{ &quot;soundOutput&quot;:&quot;pcm_output&quot;, &quot;mute&quot;:true, &quot;sessionId&quot;:0 }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the volume of the currently active microphone input device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send –n 1 luna://com.webos.service.audio/master/setMicVolume &#x27;{&quot;soundInput&quot;:usb_mic0,&quot;volume&quot;:50}</pre></div>
+<p style="margin:18px 0 6px"><b>Reduces the master volume of the device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/master/volumeDown &#x27;{&quot;soundOutput&quot;:&quot;pcm_output&quot;, &quot;sessionId&quot;:0}</pre></div>
+<p style="margin:18px 0 6px"><b>Increases the master volume of the device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/master/volumeUp &#x27;{ &quot;soundOutput&quot;:&quot;pcm_output&quot;, &quot;sessionId&quot;:0 }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the volume level of the current or the specified scenario</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.audio/media/setVolume &#x27;{&quot;volume&quot;:10}</pre></div>
+<p style="margin:18px 0 6px"><b>Mutes the sink volume</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.audio/muteSink &#x27;{&quot;streamType&quot;:&quot;default1&quot;,&quot;mute&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Mutes the source volume</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.audio/muteSource &#x27;{&quot;sourceType&quot;:&quot;record&quot;,&quot;mute&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Plays PCM audio files through PulseAudio sound server</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.audio/playSound &#x27;{ &quot;fileName&quot;:&quot;/usr/share/audiod/systemsounds/voicestart-ondemand.pcm&quot;, &quot;sink&quot;:&quot;default1&quot;, &quot;sampleRate&quot;:48000, &quot;format&quot;:&quot;PA_SAMPLE_S16LE&quot;, &quot;channels&quot;:2 }</pre></div>
 <h2>Picture &amp; display</h2>
 <p>Read and change picture settings through the settings service.</p>
 <p style="margin:18px 0 6px"><b>Read the picture mode</b></p>
@@ -284,6 +472,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;settings&quot;:{&quot;energySaving&quot;:&quot;off&quot;}}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>List the allowed values for a setting</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/getSystemSettingValues &#x27;{&quot;category&quot;:&quot;picture&quot;,&quot;key&quot;:&quot;pictureMode&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Connects audio source to audio sink. Note : In case it&#x27;s already connected, will…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/audio/connect &#x27;{&quot;source&quot;: &quot;ADEC&quot;, &quot;sourcePort&quot;:1, &quot;sink&quot;:&quot;MAIN&quot;, &quot;outputMode&quot;:&quot;tv_speaker&quot;, &quot;audioType&quot;:&quot;media&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Disconnect from audio sink. No change is done if not connected</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/audio/disconnect &#x27;{&quot;sink&quot;:&quot;MAIN&quot;, &quot;source&quot;: &quot;ADEC&quot;, &quot;sourcePort&quot;:1}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists all video and audio sinks and their status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/audio/getStatus &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Stop/start outputting data to audio sink. This allows seamless disconnect and connect…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/audio/mute &#x27;{&quot;source&quot;: &quot;ADEC&quot;, &quot;sourcePort&quot;:1, &quot;sink&quot;:&quot;MAIN&quot;, &quot;mute&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Decreases the volume</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/audio/volume/down &#x27;{&quot;tvSoundOutput&quot;:&quot;tv_speaker&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Set volume to a numerical value</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/audio/volume/set &#x27;{&quot;volume&quot;: 50, &quot;tvSoundOutput&quot;:&quot;tv_speaker&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Increases the volume</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/audio/volume/up &#x27;{&quot;tvSoundOutput&quot;:&quot;tv_speaker&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Stop/start data output to video sink. This allows seamless disconnect and connect and…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/video/blankVideo &#x27;{&quot;sink&quot;:&quot;MAIN&quot;, &quot;blank&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Connects a video source to a video sink</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/video/connect &#x27;{&quot;source&quot;: &quot;VDEC&quot;, &quot;sourcePort&quot;:1, &quot;sink&quot;:&quot;MAIN&quot;, &quot;outputMode&quot;:&quot;DISPLAY&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Disconnects video from sink</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/video/disconnect &#x27;{&quot;sink&quot;:&quot;MAIN&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set compositing parameters for the video sinks. This maps directly to adapter call and…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.avoutput/video/display/setVideoCompositing &#x27;{&quot;mainOpacity&quot;: 255, &quot;subOpacity&quot;:100, &quot;mainZOrder&quot;:0, &quot;subZOrder&quot;: 1}</pre></div>
+<p style="margin:18px 0 6px"><b>Setup video output location on the screen for specified sink. Note : Video is actually…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.avoutput/video/display/setDisplayWindow &#x27;{&quot;sink&quot;:&quot;MAIN&quot;, &quot;fullScreen&quot;:false, &quot;displayOutput&quot;: {&quot;x&quot;:1000, &quot;y&quot;:500, &quot;width&quot;: 920, &quot;height&quot;:580}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists all video sinks and their status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/video/getStatus &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets video media data needed for playback</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avoutput/video/setMediaData &#x27;{&quot;sink&quot;:&quot;MAIN&quot;, &quot;contentType&quot;:&quot;movie&quot;, &quot;frameRate&quot;:24,&quot;width&quot;:640,&quot;height&quot;:480, &quot;adaptive&quot;:false, &quot;scanType&quot;:&quot;progressive&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.multiviewcontroller/getStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the app pipeline status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.multiviewcontroller/setAppPipelineStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the input mode</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.multiviewcontroller/setInputMode &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the epl app info</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.oledepl/setEplAppInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the PQ</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pqcontroller/setPQ &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Connects a video source to a video sink</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.videooutput/connect &#x27;{&quot;source&quot;: &quot;VDEC&quot;, &quot;sourcePort&quot;:0, &quot;sink&quot;:&quot;MAIN&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Disconnects video from sink</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.videooutput/disconnect &#x27;{&quot;sink&quot;:&quot;MAIN&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets information of parameters for video sinks to render video frames</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.videooutput/display/getParam &#x27;{&quot;command&quot;:&quot;DRMResources&quot;,&quot;sink&quot;:&quot;MAIN&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets compositing parameters for the video sinks. This maps directly to adapter call and…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.videooutput/display/setCompositing &#x27;{&quot;composeOrder&quot;: {&quot;sink&quot;: &quot;MAIN&quot;, &quot;opacity&quot;: 255, &quot;zOrder&quot;: 0, &quot;context&quot;: &quot;test&quot;}}</pre></div>
+<p style="margin:18px 0 6px"><b>Setup video output location on the screen for specified sink</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.videooutput/display/setDisplayWindow &#x27;{ &quot;sink&quot;:&quot;MAIN&quot;, &quot;fullScreen&quot;:false, &quot;displayOutput&quot;:{ &quot;x&quot;:1000, &quot;y&quot;:500, &quot;width&quot;:920, &quot;height&quot;:580 } }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the display window property (display)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.videooutput/display/setDisplayWindowProperty &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists all video sinks and their status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.videooutput/getStatus &#x27;{&quot;subscribe&quot;:true}</pre></div>
 <h2>Notifications</h2>
 <p>Put a message on the screen.  The friendliest place to start.</p>
 <p style="margin:18px 0 6px"><b>Show a toast (small corner banner)</b></p>
@@ -296,6 +536,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeToast &#x27;{&quot;toastId&quot;:&quot;...&quot;}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Close an alert</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeAlert &#x27;{&quot;alertId&quot;:&quot;...&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates the pincode prompt</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createPincodePrompt &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Disables all notification features (Toast, Alert, Input Alert, Pin Prompt). Note: Only a…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f -a com.webos.app.test luna://com.webos.notification/disable &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribe to create alert notifications. Note: This method should only be used by the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f -a com.webos.surfacemanager luna://com.webos.notification/getAlertNotification &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Queries the toast notification details of the stored messages and provides the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f -a com.webos.app.notification luna://com.webos.notification/getToastCount &#x27;{&quot;subscribe&quot;:true, &quot;displayId&quot;: 0}</pre></div>
+<p style="margin:18px 0 6px"><b>Lists the toasts created for the app/client based on the user logged into the particular…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f -a com.webos.app.notification luna://com.webos.notification/getToastList &#x27;{&quot;displayId&quot;: 0}</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribe to created toast notification. Note: This method should only be used by…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f -a com.webos.surfacemanager luna://com.webos.notification/getToastNotification &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Removes all notifications that are currently being displayed</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -a com.webos.surfacemanager -n 1 luna://com.webos.notification/removeAllNotification &#x27;{&quot;displayId&quot;: 0}</pre></div>
+<p style="margin:18px 0 6px"><b>Deletes the given notification(s) from DB. We can remove given set of notifications or…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -a com.webos.surfacemanager -n 1 -f luna://com.webos.notification/removeNotification &#x27;{&quot;removeNotiId&quot;: [&quot;com.sloy.jbnotif-1393548393417&quot;]}</pre></div>
+<p style="margin:18px 0 6px"><b>Specifies whether the toast is to be marked as read or unread</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f -a com.webos.app.notification luna://com.webos.notification/setToastStatus &#x27;{ &quot;toastId&quot; : &quot;com.webos.app.notification-1584349101435&quot;, &quot;readStatus&quot; : true }</pre></div>
+<p style="margin:18px 0 6px"><b>Closes the input alert</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closeInputAlert &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Closes the pincode prompt</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/closePincodePrompt &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates the input alert</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createInputAlert &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates the notification</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createNotification &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates the remote notification</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createRemoteNotification &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the notification info</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/getNotificationInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the remote notification info</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/getRemoteNotificationInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates the toast (system notifications)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.apiadapter/system_notifications/createToast &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Removes the remote notification</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/removeRemoteNotification &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Closes all the open alerts. Note: This method is for internal use. It must only be used…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f -a com.webos.service.battest luna://com.webos.notification/closeAllAlerts &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Enables all notification features (Toast, Alert, Input Alert, Pin Prompt). Note: Only a…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f -a com.webos.app.test luna://com.webos.notification/enable &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Contains detailed information of an activity which is fired by the Actvity Manager .…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/$activity &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Describes the action parameter for the toast</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/action &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Contains the alert information</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/alertInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Contains alert button information</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/button &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Defines extra toast image</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/image &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Contain information about an input alert</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/input &#x27;{}&#x27;</pre></div>
 <h2>Inputs &amp; sources</h2>
 <p>List HDMI and other inputs, and add an app so it shows up under "All Inputs".</p>
 <p style="margin:18px 0 6px"><b>List the inputs and what&#x27;s connected</b></p>
@@ -304,6 +596,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 luna://com.webos.service.eim/addDevice &#x27;{&quot;appId&quot;:&quot;com.example.app&quot;,&quot;pigImage&quot;:&quot;&quot;}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Remove an app&#x27;s input tile</b> <span class="pill" style="--ca:#33e1ff">luna-send-pub</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 luna://com.webos.service.eim/deleteDevice &#x27;{&quot;appId&quot;:&quot;com.example.app&quot;,&quot;pigImage&quot;:&quot;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns speech recognition results. This method is asynchronous</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.ai.voice/getResponse &#x27;{&quot;subscribe&quot;: true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current state of the service. It can have the following states: idle : Before…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ai.voice/getState &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Starts the service based on the mode selected. Note: This method is only for allowed…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.ai.voice/start &#x27;{&quot;mode&quot;: &quot;continuous&quot;, &quot;keywordDetect&quot;: true}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the value of the specified input configuration</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/getConfig &#x27;{ &quot;adapter&quot;:&quot;cec0&quot;, &quot;key&quot;: &quot;vendorId&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Scans the CEC bus and provides information of the connected HDMI CEC devices</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/scan &#x27;{ &quot;adapter&quot;: &quot;cec0&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Sends the input command to destination HDMI CEC devices connected on CEC bus</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/sendCommand &#x27;{ &quot;adapter&quot;: &quot;cec0&quot;, &quot;destAddress&quot; : &quot;0.0.0.0&quot;, &quot;timeout&quot;: 500, &quot;command&quot; : { &quot;name&quot; : &quot;report-audio-status&quot;, &quot;args&quot; : [ { &quot;arg&quot; : &quot;aud-mute-status&quot;, &quot;value&quot; : &quot;off&quot;} ] } }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the input configuration</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.cec/setConfig &#x27;{&quot;adapter&quot;:&quot;cec0&quot;,&quot;key&quot;: &quot;vendorId&quot;, &quot;value&quot;: &quot;LG&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Requests the vendor command with ID (CEC)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.eim/cec/requestVendorCommandWithID &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribes to sensor data (older API)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.mrcu/sensor/getSensorData &#x27;{&quot;callbackInterval&quot;:1,&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribes to magic remote sensor data</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.mrcu/sensor2/getSensorEventData &#x27;{&quot;sensorType&quot;:&quot;all&quot;,&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the sensor callback interval (msec)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.mrcu/sensor2/setSensorInterval &#x27;{&quot;interval&quot;:10}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Closes the opened GPIO pin, so that the pin is available for other applications to use</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/close &#x27;{&quot;pin&quot;:&quot;gpio4&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the direction of the required GPIO pin</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/getDirection &#x27;{&quot;pin&quot;:&quot;gpio4&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the file descriptor for the GPIO pin specified in the input</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/getPollingFd &#x27;{&quot;id&quot; : &quot;gpio4&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Reads the value of the opened input pin</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/getValue &#x27;{&quot;pin&quot;:&quot;gpio4&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Provides the list of available GPIO pins in the target hardware</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/list &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Opens the GPIO pin, if not already opened by other applications</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/open &#x27; {&quot;pin&quot;:&quot;gpio4&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the direction of the GPIO pin to input or output</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/setDirection &#x27; {&quot;pin&quot;:&quot;gpio4&quot;, &quot;direction&quot;:&quot;outHigh&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the value of the opened output pin to &quot;low&quot; or &quot;high&quot;</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/gpio/setValue &#x27; {&quot;pin&quot;:&quot;gpio4&quot;, &quot;value&quot;:&quot;low&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Closes the opened I2C device connected to the bus</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/i2c/close &#x27;{&quot;name&quot;:&quot;I2C1&quot;, &quot;address&quot;:104}</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the file descriptor for the I2c if specified in the input</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/i2c/getPollingFd &#x27;{&quot;name&quot; : &quot;I2C1&quot;, &quot;address&quot; :104}</pre></div>
+<p style="margin:18px 0 6px"><b>Provides the list of available I2C buses</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/i2c/list &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Opens the device connected to I2C bus</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/i2c/open &#x27;{&quot;name&quot;:&quot;I2C1&quot;, &quot;address&quot;:104}</pre></div>
+<p style="margin:18px 0 6px"><b>Reads data from the I2C device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/i2c/read &#x27;{&quot;name&quot;:&quot;I2C1&quot;, &quot;address&quot;:104, &quot;size&quot;:4}</pre></div>
+<p style="margin:18px 0 6px"><b>Reads a value from the register buffer</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/i2c/readRegBuffer &#x27;{&quot;name&quot;:&quot;I2C1&quot;, &quot;address&quot;:104, &quot;reg&quot;:0, &quot;size&quot;:4}</pre></div>
+<p style="margin:18px 0 6px"><b>Reads a byte from a given register of the I2C device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.peripheralmanager/i2c/readRegByte &#x27;{&quot;name&quot;:&quot;I2C1&quot;,&quot;address&quot;:104, &quot;reg&quot;:0}</pre></div>
 <h2>TV, channels &amp; recording</h2>
 <p>The tuner side: channel lists, channel info and starting a recording.</p>
 <p style="margin:18px 0 6px"><b>List the channels</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
@@ -312,6 +656,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.iepg/getChannelInfo &#x27;{&quot;channelId&quot;:&quot;...&quot;,&quot;type&quot;:2}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Start a DVR recording to USB</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.dvr/record/startProgramRecord &#x27;{&quot;channelId&quot;:&quot;...&quot;,&quot;duration&quot;:2880,&quot;quality&quot;:&quot;record_quality_high&quot;,&quot;recordingMode&quot;:&quot;recording_direct&quot;,&quot;storagePath&quot;:&quot;/tmp/usb/sda/sda1&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the channel</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/changeChannel &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the channel down</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/changeChannelDown &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the channel previous</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/changeChannelPrevious &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the channel up</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/changeChannelUp &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Closes the UTP broadcast</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/close &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Opens the UTP broadcast</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/open &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Pauses the UTP broadcast</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/pause &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Stops the UTP broadcast</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.broadcast/stop &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the channel favorite</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.channel/changeChannelFavorite &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the channel type</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.channel/changeChannelType &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the channel type list</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.channel/getChannelTypeList &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the last channel ID</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.channel/getLastChannelId &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the channel group</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.channel/setChannelGroup &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the channel mode</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.channel/setChannelMode &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the last channel ID</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.utp.channel/setLastChannelId &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method changeChannel (listed in community research; semantics…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/changeChannel &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method changeChannelDown (listed in community research;…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/changeChannelDown &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method changeChannelPrevious (listed in community research;…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/changeChannelPrevious &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method changeChannelUp (listed in community research;…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/changeChannelUp &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method close (listed in community research; semantics not…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/close &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method open (listed in community research; semantics not…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/open &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method pause (listed in community research; semantics not…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/pause &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Broadcast pipeline control method stop (listed in community research; semantics not…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tv.broadcast/stop &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Handles the end transaction</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvrm/endTransaction &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the resource to release</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvrm/getResourceToRelease &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Notifies of the foreground</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvrm/notifyForeground &#x27;{}&#x27;</pre></div>
 <h2>System info</h2>
 <p>Model, firmware, build and device properties.</p>
 <p style="margin:18px 0 6px"><b>Model, webOS version and build date</b></p>
@@ -322,6 +718,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/deviceInfo/query &#x27;{&quot;parameters&quot;:[&quot;device_name&quot;,&quot;board_type&quot;]}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Read platform config values</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.config/getConfigs &#x27;{&quot;configNames&quot;:[&quot;tv.model.sysType&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns OS info keys such as webos_release, webos_manufacturing_version, device_name</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send-pub -n 1 -f luna://com.palm.systemservice/osInfo/query &#x27;{&quot;parameters&quot;:[&quot;device_name&quot;,&quot;webos_manufacturing_version&quot;,&quot;webos_release&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the system time; subscribable for timezone or &gt;5 min time changes</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.systemservice/time/getSystemTime &#x27;{&quot;subscribe&quot;:false}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates a bug ticket on Jira with the given data. Note: This method is intended to be…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bugreport/createBug &#x27;{&quot;summary&quot;: &quot;test&quot;, &quot;priority&quot;: &quot;P5&quot;, &quot;reproducibility&quot;: &quot;Always (100%)&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the Jira configurations. Currently, the only configurations supported are: username…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bugreport/setConfig &#x27;{&quot;account&quot;: {&quot;username&quot;: &quot;webosreporter&quot;, &quot;password&quot;: &quot;&lt;redacted&gt;&quot;}}</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribe to be notified when a MemoryManager internal event occurs</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -i luna://com.webos.service.memorymanager/getManagerEvent &#x27;{ &quot;type&quot;:&quot;killing&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Provides the current status of the memory</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -i luna://com.webos.service.memorymanager/getMemoryStatus &#x27;{ &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Requests for the memory that is required to launch an application. Note: This method is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.memorymanager/requireMemory &#x27;{ &quot;requiredMemory&quot;:120 }</pre></div>
+<p style="margin:18px 0 6px"><b>Restores the platform-specific environment settings from the dump file, previously…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/backup/postRestore &#x27;{ &quot;tempDir&quot;: &quot;/tmp/&quot;, &quot;files&quot;: [&quot;/var/luna/preferences/systemprefs_backup.db&quot;] }</pre></div>
+<p style="margin:18px 0 6px"><b>The preBackup method creates dump files containing platform-specific environment…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/backup/preBackup &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>The getTime method gets the current time for a specific time source. There are several…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/clock/getTime &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>The setTime method is used to set the time. By calling this method you can update any…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/clock/setTime &#x27;{&quot;utc&quot;:1448556562}</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieves a list of valid values for the specified key. If the key is of a type that…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/getPreferenceValues &#x27;{&quot;key&quot;: &quot;useNetworkTime&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>The getPreferences method retrieves the values for keys specified in a passed array. If…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/getPreferences &#x27;{&quot;keys&quot;: [&quot;locale&quot;]}</pre></div>
+<p style="margin:18px 0 6px"><b>Adds a new ringtone on devices that use ringtones. Note: This method is public. It can…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/ringtone/addRingtone &#x27;{&quot;filePath&quot;: &quot;/usr/palm/sounds/ringtone.mp3&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Deletes a ringtone. Note: This method is public. It can be used both by the system and…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/ringtone/deleteRingtone &#x27;{&quot;filePath&quot;: &quot;/media/internal/ringtones/ringtone.mp3&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>The setPreferences method sets preference keys to specified values. The values are…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/setPreferences &#x27;{ &quot;timeZone&quot;: {&quot;ZoneID&quot;:&quot;Europe/Kiev&quot;}, &quot;timeFormat&quot;: &quot;HH12&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Returns details of software deployed on the webOS device. Note: Currently, returns only…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/softwareInfo/query &#x27;{ &quot;parameters&quot;:[ &quot;nodejs_versions&quot; ] }</pre></div>
+<p style="margin:18px 0 6px"><b>The convertDate method converts the given date from one timezone to another</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/time/convertDate &#x27;{ &quot;date&quot;: &quot;1982-12-06 17:25:33&quot;, &quot;source_tz&quot;: &quot;America/Los_Angeles&quot;, &quot;dest_tz&quot;:&quot;America/New_York&quot; }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the locale info matching the requested locale settings. In particular, the name…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/time/getCurrentTimeZoneByLocale &#x27;{&quot;locale&quot;:&quot;ko&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the effective broadcast time. If no broadcast time info update has been received…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/time/getEffectiveBroadcastTime &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>The time/getSystemTime method gets the system time and time zone information. Apps can…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/time/getSystemTime &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the broadcast time which is in the broadcast signal. The system service will be…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/time/setBroadcastTime &#x27;{&quot;utc&quot;: 1418745990, &quot;local&quot;: 1418727638 }</pre></div>
+<p style="margin:18px 0 6px"><b>The setSystemNetworkTime method is used to send a NITZ messages to Luna System Service.…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.systemservice/time/setSystemNetworkTime &#x27;{ &quot;sec&quot;:&quot;30&quot;, &quot;min&quot;:&quot;15&quot;, &quot;offset&quot;:&quot;-480&quot;, &quot;hour&quot;:&quot;2&quot;, &quot;dst&quot;:1, &quot;tzvalid&quot;:true, &quot;dstvalid&quot;:true, &quot;mon&quot;:&quot;6&quot;, &quot;year&quot;:&quot;111&quot;, &quot;timevalid&quot;:true, &quot;mday&quot;:&quot;1&quot;, &quot;mcc&quot;:&quot;310&quot;, &quot;mnc&quot;:&quot;26&quot;, &quot;tilIgnore&quot;:true, &quot;timestamp&quot;:&quot;123&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>The setSystemTime method sets the Linux system-wide time effectively overriding any…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/time/setSystemTime &#x27;{&quot;utc&quot;: 1418745990 }</pre></div>
+<p style="margin:18px 0 6px"><b>The setTimeChangeLaunch method adds an application to, or removes it from the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/time/setTimeChangeLaunch &#x27;{ &quot;appId&quot;: &quot;com.webos.app.someApp&quot;, &quot;active&quot;: true, &quot;parameters&quot;: { &quot;param1&quot;: &quot;foo&quot;, &quot;param2&quot;: &quot;bar&quot; } }</pre></div>
+<p style="margin:18px 0 6px"><b>Create a manual timezone named &quot; Etc/Manual &quot; and specify details of this timezone.…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemservice/setPreferences &#x27;{&quot;timeZone&quot;: {&quot;ZoneID&quot;: &quot;Etc/Manual&quot;}}</pre></div>
 <h2>Settings: read &amp; write</h2>
 <p>The settings service reads and changes almost everything the on-screen menus do.  Categories include <code>picture</code>, <code>sound</code>, <code>option</code>, <code>time</code> and <code>network</code>.</p>
 <p style="margin:18px 0 6px"><b>Read any setting</b></p>
@@ -334,6 +782,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;time&quot;,&quot;settings&quot;:{&quot;autoOff15Min&quot;:&quot;off&quot;}}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Turn off mobile (SSAP) access after rooting</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.settingsservice/setSystemSettings &#x27;{&quot;category&quot;:&quot;network&quot;,&quot;settings&quot;:{&quot;allowMobileDeviceAccess&quot;:false}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieve the description for the specified key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.lge.settingsservice/getSystemSettingDesc &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieve the list of default values for the specified key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.lge.settingsservice/getSystemSettingFactoryValue &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieve the list of valid values for the specified key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.lge.settingsservice/getSystemSettingValues &#x27;{&quot;key&quot;: &quot;...&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieves the values for keys specified in a passed array on system settings</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.lge.settingsservice/getSystemSettings &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Configd parses all configuration files again and regenerates the values of configs </b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.config/reconfigure &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Force rescan of resource file for application. Useful when application&#x27;s resource file…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.configurator/rescan &#x27;[{&quot;id&quot;:&quot;com.webos.app.settings&quot;,&quot;type&quot;:&quot;app&quot;,&quot;location&quot; :&quot;system&quot;}]</pre></div>
+<p style="margin:18px 0 6px"><b>This method will scan all folders and process all configuration files</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.configurator/run &#x27;{&quot;types&quot;:[&quot;activities&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Within the API call, application can notify Configurator about new resource files and…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.configurator/scan &#x27;[{&quot;id&quot;:&quot;com.webos.app.settings&quot;,&quot;type&quot;:&quot;app&quot;,&quot;location&quot; :&quot;system&quot;}]</pre></div>
+<p style="margin:18px 0 6px"><b>Rollback all actions that were made by the scan / rescan API calls. In other words,…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.configurator/unconfigure &#x27;[{&quot;id&quot;:&quot;com.webos.app.settings&quot;,&quot;type&quot;:&quot;app&quot;,&quot;location&quot; :&quot;system&quot;}]</pre></div>
+<p style="margin:18px 0 6px"><b>The getAllAppProperties gets all properties set to an application as an object array.…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAllAppProperties &#x27;{&quot;appId&quot;: &quot;com.webos.service.preferences&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getAllAppPropertiesObj method gets all properties set to an application as an object</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAllAppPropertiesObj &#x27;{&quot;appId&quot;: &quot;com.webos.service.app.calendar&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getAppKeys method returns all property keys for an application as a string array.…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppKeys &#x27;{&quot;appId&quot;: &quot;com.webos.rdxd&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getAppKeys method returns all property keys for an application as a JSON object</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppKeysObj &#x27;{&quot;appId&quot;: &quot;com.webos.rdxd&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getAppProperty method returns an application property for a specific key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/getAppProperty &#x27;{&quot;appId&quot;: &quot;com.webos.rdxd&quot;, &quot;key&quot;: &quot;reportIdNum&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getAppProperty method removes an application property</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/removeAppProperty &#x27;{&quot;appId&quot;:&quot;testApp&quot;, &quot;key&quot;:&quot;testKey&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Add or change an application property</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/appProperties/setAppProperty &#x27;{&quot;appId&quot;:&quot;testApp&quot;, &quot;key&quot;:&quot;testKey&quot;, &quot;value&quot;:{&quot;testValueKey&quot;:&quot;testValue&quot;}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>postRestore method restores the application/services preferences from…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/backup/postRestore &#x27;{&quot;tempDir&quot;:&quot;/var/&quot;,&quot;files&quot;:[&quot;/var/preferences/lunaprefs_backup.db&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>preBackup method takes backup of application/services preferences stored in…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/backup/preBackup &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getSomeSysProperties method takes an object array of property keys and returns an…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSomeSysProperties &#x27;[{&quot;key&quot;: &quot;com.webos.service.properties.browserOsName&quot;}, {&quot;key&quot;: &quot;com.webos.service.properties.deviceName&quot;}]&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getSomeSysPropertiesObj method takes an object array of property keys and returns an…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSomeSysPropertiesObj &#x27;[{&quot;key&quot;: &quot;com.webos.service.properties.browserOsName&quot;}, {&quot;key&quot;: &quot;com.webos.service.properties.deviceName&quot;}]&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The getSysProperty method returns a system property</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.preferences/systemProperties/getSysProperty &#x27;{&quot;key&quot;: &quot;com.webos.service.properties.browserOsName&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Runs more than one Settings Service method at once. Remarks Subscription is supported…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send command: # luna-send -n 1 luna://com.webos.service.settings/batch &#x27;{ &quot;operations&quot;: [ { &quot;method&quot;: &quot;getSystemSettings&quot;, &quot;params&quot;: { &quot;category&quot;: &quot;picture&quot;, &quot;keys&quot;: [ &quot;brightness&quot; ], &quot;subscribe&quot;:true } }, { &quot;method&quot;: &quot;getSystemSettingDesc&quot;, &quot;params&quot;: { &quot;category&quot;: &quot;picture&quot;, &quot;keys&quot;: [ &quot;brightness&quot; ], &quot;subscribe&quot;:true } } ], &quot;subscribe&quot;: true }</pre></div>
+<p style="margin:18px 0 6px"><b>Deletes settings item(s). Factory default value is also deleted. Remarks In case there…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.settings/deleteSystemSettings &#x27;{ &quot;category&quot;: &quot;option&quot;, &quot;keys&quot;: [ &quot;zipcode&quot; ] }</pre></div>
+<p style="margin:18px 0 6px"><b>Looks up the settings item, and returns the settings for the current foreground app only…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send command: # luna-send -n 1 luna://com.webos.service.settings/getCurrentSettings &#x27;{ &quot;category&quot;: &quot;lock&quot;, &quot;keys&quot;: [ &quot;applockPerApp&quot; ] }</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieves detailed information on the settings. Exception: The request for nonexistent…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.settings/getSystemSettingDesc &#x27;{&quot;category&quot;:&quot;picture&quot;, &quot;keys&quot;:[&quot;brightness&quot;]}</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieves the factory default value of the setting item. Method of use is the same as…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send command: # luna-send -n 1 luna://com.webos.service.settings/getSystemSettingFactoryValue &#x27;{&quot;category&quot;:&quot;picture&quot;, &quot;key&quot;:&quot;brightness&quot;}</pre></div>
 <h2>Network &amp; Wi-Fi</h2>
 <p>Connection state for wired and wireless.</p>
 <p style="margin:18px 0 6px"><b>Overall connection status (wired + Wi-Fi)</b></p>
@@ -342,18 +842,174 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.connectionmanager/getStatus &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Wi-Fi status</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.wifi/getstatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current status of network connections (Wi-Fi and wired)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.connectionmanager/getStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Provides the proxy server that was used to reach the target URL</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/findProxyForURL &#x27;{ &quot;url&quot;:&quot;http://www.lge.com&quot;, &quot;host&quot;:&quot;www.lge.com&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the MAC addresses for the Wi-Fi and wired interfaces. When subscribed, getInfo…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/getinfo &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Monitors the data activity on the wired, Wi-Fi and WAN interfaces for bytes received or…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.connectionmanager/monitorActivity &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows to set the default interface. This API allows to change the current default…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/setDefaultInterface &#x27;{&quot;ifName&quot;: &quot;&lt;ifName&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Specifies the proxy server for the network</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/setProxy &#x27;{ &quot;method&quot;:&quot;direct&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Enables or disables the available connection interfaces which can be: Wired (ethernet)…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/setTechnologyState &#x27;{&quot;enabled&quot;:[&quot;wifi&quot;]}</pre></div>
+<p style="margin:18px 0 6px"><b>Changes the DNS servers for the network. If a SSID value is not provided in the request…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/setdns &#x27;{&quot;dns&quot;:[&quot;203.0.113.10&quot;]}</pre></div>
+<p style="margin:18px 0 6px"><b>Modifies the parameters of an IPv4 connection (wired or Wi-Fi). If a SSID value is not…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/setipv4 &#x27;{ &quot;ssid&quot;: &quot;MyTestAP&quot;, &quot;method&quot;: &quot;manual&quot;, &quot;address&quot;: &quot;192.168.1.42&quot;, &quot;netmask&quot;: &quot;255.255.255.0&quot;, &quot;gateway&quot;: &quot;192.168.1.1&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Modifies the parameters of an IPv6 connection (wired or Wi-Fi). If a SSID value is not…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/setipv6 &#x27;{ &quot;ssid&quot;: &quot;MyTestAP&quot;, &quot;method&quot;: &quot;manual&quot;, &quot;address&quot;: &quot;2001:db8:85a3:8d3:1319:8a2e:370:7348&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Enables or disables the state of either or both the Wi-Fi and wired connections on the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.connectionmanager/setstate &#x27;{&quot;wifi&quot;:&quot;enabled&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Enable or disable 1x mode for downloads/uploads</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/allow1x &#x27;{&quot;value&quot; : true}</pre></div>
+<p style="margin:18px 0 6px"><b>Cancel a download that is in progress</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelDownload &#x27;{&quot;ticket&quot; : 1}</pre></div>
+<p style="margin:18px 0 6px"><b>Cancel an upload that is in progress. See the cancelDownload method for detailed…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/cancelUpload &#x27;{&quot;ticket&quot; : 1}</pre></div>
+<p style="margin:18px 0 6px"><b>Clear the download history for a specific application or for all downloads or uploads</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/clearHistory &#x27;{&quot;owner&quot; : &quot;/var/run/ls2/5Htp9Q&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Delete a downloaded file based on the ticket number. The ticket number is a unique ID…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/deleteDownloadedFile &#x27;{&quot;ticket&quot; : 124}</pre></div>
+<p style="margin:18px 0 6px"><b>Start a download</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -i luna://com.webos.service.downloadmanager/download &#x27;{&quot;target&quot; : &quot;http://www.google.co.kr&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Get the status of a download for a specific ticket number. The method will return the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -i luna://com.webos.service.downloadmanager/downloadStatusQuery &#x27;{&quot;ticket&quot; : 125}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Get the download or upload history for a specific application</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/getAllHistory &#x27;{&quot;owner&quot; : &quot;/var/run/ls2/5Htp9Q&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Pause a download. Note that only downloads started with canHandlePause:true can be…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.downloadmanager/pauseDownload &#x27;{&quot;ticket&quot; : 135}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Resume a download</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -i luna://com.webos.service.downloadmanager/resumeDownload &#x27;{&quot;ticket&quot; : 135}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Upload a file to the target URI. If subscribe is set to false , the onSuccess handler is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.downloadmanager/upload &#x27;{&quot;url&quot;:&quot;http://www.google.co.kr&quot;,&quot;fileName&quot;:&quot;/media/internal/downloads/test.txt&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Performs an ARP request to resolve IP address to mac address which can then be used to…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/arping &#x27;{ &quot;ifName&quot;:&quot;eth0&quot;, &quot;ipAddress&quot;:&quot;10.195.248.213&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Creates a TCP socket and checks if it can successfully connect to the hostURL using the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/checkhttp &#x27;{ &quot;hostUrl&quot;:&quot;www.lge.com&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Creates a VLAN for the provided index and interface</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/createVlan &#x27;{ &quot;interface&quot;:{ &quot;name&quot;:&quot;eth0&quot; }, &quot;index&quot;:9 }</pre></div>
+<p style="margin:18px 0 6px"><b>Provided VLAN index will be deleted for the provided interface, if present</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.nettools/deleteVlan &#x27;{ &quot;interface&quot;:{ &quot;name&quot;:&quot;eth0&quot; }, &quot;index&quot;:9 }</pre></div>
 <h2>Bluetooth</h2>
 <p>Adapter and device status for the TV's Bluetooth stack.</p>
 <p style="margin:18px 0 6px"><b>Bluetooth adapter status</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bluetooth2/adapter/getStatus &#x27;{}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Paired / connected device status</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bluetooth2/device/getStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Connects to GATT profile on remote device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.blegatt/client/connect &#x27;{&quot;subscribe&quot;:true,&quot;address&quot;:&quot;&lt;device-address&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Disconnects GATT</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/disconnect &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Discovers services</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/discoverServices &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Gets available services</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/getServices &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Reads a characteristic</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/readCharacteristic &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;,&quot;service&quot;:&quot;&lt;service-UUID&gt;&quot;,&quot;characteristic&quot;:&quot;&lt;characteristic-UUID&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Reads a descriptor</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/readDescriptor &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;,&quot;service&quot;:&quot;&lt;service-UUID&gt;&quot;,&quot;characteristic&quot;:&quot;&lt;characteristic-UUID&gt;&quot;,&quot;descriptor&quot;:&quot;&lt;descriptor-UUID&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Enable/disable notifications for a characteristic</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/setCharacteristicNotification &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;,&quot;service&quot;:&quot;&lt;service-UUID&gt;&quot;,&quot;characteristic&quot;:&quot;&lt;characteristic-UUID&gt;&quot;,&quot;enable&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Writes a characteristic value</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/writeCharacteristic &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;,&quot;service&quot;:&quot;&lt;service-UUID&gt;&quot;,&quot;characteristic&quot;:&quot;&lt;characteristic-UUID&gt;&quot;,&quot;value&quot;:{&quot;bytes&quot;:[0]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Writes a descriptor value</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/client/writeDescriptor &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;,&quot;service&quot;:&quot;&lt;service-UUID&gt;&quot;,&quot;characteristic&quot;:&quot;&lt;characteristic-UUID&gt;&quot;,&quot;descriptor&quot;:&quot;&lt;descriptor-UUID&gt;&quot;,&quot;value&quot;:{&quot;bytes&quot;:[0]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Scanning state, connected and paired devices</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.blegatt/getState &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Checks if Bluetooth is enabled</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.blegatt/isEnabled &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Pairs a remote device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.blegatt/pair &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;,&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Starts scanning for BLE devices</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.blegatt/startScan &#x27;{&quot;subscribe&quot;:true,&quot;uuid&quot;:&quot;&lt;service-UUID&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Stops BLE scanning</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/stopScan &#x27;{&quot;uuid&quot;:&quot;&lt;service-UUID&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Unpairs a remote device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.blegatt/unpair &#x27;{&quot;address&quot;:&quot;&lt;device-address&gt;&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Connects to the A2DP profile on the specified remote device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/a2dp/connect &#x27;{ &quot;address&quot;:&quot;AA:BB:CC:DD:EE:FF&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Disables the AVDTP delay reporting</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/a2dp/disableDelayReporting &#x27;{ &quot;adapterAddress&quot;:&quot;AA:BB:CC:DD:EE:FF&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Drops the connection to the given remote device on the A2DP profile</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/a2dp/disconnect &#x27;{ &quot;address&quot;:&quot;AA:BB:CC:DD:EE:FF&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Enables the AVDTP delay reporting</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n -1 luna://com.webos.service.bluetooth2/a2dp/enableDelayReporting &#x27;{ &quot;adapterAddress&quot;:&quot;AA:BB:CC:DD:EE:FF&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the AVDTP delay from a remote A2DP device, whenever the AVDTP delay is changed</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/a2dp/getDelayReportingTime &#x27;{</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the status of the A2DP connection to a remote device. Note: If the address input…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/a2dp/getStatus &#x27;{ &quot;address&quot;:&quot;AA:BB:CC:DD:EE:FF&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Awaits incoming pairing requests on the default Bluetooth adapter (only) by setting its…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/adapter/awaitPairingRequests &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Cancels discovering the remote Bluetooth devices. Note: Discovery of a specific adapter…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bluetooth2/adapter/cancelDiscovery &#x27;{ }</pre></div>
+<p style="margin:18px 0 6px"><b>Cancels the pairing request with a remote device, either incoming or outgoing. Sends a…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bluetooth2/adapter/cancelPairing &#x27;{ &quot;address&quot;: &quot;AA:BB:CC:DD:EE:FF&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Pairs a specific remote Bluetooth device with a specific Bluetooth adapter. The caller…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/adapter/pair &#x27;{ &quot;address&quot;: &quot;AA:BB:CC:DD:EE:FF&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the information on the Bluetooth adapters currently available in the system. The…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.bluetooth2/adapter/queryAvailable &#x27;{&quot;subscribe&quot;:true}</pre></div>
 <h2>Storage &amp; USB</h2>
 <p>List attached drives and browse their contents.</p>
 <p style="margin:18px 0 6px"><b>List attached storage (USB, internal)</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.attachedstoragemanager/listDevices &#x27;{}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>List a folder on a device</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.attachedstoragemanager/listFolderContents &#x27;{&quot;deviceId&quot;:&quot;...&quot;,&quot;path&quot;:&quot;/&quot;,&quot;limit&quot;:100}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Allows apps to modify the parameters of a cache type other than its name. You must…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.filecache/DefineType &#x27;{&quot;typeName&quot;:&quot;test&quot;, &quot;size&quot;:1024, &quot;loWatermark&quot;:102400, &quot;hiWatermark&quot;:409600, &quot;cost&quot;:5}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Enables copying of an object from the file cache to a non-cached location. On successful…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/CopyCacheObject &#x27;{&quot;pathName&quot;:&quot;/var/file-cache/test/M/OnRpQABl.bar&quot;, &quot;destination&quot;:&quot;&quot;, &quot;fileName&quot;:&quot;foo.bar&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Defines a new cache type. This is intended for use by the backup service. Optionally you…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.filecache/DefineType &#x27;{&quot;typeName&quot;:&quot;test&quot;,&quot;size&quot;:1024,&quot;loWatermark&quot;:102400,&quot;hiWatermark&quot;:409600,&quot;cost&quot;:5}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows you to delete a previously defined cache type and frees up its space. All objects…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.filecache/DefineType &#x27;{&quot;typeName&quot;:&quot;test&quot;, &quot;size&quot;:1024, &quot;loWatermark&quot;:102400, &quot;hiWatermark&quot;:409600, &quot;cost&quot;:5}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns cache type details. The DescribeType will return the currently assigned values…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.filecache/DefineType &#x27;{&quot;typeName&quot;:&quot;test&quot;, &quot;size&quot;:1024, &quot;loWatermark&quot;:102400, &quot;hiWatermark&quot;:409600, &quot;cost&quot;:5}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Objects will normally be automatically expired form the cache as space is needed. If you…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/ExpireCacheObject &#x27;{&quot;pathName&quot;:&quot;/var/file-cache/test/M/OnRpQABl.bar&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows you to query the original filename of a particular object in a cache type. In…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheObjectFilename &#x27;{&quot;pathName&quot;:&quot;/var/file-cache/test/L/cvrKwABm.bar&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows you to query a particular object size in a cache type. In order to get the cache…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/GetCacheObjectSize &#x27;{&quot;pathName&quot;:&quot;/var/file-cache/test/L/cvrKwABm.bar&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows you to query the status of a particular cache type to obtain: the total space…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.filecache/DefineType &#x27;{&quot;typeName&quot;:&quot;test&quot;, &quot;size&quot;:1024, &quot;loWatermark&quot;:102400, &quot;hiWatermark&quot;:409600, &quot;cost&quot;:5}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Inserts a new object of the specified type into the cache. The fileName parameter is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.filecache/DefineType &#x27;{&quot;typeName&quot;:&quot;test&quot;, &quot;size&quot;:1024, &quot;loWatermark&quot;:102400, &quot;hiWatermark&quot;:409600, &quot;cost&quot;:5}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>By calling the ResizeCacheObject you can specify the size of the cached object after it…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.filecache/ResizeCacheObject &#x27;{&quot;newSize&quot;: 1024, &quot;pathName&quot;: &quot;/var/file-cache/test/H/LCWlwAJb.cat&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Enables you to subscribe an object in the cache and hold a subscription to the object…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/SubscribeCacheObject &#x27;{&quot;pathName&quot;: &quot;/var/file-cache/test/H/LCWlwAJb.cat&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows you to mark an object as recently used. This decreases the chances of the object…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.filecache/TouchCacheObject &#x27;{&quot;pathName&quot;:&quot;/var/file-cache/test/D2_/aJQCH9.bar&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Unmounts all drives of the storage device for safe removal. Prerequisite: The storage…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/eject &#x27;{&quot;deviceNum&quot;:2}</pre></div>
+<p style="margin:18px 0 6px"><b>Formats the connected drive</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/format &#x27;{ &quot;driveName&quot;:&quot;sda&quot;, &quot;fsType&quot;:&quot;fat&quot;, &quot;volumeLabel&quot;:&quot;test&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Checks the file system by performing fsck (File System Check) of the corresponding…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/fsck &#x27;{&quot;driveName&quot;:&quot;sda&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the status information of connected device(s)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedDeviceStatus &#x27;{ &quot;subscribe&quot; : true}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the status information of connected non-storage device(s)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedNonStorageDeviceList &#x27;{ &quot;subscribe&quot; : true }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets status information of connected storage device(s)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getAttachedStorageDeviceList &#x27;{ &quot;subscribe&quot; : true }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the space information of the connected drive. Note : The drive must be mounted</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/getSpaceInfo &#x27;{ &quot;driveName&quot; : &quot;sda&quot; , &quot;directCheck&quot; : true }</pre></div>
+<p style="margin:18px 0 6px"><b>Checks the file system attribute of the drive and returns whether it is writable</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/isWritableDrive &#x27;{ &quot;driveName&quot; : &quot;sda&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Mounts the device without performing Fsck. Alternatively, it can be configured to…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/mountandFullFsck&#x27;{ &quot;mountName&quot; : &quot;sda&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the volume label of the drive. It is supported only when file system type is FAT</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pdm/setVolumeLabel &#x27;{ &quot;driveName&quot; : &quot;sda&quot;, &quot;volumeLabel&quot; : &quot;webos&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Handles the autoprint</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.printing/autoprint &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Handles the all (jobs)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.printing/jobs/all &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Cancels the printing (jobs)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.printing/jobs/cancel &#x27;{}&#x27;</pre></div>
 <h2>Screenshots</h2>
 <p>Capture the current frame to a file.  The service was renamed from <code>com.webos.service.tv.capture</code> to <code>com.webos.service.capture</code> on newer sets; the call is the same.  Formats: BMP, JPG, PNG, RGB, RGBA, YUV422.  Methods: DISPLAY (the UI), SCREEN_WITH_SOURCE_VIDEO, VIDEO, GRAPHIC.  Defaults to 960x540.</p>
 <p style="margin:18px 0 6px"><b>Capture to /tmp (default size)</b></p>
@@ -380,6 +1036,58 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.devmode/setDevMode &#x27;{&quot;enabled&quot;:true}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Read the Developer Mode passphrase</b></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.devmode/getPassphrase &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sends message to all TelluriomNub instances</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/broadcastCommand &#x27;{&quot;command&quot;: &quot;test&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>handleRequest allows to process requested method Available methods are:…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/handleRequest &#x27;{&quot;command&quot;: &quot;getRunningAppsAndStages&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Called by a nub to notify that an event occured</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/notifyEvent &#x27;{&quot;stageId&quot;: 1000, &quot;type&quot;: &quot;stageActivate&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows to perform &#x27;are-you-alive&#x27; check. Mirrors sent message</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/ping &#x27;{ &quot;Message&quot;: &quot;test&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>This is called when a subscriber needs to reply to a command i.e., Sends a reply to the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/handleRequest &#x27;{ &quot;stageId&quot;: 1002, &quot;command&quot;: &quot;commandsBatch&quot;, &quot;queue&quot;: [{&quot;command&quot;: &quot;getItems&quot;, &quot;filter&quot;: {&quot;objectName&quot;: &quot;leftFunctionArea&quot;}}] }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribes to Tellurium commands</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i luna://com.palm.service.tellurium/subscribeToCommands &#x27;{ &quot;subscribe&quot;:true, &quot;appInfo&quot;:{&quot;id&quot;:&quot;amazon.html&quot;}, &quot;baseURI&quot;:&quot;file:///media/cryptofs/apps/usr/palm/applications/amazon.html/index.html&quot;, &quot;width&quot;:1280, &quot;height&quot;:720, &quot;name&quot;:&quot;&quot;, &quot;type&quot;:&quot;card&quot;, &quot;scene&quot;:&quot;phone&quot;, &quot;version&quot;:&quot;2.2.6&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribes to stages&#x27; events (received from stage in notifyEvent)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i luna://com.palm.service.tellurium/subscribeToEvents &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Return the current status of developer mode</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.devmode/getDevMode &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Enable or disable developer mode. The device will reboot if the mode is changed</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.devmode/setDevMode &#x27;{&quot;enabled&quot;:false}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets data from the Telegraf service</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.sdkagent/collector/getData &#x27;{&quot;inputs&quot;: [&quot;processes&quot;, &quot;kernel&quot;]}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets configurations of the Telegraf service</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.sdkagent/collector/setConfig &#x27;{ &quot;agent&quot;:{&quot;flush_interval&quot;:&quot;5s&quot;,&quot;interval&quot;:&quot;5s&quot;}, &quot;outputs.influxdb&quot;:{&quot;database&quot;:&quot;telegraf&quot;,&quot;urls&quot;:[&quot;http://192.168.0.6:8086&quot;]}, &quot;webOS.webProcessSize&quot;:{&quot;enabled&quot;:true}, &quot;webOS.processMonitoring&quot;:{&quot;enabled&quot;:true,&quot;process_name&quot;:[&quot;com.webos.app.home&quot;,&quot;com.webos.service.sdkagent&quot;]} }</pre></div>
+<p style="margin:18px 0 6px"><b>Automatically starts the Telegraf service on device boot-up and starts monitoring</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdkagent/collector/startOnBoot &#x27;{&quot;enable&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the dev mode</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.devmode/getDevMode &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the tellurium version from the submission tag</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/version &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the current passphrase associated with the SSH key, which is used to connect to…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -P -a com.palmdts.devmode -n 1 luna://com.webos.service.devmode/getPassphrase &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets configurations of the Telegraf service</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.sdkagent/collector/getConfig &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets status of the Telegraf service</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdkagent/collector/getStatus &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Restarts the Telegraf service</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdkagent/collector/restart &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Starts the Telegraf service</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdkagent/collector/start &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Stops the Telegraf service</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdkagent/collector/stop &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Provide the application ID to subscribe. Ex: &quot;appInfo&quot;:{&quot;id&quot;:&quot;amazon.html&quot;}</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/appInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Its an object that describes details to apply the filter (usually used when &quot;command&quot;:…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/filter &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Provides QML application information</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/getApplicationInformationResult &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Provides element information for QML application using object hierarchy</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/getItemsResult &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Provides running and staging information of QML apps</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/getRunningAppsAndStagesResult &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>queue(mandatory): array, containing objects, each representing any of testability…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.service.tellurium/queue &#x27;{}&#x27;</pre></div>
 <h2>IR &amp; the Magic Remote</h2>
 <p>Blast IR at other gear through the TV or Magic Remote.</p>
 <p style="margin:18px 0 6px"><b>Send an IR command (e.g. power a soundbar)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
@@ -392,7 +1100,441 @@
 <p>The factory / service menu (ezAdjust, inStart, inStop).  These change deep, undocumented settings and one of them is a factory reset, so treat the whole section as dangerous and know how to undo what you change.</p>
 <p style="margin:18px 0 6px"><b>Open a service-menu screen</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.applicationManager/launch &#x27;{&quot;id&quot;:&quot;com.webos.app.factorywin&quot;,&quot;params&quot;:{&quot;id&quot;:&quot;executeFactory&quot;,&quot;irKey&quot;:&quot;inStart&quot;}}&#x27;</pre></div>
-<div class="callout" style="--accent:#ff3ea5"><b>irKey values:</b> <code>ezAdjust</code> (service menu 1), <code>inStart</code> (service menu 2), <code>inStop</code> (factory reset), <code>pCheck</code> (picture test), <code>sCheck</code> (audio test), <code>tilt</code> (white screen, locks the remote until a reboot), <code>powerOnly</code>.  Service menus ask for a code; the common LG one is widely published as <code>0413</code>.  Wrong values here can leave the TV mis-calibrated or wipe it, so write down every value before you change it.</div><h2>Related</h2><div class="gcards"><a class="card gcard" href="/luna-atlas/"><b>Luna Atlas</b><span>Search every luna-send command</span></a><a class="card gcard" href="/luna-atlas/examples/"><b>Common examples</b><span>More copy-paste starters</span></a><a class="card gcard" href="/guides/ssh-into-lg-tv/"><b>SSH into a rooted LG TV</b><span>Get a shell to run these</span></a></div><h2 id="faq">FAQ</h2>
+<div class="callout" style="--accent:#ff3ea5"><b>irKey values:</b> <code>ezAdjust</code> (service menu 1), <code>inStart</code> (service menu 2), <code>inStop</code> (factory reset), <code>pCheck</code> (picture test), <code>sCheck</code> (audio test), <code>tilt</code> (white screen, locks the remote until a reboot), <code>powerOnly</code>.  Service menus ask for a code; the common LG one is widely published as <code>0413</code>.  Wrong values here can leave the TV mis-calibrated or wipe it, so write down every value before you change it.</div>
+<h2>Media playback</h2>
+<p>The media pipeline, the TV's players, DLNA and casting.  Call these on a rooted TV to inspect or drive playback.</p>
+<p style="margin:18px 0 6px"><b>Requests resources from the mediaserver. Typical usage is to request the number of audio…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/acquire &#x27;{ &quot;resources&quot;: &quot;[{\&quot;resource\&quot;:\&quot;DISP0\&quot;,\&quot;qty\&quot;:1}, {\&quot;resource\&quot;:\&quot;VDEC\&quot;,\&quot;qty\&quot;:1},{\&quot;resource\&quot;:\&quot;ADEC\&quot;,\&quot;qty\&quot;:1}]&quot;, &quot;connectionId&quot;: &quot;_UZRkgE3EJgXvwl&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Allows to transfer the control of a pipeline to be handed over to a different client.…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/attach &#x27;{ &quot;mediaId&quot;:&quot;_IsGbw614gu7xRB&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets JSON formatted output of currently active media pipelines. Note: Typically, a luna…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/getActivePipelines &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets information about the display on which the specified application instance is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/getDisplayId &#x27;{&quot;instanceId&quot;: &quot;9582089b-3a1c-4a37-acf8-83df8d1b6eec0&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Provides the application&#x27;s foreground information</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/getForegroundAppInfo &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Requests the media server to retrieve pipeline state information</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 2 -f luna://com.webos.media/getPipelineState &#x27;{&quot;mediaId&quot;:&quot;_pwvgD9ivrcVkYV&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Loads a new pipeline for the specified URI. The media server returns a unique id to the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/load &#x27;{ &quot;uri&quot;:&quot;https://media.w3.org/2010/05/sintel/trailer.mp4&quot;, &quot;type&quot;:&quot;media&quot;, &quot;payload&quot;:{ &quot;option&quot;:{ &quot;appId&quot;:&quot;com.webos.app.enactbrowser&quot;, &quot;windowId&quot;:&quot;_Window_Id_2&quot; } } }</pre></div>
+<p style="margin:18px 0 6px"><b>Notifies the media server that the specific pipeline is currently in use. This command…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyActivity &#x27;{&quot;connectionId&quot;:&quot;_EYv0VPazu3aGo0&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Marks a pipeline as background. This API is called when the media object in question is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyBackground &#x27;{&quot;connectionId&quot;:&quot;_c5zE4w2k7rqmC5&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Marks a pipeline as foreground. This API is called when the media object in question is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyForeground &#x27;{&quot;connectionId&quot;:&quot;_z6SJt11Yx0mVp1&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Notifies of the multiview control mode</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyMultiviewControlMode &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Notifies the playback status of media pipelines</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/notifyPipelineStatus &#x27;{&quot;connectionId&quot;:&quot;_gu6P54bK8fkGgo&quot;,&quot;pipelineStatus&quot;:&quot;pause&quot;,&quot;pid&quot;:3190}</pre></div>
+<p style="margin:18px 0 6px"><b>Requests the media server to pause the media object</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/pause &#x27;{ &quot;mediaId&quot;:&quot;_IsGbw614gu7xRB&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Requests the media server to play the media object</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/play &#x27;{&quot;mediaId&quot;:&quot;_IsGbw614gu7xRB&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Dynamically adds more resources to the pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/reacquire &#x27;{ &quot;connectionId&quot;: &quot;_dqEYC2bXztCwsj&quot;, &quot;resources&quot;:&quot;{ \&quot;new\&quot;:\&quot;[{\\\&quot;qty\\\&quot;:3,\\\&quot;resource\\\&quot;:\\\&quot;VDEC\\\&quot;}]\&quot;, \&quot;old\&quot;:\&quot;[{\\\&quot;index\\\&quot;:31,\\\&quot;resource\\\&quot;:\\\&quot;VDEC\\\&quot;}]\&quot;}&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Media Content Provider (unmanaged) must register with Media Display Controller to allow…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/registerMedia &#x27;{&quot;mediaId&quot;:&quot;_IsGbw614gu7xRB&quot;, &quot;appId&quot;:&quot;com.webos.app.enactbrowser&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Registers with the Resource Manager. Session is persistent across all start/end…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/registerPipeline &#x27;{&quot;type&quot;:&quot;media&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Informs media server the resources are released correctly and are not being used…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/release &#x27;{ &quot;resources&quot;:&quot;[{\&quot;resource\&quot;:\&quot;DISP0\&quot;,\&quot;qty\&quot;:1,\&quot;index\&quot;:3},{\&quot;resource\&quot;:\&quot;VDEC\&quot;,\&quot;qty\&quot;:1,\&quot;index\&quot;:3},{\&quot;resource\&quot;:\&quot;ADEC\&quot;,\&quot;qty\&quot;:1,\&quot;index\&quot;:3}}]&quot;, &quot;connectionId&quot;:&quot;_QY7tkX1XEfBct3&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Seeks the media object to a specified time position</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/seek &#x27;{ &quot;position&quot;:64935, &quot;mediaId&quot;:&quot;_IsGbw614gu7xRB&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Selects an audio or subtitle track of an open pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/selectTrack &#x27;{&quot;mediaId&quot;:&quot;&lt;id&gt;&quot;,&quot;type&quot;:&quot;audio&quot;,&quot;index&quot;:1}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the app ID</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setAppId &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the owner pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setOwnerPipeline &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the pipeline media play rate</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setPlayRate &#x27;{ &quot;playRate&quot;:2.0, &quot;mediaId&quot;:&quot;_QnGGXr7BdWsOV1&quot;, &quot;audioOutput&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the resource policy extra info</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setResourcePolicyExtraInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle background color for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleBackgroundColor &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;bgColor&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle background opacity for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleBackgroundOpacity &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;bgOpacity&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle character color (similar to setSubtitleColor, different values) for an…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleCharacterColor &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;charColor&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle character opacity for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleCharacterOpacity &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;charOpacity&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle color for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleColor &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;color&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Shows or hides subtitles for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleEnable &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;enable&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle text encoding for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleEncoding &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;encoding&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle font size for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleFontSize &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;fontSize&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets subtitle vertical position for an open media pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitlePosition &#x27;{&quot;mediaId&quot;:&quot;&lt;mediaId&gt;&quot;,&quot;position&quot;:&lt;value&gt;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Loads an external subtitle file for an open pipeline</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.media/setSubtitleSource &#x27;{&quot;mediaId&quot;:&quot;&lt;id&gt;&quot;,&quot;uri&quot;:&quot;http://host/sub.srt&quot;}&#x27;</pre></div>
+<h2>Database (db8)</h2>
+<p>db8 is webOS's built-in JSON database that apps and services store data in.  These read and query it.</p>
+<p style="margin:18px 0 6px"><b>Executes multiple database operations in one request</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/batch &#x27;{&quot;operations&quot;:[{&quot;method&quot;:&quot;put&quot;,&quot;params&quot;:{&quot;objects&quot;:[{&quot;_kind&quot;:&quot;com.yourdomain.test:1&quot;,&quot;sample&quot;:&quot;sample1&quot;}]}}]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Deletes JSON data objects</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/del &#x27;{&quot;ids&quot;:[&quot;JHd3Dg427oB&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Deletes a kind and ALL objects of that kind</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/delKind &#x27;{&quot;id&quot;:&quot;com.yourdomain.test:1&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns objects matching the query</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.db/find &#x27;{&quot;query&quot;:{&quot;from&quot;:&quot;com.yourdomain.test:1&quot;,&quot;where&quot;:[{&quot;prop&quot;:&quot;sample&quot;,&quot;op&quot;:&quot;=&quot;,&quot;val&quot;:&quot;sample1&quot;}]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieves objects by IDs (fastest retrieval)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/get &#x27;{&quot;ids&quot;:[&quot;J8rKTaBClIo&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Updates properties of existing objects</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/merge &#x27;{&quot;objects&quot;:[{&quot;_id&quot;:&quot;J8rKTaBClIo&quot;,&quot;test&quot;:&quot;test1&quot;}]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The mergePut method updates the properties of existing objects. If an object doesn&#x27;t…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/mergePut &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Stores JSON objects of a kind</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/put &#x27;{&quot;objects&quot;:[{&quot;_kind&quot;:&quot;com.yourdomain.test:1&quot;,&quot;sample&quot;:&quot;sample1&quot;,&quot;test&quot;:&quot;test1&quot;}]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Registers a kind with the database</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/putKind &#x27;{&quot;id&quot;:&quot;com.yourdomain.test:1&quot;,&quot;owner&quot;:&quot;com.yourdomain.test&quot;,&quot;indexes&quot;:[{&quot;name&quot;:&quot;sample&quot;,&quot;props&quot;:[{&quot;name&quot;:&quot;sample&quot;}]}]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Grants other apps/services access to the app DB8 data</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/putPermissions &#x27;{&quot;permissions&quot;:[{&quot;operations&quot;:{&quot;read&quot;:&quot;allow&quot;,&quot;create&quot;:&quot;allow&quot;,&quot;update&quot;:&quot;allow&quot;,&quot;delete&quot;:&quot;allow&quot;},&quot;object&quot;:&quot;com.yourdomain.test:1&quot;,&quot;type&quot;:&quot;db.kind&quot;,&quot;caller&quot;:&quot;com.yourdomain.testapp&quot;}]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Reserves a block of object IDs</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/reserveIds &#x27;{&quot;count&quot;:3}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Like find but supports the ? full-text operator</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.db/search &#x27;{&quot;query&quot;:{&quot;from&quot;:&quot;com.yourdomain.test:1&quot;,&quot;where&quot;:[{&quot;prop&quot;:&quot;sample&quot;,&quot;op&quot;:&quot;?&quot;,&quot;val&quot;:&quot;sample&quot;}]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Marks an external media as transient for the specified DB8 shard Id. This means that all…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/setShardMode &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieves the state of a shard, like shard activity, associated media devices, mount point</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.db/shardInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Watches for updates that would change a query result</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.db/watch &#x27;{&quot;query&quot;:{&quot;from&quot;:&quot;com.yourdomain.test:1&quot;,&quot;where&quot;:[{&quot;prop&quot;:&quot;sample&quot;,&quot;op&quot;:&quot;=&quot;,&quot;val&quot;:&quot;sample1&quot;}]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The batch method enables apps to execute multiple database operations in one service…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/batch &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The del method deletes JSON data objects from the database. Apps can specify the objects…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/del &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The delKind method deletes a Kind from the database. Deleting a Kind deletes ALL data…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/delKind &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The find method returns a set of objects that match the query specified in the query…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/find &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The get method retrieves JSON data objects by ids. This is the fastest way to retrieve…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/get &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The merge method updates the properties of existing objects. The objects can be…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/merge &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The mergePut method updates the properties of existing objects. If an object doesn&#x27;t…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/mergePut &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The put method stores JSON data objects of a particular Kind into the database. The put…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/put &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The putKind method registers a kind with the database. Kinds define the owner, and the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/putKind &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The putPermissions method enables other apps or services to access an app&#x27;s stored DB8…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/putPermissions &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>When a client service creates objects that have references between each other, the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/reserveIds &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Unlike the find method, the search method supports the &quot;?&quot; (question mark) operator. The…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/search &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Marks an external media as transient for the specified DB8 shard Id. This means that all…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/setShardMode &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Retrieves the state of a shard, like shard activity, associated media devices, mount point</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/shardInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The watch method watches for updates to the database that would change the results of a…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.tempdb/watch &#x27;{}&#x27;</pre></div>
+<h2>Camera</h2>
+<p>USB and built-in camera services.</p>
+<p style="margin:18px 0 6px"><b>Returns detailed info of a camera/microphone device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera/getInfo &#x27;{&quot;uri&quot;:&quot;camera://com.webos.service.camera/camera1&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists camera and microphone devices connected to the TV</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.camera/getList &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Cover status of the built-in camera</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.camera/isCovered &#x27;{&quot;uri&quot;:&quot;camera://com.webos.service.camera/camera1&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Starts capturing images using the camera. The captured images are stored as separate…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/capture &#x27;{&quot;handle&quot;: 189,&quot;nimage&quot;: 2}</pre></div>
+<p style="margin:18px 0 6px"><b>Closes the connection between the camera and the webOS device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/close &#x27;{&quot;handle&quot;:886}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the list of cameras connected to the webOS device. Returns IDs for each of the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/getCameraList &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets a notification when there is a change in any of the camera properties and formats…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.camera2/getEventNotification &#x27;{&quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Provides the FD (File Descriptor) for the POSIX shared memory. Note: It returns the FD…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/getFd &#x27;{&quot;handle&quot;: 886, &quot;type&quot;: &quot;buffer&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current resolution, FPS, and format settings of the connected camera device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/getFormat &#x27;{ &quot;id&quot;:&quot;camera1&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets information about a camera that is connected to the webOS device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/getInfo &#x27;{ &quot;id&quot;:&quot;camera1&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current settings of the connected camera device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/getProperties &#x27;{&quot;id&quot;:&quot;camera1&quot;, &quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current status of the supported camera solutions</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/getSolutions &#x27;{&quot;id&quot;: &quot;camera1&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Establishes a connection between a camera and the webOS device. Returns the device…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/open &#x27;{&quot;id&quot;:&quot;camera1&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the size and format of the preview stream. This includes the height and width of…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/setFormat &#x27;{ &quot;handle&quot;:9383, &quot;params&quot;:{ &quot;width&quot;:640, &quot;height&quot;:480, &quot;format&quot;:&quot;JPEG&quot;, &quot;fps&quot;:30 } }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the properties of the connected camera device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/setProperties &#x27;{ &quot;handle&quot;: 9383, &quot;params&quot;: { &quot;contrast&quot;: 100 } }</pre></div>
+<p style="margin:18px 0 6px"><b>Enables and disables camera solutions</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/setSolutions &#x27;{ &quot;id&quot;: &quot;camera1&quot;, &quot;solutions&quot;: [ { &quot;name&quot;: &quot;AutoContrast&quot;, &quot;params&quot;: { &quot;enable&quot;: true } }, { &quot;name&quot;: &quot;FaceDetection&quot;, &quot;params&quot;: { &quot;enable&quot;: true } } ] }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the window&#x27;s position and size, display ID, and overlay/mirror options</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/setWindow &#x27;{ &quot;handle&quot;: 189, &quot;params&quot;: { &quot;x&quot;: 960, &quot;y&quot;: 0, &quot;w&quot;: 960, &quot;h&quot;: 540, &quot;mirror&quot;: false, &quot;overlay&quot;: false, &quot;displayId&quot;: 0 } }</pre></div>
+<p style="margin:18px 0 6px"><b>Starts camera and turns on streaming of captured image frames into the shared memory…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/startCamera &#x27;{&quot;handle&quot;: 5699}</pre></div>
+<p style="margin:18px 0 6px"><b>Starts capturing images using the camera. The captured images are stored as separate…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/startCapture &#x27;{ &quot;handle&quot;: 9383, &quot;params&quot;: { &quot;width&quot;: 640, &quot;height&quot;: 480, &quot;format&quot;: &quot;JPEG&quot;, &quot;mode&quot;:&quot;MODE_BURST&quot;, &quot;nimage&quot;:2 } }</pre></div>
+<p style="margin:18px 0 6px"><b>Turns on camera streaming of captured image frames into the shared memory (SystemV or…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/startPreview &#x27;{ &quot;handle&quot;: 189, &quot;windowId&quot;: &quot;_Window_Id_1&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Stops camera and turns off streaming into the shared memory. Note: Applications that…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/stopCamera &#x27;{&quot;handle&quot;: 5699}</pre></div>
+<p style="margin:18px 0 6px"><b>Stops camera from capturing images in the continuous mode. Continuous mode captures…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.camera2/stopCapture &#x27;{&quot;handle&quot;:9383}</pre></div>
+<h2>Activity manager</h2>
+<p>The activity manager runs scheduled and triggered background jobs.</p>
+<p style="margin:18px 0 6px"><b>Registers an app or service as willing to take over as the Activity parent</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.activitymanager/adopt &#x27;{&quot;activityId&quot;:90,&quot;wait&quot;:true,&quot;subscribe&quot;:true,&quot;detailedEvents&quot;:false}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Terminates the specified Activity and sends a cancel event to all subscribers</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.activitymanager/cancel &#x27;{&quot;activityId&quot;:93}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Parent ends the Activity and optionally restarts it with new attributes</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.activitymanager/complete &#x27;{&quot;activityId&quot;:94}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates a new Activity and returns its ID</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.palm.activitymanager/create &#x27;{&quot;activity&quot;:{&quot;name&quot;:&quot;basicactivity&quot;,&quot;description&quot;:&quot;Test create&quot;,&quot;type&quot;:{&quot;foreground&quot;:true}},&quot;start&quot;:true,&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Parent frees an Activity and notifies other subscribers</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.activitymanager/release &#x27;{&quot;activityId&quot;:98}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Moves an Activity from init to eligible-to-run, or resumes a paused one</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.activitymanager/start &#x27;{&quot;activityId&quot;:93}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Stops an Activity and sends a stop event to all subscribers</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.palm.activitymanager/stop &#x27;{&quot;activityId&quot;:93}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Add a focus to the target Activity and remove a focus from source Activity. If a focus…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/addFocus &#x27;{ &quot;activityId&quot;:36, &quot;targetActivityId&quot;:38 }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>The Activity Manager considers the creator of the Activity as a parent. Therefore, the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.activitymanager/adopt &#x27;{ &quot;activityId&quot;: 90, &quot;wait&quot;: true, &quot;subscribe&quot;: true, &quot;detailedEvents&quot;: false }</pre></div>
+<p style="margin:18px 0 6px"><b>Terminate the specified Activity and send a &quot;cancel&quot; event to all subscribers to this…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/cancel &#x27;{&quot;activityId&quot; : 93}</pre></div>
+<p style="margin:18px 0 6px"><b>Terminate the specified Activity and optionally restart it with(or without) new…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f -a myapp luna://com.webos.service.activitymanager/create &#x27;{ &quot;activity&quot;: { &quot;name&quot;: &quot;browser closed&quot;, &quot;description&quot;: &quot;&quot;, &quot;type&quot;: {&quot;foreground&quot;: true}, &quot;callback&quot;: { &quot;method&quot;: &quot;luna://com.webos.notification/createToast&quot;, &quot;params&quot;: {&quot;message&quot;: &quot;browser closed&quot;, &quot;persistent&quot;: true} }, &quot;trigger&quot;: { &quot;method&quot;: &quot;luna://com.webos.service.applicationmanager/getAppLifeStatus&quot;, &quot;params&quot;: {&quot;subscribe&quot;: true}, &quot;where&quot;: { &quot;prop&quot;: &quot;status&quot;, &quot;op&quot;: &quot;=&quot;, &quot;val&quot;: &quot;stop&quot; } } }, &quot;replace&quot;: true, &quot;start&quot;: true }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Note: The &#x27;creator&#x27; in Activity object can be set only by configurator. Create a new…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -i luna://com.webos.service.activitymanager/create &#x27;{ &quot;activity&quot;: { &quot;name&quot;: &quot;basicactivity&quot;, &quot;description&quot;: &quot;Test create&quot;, &quot;type&quot;: { &quot;foreground&quot;: true } }, &quot;start&quot;: true, &quot;subscribe&quot;: true }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Set background Activity concurrency level for the Activity Manager</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/devel/concurrency &#x27;{&quot;level&quot;:1}</pre></div>
+<p style="margin:18px 0 6px"><b>Evict one or all Activities from the background queue</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/devel/evict &#x27;{&quot;activityId&quot;:45}</pre></div>
+<p style="margin:18px 0 6px"><b>Enable or disable priority control</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/devel/priorityControl &#x27;{&quot;enabled&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Run one or all Activities that are in ready queue</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/devel/run &#x27;{&quot;activityId&quot;:2}</pre></div>
+<p style="margin:18px 0 6px"><b>Focus to target Activity. All currently focused Activities will be lost their focus. If…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/focus &#x27;{&quot;activityId&quot;:36}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets information of Activities. If activityId or activityName is given, getActivityInfo…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/getActivityInfo &#x27;{ &quot;activityId&quot;:36, &quot;current&quot;:false }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Gets details of an activity. Note: Use the &#x27;getActivityInfo&#x27; method instead</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/getDetails &#x27;{ &quot;activityId&quot;:36, &quot;current&quot;:false, &quot;internal&quot;:false }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribe to receive events from the specified Activity. Note: Use the &#x27;am-monitor&#x27; tool…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.activitymanager/join &#x27;{ &quot;activityId&quot;:36, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>List Activities that are in running or waiting state. Note: Use the &#x27;getActivityInfo&#x27;…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.activitymanager/list &#x27;{ &quot;details&quot;:false, &quot;subscribers&quot;:false, &quot;current&quot;:false, &quot;internal&quot;:false }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Return a current status of the specified Activity. If the caller chooses to subscribe,…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.activitymanager/monitor &#x27;{ &quot;activityId&quot;:36, &quot;subscribe&quot;:true, &quot;detailedEvents&quot;:true }</pre></div>
+<h2>Security &amp; keys</h2>
+<p>Certificates, keys, DRM and the TV's security services.  Read-only calls are safe; be careful with anything that changes a key or policy.</p>
+<p style="margin:18px 0 6px"><b>Returns DRM rights error info on license errors during playback</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.drm/getRightsError &#x27;{&quot;clientId&quot;:&quot;LE3bZyIZzY&quot;,&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Aborts an in-progress operation</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/abort &#x27;{&quot;handle&quot;:&quot;3901299957133494448&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Starts a crypto operation and returns a handle</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/begin &#x27;{&quot;name&quot;:&quot;AES256&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;AES&quot;,&quot;mode&quot;:[&quot;CBC&quot;],&quot;purpose&quot;:[&quot;encrypt&quot;],&quot;padding&quot;:[&quot;PKCS7&quot;]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the public key of a key pair</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/exportKey &#x27;{&quot;name&quot;:&quot;RSA1024&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Completes the operation and returns result</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/finish &#x27;{&quot;handle&quot;:&quot;13123551428131904409&quot;,&quot;data&quot;:&quot;dGVzdCBmaW5pc2ggZGF0YQ==&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Generates a key for algorithms supported by keymanager3</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/generateKey &#x27;{&quot;name&quot;:&quot;AES256&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;AES&quot;,&quot;size&quot;:256,&quot;mode&quot;:[&quot;ECB&quot;,&quot;CBC&quot;],&quot;purpose&quot;:[&quot;encrypt&quot;,&quot;decrypt&quot;],&quot;padding&quot;:[&quot;PKCS7&quot;]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Imports an externally generated key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/importKey &#x27;{&quot;name&quot;:&quot;AES256&quot;,&quot;data&quot;:&quot;BASE64KEY&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;AES&quot;,&quot;size&quot;:256,&quot;mode&quot;:[&quot;CBC&quot;],&quot;purpose&quot;:[&quot;encrypt&quot;,&quot;decrypt&quot;],&quot;padding&quot;:[&quot;PKCS7&quot;]}}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Deletes a key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/removeKey &#x27;{&quot;name&quot;:&quot;AES256&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Feeds data to an operation handle</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.keymanager3/update &#x27;{&quot;handle&quot;:&quot;10699227874884526357&quot;,&quot;data&quot;:&quot;dGVzdCB1cGRhdGUgZGF0YQ==&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns device IDs provided by webOS TV (LGUDID)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sm/deviceid/getIDs &#x27;{&quot;idType&quot;:[&quot;LGUDID&quot;]}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribes to volume key status changes</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n -i palm://com.palm.keys/audio/status &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Reports whether the DRM module is loaded. (licensed-playback CDM lifecycle.)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/isLoaded &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Loads the DRM/CDM module. (licensed-playback CDM lifecycle.)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/load &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sends a DRM message to the license server. (licensed-playback CDM lifecycle.)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/sendDrmMessage &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Unloads the DRM module. (licensed-playback CDM lifecycle.)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/unload &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Lists valid IR key codes for a device type</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.irdbmanager/getKeyList -f &#x27;{&quot;deviceType&quot;:&quot;audio&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Injects a remote key by name</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.networkinput/sendSpecialKey &#x27;{&quot;key&quot;:&quot;HOME&quot;}&#x27; &lt;/dev/null</pre></div>
+<p style="margin:18px 0 6px"><b>Injects a Linux key code (IR_KEY_* value less 8)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.networkinput/test/sendKeyCode &#x27;{&quot;keyCode&quot;:207}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Verifies the ipk</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.pkgverifier/verifyIpk &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the DRM status (license apps)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sm/license/apps/getDrmStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Creates a key event (LG key injection)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.tv.keymanager/createKeyEvent &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns websocket URL for pointer/button input</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.networkinput/getPointerInputSocket &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Checks whether content is DRM-protected and by which scheme. (licensed-playback CDM…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/checkContentDrm &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Reports DRM activation status. (licensed-playback CDM lifecycle.)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/getActivationStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the DRM certificate info. (licensed-playback CDM lifecycle.)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/getCertificateInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns DivX DRM registration status/code. (licensed-playback CDM lifecycle.)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.drm/getDivXDrmStatus &#x27;{}&#x27;</pre></div>
+<h2>Software update</h2>
+<p>Update checks and state.  On a rooted TV you usually want updates blocked, so prefer the read-only ones here.</p>
+<p style="margin:18px 0 6px"><b>Updates the A/V resource</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avmutemanager/updateAvResource &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Enables update &quot;expert mode&quot; so the firmware-update UI accepts downgrades/USB images</b> <span class="pill" style="--ca:#ff3ea5">⚠ dangerous</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.update/setExpertMode &#x27;{&quot;mode&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Restores purchased apps</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.service.backup/restoreApps &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Schedules restore of purchased apps</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.service.backup/scheduleAppRestore &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Cancels an in-progress EULA download</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdx/cancelEulaDownload &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Requests download of EULA/legal text from SDP</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdx/requestEulaDownload &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Updates stored EULA acceptance info</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.sdx/updateEulaInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns updater state (idle when not busy)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.update/getCurStatus &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns current software/firmware info</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -q &#x27;model_name&#x27; -n 1 &#x27;luna://com.webos.service.update/getCurrentSWInformation&#x27; &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Update-service expert mode method: getExpertMode</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.update/getExpertMode &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Updater status (name seen only)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.service.update/getStatus &#x27;{}&#x27;</pre></div>
+<h2>Location &amp; time</h2>
+<p>Locale, country and time.</p>
+<p style="margin:18px 0 6px"><b>Gets a list of the available location handlers, along with each handler&#x27;s attributes…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/getAllLocationHandlers &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Transforms a given street address or other description of a location into a coordinate…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/setState &#x27;{&quot;Handler&quot;:&quot;network&quot;,&quot;state&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the satellite information. Prerequisite : The GPS feature of the device has to be…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/getGpsSatelliteData &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current status of the GPS engine. Used for notifying device users that the GPS…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/getGpsStatus &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the details of the given location handler (Location service provider)</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/getLocationHandlerDetails &#x27;{ &quot;Handler&quot;:&quot;gps&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Requests a single location fix based on the given criteria. If the subscription value is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/getLocationUpdates &#x27;{ &quot;Handler&quot;:&quot;gps&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets a NMEA sentence from a GPS receiver</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/getNmeaData &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Transforms a given coordinate (latitude, longitude) into a (partial) address. Note: The…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/setState &#x27;{&quot;Handler&quot;:&quot;network&quot;,&quot;state&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the current state of the given handler. Application settings can use this to update…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/getState &#x27;{&quot;Handler&quot;:&quot;network&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Disables the mock location of the given provider</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.location/mock/disable&#x27;{ &quot;name&quot;:&quot;gps&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Enables a mock location of the given provider</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.location/mock/enable &#x27;{ &quot;name&quot;:&quot;gps&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Sets a mock location for the given provider</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.location/mock/setLocation &#x27;{ &quot;name&quot;:&quot;gps&quot;, &quot;location&quot;: { &quot;speed&quot;:-1, &quot;longitude&quot;:127.034097, &quot;horizAccuracy&quot;:30, &quot;verAccuracy&quot;:2, &quot;heading&quot;:-1, &quot;timestamp&quot;:1410827340157, &quot;altitude&quot;:-1, &quot;latitude&quot;:37.460605 } }</pre></div>
+<p style="margin:18px 0 6px"><b>Enables or disables a location service provider in the setting menu</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -n 1 luna://com.webos.service.location/setState &#x27;{ &quot;Handler&quot;:&quot;gps&quot;, &quot;state&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets current position</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -f -P -i palm://com.palm.location/getCurrentPosition &#x27;{&quot;subscribe&quot;:true}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Enables auto locate</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.location/setAutoLocate &#x27;{&quot;autoLocate&quot;:&quot;true&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Enables GPS use</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.location/setUseGps &#x27;{&quot;useGps&quot;:&quot;true&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Indicates the bounding box of the viewport within which to bias geocode results more…</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.location/bounds &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Indicates the component filter for which a geocode has to be generated</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.location/components &#x27;{}&#x27;</pre></div>
+<h2>UI &amp; compositor</h2>
+<p>Surfaces, overlays and the launcher layer.</p>
+<p style="margin:18px 0 6px"><b>Starts/stops the pulsing Palm logo progress animation</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.systemmanager/runProgressAnimation &#x27;{&quot;state&quot;:&quot;start&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Imports an image as wallpaper</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.systemservice/wallpaper/importWallpaper &#x27;{&quot;target&quot;:&quot;/media/internal/wallpapers/your_file.jpg&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets volume</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/setVolume &#x27;{&quot;volume&quot;:30}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns surface manager currentState (home-chooser polls it for readiness)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.surfacemanager/getCurrentState &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Shows the input picker</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 luna://com.webos.surfacemanager/showInputPicker &#x27;{}&#x27;</pre></div>
+<h2>More services</h2>
+<p>Other useful stock services that don't fit a box above.</p>
+<p style="margin:18px 0 6px"><b>Removes apps from a device that are installed using dev/install method. Note: This…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.appInstallService/dev/remove &#x27;{ &quot;id&quot;:&quot;my_first_app&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Installs an app on a device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.appInstallService/install &#x27;{ &quot;id&quot;:&quot;com.test.app.hello&quot;, &quot;ipkUrl&quot;:&quot;/media/internal/downloads/com.test.app.hello_0.0.1_all.ipk&quot;, &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Removes an installed app from a device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.appInstallService/remove &#x27;{&quot;id&quot;:&quot;com.test.app.hello&quot;, &quot;subscribe&quot;:true}</pre></div>
+<p style="margin:18px 0 6px"><b>Monitors the status of all installed and removed apps that are operating in the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.appInstallService/status &#x27;{}</pre></div>
+<p style="margin:18px 0 6px"><b>Generates boot step signals. Caller and argument are decided statically</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.bootManager/generateSignal &#x27;{ &quot;name&quot;:&quot;minimal-boot-done&quot; }</pre></div>
+<p style="margin:18px 0 6px"><b>Gets the boot status or subscribe to updates on the boot status</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.bootManager/getBootStatus &#x27;{ &quot;subscribe&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Deletes an existing alarm. Apps or daemons can identify their alarm to be deleted by…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -a com.webos.app.test luna://com.webos.service.alarm/clear &#x27;{&quot;key&quot;:&quot;test&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Creates a new alarm for an absolute time or a relative time. By using the &quot; wakeup &quot;…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -a com.webos.app.test luna://com.webos.service.alarm/set &#x27;{ &quot;key&quot;:&quot;test&quot;, &quot;uri&quot;:&quot;luna://com.webos.service.testsleepd/firealarm&quot;, &quot;params&quot;:{}, &quot;at&quot;:&quot;09/24/2014 04:40:00&quot;, &quot;wakeup&quot;:true }</pre></div>
+<p style="margin:18px 0 6px"><b>Registers the device</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.asc/registerDevice &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Registers the avmutemanager</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avmutemanager/register &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the A/V mute</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avmutemanager/setAvMute &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Unregisters the avmutemanager</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.avmutemanager/unregister &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Adds a directory containing manifests (security configuration files). Note: Only…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f -m &quot;com.webos.some.trusted.service&quot; luna://com.webos.service.bus/addManifestsDir &#x27;{&quot;prefix&quot;: &quot;/prefix&quot;, &quot;dirpath&quot;: &quot;path/to/manifests&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Adds manifest file data to hub security configuration. Only services present in the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f -m &quot;com.webos.some.not_trusted.service&quot; luna://com.webos.service.bus/addOneManifest &#x27;{&quot;prefix&quot;: &quot;/prefix&quot;, &quot;path&quot;: &quot;path/to/manifest.json&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Gets service API version from the ls-hub. API version will be returned as a value of…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bus/getServiceAPIVersions &#x27;{&quot;services&quot;: [&quot;com.palm.systemservice&quot;, &quot;com.webos.unknown_service&quot;]}</pre></div>
+<p style="margin:18px 0 6px"><b>Checks that call is allowed from specified requester to specified URI</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bus/isCallAllowed &#x27;{&quot;requester&quot;: &quot;com.webos.customer&quot;, &quot;uri&quot;: &quot;luna://com.webos.product/method&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Queries a service to: Obtain the set of rules that are relevant to the service. List the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bus/queryServicePermissions &#x27;{&quot;service&quot;: &quot;com.webos.booster&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Removes manifests directory which were added by the addManifestsDir method. Note: Only…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bus/removeManifestsDir &#x27;{&quot;prefix&quot;: &quot;/prefix&quot;, &quot;dirpath&quot;: &quot;path/to/manifests&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Removes manifest file data from hub security configuration. Only services present in the…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.bus/removeOneManifest &#x27;{&quot;prefix&quot;: &quot;/prefix&quot;, &quot;path&quot;: &quot;path/to/manifest.json&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Registers a client to receive signals from webOS services matching the category and…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i luna://com.webos.service.bus/signal/addmatch &#x27;{&quot;category&quot;: &quot;/com/palm/power&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Registers a client to receive the signal sent by the bus, when a service is…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i luna://com.webos.service.bus/signal/registerServerStatus &#x27;{&quot;serviceName&quot;: &quot;com.webos.service.sleep&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Registers a client to the signal sent by the bus, when a service adds the specified…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i luna://com.webos.service.bus/signal/registerServiceCategory &#x27;{&quot;serviceName&quot;: &quot;com.palm.sleep&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Clears the personal key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.contentminer/clearPersonalKey &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the content data</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.contentminer/getContentData &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sets the personal key</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.contentminer/setPersonalKey &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the profile info</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.emmcd/getProfileInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the homeconnect</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.homeconnect/get &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Handles the convert</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.image/convert &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Handles the ez resize</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.image/ezResize &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Handles the image info</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.image/imageInfo &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Calls service in ROS 2 world</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.rosbridge/call &#x27;{ &quot;name&quot;:&quot;add_two_ints&quot;, &quot;type&quot;:&quot;example_interfaces/srv/AddTwoInts&quot;, &quot;message&quot;: { &quot;a&quot;: 100, &quot;b&quot;: 200} }</pre></div>
+<p style="margin:18px 0 6px"><b>Publishes topic message from LS2 (webOS luna bus) to ROS 2</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.rosbridge/subscribe &#x27;{ &quot;name&quot;:&quot;topic_test&quot;, &quot;type&quot;:&quot;std_msgs/msg/String&quot;, &quot;subscribe&quot;:true }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Subscribe topic message from ROS 2 world</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -i -f luna://com.webos.service.rosbridge/subscribe &#x27;{ &quot;name&quot;:&quot;topic_test&quot;, &quot;type&quot;:&quot;std_msgs/msg/String&quot;, &quot;subscribe&quot;:true }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Closes the by app ID</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.systemUIManager/closeByAppId &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Searches with keyword and return intents of items. Note : Returning intent can be…</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.unifiedsearch/search &#x27;{&quot;key&quot;:&quot;pro&quot;}</pre></div>
+<p style="margin:18px 0 6px"><b>Allows enabling or disabling of a category and change the order of the category</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.unifiedsearch/updateCategory &#x27;{ &quot;id&quot;:&quot;com.webos.app.avn.settings&quot;, &quot;rank&quot;:1 }&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Returns the history</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.usercontextmanager/getHistory &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Saves the token</b></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://netflix.service/saveToken &#x27;{}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Sends a text message</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.messaging/sendMessageFromCompose &#x27;{&quot;recipientJSONArray&quot;:[{&quot;type&quot;:&quot;phone&quot;,&quot;value&quot;:&quot;8165551234&quot;,&quot;alreadyValidated&quot;:true,&quot;prefix&quot;:&quot;to$A&quot;}],&quot;messageText&quot;:&quot;hi&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Dials a number (really places the call)</b> <span class="pill" style="--ca:#ffb547">needs root</span></p>
+<div class="code"><pre><span class="pr">$ </span>luna-send -n 1 palm://com.palm.telephony/dial &#x27;{&quot;number&quot;:&quot;8001234567&quot;}&#x27;</pre></div><h2>Related</h2><div class="gcards"><a class="card gcard" href="/luna-atlas/"><b>Luna Atlas</b><span>Search every luna-send command</span></a><a class="card gcard" href="/luna-atlas/examples/"><b>Common examples</b><span>More copy-paste starters</span></a><a class="card gcard" href="/guides/ssh-into-lg-tv/"><b>SSH into a rooted LG TV</b><span>Get a shell to run these</span></a></div><h2 id="faq">FAQ</h2>
 <details class="faq"><summary>What is luna-send?</summary><div>The command-line client every LG webOS TV ships to talk to the Luna Service Bus, the internal message bus that power, apps, picture, sound, Wi-Fi, notifications and hundreds of other services listen on.  A call is a URI (<code>luna://service/method</code>) plus a JSON payload.</div></details>
 <details class="faq"><summary>Do I need a rooted TV to run these?</summary><div>To run them, yes: a rooted TV with SSH from the Homebrew Channel, or LG's Developer Mode.  Browsing the <a href="/luna-atlas/">catalog</a> needs nothing.  Private methods need root; Developer Mode's shell is not root.</div></details>
 <details class="faq"><summary>What's the difference between luna-send and luna-send-pub?</summary><div><code>luna-send</code> uses the private bus, <code>luna-send-pub</code> the public one.  A few methods are only registered on the public bus, so they need <code>luna-send-pub</code>.  When a call says permission denied on one, try the other.</div></details>

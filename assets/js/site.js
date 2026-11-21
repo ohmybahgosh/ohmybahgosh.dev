@@ -268,6 +268,7 @@
     const ICON = { tivibro: 'tivibro', 'lg-usb-2-eth0': 'eth0', 'webos-entware-installer': 'entware', 'ssh-doctor': 'ssh-doctor', 'fw-block': 'fw-block', 'luna-atlas': 'luna-atlas', pipseek: 'pipseek' };
     const SHORT = { 'WEBOS-ENTWARE-INSTALLER': 'Entware', 'LG-WEBOS-SSH-DOCTOR': 'SSH Doctor', 'WEBOS-FW-BLOCK': 'FW Block', 'WEBOS-LUNA-SEND-ATLAS': 'Luna Atlas' };
     const GUIDES = [
+      ['webos-luna-send-commands', 'luna-send command cheatsheet'],
       ['best-iptv-player-lg-tv', 'Best IPTV players for LG TVs'],
       ['lg-tv-ethernet-100mbps', 'LG TV Ethernet stuck at 100 Mbps'],
       ['block-lg-tv-updates', 'Block LG TV firmware updates'],
@@ -297,7 +298,7 @@
     sheet.innerHTML = `<div class="mn-in">
       <div class="mn-h">TV apps</div><div class="mn-apps">${REPOS.filter((r) => !r.tool && r.slug !== 'luna-atlas').map(app).join('')}</div>
       <div class="mn-h">reference and tools</div><div class="mn-apps">${REPOS.filter((r) => r.tool || r.slug === 'luna-atlas').map(app).join('')}</div>
-      <div class="mn-h">guides</div><div class="mn-rows">${GUIDES.map(([g, t]) => row(ROOT + 'guides/' + g + '/', t)).join('')}<a class="mn-all" href="${ROOT}guides/">$ ls guides/  <span aria-hidden="true">→</span> all guides</a></div>
+      <details class="mn-sec"><summary class="mn-h">guides</summary><div class="mn-rows">${GUIDES.map(([g, t]) => row(ROOT + 'guides/' + g + '/', t)).join('')}<a class="mn-all" href="${ROOT}guides/">$ ls guides/  <span aria-hidden="true">→</span> all guides</a></div></details>
       <div class="mn-h">site</div><div class="mn-rows">${row(ROOT + 'install/', 'Install guide')}${row(ROOT + 'tour/', 'Video tour')}${row(ROOT + 'about/', 'About')}${row(ROOT + 'contact/', 'Contact')}${row('https://github.com/ohmybahgosh', 'GitHub', true)}</div>
     </div>`;
     document.querySelector('.top').after(sheet);
