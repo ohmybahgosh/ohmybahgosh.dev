@@ -260,6 +260,61 @@
     $$('a', m).forEach((a) => a.addEventListener('click', () => set(false)));
   });
 
+  /* ---------- mobile menu: projects, guides and pages in one sheet ---------- */
+  (() => {
+    const nav = $('.top .nav');
+    if (!nav) return;
+    const here = location.pathname;
+    const ICON = { tivibro: 'tivibro', 'lg-usb-2-eth0': 'eth0', 'webos-entware-installer': 'entware', 'ssh-doctor': 'ssh-doctor', 'fw-block': 'fw-block', 'luna-atlas': 'luna-atlas', pipseek: 'pipseek' };
+    const SHORT = { 'WEBOS-ENTWARE-INSTALLER': 'Entware', 'LG-WEBOS-SSH-DOCTOR': 'SSH Doctor', 'WEBOS-FW-BLOCK': 'FW Block', 'WEBOS-LUNA-SEND-ATLAS': 'Luna Atlas' };
+    const GUIDES = [
+      ['best-iptv-player-lg-tv', 'Best IPTV players for LG TVs'],
+      ['lg-tv-ethernet-100mbps', 'LG TV Ethernet stuck at 100 Mbps'],
+      ['block-lg-tv-updates', 'Block LG TV firmware updates'],
+      ['root-lg-tv-2026', 'Rooting an LG TV in 2026'],
+      ['webos-ssh-not-working', 'webOS SSH not working'],
+      ['usb-ethernet-adapter-webos', 'USB Ethernet adapter on webOS'],
+      ['what-to-do-with-rooted-lg-tv', 'What to do with a rooted TV'],
+    ];
+    const cur = (u) => (u === here ? ' aria-current="page"' : '');
+    const app = (r) => `<a class="mn-app" href="${ROOT}${r.slug}/"${cur(ROOT + r.slug + '/')}><img src="${ROOT}assets/img/${ICON[r.slug]}-icon.webp" alt="" width="34" height="34" loading="lazy"><b>${esc(SHORT[r.name] || r.name)}</b><small>${esc(r.desc)}</small></a>`;
+    const row = (u, t, ext) => `<a class="mn-row" href="${u}"${ext ? ' target="_blank" rel="noopener"' : cur(u)}>${esc(t)}${ext ? ' <span aria-hidden="true">↗</span>' : ''}</a>`;
+
+    const btn = document.createElement('button');
+    btn.className = 'kbtn mn-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'mnav');
+    btn.innerHTML = '<span class="mn-ic" aria-hidden="true"><i></i><i></i><i></i></span>';
+    nav.appendChild(btn);
+
+    const sheet = document.createElement('div');
+    sheet.className = 'mnav';
+    sheet.id = 'mnav';
+    sheet.setAttribute('role', 'dialog');
+    sheet.setAttribute('aria-label', 'Menu');
+    sheet.innerHTML = `<div class="mn-in">
+      <div class="mn-h">TV apps</div><div class="mn-apps">${REPOS.filter((r) => !r.tool && r.slug !== 'luna-atlas').map(app).join('')}</div>
+      <div class="mn-h">reference and tools</div><div class="mn-apps">${REPOS.filter((r) => r.tool || r.slug === 'luna-atlas').map(app).join('')}</div>
+      <div class="mn-h">guides</div><div class="mn-rows">${GUIDES.map(([g, t]) => row(ROOT + 'guides/' + g + '/', t)).join('')}<a class="mn-all" href="${ROOT}guides/">$ ls guides/  <span aria-hidden="true">→</span> all guides</a></div>
+      <div class="mn-h">site</div><div class="mn-rows">${row(ROOT + 'install/', 'Install guide')}${row(ROOT + 'tour/', 'Video tour')}${row(ROOT + 'about/', 'About')}${row(ROOT + 'contact/', 'Contact')}${row('https://github.com/ohmybahgosh', 'GitHub', true)}</div>
+    </div>`;
+    document.querySelector('.top').after(sheet);
+
+    const set = (on) => {
+      sheet.classList.toggle('open', on);
+      btn.classList.toggle('on', on);
+      btn.setAttribute('aria-expanded', on);
+      document.documentElement.classList.toggle('mn-lock', on);
+    };
+    btn.addEventListener('click', (e) => { e.stopPropagation(); set(!sheet.classList.contains('open')); });
+    sheet.addEventListener('click', (e) => { if (e.target === sheet) set(false); });
+    $$('a', sheet).forEach((a) => a.addEventListener('click', () => set(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sheet.classList.contains('open')) { set(false); btn.focus(); } });
+    matchMedia('(min-width:721px)').addEventListener('change', (m) => { if (m.matches) set(false); });
+  })();
+
   /* ---------- command palette ---------- */
   const items = [
     { i: '~', t: 'cd ~', s: 'home', u: ROOT },
@@ -270,7 +325,7 @@
     { i: '▸', t: 'cd install', s: 'install guide: root, Homebrew Channel, repo', u: ROOT + 'install/' },
     { i: '▸', t: 'cd guides', s: 'how-tos for rooted LG TVs', u: ROOT + 'guides/' },
     { i: '▶', t: 'play tour', s: 'the 2-minute video tour', u: ROOT + 'tour/' },
-    ...[['lg-tv-ethernet-100mbps', 'LG TV Ethernet stuck at 100 Mbps'], ['usb-ethernet-adapter-lg-tv', 'which USB Ethernet adapter'], ['ssh-into-lg-tv', 'SSH into a rooted LG TV'], ['homebrew-channel-repository', 'add a Homebrew Channel repo'], ['iptv-player-lg-tv', 'an IPTV player for LG TVs'], ['root-lg-tv-2026', 'rooting an LG TV in 2026'], ['lg-tv-wake-on-lan', 'turn on an LG TV over the network (Wake on LAN)'], ['block-lg-tv-updates', 'block LG TV firmware updates'], ['tailscale-lg-tv', 'Tailscale on an LG TV'], ['lg-tv-file-sharing-samba', 'Samba and file sharing on an LG TV']]
+    ...[['lg-tv-ethernet-100mbps', 'LG TV Ethernet stuck at 100 Mbps'], ['usb-ethernet-adapter-lg-tv', 'which USB Ethernet adapter'], ['ssh-into-lg-tv', 'SSH into a rooted LG TV'], ['homebrew-channel-repository', 'add a Homebrew Channel repo'], ['iptv-player-lg-tv', 'an IPTV player for LG TVs'], ['root-lg-tv-2026', 'rooting an LG TV in 2026'], ['lg-tv-wake-on-lan', 'turn on an LG TV over the network (Wake on LAN)'], ['block-lg-tv-updates', 'block LG TV firmware updates'], ['tailscale-lg-tv', 'Tailscale on an LG TV'], ['lg-tv-file-sharing-samba', 'Samba and file sharing on an LG TV'], ['best-iptv-player-lg-tv', 'the 5 best IPTV players for LG TVs'], ['m3u-playlist-lg-tv', 'add an M3U or Xtream login to an LG TV'], ['lg-tv-ethernet-not-working', 'LG TV Ethernet not working'], ['lg-tv-plex-4k-buffering', 'Plex or Jellyfin buffering on an LG TV'], ['lg-tv-update-notification', 'stop the LG TV update pop-up'], ['what-to-do-with-rooted-lg-tv', 'what to do with a rooted LG TV'], ['download-to-lg-tv', 'Transmission, aria2 and yt-dlp on an LG TV'], ['webos-ssh-not-working', 'webOS SSH not working'], ['usb-ethernet-adapter-webos', 'set up a USB Ethernet adapter on webOS'], ['lg-tv-wifi-vs-ethernet', 'Wi-Fi or Ethernet on an LG TV'], ['iptv-buffering-lg-tv', 'IPTV buffering on an LG TV'], ['iptv-lg-tv-without-root', 'IPTV on an LG TV without root'], ['lg-tv-update-remove-root', 'will an update remove root'], ['lg-tv-firmware-version', 'check your LG TV firmware version'], ['is-rooting-lg-tv-safe', 'is rooting an LG TV safe'], ['install-linux-packages-lg-tv', 'Linux packages on an LG TV'], ['syncthing-lg-tv', 'Syncthing on an LG TV']]
       .map(([g, d]) => ({ i: '▸', t: `cat guides/${g}`, s: d, u: ROOT + 'guides/' + g + '/' })),
     ...REPOS.filter((r) => !r.tool).map((r) => ({ i: '?', t: `man ${r.slug}`, s: r.name + ' FAQ', u: ROOT + r.slug + '/faq/' })),
     { i: '▸', t: 'cd luna-atlas/examples', s: 'common luna-send commands', u: ROOT + 'luna-atlas/examples/' },

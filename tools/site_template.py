@@ -3,8 +3,8 @@ Matches the hand-written pages: same head, header, menu and footer."""
 import html, json
 
 SITE = "https://ohmybahgosh.dev"
-CSS_V = "r2611g"
-JS_V = "r2611g"
+CSS_V = "r2611h"
+JS_V = "r2611h"
 
 def esc(s): return html.escape(s, quote=True)
 
