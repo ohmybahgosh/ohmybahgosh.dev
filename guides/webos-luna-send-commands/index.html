@@ -218,7 +218,7 @@
 <p>The real power is chaining calls: read something with one call and feed it to the next, or run a few in a row.  These use plain shell (<code>grep</code>, <code>cut</code>, <code>&amp;&amp;</code>), so they work in the TV's own <code>sh</code> with no extra tools.  Lines starting with <code>#</code> are comments.</p>
 <p style="margin:18px 0 6px"><b>Close whatever app is on screen right now</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
 <div class="code"><pre><span class="c-mu"># read the foreground app id, then close it</span>
-<span class="pr">$ </span>ID=$(luna-send -n 1 -f luna://com.webos.applicationManager/getForegroundAppInfo &#x27;{}&#x27; | grep -o &#x27;&quot;appId&quot;:&quot;[^&quot;]*&quot;&#x27; | head -1 | cut -d&#x27;&quot;&#x27; -f4)
+<span class="pr">$ </span>ID=$(luna-send -n 1 -f luna://com.webos.applicationManager/getForegroundAppInfo &#x27;{}&#x27; | grep -o &#x27;&quot;appId&quot;:&quot;[^&quot;]*&quot;&#x27; | head -1 | cut -d&#x27;&quot;&#x27; -f4); \
 <span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/closeByAppId &quot;{\&quot;id\&quot;:\&quot;$ID\&quot;}&quot;</pre></div>
 <p style="margin:18px 0 6px"><b>Mute, switch to HDMI 1, and say so</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.audio/setMuted &#x27;{&quot;muted&quot;:true}&#x27; &amp;&amp; \
@@ -228,13 +228,12 @@
 <div class="code"><pre><span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/turnOffScreen &#x27;{}&#x27;; sleep 5; \
 <span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.tvpower/power/turnOnScreen &#x27;{}&#x27;</pre></div>
 <p style="margin:18px 0 6px"><b>Put the TV&#x27;s model name into a toast</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
-<div class="code"><pre><span class="pr">$ </span>MODEL=$(luna-send -n 1 -f luna://com.webos.service.tv.systemproperty/getSystemInfo &#x27;{&quot;keys&quot;:[&quot;modelName&quot;]}&#x27; | grep -o &#x27;&quot;modelName&quot;:&quot;[^&quot;]*&quot;&#x27; | cut -d&#x27;&quot;&#x27; -f4)
+<div class="code"><pre><span class="pr">$ </span>MODEL=$(luna-send -n 1 -f luna://com.webos.service.tv.systemproperty/getSystemInfo &#x27;{&quot;keys&quot;:[&quot;modelName&quot;]}&#x27; | grep -o &#x27;&quot;modelName&quot;:&quot;[^&quot;]*&quot;&#x27; | cut -d&#x27;&quot;&#x27; -f4); \
 <span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.notification/createToast &quot;{\&quot;message\&quot;:\&quot;This TV is a $MODEL\&quot;}&quot;</pre></div>
-<p style="margin:18px 0 6px"><b>Find an app&#x27;s id by name, then launch it</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
-<div class="code"><pre><span class="c-mu"># list the launcher tiles and grep for the app</span>
-<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/listLaunchPoints &#x27;{}&#x27; | grep -io &#x27;&quot;id&quot;:&quot;[^&quot;]*netflix[^&quot;]*&quot;&#x27;
-<span class="c-mu"># then launch the id it prints</span>
-<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/launch &#x27;{&quot;id&quot;:&quot;netflix&quot;}&#x27;</pre></div>
+<p style="margin:18px 0 6px"><b>Find an app by name and launch it (Netflix here)</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
+<div class="code"><pre><span class="c-mu"># find the first launch-point id matching the name, then launch it</span>
+<span class="pr">$ </span>ID=$(luna-send -n 1 -f luna://com.webos.applicationManager/listLaunchPoints &#x27;{}&#x27; | grep -io &#x27;&quot;id&quot;:&quot;[^&quot;]*netflix[^&quot;]*&quot;&#x27; | head -1 | cut -d&#x27;&quot;&#x27; -f4); \
+<span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.applicationManager/launch &quot;{\&quot;id\&quot;:\&quot;$ID\&quot;}&quot;</pre></div>
 <p style="margin:18px 0 6px"><b>Capture a screenshot, then pull it to your computer</b> <span class="pill" style="--ca:#7783a8">shell</span></p>
 <div class="code"><pre><span class="c-mu"># on the TV:</span>
 <span class="pr">$ </span>luna-send -n 1 -f luna://com.webos.service.capture/executeOneShot &#x27;{&quot;path&quot;:&quot;/tmp/cap.png&quot;,&quot;method&quot;:&quot;DISPLAY&quot;,&quot;format&quot;:&quot;PNG&quot;}&#x27;
