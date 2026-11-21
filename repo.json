@@ -94,28 +94,28 @@
       "id": "org.ohmybahgosh.fwblock",
       "title": "FW Block",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.0.0/org.ohmybahgosh.fwblock.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.1.0/org.ohmybahgosh.fwblock.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.fwblock",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "type": "web",
         "title": "FW Block",
         "appDescription": "Keep LG firmware updates off a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.0.0/org.ohmybahgosh.fwblock_1.0.0_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.1.0/org.ohmybahgosh.fwblock_1.1.0_all.ipk",
         "ipkHash": {
-          "sha256": "115fc402ee1311a1162af4030881a841c0cd66918fec9f37ac3cd735633b76b0"
+          "sha256": "d9bfc498f2e3f6340e8b1d95bdab06c2dd6dae6e3f32ebb68b3b853150092388"
         },
-        "ipkSize": 163426
+        "ipkSize": 178062
       },
       "shortDescription": "Block LG firmware updates and keep root: the update check, all seven update servers, Remote Support, phone app updates and stray downloads",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/fw-block.html",
       "release": {
-        "tag": "v1.0.0",
-        "published": "2026-11-20T21:50:07Z",
-        "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v1.0.0"
+        "tag": "v1.1.0",
+        "published": "2026-11-21T00:51:16Z",
+        "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v1.1.0"
       }
     },
     {
