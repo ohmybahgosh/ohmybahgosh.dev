@@ -181,6 +181,7 @@
   <h1 class="h2" style="margin-top:12px">Luna Atlas FAQ.</h1>
   <p class="lead">luna-send and the catalog, answered.</p>
 </section><article class="doc" style="--accent:#33e1ff">
+<div class="callout" style="--accent:#ffb547;margin-bottom:24px"><b>Early days.</b>  Luna Atlas is a work in progress.  Method names, services and access levels come from a real LG TV and are solid, but parameter documentation is still partial: many methods are name-only, and some parameters are inferred from the method name or observed from live bus traffic rather than taken from an official spec.  Treat it as a map of what the bus exposes, not a finished manual, and check a call before you rely on it.</div>
 <details class="faq"><summary>What is luna-send?</summary><div>The command-line tool every LG webOS TV ships to talk to the Luna Service Bus, the internal message bus every system service listens on: power, apps, inputs, picture and sound, Wi-Fi, notifications and hundreds more.</div></details>
 <details class="faq"><summary>What do I need to run a command?</summary><div>A rooted TV, or LG's Developer Mode, and a shell on the TV.  Browsing the catalog needs nothing.</div></details>
 <details class="faq"><summary>What do public, private and the other access levels mean?</summary><div>Public methods are open to normal apps.  Private ones are for LG's own apps and services, and need root or a privileged caller.  Some are only reachable as root, and SSAP methods are the ones LG's remote-control API exposes.</div></details>

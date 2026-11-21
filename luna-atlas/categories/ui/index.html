@@ -29,7 +29,7 @@
 <meta name="twitter:description" content="44 LG webOS luna-send methods for ui / compositor, across 9 services like com.webos.surfacemanager, com.webos.surfacemanager.input, with access levels and…">
 <meta name="twitter:image" content="https://ohmybahgosh.dev/assets/og/luna-atlas.png">
 <meta name="author" content="OhMyBahGosh">
-<meta property="article:modified_time" content="2026-11-09">
+<meta property="article:modified_time" content="2026-11-20">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">
 {
@@ -95,7 +95,7 @@
    },
    "inLanguage": "en-US",
    "datePublished": "2026-11-09",
-   "dateModified": "2026-11-09",
+   "dateModified": "2026-11-20",
    "about": {
     "@type": "Thing",
     "name": "luna-send"
@@ -197,7 +197,7 @@
 <div class="wrap">
 <div class="crumb"><a href="/">~</a><span>/</span><a href="/luna-atlas/">luna-atlas</a><span>/</span><a href="/luna-atlas/categories/">categories</a><span>/</span><span class="c-gr">ui</span></div>
 <section class="doc-hero" style="--accent:#33e1ff"><div class="eyebrow">$ luna-atlas --cat ui</div><h1 class="h2" style="margin-top:12px">UI / Compositor luna-send commands.</h1><p class="lead">The compositor and system UI: surfaces, overlays and the launcher layer.  44 methods in 9 services.</p></section>
-<article class="doc" style="--accent:#33e1ff">
+<article class="doc" style="--accent:#33e1ff"><div class="callout" style="--accent:#ffb547;margin-bottom:24px"><b>Early days.</b>  Luna Atlas is a work in progress.  Method names, services and access levels come from a real LG TV and are solid, but parameter documentation is still partial: many methods are name-only, and some parameters are inferred from the method name or observed from live bus traffic rather than taken from an official spec.  Treat it as a map of what the bus exposes, not a finished manual, and check a call before you rely on it.</div>
 <div class="stats lstats"><div><b>44</b><span>methods</span></div><div><b>9</b><span>services</span></div><div><b>4</b><span>documented</span></div><div><b>1</b><span>public</span></div><div><b>0</b><span>flagged dangerous</span></div></div>
 <p><a class="btn" href="/luna-atlas/#/?cat=ui">open UI / Compositor in the catalog ↗</a></p>
 <h2>Services</h2>
@@ -207,7 +207,7 @@
 <p>No documented public methods in this category yet: see the full list in the catalog.</p>
 <div class="callout" style="--accent:#ff3ea5;margin-top:28px"><b>Before you run anything.</b>  Methods marked dangerous can change, reset or break things on the TV.  Running one from here is exactly as safe as typing the same <code>luna-send</code> yourself.  See <a href="https://github.com/ohmybahgosh/WEBOS-LUNA-SEND-ATLAS/blob/main/docs/dangerous.md" target="_blank" rel="noopener">dangerous.md</a>.</div>
 <h2>Other categories</h2>
-<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>869</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>338</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a></div>
+<div class="chips lchips"><a href="/luna-atlas/categories/tv-broadcast/">TV Broadcast / DVR <span>1,901</span></a><a href="/luna-atlas/categories/misc/">Misc <span>829</span></a><a href="/luna-atlas/categories/input/">Input &amp; Keys <span>795</span></a><a href="/luna-atlas/categories/audio/">Audio <span>697</span></a><a href="/luna-atlas/categories/media/">Media Playback <span>433</span></a><a href="/luna-atlas/categories/power/">Power <span>369</span></a><a href="/luna-atlas/categories/apps/">Applications <span>365</span></a><a href="/luna-atlas/categories/bluetooth/">Bluetooth <span>336</span></a><a href="/luna-atlas/categories/network/">Network / Wi-Fi <span>304</span></a><a href="/luna-atlas/categories/settings/">Settings <span>295</span></a><a href="/luna-atlas/categories/system-info/">System Info <span>289</span></a><a href="/luna-atlas/categories/security/">Security / Keys <span>279</span></a><a href="/luna-atlas/categories/db/">Database (db8) <span>274</span></a><a href="/luna-atlas/categories/display/">Display / Panel <span>212</span></a><a href="/luna-atlas/categories/storage/">Storage &amp; USB <span>140</span></a><a href="/luna-atlas/categories/connection/">Connection Manager <span>103</span></a><a href="/luna-atlas/categories/update/">Software Update <span>90</span></a><a href="/luna-atlas/categories/notifications/">Notifications &amp; Alerts <span>82</span></a><a href="/luna-atlas/categories/camera/">Camera <span>73</span></a><a href="/luna-atlas/categories/activity/">Activity Manager <span>66</span></a><a href="/luna-atlas/categories/devmode/">Developer Mode &amp; Testing <span>44</span></a><a href="/luna-atlas/categories/power-mgmt/">Power Management <span>44</span></a></div>
 </article>
 </div>
 </main>

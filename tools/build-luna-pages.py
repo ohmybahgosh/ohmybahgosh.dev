@@ -9,6 +9,12 @@ from site_template import page, write, article_ld, esc, SITE
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOME = ("Home", "/"); ATLAS = ("Luna Atlas", "/luna-atlas/"); CATS = ("Categories", "/luna-atlas/categories/")
 ACC = "#33e1ff"
+DISCLAIMER = ('<div class="callout" style="--accent:#ffb547;margin-bottom:24px">'
+    '<b>Early days.</b>  Luna Atlas is a work in progress.  Method names, services and access '
+    'levels come from a real LG TV and are solid, but parameter documentation is still partial: '
+    'many methods are name-only, and some parameters are inferred from the method name or observed '
+    'from live bus traffic rather than taken from an official spec.  Treat it as a map of what the '
+    'bus exposes, not a finished manual, and check a call before you rely on it.</div>')
 
 NAMES = {
     "tv-broadcast": "TV Broadcast / DVR", "misc": "Misc", "input": "Input & Keys", "audio": "Audio", "media": "Media Playback",
@@ -121,7 +127,7 @@ def build():
             + (f'<p class="dim" style="font-size:13px">params: {", ".join("<code>" + esc(k) + "</code>" for k in list(m["p"])[:8])}</p>' if m["p"] else "")
             + code(cmd(m["u"])) + "</div>" for s, m in examples)
         body = head(f"$ luna-atlas --cat {c}", f"{esc(name)} luna-send commands.", esc(BLURB.get(c, "")) + f"  {len(rows):,} methods in {len(svc_list)} services.") + f"""
-<article class="doc" style="--accent:{ACC}">
+<article class="doc" style="--accent:{ACC}">{DISCLAIMER}
 <div class="stats lstats"><div><b>{len(rows):,}</b><span>methods</span></div><div><b>{len(svc_list)}</b><span>services</span></div><div><b>{n_doc:,}</b><span>documented</span></div><div><b>{n_pub:,}</b><span>public</span></div><div><b>{n_dz}</b><span>flagged dangerous</span></div></div>
 <p><a class="btn" href="{atlas_link(cat=c)}">open {esc(name)} in the catalog ↗</a></p>
 <h2>Services</h2>
@@ -145,7 +151,7 @@ def build():
     cards = "".join(f'<a class="card gcard" href="/luna-atlas/categories/{c}/"><b>{esc(NAMES.get(c, c))}</b><span>{len(by[c]):,} methods · {esc(trunc(BLURB.get(c, ""), 90))}</span></a>' for c in cats)
     body = head("$ luna-atlas categories", "luna-send commands by category.",
                 f"All {total_m:,} LG webOS luna-send methods across {total_s} services, grouped by what they do.  Pick one to see its services and documented commands.") + f"""
-<article class="doc" style="--accent:{ACC}">
+<article class="doc" style="--accent:{ACC}">{DISCLAIMER}
 <div class="gcards">{cards}</div>
 <p class="dim" style="font-size:14px">Smaller groups ({", ".join(esc(NAMES.get(c, c)) for c in small)}) are in the <a href="/luna-atlas/">full catalog</a>.  New to luna-send?  Start with the <a href="/luna-atlas/examples/">common examples</a>.</p>
 </article>"""
@@ -165,7 +171,7 @@ def build():
     path = "/luna-atlas/examples/"
     body = head("$ luna-send --examples", "Common luna-send examples.",
                 "Copy-and-paste luna-send commands for everyday things on an LG webOS TV: toasts, apps, volume, the screen, system info and settings.") + f"""
-<article class="doc" style="--accent:{ACC}">
+<article class="doc" style="--accent:{ACC}">{DISCLAIMER}
 <h2>Before you start</h2>
 <p>You need a shell on the TV: a rooted TV with SSH from the Homebrew Channel (see <a href="/guides/ssh-into-lg-tv/">SSH into a rooted LG TV</a>), or Developer Mode.  Every command below uses <code>-n 1</code> to wait for one reply and <code>-f</code> to print it formatted.  Methods marked <b>private</b> need root.</p>
 {"".join(rows)}

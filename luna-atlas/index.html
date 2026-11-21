@@ -121,7 +121,7 @@
     "documentation confidence",
     "parameters"
    ],
-   "dateModified": "2026-11-09"
+   "dateModified": "2026-11-20"
   }
  ]
 }
@@ -181,7 +181,7 @@
       <div class="badges">
         <span class="badge">methods <b class="c-gr" data-atlas-count="methods">8,125</b></span>
         <span class="badge">services <b data-atlas-count="services">501</b></span>
-        <span class="badge">documented <b data-atlas-count="documented">1,807</b></span>
+        <span class="badge">documented <b data-atlas-count="documented">2,143</b></span>
         <span class="badge">webOS <b>4+</b></span>
         <span class="badge">★ <b data-gh="WEBOS-LUNA-SEND-ATLAS:stars">1</b></span>
         <span class="badge">release <b data-gh="WEBOS-LUNA-SEND-ATLAS:version">none yet</b></span>
@@ -206,8 +206,12 @@
   <div class="stats rv" style="margin-top:30px">
     <div><b data-atlas-count="methods">8,125</b><span>methods</span></div>
     <div><b data-atlas-count="services">501</b><span>services</span></div>
-    <div><b data-atlas-count="documented">1,807</b><span>documented</span></div>
-    <div><b data-atlas-count="inferred">6,316</b><span>inferred, flagged</span></div>
+    <div><b data-atlas-count="documented">2,143</b><span>documented</span></div>
+    <div><b data-atlas-count="inferred">5,980</b><span>inferred, flagged</span></div>
+  </div>
+
+  <div class="callout rv" style="--accent:#ffb547;margin-top:28px">
+    <b>Early days.</b>  Luna Atlas is a work in progress.  The method names, services and access levels come from a real LG TV and are solid, but the parameter documentation is still partial: many methods are name-only, and some parameters are inferred from the method name or observed from live bus traffic rather than taken from an official spec.  Treat it as a map of what the bus exposes, not a finished manual, and check a call before you rely on it.
   </div>
 
   <section id="catalog" data-pal="browse the luna-send catalog" style="padding-top:40px;min-width:0">
@@ -243,8 +247,8 @@
       </div>
     </div>
     <div class="legend rv" style="margin-top:18px">
-      <div class="card" style="padding:18px"><span class="ab c-documented">documented</span><p class="muted" style="margin-top:10px"><b class="c-wh"><span data-atlas-count="documented">1,807</span> methods</b> from authoritative sources: the webOS OSE docs, LG's own docs, and community projects.  Each record lists the URLs it came from.</p></div>
-      <div class="card" style="padding:18px"><span class="ab c-inferred">inferred</span><p class="muted" style="margin-top:10px"><b class="c-wh"><span data-atlas-count="inferred">6,316</span> methods</b> are LG-proprietary, found on a real TV with no public docs.  The description comes only from the method name, and no parameters are invented.</p></div>
+      <div class="card" style="padding:18px"><span class="ab c-documented">documented</span><p class="muted" style="margin-top:10px"><b class="c-wh"><span data-atlas-count="documented">2,143</span> methods</b> from authoritative sources: the webOS OSE docs, LG's own docs, and community projects.  Each record lists the URLs it came from.</p></div>
+      <div class="card" style="padding:18px"><span class="ab c-inferred">inferred</span><p class="muted" style="margin-top:10px"><b class="c-wh"><span data-atlas-count="inferred">5,980</span> methods</b> are LG-proprietary, found on a real TV with no public docs.  The description comes only from the method name, and no parameters are invented.</p></div>
       <div class="card" style="padding:18px"><span class="ab c-stub">stub</span><p class="muted" style="margin-top:10px">Two entries found on a TV with nothing known about them yet.  Listed so the map is complete, marked so nobody mistakes them for docs.</p></div>
     </div>
     <p class="dim rv" style="font-size:14px;margin-top:14px">Access levels: <span class="ab sm a-public">public</span> callable by apps with the right permission, <span class="ab sm a-private">private</span> needs root or system rights, <span class="ab sm a-ssap">ssap</span> reachable over the SSAP websocket, <span class="ab sm a-root">root</span> root only, <span class="ab sm a-unknown">unknown</span> the source didn't say.  <span class="ab sm danger">⚠</span> marks <span data-atlas-count="dangerous">314</span> calls that can factory reset, wipe data or break the set.</p>
