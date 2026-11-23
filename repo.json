@@ -10,28 +10,28 @@
       "id": "org.ohmybahgosh.lgusb2eth0",
       "title": "LG-USB-2-ETH0",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.50/org.ohmybahgosh.lgusb2eth0.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.51/org.ohmybahgosh.lgusb2eth0.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.lgusb2eth0",
-        "version": "2.11.50",
+        "version": "2.11.51",
         "type": "web",
         "title": "LG-USB-2-ETH0",
         "appDescription": "Make a USB Ethernet adapter the TV's eth0",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/LG-USB-2-ETH0/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.50/org.ohmybahgosh.lgusb2eth0_2.11.50_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/download/v2.11.51/org.ohmybahgosh.lgusb2eth0_2.11.51_all.ipk",
         "ipkHash": {
-          "sha256": "ea1ba6c8eb1b4c66e011015a7ab5252bff3a4f57490957b1c655067830ad15ae"
+          "sha256": "e67ccfc9372c6e095ea269100d776c4913a00c84bad2522f97af710ec66083cd"
         },
-        "ipkSize": 215130
+        "ipkSize": 215138
       },
       "shortDescription": "Make a USB Ethernet adapter the TV's eth0, for the faster wired link",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/lg-usb-2-eth0.html",
       "release": {
-        "tag": "v2.11.50",
-        "published": "2026-11-21T18:12:05Z",
-        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.11.50"
+        "tag": "v2.11.51",
+        "published": "2026-11-23T13:07:06Z",
+        "url": "https://github.com/ohmybahgosh/LG-USB-2-ETH0/releases/tag/v2.11.51"
       }
     },
     {
@@ -94,28 +94,28 @@
       "id": "org.ohmybahgosh.fwblock",
       "title": "FW Block",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.1.0/org.ohmybahgosh.fwblock.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.2.0/org.ohmybahgosh.fwblock.manifest.json",
       "manifest": {
         "id": "org.ohmybahgosh.fwblock",
-        "version": "1.1.0",
+        "version": "1.2.0",
         "type": "web",
         "title": "FW Block",
         "appDescription": "Keep LG firmware updates off a rooted LG TV",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/WEBOS-FW-BLOCK/main/webos-app/src/icon160.png",
         "sourceUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK",
         "rootRequired": true,
-        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.1.0/org.ohmybahgosh.fwblock_1.1.0_all.ipk",
+        "ipkUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/download/v1.2.0/org.ohmybahgosh.fwblock_1.2.0_all.ipk",
         "ipkHash": {
-          "sha256": "d9bfc498f2e3f6340e8b1d95bdab06c2dd6dae6e3f32ebb68b3b853150092388"
+          "sha256": "60e745531d7f587c5f82bda1ed5ff9435689937bf1a2b6753d7aad43d1456c67"
         },
-        "ipkSize": 178062
+        "ipkSize": 178056
       },
       "shortDescription": "Block LG firmware updates and keep root: the update check, all seven update servers, Remote Support, phone app updates and stray downloads",
       "fullDescriptionUrl": "https://ohmybahgosh.dev/homebrew/fw-block.html",
       "release": {
-        "tag": "v1.1.0",
-        "published": "2026-11-21T00:51:16Z",
-        "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v1.1.0"
+        "tag": "v1.2.0",
+        "published": "2026-11-23T12:37:02Z",
+        "url": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/tag/v1.2.0"
       }
     },
     {
