@@ -214,7 +214,7 @@ ngfts.lge.com</pre></div>
 <h2>4. On a rooted TV: Block updates harder</h2>
 <p><a href="/lg-usb-2-eth0/">LG-USB-2-ETH0</a>'s <b class="c-wh">Block updates harder</b> covers the gaps, at once and again at every boot:</p>
 <ul>
-<li>Turns off webOS's own update check (the hidden <code>softwareUpdateEnable</code> setting), including the early one at boot.</li>
+<li>Turns off webOS's own update check (the hidden <code>softwareUpdateEnable</code> setting).  The updater still checks once right after a restart, before anything on the TV can block it, so a router or DNS block is still worth having.</li>
 <li>Adds <code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>ngfts.lge.com</code> to the hosts file, without touching the Homebrew Channel's lines.</li>
 <li>Blocks <code>156.147.69.32</code> with one firewall rule.</li>
 <li>Deletes update details already found or downloaded, so a waiting prompt goes away.</li>

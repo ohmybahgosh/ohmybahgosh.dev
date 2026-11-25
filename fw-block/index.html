@@ -50,7 +50,7 @@
    "applicationCategory": "UtilitiesApplication",
    "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
    "url": "https://ohmybahgosh.dev/fw-block/",
-   "softwareVersion": "1.2.2",
+   "softwareVersion": "1.3.0",
    "downloadUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/latest",
    "installUrl": "https://ohmybahgosh.dev/install/",
    "screenshot": "https://ohmybahgosh.dev/assets/img/fw-block-blocked.webp",
@@ -98,7 +98,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "1.2.2",
+   "softwareVersion": "1.3.0",
    "@id": "https://ohmybahgosh.dev/fw-block/#source"
   },
   {
@@ -172,7 +172,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b data-gh="WEBOS-FW-BLOCK:release">v1.2.2</b></span>
+        <span class="badge">version <b data-gh="WEBOS-FW-BLOCK:release">v1.3.0</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">webOS <b>4 to 26</b></span>
         <span class="badge">languages <b>en · ru · es</b></span>
@@ -191,7 +191,7 @@
     <div class="sec-head rv"><div><div class="eyebrow">$ fw-block status</div><h2 class="h2" style="margin-top:12px">Every way in, closed.</h2><p>The Homebrew Channel's <b class="c-wh">Block system updates</b> covers four servers (and since 0.8.0, webOS's update check).  FW Block keeps it, and closes the rest.</p></div></div>
     <div class="tv rv" style="margin-bottom:26px"><img src="/assets/img/fw-block-layers.webp" alt="Every block, and who keeps it: the update check, found updates, the seven update servers, the address with no name, LG Remote Support, phone apps and downloads, each blocked" width="1280" height="720" loading="lazy"></div>
     <div class="bento">
-      <div class="card s2 rv"><div class="ic">01</div><h3>The update check, off</h3><p>webOS's hidden <code>softwareUpdateEnable</code> and the visible <b class="c-wh">Automatic software update</b>.  The updater doesn't even ask, from the moment the TV starts.</p></div>
+      <div class="card s2 rv"><div class="ic">01</div><h3>The update check, off</h3><p>webOS's hidden <code>softwareUpdateEnable</code> and the visible <b class="c-wh">Automatic software update</b>.  With them off, a firmware the updater finds becomes a pop-up, not a download.  Its one check right after a restart can come before FW Block starts: block LG on your router for that, and FW Block warns you if it got through.</p></div>
       <div class="card s2 rv" style="--ca:#ffb547"><div class="ic">02</div><h3>Found updates, gone</h3><p>An update webOS already found or downloaded is deleted before it can install, and a waiting prompt goes away.</p></div>
       <div class="card s2 rv" style="--ca:#33e1ff"><div class="ic">03</div><h3>Seven servers, nowhere</h3><p><code>snu</code>, <code>su</code>, <code>su-ssl</code>, <code>su-dev</code>, <code>snu-dev</code>, <code>nsu</code> and <code>ngfts.lge.com</code> in <code>/etc/hosts</code>, including the three the Homebrew Channel misses.</p></div>
       <div class="card s2 rv" style="--ca:#ff3ea5"><div class="ic">04</div><h3>The address with no name</h3><p>With its "network" server, the updater goes straight to <code>156.147.69.32</code>.  A firewall rule in a chain of its own drops it.</p></div>
@@ -290,6 +290,7 @@ sh $S report            # a report for asking for help</pre></div>
       <details class="faq"><summary>I already use LG-USB-2-ETH0's Block updates harder.  Do I need this?</summary><div>No.  Newer LG-USB-2-ETH0 versions block everything FW Block does.  Install both and FW Block shows that LG-USB-2-ETH0 keeps each block, stays out of its way, and takes over if that block is ever turned off.</div></details>
       <details class="faq"><summary>Will casting and the phone remote still work?</summary><div>Yes.  The phone block only takes away the update service's update calls.  Every other phone call stays the same, which was checked with LG's own gateway code on webOS 25 and 26.</div></details>
       <details class="faq"><summary>Why does the phone block say "from the next TV start"?</summary><div>The TV's phone connection reads which calls it offers when it starts, and FW Block never restarts it.  Restart the TV once and it holds from then on.</div></details>
+      <details class="faq"><summary>Why did I get an "Upgrade to webOS26" pop-up after a restart?</summary><div>LG's updater checks once in the first half minute after a real restart (not after standby), whatever its settings say, and that can be before the Homebrew Channel starts FW Block.  Nothing downloads, because FW Block's blocks are up before the download starts.  Since 1.3.0, FW Block spots it, warns you in the app and on the TV, and deletes what the updater found.  Don't accept the pop-up.  To stop that check too, add <code>snu.lge.com</code>, <code>su.lge.com</code>, <code>su-ssl.lge.com</code>, <code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>su-dev.lge.com</code> to your router's or DNS blocker's deny list.</div></details>
       <details class="faq"><summary>Does it work with the Homebrew Channel 0.8.0?</summary><div>Yes.  0.8.0's <b>Block system updates</b> also turns webOS's update check off, and FW Block recognizes it as what keeps the check off, and never turns it back on behind it.  Switching the Homebrew Channel's block off turns the check back on; while FW Block is on, it turns it off again within 30 seconds.  Both can be on together.</div></details>
       <details class="faq"><summary>Can it undo an update that already installed?</summary><div>No.  Nothing can undo a firmware update from the TV, so block updates before LG gets the chance.</div></details>
       <details class="faq"><summary>Does it block app updates?</summary><div>No.  The LG Content Store and app updates are left alone.  Only firmware updates are blocked.</div></details>
