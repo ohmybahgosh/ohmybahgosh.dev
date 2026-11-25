@@ -171,7 +171,7 @@
         <a class="btn" href="/assets/media/eth0-promo.mp4" target="_blank" rel="noopener">▶ 1-minute tour, with sound</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.52</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.53</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">355 builds</b></span>
@@ -188,11 +188,12 @@
   </section>
   <div class="callout rv" style="margin:8px 0 0;--accent:#3ddc97"><b>Help make it work on more TVs.</b>  Test a driver built for your TV, send a compatibility report, translate the app or build a feature with AI, and get your name in the <a class="c-gr" href="#contribute">special thanks</a>.  <a class="c-gr" href="#contribute">Ways to help ↓</a></div>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.52" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.52</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.53" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.53</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl" data-clip="5">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.11.53</b></td><td>Ready for Homebrew Channel 0.8.0: on webOS 26 it fixes the app's root access for every app, and switching the Homebrew Channel's update block off no longer leaves webOS's update check on for 10 minutes while Block updates harder is on.</td></tr>
         <tr><td><b class="c-gr">2.11.52</b></td><td>The update prompt now lists what's new since your version before you update, and a What's new row shows this version's notes any time.  What's new after an update shows reliably now.</td></tr>
         <tr><td><b class="c-gr">2.11.51</b></td><td>Blocked servers that another tool's hosts table hides at boot (like Glasshouse's ad block) now come back within 30 seconds instead of 10 minutes.</td></tr>
         <tr><td><b class="c-gr">2.11.50</b></td><td>Fixes the TV app saying it can't reach root on TVs with an older BusyBox (seen on a 2021 NANO85), and offers one more confirmed driver: Realtek <code>r8152_oot</code> for 2021 LM21U TVs on webOS 6.</td></tr>
@@ -512,7 +513,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.52}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.53}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
@@ -579,7 +580,7 @@
         <tr><td>webOS 25 · 2024 G4</td><td>An ASIX AX88179 works out of the box on the TV's own driver, and this makes it <code>eth0</code>: 292 Mbit/s down, 51 up.</td></tr>
         <tr><td>webOS 25 · 2024 QNED/OLED</td><td>Realtek driver removed.  On older firmware (kernel <code>5.4.268-294.17.paparoa.pine.2</code>), <code>get-driver</code> offers mbenitez343's <code>r8152</code> for gigabit RTL8152/8153.  Current firmware (33.31.75) moves these TVs to <code>5.4.268-294.24.papikonda.2</code>, with no Realtek or AX88179 driver, so it isn't offered there.  dd3git's ASIX driver fits the B4 and QNED85 on that kernel.  Not yet tested here, so a report helps.</td></tr>
         <tr><td>webOS 25 · 2025 B5</td><td>No ASIX driver: an AX88179A wasn't detected at all.  <code>get-driver</code> offers dd3git's build for kernel <code>5.4.268-294.24.papikonda.2</code>.  Not yet tested here, so a report helps.</td></tr>
-        <tr><td>webOS 26 · 2026 G6, C6</td><td class="yes">RTL8153 and AX88179 adapters work out of the box on the TV's own drivers: 247 to 322 Mbit/s down over USB 2.0.  On webOS 26 the app needs one setup step over SSH until the Homebrew Channel ships its own fix.</td></tr>
+        <tr><td>webOS 26 · 2026 G6, C6</td><td class="yes">RTL8153 and AX88179 adapters work out of the box on the TV's own drivers: 247 to 322 Mbit/s down over USB 2.0.  On webOS 26, update the Homebrew Channel to 0.8.0 or newer so the app can reach root (or run one setup step over SSH on an older Homebrew Channel).</td></tr>
       </tbody>
     </table></div>
     <p class="muted rv" style="margin-top:18px"><b class="c-wh">Which drivers does your TV's kernel have?</b>  The <a class="c-gr" href="https://github.com/ohmybahgosh/LG-USB-2-ETH0/blob/main/docs/firmware-audit.md" target="_blank" rel="noopener">firmware audit ↗</a> reads them straight from LG's firmware for 13 models from 2019 to 2025, webOS 26 included.</p>
