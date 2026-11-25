@@ -50,7 +50,7 @@
    "applicationCategory": "UtilitiesApplication",
    "operatingSystem": "LG webOS (rooted, Homebrew Channel)",
    "url": "https://ohmybahgosh.dev/fw-block/",
-   "softwareVersion": "1.2.1",
+   "softwareVersion": "1.2.2",
    "downloadUrl": "https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/releases/latest",
    "installUrl": "https://ohmybahgosh.dev/install/",
    "screenshot": "https://ohmybahgosh.dev/assets/img/fw-block-blocked.webp",
@@ -98,7 +98,7 @@
     "@id": "https://ohmybahgosh.dev/#person"
    },
    "runtimePlatform": "LG webOS",
-   "softwareVersion": "1.2.1",
+   "softwareVersion": "1.2.2",
    "@id": "https://ohmybahgosh.dev/fw-block/#source"
   },
   {
@@ -172,7 +172,7 @@
         <a class="btn" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK" target="_blank" rel="noopener">source ↗</a>
       </div>
       <div class="badges">
-        <span class="badge">version <b data-gh="WEBOS-FW-BLOCK:release">v1.2.1</b></span>
+        <span class="badge">version <b data-gh="WEBOS-FW-BLOCK:release">v1.2.2</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">webOS <b>4 to 26</b></span>
         <span class="badge">languages <b>en · ru · es</b></span>
@@ -188,7 +188,7 @@
   <div class="card rv" style="padding:18px 22px;margin-top:8px;--ca:#ffb547"><b class="c-wh">Tested on one TV so far.</b> <span class="muted">1.0.0 runs on a real LG C2 with webOS 25 and passes its tests against a fake TV, but it hasn't met many other TVs yet.  If something looks wrong, <a class="c-cy" href="https://github.com/ohmybahgosh/WEBOS-FW-BLOCK/issues/new?template=bug-report.yml" target="_blank" rel="noopener">open a bug report</a>.</span></div>
 
   <section id="blocks" data-pal="what FW Block blocks" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">$ fw-block status</div><h2 class="h2" style="margin-top:12px">Every way in, closed.</h2><p>The Homebrew Channel's <b class="c-wh">Block system updates</b> covers four servers.  FW Block keeps it, and closes the rest.</p></div></div>
+    <div class="sec-head rv"><div><div class="eyebrow">$ fw-block status</div><h2 class="h2" style="margin-top:12px">Every way in, closed.</h2><p>The Homebrew Channel's <b class="c-wh">Block system updates</b> covers four servers (and since 0.8.0, webOS's update check).  FW Block keeps it, and closes the rest.</p></div></div>
     <div class="tv rv" style="margin-bottom:26px"><img src="/assets/img/fw-block-layers.webp" alt="Every block, and who keeps it: the update check, found updates, the seven update servers, the address with no name, LG Remote Support, phone apps and downloads, each blocked" width="1280" height="720" loading="lazy"></div>
     <div class="bento">
       <div class="card s2 rv"><div class="ic">01</div><h3>The update check, off</h3><p>webOS's hidden <code>softwareUpdateEnable</code> and the visible <b class="c-wh">Automatic software update</b>.  The updater doesn't even ask, from the moment the TV starts.</p></div>
@@ -290,9 +290,10 @@ sh $S report            # a report for asking for help</pre></div>
       <details class="faq"><summary>I already use LG-USB-2-ETH0's Block updates harder.  Do I need this?</summary><div>No.  Newer LG-USB-2-ETH0 versions block everything FW Block does.  Install both and FW Block shows that LG-USB-2-ETH0 keeps each block, stays out of its way, and takes over if that block is ever turned off.</div></details>
       <details class="faq"><summary>Will casting and the phone remote still work?</summary><div>Yes.  The phone block only takes away the update service's update calls.  Every other phone call stays the same, which was checked with LG's own gateway code on webOS 25 and 26.</div></details>
       <details class="faq"><summary>Why does the phone block say "from the next TV start"?</summary><div>The TV's phone connection reads which calls it offers when it starts, and FW Block never restarts it.  Restart the TV once and it holds from then on.</div></details>
+      <details class="faq"><summary>Does it work with the Homebrew Channel 0.8.0?</summary><div>Yes.  0.8.0's <b>Block system updates</b> also turns webOS's update check off, and FW Block recognizes it as what keeps the check off, and never turns it back on behind it.  Switching the Homebrew Channel's block off turns the check back on; while FW Block is on, it turns it off again within 30 seconds.  Both can be on together.</div></details>
       <details class="faq"><summary>Can it undo an update that already installed?</summary><div>No.  Nothing can undo a firmware update from the TV, so block updates before LG gets the chance.</div></details>
       <details class="faq"><summary>Does it block app updates?</summary><div>No.  The LG Content Store and app updates are left alone.  Only firmware updates are blocked.</div></details>
-      <details class="faq"><summary>Was this written by AI?</summary><div>Partly, and openly.  It's written with AI coding agents (Claude), directed, reviewed and tested by me.  Nothing ships until it's run on a real TV (an LG C2 on webOS 25), and the fixes that mattered most came from that testing: <code>luna-send</code> quietly eating the script's input, the TV's fonts missing a symbol, and LG-USB-2-ETH0's new phone block looking like a gap until the next start.  The blocks themselves come from running LG's own updater in a sandbox and reading nine firmwares.  58 tests run on every push, releases are signed, and no system partition is written.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
+      <details class="faq"><summary>Was this written by AI?</summary><div>Partly, and openly.  It's written with AI coding agents (Claude), directed, reviewed and tested by me.  Nothing ships until it's run on a real TV (an LG C2 on webOS 25), and the fixes that mattered most came from that testing: <code>luna-send</code> quietly eating the script's input, the TV's fonts missing a symbol, and LG-USB-2-ETH0's new phone block looking like a gap until the next start.  The blocks themselves come from running LG's own updater in a sandbox and reading nine firmwares.  79 tests run on every push, releases are signed, and no system partition is written.  <a class="c-gr" href="/#built">How these are built</a>.</div></details>
     </div>
   </section>
 
