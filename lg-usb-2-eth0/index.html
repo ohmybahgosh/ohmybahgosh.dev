@@ -171,7 +171,7 @@
         <a class="btn" href="/assets/media/eth0-promo.mp4" target="_blank" rel="noopener">▶ 1-minute tour, with sound</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.54</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.55</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">355 builds</b></span>
@@ -188,11 +188,12 @@
   </section>
   <div class="callout rv" style="margin:8px 0 0;--accent:#3ddc97"><b>Help make it work on more TVs.</b>  Test a driver built for your TV, send a compatibility report, translate the app or build a feature with AI, and get your name in the <a class="c-gr" href="#contribute">special thanks</a>.  <a class="c-gr" href="#contribute">Ways to help ↓</a></div>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.54" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.54</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.55" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.55</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl" data-clip="5">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.11.55</b></td><td>Says when LG's update check right after a restart got through (nothing on the TV can stop that one), and the README lists the six LG names to block on your router.  Firewall checks also wait while another tool is using iptables.</td></tr>
         <tr><td><b class="c-gr">2.11.54</b></td><td>One more confirmed driver: ASIX <code>ax88179_178a</code> for 2020 NANO91 TVs (K6Hp chip) on webOS 5, online at 1000 Mbit/s.</td></tr>
         <tr><td><b class="c-gr">2.11.53</b></td><td>Ready for Homebrew Channel 0.8.0: on webOS 26 it fixes the app's root access for every app, and switching the Homebrew Channel's update block off no longer leaves webOS's update check on for 10 minutes while Block updates harder is on.</td></tr>
         <tr><td><b class="c-gr">2.11.52</b></td><td>The update prompt now lists what's new since your version before you update, and a What's new row shows this version's notes any time.  What's new after an update shows reliably now.</td></tr>
@@ -406,7 +407,7 @@
     <div class="sec-head rv"><div><div class="eyebrow">--block-updates</div><h2 class="h2" style="margin-top:12px">The most complete update block.</h2><p>A firmware update can remove root, and current firmware can't be rooted again.  The Homebrew Channel's <b class="c-wh">Block system updates</b> is the first line.  People in <a class="c-gr" href="https://github.com/webosbrew/webos-homebrew-channel/issues/96" target="_blank" rel="noopener">Homebrew Channel issue #96</a> found what it misses, and <b class="c-wh">Block updates harder</b> adds that on top, covering every way LG can update the TV that we found by taking apart nine firmwares, from 2018 models to webOS 26, and running LG's own updater in a sandbox.  It never replaces the Homebrew Channel's block or changes its setting.</p></div></div>
     <div class="two rv">
       <div class="steps" style="min-width:0">
-        <div class="step"><div><h3>Turns off webOS's own update check and automatic updates</h3><p>A hidden webOS setting, the same switch <a class="c-gr" href="https://github.com/webosbrew/webos-homebrew-channel/pull/264" target="_blank" rel="noopener">Homebrew Channel PR #264</a> turns off, including the check webOS makes early in boot, before the Homebrew Channel's block is in place.</p></div></div>
+        <div class="step"><div><h3>Turns off webOS's own update check and automatic updates</h3><p>A hidden webOS setting, the same switch <a class="c-gr" href="https://github.com/webosbrew/webos-homebrew-channel/pull/264" target="_blank" rel="noopener">Homebrew Channel PR #264</a> turns off.  It doesn't stop the one check LG's updater makes right after every restart, before anything on the TV can block it, so the block watches for that check and removes what it found.  Only blocking LG's update servers on your router stops it.</p></div></div>
         <div class="step"><div><h3>Blocks the servers the Homebrew Channel misses</h3><p><code>nsu.lge.com</code>, <code>snu-dev.lge.com</code> and <code>ngfts.lge.com</code>, in <code>/etc/hosts</code>.  If the Homebrew Channel's block is off, it blocks that block's four servers too.</p></div></div>
         <div class="step"><div><h3>Drops traffic to LG's update IP</h3><p>The updater also reaches one server by IP, which no hosts file can block, so one firewall rule drops it.</p></div></div>
         <div class="step"><div><h3>Clears cached update details</h3><p>Anything already found or downloaded is deleted, so a waiting update prompt goes away.</p></div></div>
@@ -514,7 +515,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.54}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.55}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
