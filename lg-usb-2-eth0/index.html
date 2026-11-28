@@ -171,7 +171,7 @@
         <a class="btn" href="/assets/media/eth0-promo.mp4" target="_blank" rel="noopener">▶ 1-minute tour, with sound</a>
       </div>
       <div class="badges">
-        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.59</b></span>
+        <span class="badge">release <b data-gh="LG-USB-2-ETH0:release">v2.11.60</b></span>
         <span class="badge">TV app <b class="c-gr">Homebrew Channel</b></span>
         <span class="badge">drivers <b class="c-gr">Realtek · ASIX</b></span>
         <span class="badge">in testing <b class="c-gr">355 builds</b></span>
@@ -188,11 +188,12 @@
   </section>
   <div class="callout rv" style="margin:8px 0 0;--accent:#3ddc97"><b>Help make it work on more TVs.</b>  Test a driver built for your TV, send a compatibility report, translate the app or build a feature with AI, and get your name in the <a class="c-gr" href="#contribute">special thanks</a>.  <a class="c-gr" href="#contribute">Ways to help ↓</a></div>
 
-  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.59" style="padding-top:40px">
-    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.59</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
+  <section id="new" data-pal="what's new in LG-USB-2-ETH0 2.4.7 to 2.11.60" style="padding-top:40px">
+    <div class="sec-head rv"><div><div class="eyebrow">what's new · 2.4.7 to 2.11.60</div><h2 class="h2" style="margin-top:12px">More TVs covered, and a driver test in one step.</h2></div><a class="btn" href="#releases">all release notes ↓</a></div>
     <div class="tblw rv"><table class="tbl" data-clip="5">
       <thead><tr><th>version</th><th>what changed</th></tr></thead>
       <tbody>
+        <tr><td><b class="c-gr">2.11.60</b></td><td>One more driver confirmed working: Realtek <code>r8152_oot</code> on a 2018 C8 (webOS 4), now offered by Faster driver.  And webOS 26 43.22.77 for 2023 UR and 2024 UT LCDs is audited (patched against root).</td></tr>
         <tr><td><b class="c-gr">2.11.59</b></td><td>ASIX adapters download about 60% faster on a TV's USB 2.0 port (134 to 212 Mbit/s on a 2020 NANO91), with smaller receive transfers in all 64 drivers built here.</td></tr>
         <tr><td><b class="c-gr">2.11.58</b></td><td>ASIX drivers rebuilt with Linux's 2022 receive fix, so they stop counting RX errors and drops that weren't real, and TVs on an old build are offered the fixed one.</td></tr>
         <tr><td><b class="c-gr">2.11.57</b></td><td>One more driver confirmed working: ASIX's <code>ax88179_178a</code> for a 2024 NANO81 on webOS 24 (K8LpN2), now offered by Faster driver.</td></tr>
@@ -519,7 +520,7 @@
           ["o!","  USB eth1 (r8152) <span class=c-pk>→</span> eth0"],
           ["o","  <span class=c-gr>Done:</span> the USB adapter is eth0, the built-in port is eth2."],
           ["$","sh LG-USB-2-ETH0.sh status"],
-          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.59}} status ===</span>"],
+          ["o","<span class=c-wh>=== LG-USB-2-ETH0 v{{LG-USB-2-ETH0:version|2.11.60}} status ===</span>"],
           ["o","Model:     OLED65C2PUA · webOS 25 (10.x)"],
           ["o","Boot hook  <span class=c-gr>installed and enabled</span> <span class=c-mu>(link to the app's script)</span>"],
           ["o!","  <span class=c-cy>eth0</span>   USB Ethernet    r8152   <span class=c-gr>link 1000 Mbit/s</span>"],
