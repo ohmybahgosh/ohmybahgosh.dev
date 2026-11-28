@@ -122,32 +122,32 @@
       "id": "app.tivibro.tv",
       "title": "TiviBro",
       "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
-      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.235/app.tivibro.tv.manifest.json",
+      "manifestUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.236/app.tivibro.tv.manifest.json",
       "manifest": {
         "id": "app.tivibro.tv",
-        "version": "0.5.10235",
+        "version": "0.5.10236",
         "type": "web",
         "title": "TiviBro",
-        "appDescription": "Test build 0.6.0-alpha.235.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription: a free DVR, live pause, Multiview, Skip intro and live sports scores",
+        "appDescription": "Test build 0.6.0-alpha.236.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription: a free DVR, live pause, Multiview, Skip intro and live sports scores",
         "iconUri": "https://raw.githubusercontent.com/ohmybahgosh/TiviBro/main/logos/clean/tivibro-icon-512.png",
         "sourceUrl": "https://github.com/ohmybahgosh/TiviBro",
         "rootRequired": false,
-        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.235/app.tivibro.tv_0.5.10235_all.ipk",
-        "ipkSize": 10439192,
+        "ipkUrl": "https://github.com/ohmybahgosh/TiviBro/releases/download/v0.6.0-alpha.236/app.tivibro.tv_0.5.10236_all.ipk",
+        "ipkSize": 10447670,
         "ipkHash": {
-          "sha256": "930fb9c4916c64e1f10977a1bcf655141afea7ece78fe6bf3bad78ce4db79323"
+          "sha256": "fa2f1d1c01b0d50d6375da755fcff3dac0a19a2448abc90d421a68f45c862b07"
         },
-        "tivibroSig": "A89bZXW3+cwBiXpirnaFO1CUmpyKhRHz8syX3+v3i10WXxFiiRAmDHVO3wXW/MhVr0xDjJTzOkeulKavdveR9Baxs0T1yxiT12ortOXiyAhSDGG514wxMhJrCUI2flynrRxi9aWcnGlrW0eRrK0hlLMbNfsweIAgvHCQVVzd8MUbHPHYB5yE1H6KT4EQvDf3Nl5Vq3NAXlboeEbxHAqi30cZSmNc5UnTssY1mVBM/VTzu4ahLgr7yubb8fY1UP0rnolQZPWPqsrF1PNk4GqonJozcvd2Gg2bkdrMnxKC0veAiu4UBa55DA3D8AwKs4HTs+EemaYcKJr+OFCegCltaKS8uJ2usuJLcrn4YcR/TdajBGJLaroU8AIEwyhEqZ4n7vDInqQp6uMLjzkH4OEYDYGINz+NLSOpK5K00XohPoKbv9dGEhStFempdcwm0NasSI3WHHQ70E/XT4Kis7bof6MYK23FjKXqqi9KkOcWdhdlpPuYZMX6aEBW/IacrB/Z"
+        "tivibroSig": "jdruT+zOUzBl0qrELnY/RO375Is6vDIA0G6wfWnj/BXrXdwFT+q8jtJKh25AcCtdv7e1GH/9AqhGEwUm0DgYV1kFjwBK8/ScZ7rrK5E3RDxMqOLoMmnXqbc4ilMswEC8Mk9zSZ+YMYUWmMTT+oraAPpYqfjphBBKaDNLtZ9G4hrTtQfZrkomWw9+Mo551KcefDyM9+cr+DCqqpatMdGQYEBSjCofggYMxqk5MGgXN8GrVSEvHMYr9xEwr9KAbasD/XdaedAJoLPM58Qd3lW6Pog6VjgtN6vzmZMZzSyGyEGDye26D9VZgAoxhZs+K6x/vZb2W0ZiX8iY3Ha9gNNFL9NH+M+Cmprb0W08kkrGBTiiP6+IlEnLBF8kXSLcX6k0Y8nPZiQ5nErJjIF79sm7PHZkzy0K7DcPjGl3cv9nQl10KJZMw/gAu8eXnDpnsTSKkRwu0Ybf08YZMNSnh0I7+X7+0htoOvMGret17XdVlRR6BRgmksV1EcrUu90BOTrY"
       },
-      "shortDescription": "Test build 0.6.0-alpha.235.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription: a free DVR, live pause, Multiview, Skip intro and live sports scores",
+      "shortDescription": "Test build 0.6.0-alpha.236.  Free, guide-first IPTV player for your own Xtream Codes, M3U or Stalker portal subscription: a free DVR, live pause, Multiview, Skip intro and live sports scores",
       "fullDescriptionUrl": "https://tivibro.app/hb/description.html",
       "requirements": {
         "webosRelease": ">=4.0"
       },
       "release": {
-        "tag": "v0.6.0-alpha.235",
-        "published": "2026-11-28T14:04:35Z",
-        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.235"
+        "tag": "v0.6.0-alpha.236",
+        "published": "2026-11-28T16:02:17Z",
+        "url": "https://github.com/ohmybahgosh/TiviBro/releases/tag/v0.6.0-alpha.236"
       }
     }
   ]
